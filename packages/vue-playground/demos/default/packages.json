@@ -1,0 +1,20 @@
+[
+  {
+    "name": "vue-demi",
+    "source": "unpkg",
+    "description": "Vue Demi (half in French) is a developing utility allows you to write Universal Vue Libraries for Vue 2 & 3",
+    "url": "https://unpkg.com/vue-demi/lib/index.esm.js"
+  },
+  {
+    "name": "@vueuse/shared",
+    "source": "unpkg",
+    "description": "Shared VueUse utilities.",
+    "url": "https://unpkg.com/@vueuse/shared/dist/index.esm.js"
+  },
+  {
+    "name": "@vueuse/core",
+    "source": "unpkg",
+    "description": "Collection of essential Vue Composition Utilities",
+    "url": "https://unpkg.com/@vueuse/core/dist/index.esm.js"
+  }
+]
