@@ -32,7 +32,8 @@
     "theme-vitesse": "^0.1.11",
     "vscode-html-languageservice": "^4.0.3",
     "vue": "^3.1.1",
-    "vue-hako": "^0.0.1"
+    "vue-hako": "^0.0.1",
+    "vue3-hooks-plus": "^2.2.7"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.6.5",
