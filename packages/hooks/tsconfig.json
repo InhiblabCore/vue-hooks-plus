@@ -1,33 +1,33 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "esnext",
-    "useDefineForClassFields": true,
-    "moduleResolution": "node",
-    "allowJs": false,
-    "strict": true,
-    "sourceMap": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "removeComments": false,
-    "declaration": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    // "emitDeclarationOnly": true,
-    "outDir": "./dist", //输出文件
-    "lib": ["esnext", "dom"],
-    "rootDir": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "vue3-hooks-plus": ["./src/index.ts"]
-    }
-  },
-  "include": ["src/index.ts"],
-  "exclude": ["node_modules", "dist", "src/**/__tests__"]
+	"compilerOptions": {
+		"target": "es6",
+		"module": "esnext",
+		"useDefineForClassFields": true,
+		"moduleResolution": "node",
+		"allowJs": false,
+		"strict": true,
+		"sourceMap": true,
+		"noUnusedLocals": true,
+		"strictNullChecks": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"experimentalDecorators": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"removeComments": false,
+		"declaration": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"skipLibCheck": true,
+		// "emitDeclarationOnly": true,
+		"outDir": "./dist", //输出文件
+		"lib": ["esnext", "dom"],
+		"rootDir": ".",
+		"paths": {
+			"@/*": ["./src/*"],
+			"vue3-hooks-plus": ["./src/index.ts"]
+		}
+	},
+	"include": ["src/index.ts"],
+	"exclude": ["node_modules", "dist", "src/**/__tests__", "src/**/demo/*.vue"]
 }

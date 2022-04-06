@@ -1,7 +1,7 @@
 ---
 map:
-  path: /use-boolean
-  realPath: ./packages/hooks/src/useBoolean/index.md
+  path: /useBoolean
+  realPath: src/useBoolean/index.md
 ---
 
 # useBoolean

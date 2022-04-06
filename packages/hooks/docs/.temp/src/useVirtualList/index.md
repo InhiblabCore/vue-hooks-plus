@@ -1,6 +1,6 @@
 ---
 map:
-  realPath: ./packages/hooks/src/useVirtualList/index.md
+  realPath: src/useVirtualList/index.md
 ---
 ```vue
 <template>

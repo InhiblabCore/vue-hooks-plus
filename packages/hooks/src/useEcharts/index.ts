@@ -1,7 +1,5 @@
 import { Ref, onMounted, ref, onUnmounted, watchEffect } from "vue";
 import * as echarts from "echarts";
-import "echarts-gl";
-import "echarts-liquidfill";
 
 import type { EChartsOption, EChartsType } from "echarts";
 import useEventListener from "../useEventListener";
