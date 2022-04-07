@@ -1,12 +1,12 @@
 ---
 map:
   path: /useRequest/debounce/
-  realPath: src/useRequest/doc/throttle/index.md
+  realPath: src/useRequest/doc/debounce/index.md
 ---
 
 # 防抖
 
-`useRequest` 提供了一个 `options.throttleWait` 参数，进入节流模式，此时如果频繁触发 `run` 或者 `runAsync`，则会以节流策略进行请求。
+`useRequest` 提供了一个 `options.debounceWait` 参数，进入防抖模式，此时如果频繁触发 `run` 或者 `runAsync`，则会以防抖策略进行请求。
 
 # 基础用法
 

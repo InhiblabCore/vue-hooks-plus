@@ -1,7 +1,7 @@
 ---
 map:
   path: /useRequest/refreshDeps/
-  realPath: src/useRequest/doc/refreshOnWindowFocus/index.md
+  realPath: src/useRequest/doc/refreshDeps/index.md
 ---
 
 # 依赖刷新

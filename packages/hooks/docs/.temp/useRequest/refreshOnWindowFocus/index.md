@@ -1,7 +1,7 @@
 ---
 map:
   path: /useRequest/refreshOnWindowFocus/
-  realPath: src/useRequest/doc/debounce/index.md
+  realPath: src/useRequest/doc/refreshOnWindowFocus/index.md
 ---
 
 # 依赖刷新

@@ -1,7 +1,4 @@
-const base =
-	process.env.NODE_ENV === 'production'
-		? '/InhiblabCore/vue3-hooks-plus-docs'
-		: ''
+const base = process.env.NODE_ENV === 'production' ? '/hooks-doc' : ''
 const { resolve } = require('path')
 
 module.exports = {
