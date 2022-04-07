@@ -21,6 +21,8 @@ const baseStringifyConfig: StringifyOptions = {
   skipEmptyString: false,
 };
 
+const routerPushFn = (s: string) => (location.hash = s);
+
 const useUrlState = <S extends UrlState = UrlState>(
   initialState?: S | (() => S),
   options?: Options
@@ -49,26 +51,26 @@ const useUrlState = <S extends UrlState = UrlState>(
     return parse(location.search, mergedParseOptions);
   });
 
-  const routerPushFn = (s: string) => (location.hash = s);
+  
 
   const targetQuery = computed(() => ({
     ...initialStateRef.value,
     ...queryFromUrl.value,
   }));
 
-  onMounted(() => {
-    state.value = {
-      ...initialStateRef.value,
-      ...queryFromUrl.value,
-    };
-  });
+  // onMounted(() => {
+  //   state.value = {
+  //     ...initialStateRef.value,
+  //     ...queryFromUrl.value,
+  //   };
+  // });
 
-  watchEffect(() => {
-    state.value = {
-      ...initialStateRef.value,
-      ...queryFromUrl.value,
-    };
-  });
+  // watchEffect(() => {
+  //   state.value = {
+  //     ...initialStateRef.value,
+  //     ...queryFromUrl.value,
+  //   };
+  // });
 
   const setState = (s: State | ((prev: any) => State)) => {
     const newQuery =

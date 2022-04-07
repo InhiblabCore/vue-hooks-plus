@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts" setup>
+// @ts-ignore
 import { useBoolean } from 'vue3-hooks-plus'
 
 const [flag, { set, setFalse, setTrue }] = useBoolean(true)
