@@ -1,6 +1,6 @@
 {
 	"name": "vue3-hooks-plus",
-	"version": "2.2.8",
+	"version": "2.2.9",
 	"files": [
 		"dist",
 		"package.json"
@@ -45,5 +45,10 @@
 		"vitepress-for-component": "^0.16.6",
 		"vue": "^3.2.25",
 		"vue-tsc": "^0.29.8"
+	},
+	"homepage": "https://nelsonyong.github.io/hooks-doc/",
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
 	}
 }

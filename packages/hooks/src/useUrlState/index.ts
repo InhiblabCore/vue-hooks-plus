@@ -1,4 +1,4 @@
-import { computed, onMounted, Ref, ref, watch, watchEffect } from "vue";
+import { computed, Ref, ref, watch, watchEffect } from "vue";
 
 import { parse, stringify } from "query-string";
 import type { ParseOptions, StringifyOptions } from "query-string";

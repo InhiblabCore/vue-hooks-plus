@@ -1,10 +1,9 @@
-import { Ref, reactive, isReactive } from "vue";
+import { Ref } from "vue";
 import type {
   FetchState,
   Options,
   PluginReturn,
   Service,
-  Subscribe,
 } from "./types";
 
 export default class Fetch<TData, TParams extends any[]> {
