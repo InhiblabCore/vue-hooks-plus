@@ -12,8 +12,8 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
     refreshDepsAction,
   }
 ) => {
-  watch(ready, (curr) => {
-    if (curr && !manual) {
+  watch(ready, (curr) => {   
+    if (curr && !manual) {     
       fetchInstance.run(...defaultParams);
     }
   });
@@ -29,7 +29,7 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
   });
 
   return {
-    onBefore: () => {
+    onBefore: () => {       
       if (!ready.value) {
         return {
           stopNow: true,

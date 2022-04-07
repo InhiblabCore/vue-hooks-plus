@@ -65,12 +65,12 @@ const useUrlState = <S extends UrlState = UrlState>(
   //   };
   // });
 
-  // watchEffect(() => {
-  //   state.value = {
-  //     ...initialStateRef.value,
-  //     ...queryFromUrl.value,
-  //   };
-  // });
+  watchEffect(() => {
+    state.value = {
+      ...initialStateRef.value,
+      ...queryFromUrl.value,
+    };
+  });
 
   const setState = (s: State | ((prev: any) => State)) => {
     const newQuery =

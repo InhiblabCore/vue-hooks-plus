@@ -61,6 +61,30 @@ function getHooksSidebar() {
 					text: '轮询',
 					link: '/useRequest/polling/',
 				},
+				{
+					text: 'Ready',
+					link: '/useRequest/ready/',
+				},
+				{
+					text: '依赖刷新',
+					link: '/useRequest/refreshDeps/',
+				},
+				{
+					text: '屏幕聚焦重新请求',
+					link: '/useRequest/refreshOnWindowFocus/',
+				},
+				{
+					text: '防抖',
+					link: '/useRequest/debounce/',
+				},
+				{
+					text: '节流',
+					link: '/useRequest/throttle/',
+				},
+				{
+					text: '错误重试',
+					link: '/useRequest/retry/',
+				},
 			],
 		},
 		{
