@@ -2,7 +2,7 @@ const base = process.env.NODE_ENV === 'production' ? '/hooks-doc' : ''
 const { resolve } = require('path')
 
 module.exports = {
-	head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+	head: [['link', { rel: 'icon', href: `${base}/favicon.ico` }]],
 	title: 'Vue3-hooks-plus',
 	description: '_description',
 	// // 扫描srcIncludes里面的 *.md文件
@@ -14,8 +14,7 @@ module.exports = {
 	themeConfig: {
 		lang: 'zh-CN',
 		title: 'Vue3-hooks-plus',
-		// logo:
-		// 	'https://banner2.cleanpng.com/20180718/cbh/kisspng-vue-js-javascript-library-angularjs-react-vue-js-5b4ebe1bc45884.1915769815318871318042.jpg',
+		logo: `/logo.png`,
 
 		nav: [
 			{ text: '指南', link: '/' },
