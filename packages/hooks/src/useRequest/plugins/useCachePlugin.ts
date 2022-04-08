@@ -45,6 +45,9 @@ const useCachePlugin: Plugin<any, any[]> = (
     if (cacheData && Object.hasOwnProperty.call(cacheData, "data")) {
       fetchInstance.state.data = cacheData.data;
       fetchInstance.state.params = cacheData.params;
+
+      console.log("staleTime",staleTime);
+      
       if (
         staleTime === -1 ||
         new Date().getTime() - cacheData.time <= staleTime
@@ -74,12 +77,13 @@ const useCachePlugin: Plugin<any, any[]> = (
       if (!cacheData || !Object.hasOwnProperty.call(cacheData, "data")) {
         return {};
       }
-
       // 数据是新鲜就停止请求
       if (
         staleTime === -1 ||
         new Date().getTime() - cacheData.time <= staleTime
       ) {
+        console.log("停止请求");
+        
         return {
           loading: false,
           data: cacheData?.data,

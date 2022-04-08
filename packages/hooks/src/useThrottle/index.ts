@@ -1,24 +1,24 @@
-import { ref, watch } from "vue";
-import useThrottleFn from "../useThrottleFn";
+import { Ref, ref, watch } from 'vue'
+import useThrottleFn from '../useThrottleFn'
 
 export interface ThrottleOptions {
-  wait?: number;
-  leading?: boolean;
-  trailing?: boolean;
+	wait?: number
+	leading?: boolean
+	trailing?: boolean
 }
 
-function useThrottle<T>(value: T, options?: ThrottleOptions) {
-  const throttled = ref(value);
+function useThrottle<T>(value: Ref<T>, options?: ThrottleOptions) {
+	const throttled = ref()
 
-  const { run } = useThrottleFn(() => {
-    throttled.value = value as any;
-  }, options);
+	const { run } = useThrottleFn(() => {
+		throttled.value = value.value as any
+	}, options)
 
-  watch(throttled, () => {
-    run.value();
-  });
+	watch(value, () => {
+		run.value()
+	})
 
-  return throttled;
+	return throttled
 }
 
-export default useThrottle;
+export default useThrottle

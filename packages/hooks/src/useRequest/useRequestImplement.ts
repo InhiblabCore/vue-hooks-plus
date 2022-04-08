@@ -3,11 +3,10 @@ import {
   reactive,
   toRefs,
   computed,
-  watch,
   onMounted,
   onUnmounted,
 } from "vue";
-import useUpdate from "../useUpdate";
+
 import Fetch from "./Fetch";
 import type { Options, Plugin, Result, Service } from "./types";
 
@@ -28,7 +27,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   const serviceRef = ref(service);
 
   // 强制改变的响应式对象
-  const { update, setUpdate } = useUpdate();
+  // const { update, setUpdate } = useUpdate();
 
   // 存储state的响应式对象
   const state = reactive<{
@@ -48,6 +47,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     state.loading = s.loading;
     state.error = s.error;
     state.params = s.params;
+    fetchInstance.value.state=s
   };
 
   // fetch的实例化
@@ -56,20 +56,22 @@ function useRequestImplement<TData, TParams extends any[]>(
     const initState = plugins
       .map((p) => p?.onInit?.(fetchOptions))
       .filter(Boolean);
-
     return new Fetch<TData, TParams>(
       serviceRef,
       fetchOptions,
-      setUpdate,
+      // setUpdate,
+      setState,
       Object.assign({}, ...initState)
     );
   });
 
   // 监听update，每一次实例中进行setstate都会调用此update
-  watch(update, () => {
-    // 监听到update进行响应式数据绑定
-    setState(fetchInstance.value.state);
-  });
+  // watch(update, () => {
+  //   // 监听到update进行响应式数据绑定
+  //   console.log(fetchInstance.value.state);
+    
+  //   setState(fetchInstance.value.state);
+  // });
 
   fetchInstance.value.options = fetchOptions;
 

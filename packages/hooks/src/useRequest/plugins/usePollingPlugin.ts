@@ -1,4 +1,4 @@
-import { ref, watchEffect } from "vue";
+import { isRef, ref, watchEffect } from "vue";
 import type { Plugin, Interval } from "../types";
 import isDocumentVisible from "../utils/isDocumentVisible";
 import subscribeReVisible from "../utils/subscribeReVisible";
@@ -9,6 +9,7 @@ const usePollingPlugin: Plugin<any, any[]> = (
 ) => {
   const timerRef = ref<Interval>();
   const unsubscribeRef = ref<() => void>();
+  
 
   const stopPolling = () => {
     if (timerRef.value) {
@@ -18,12 +19,12 @@ const usePollingPlugin: Plugin<any, any[]> = (
   };
 
   watchEffect(() => {
-    if (!pollingInterval?.value) {
+    if (isRef(pollingInterval) ?  !pollingInterval?.value : !pollingInterval) {
       stopPolling();
     }
   });
 
-  if (!pollingInterval?.value) {
+  if (isRef(pollingInterval) ?  !pollingInterval?.value : !pollingInterval) {
     return {};
   }
 
@@ -41,7 +42,7 @@ const usePollingPlugin: Plugin<any, any[]> = (
 
       timerRef.value = setInterval(() => {
         fetchInstance.refresh();
-      }, pollingInterval.value);
+      },isRef(pollingInterval) ?  pollingInterval?.value : pollingInterval);
     },
     onCancel: () => {
       stopPolling();

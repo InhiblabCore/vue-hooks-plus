@@ -1,4 +1,4 @@
-import { computed, onMounted, Ref, ref, watch, watchEffect } from "vue";
+import { computed, Ref, ref, watch, watchEffect } from "vue";
 
 import { parse, stringify } from "query-string";
 import type { ParseOptions, StringifyOptions } from "query-string";
@@ -20,6 +20,8 @@ const baseStringifyConfig: StringifyOptions = {
   skipNull: false,
   skipEmptyString: false,
 };
+
+const routerPushFn = (s: string) => (location.hash = s);
 
 const useUrlState = <S extends UrlState = UrlState>(
   initialState?: S | (() => S),
@@ -49,19 +51,19 @@ const useUrlState = <S extends UrlState = UrlState>(
     return parse(location.search, mergedParseOptions);
   });
 
-  const routerPushFn = (s: string) => (location.hash = s);
+  
 
   const targetQuery = computed(() => ({
     ...initialStateRef.value,
     ...queryFromUrl.value,
   }));
 
-  onMounted(() => {
-    state.value = {
-      ...initialStateRef.value,
-      ...queryFromUrl.value,
-    };
-  });
+  // onMounted(() => {
+  //   state.value = {
+  //     ...initialStateRef.value,
+  //     ...queryFromUrl.value,
+  //   };
+  // });
 
   watchEffect(() => {
     state.value = {

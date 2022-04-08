@@ -1,10 +1,9 @@
-import { Ref, reactive } from "vue";
+import { Ref } from "vue";
 import type {
   FetchState,
   Options,
   PluginReturn,
   Service,
-  Subscribe,
 } from "./types";
 
 export default class Fetch<TData, TParams extends any[]> {
@@ -12,7 +11,7 @@ export default class Fetch<TData, TParams extends any[]> {
 
   count: number = 0;
 
-  state: FetchState<TData, TParams> = reactive({
+  state:  FetchState<TData, TParams> = ({
     loading: false,
     params: undefined,
     data: undefined,
@@ -22,23 +21,27 @@ export default class Fetch<TData, TParams extends any[]> {
   constructor(
     public serviceRef: Ref<Service<TData, TParams>>,
     public options: Options<TData, TParams>,
-    public subscribe: Subscribe,
+    // public subscribe: Subscribe,
+    public setUpdataData:(s: any) => void,
     public initState: Partial<FetchState<TData, TParams>> = {}
   ) {
-    this.state = {
+   
+    this.state = ({
       ...this.state,
       loading: !options.manual,
       ...initState,
-    };
+    });
+    
   }
 
   // 设置state
-  setState(s: Partial<FetchState<TData, TParams>> = {}) {
+  setState(s: Partial<FetchState<TData, TParams>> = {}) { 
     this.state = {
       ...this.state,
       ...s,
     };
-    this.subscribe();
+    this.setUpdataData(this.state)
+    // this.subscribe();
   }
 
   // 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
@@ -57,7 +60,7 @@ export default class Fetch<TData, TParams extends any[]> {
       returnNow = false,
       ...state
     } = this.runPluginHandler("onBefore", params);
-
+   
     // 是否停止请求
     if (stopNow) {
       return new Promise(() => {});
@@ -90,7 +93,7 @@ export default class Fetch<TData, TParams extends any[]> {
       }
 
       const res = await servicePromise;
-
+      
       // 取消了请求，count将与currentCount不一致，将发送空请求
       if (currentCount !== this.count) {
         return new Promise(() => {});
