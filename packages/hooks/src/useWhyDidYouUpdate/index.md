@@ -1,0 +1,19 @@
+---
+map:
+  # 映射到docs的路径
+  path: /useWhyDidYouUpdate
+---
+
+# useWhyDidYouUpdate
+
+帮助开发者排查是那个属性改变。
+
+## 代码演示
+
+### 基础用法
+
+<demo src="./demo/demo.vue"
+  language="vue"
+  title="基本用法"
+  desc="">
+</demo>

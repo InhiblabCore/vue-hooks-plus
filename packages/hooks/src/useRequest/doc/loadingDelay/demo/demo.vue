@@ -11,11 +11,7 @@ import { useRequest } from 'vue3-hooks-plus'
 function getUsername(): Promise<string> {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			if (Math.random() > 0.5) {
-				resolve('vue3-hooks-plus useRequest')
-			} else {
-				reject(new Error('Failed to get username'))
-			}
+			resolve('vue3-hooks-plus useRequest')
 		}, 1000)
 	})
 }
@@ -23,11 +19,7 @@ function getUsername(): Promise<string> {
 function getUsername1(): Promise<string> {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			if (Math.random() > 0.5) {
-				resolve('vue3-hooks-plus useRequest A')
-			} else {
-				reject(new Error('Failed to get username'))
-			}
+			resolve('vue3-hooks-plus useRequest A')
 		}, 1000)
 	})
 }

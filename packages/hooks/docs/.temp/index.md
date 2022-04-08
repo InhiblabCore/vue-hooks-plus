@@ -9,7 +9,7 @@ footer: This website is served by GitHub Pages
 heroText: Vue3 Hooks Plus
 tagline: InhiblabCore's
 actionText: 开始指引 🔜
-actionLink: /guide/
+actionLink: /useRequest/
 
 features:
   - title: Vue3 的 Hooks

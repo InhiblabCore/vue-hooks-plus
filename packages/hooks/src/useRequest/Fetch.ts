@@ -40,8 +40,6 @@ export default class Fetch<TData, TParams extends any[]> {
       ...this.state,
       ...s,
     };
-    console.log("this.state",this.state);
-    
     this.setUpdataData(this.state)
     // this.subscribe();
   }

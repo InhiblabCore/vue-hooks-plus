@@ -6,7 +6,7 @@ import {
   onMounted,
   onUnmounted,
 } from "vue";
-// import useUpdate from "../useUpdate";
+
 import Fetch from "./Fetch";
 import type { Options, Plugin, Result, Service } from "./types";
 
@@ -43,12 +43,11 @@ function useRequestImplement<TData, TParams extends any[]>(
   });
 
   const setState = (s: any) => {
-    console.log(s);
-    
     state.data = s.data;
     state.loading = s.loading;
     state.error = s.error;
     state.params = s.params;
+    fetchInstance.value.state=s
   };
 
   // fetch的实例化

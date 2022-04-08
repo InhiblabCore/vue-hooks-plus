@@ -79,6 +79,10 @@ function getHooksSidebar() {
 					link: '/useRequest/throttle/',
 				},
 				{
+					text: '缓存 & SWR',
+					link: '/useRequest/cache/',
+				},
+				{
 					text: '错误重试',
 					link: '/useRequest/retry/',
 				},
@@ -106,6 +110,8 @@ function getHooksSidebar() {
 				{ text: 'useThrottleFn', link: '/useThrottleFn/' },
 				{ text: 'useLockFn', link: '/useLockFn/' },
 				{ text: 'useUpdate', link: '/useUpdate/' },
+				{ text: 'useInterval', link: '/useInterval/' },
+				{ text: 'useTimeout', link: '/useTimeout/' },
 			],
 		},
 		{
@@ -133,6 +139,13 @@ function getHooksSidebar() {
 		{
 			text: 'Advanced',
 			children: [{ text: 'useEventEmitter', link: '/useEventEmitter/' }],
+		},
+		{
+			text: 'Dev',
+			children: [
+				{ text: 'useTrackedEffect', link: '/useTrackedEffect/' },
+				{ text: 'useWhyDidYouUpdate', link: '/useWhyDidYouUpdate/' },
+			],
 		},
 	]
 }

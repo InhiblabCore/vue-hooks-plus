@@ -6,12 +6,13 @@ export interface Actions {
   setTrue: () => void;
   setFalse: () => void;
   set: (value: boolean) => void;
+  toggle: () => void;
 }
 
 export default function useBoolean(
   defaultValue = false
 ): [Ref<boolean>, Actions] {
-  const [state, { set }] = useToggle(defaultValue);
+  const [state, { set,toggle }] = useToggle(defaultValue);
   const actions: ComputedRef<Actions> = computed(() => {
     const setTrue = () => set(true);
     const setFalse = () => set(false);
@@ -19,6 +20,7 @@ export default function useBoolean(
       set: (v: boolean) => set(!!v),
       setTrue,
       setFalse,
+      toggle
     };
   });
 
