@@ -18,7 +18,7 @@ module.exports = {
 
 		nav: [
 			{ text: '指南', link: '/' },
-			{ text: 'Hooks', link: '/useBoolean/' },
+			{ text: 'Hooks', link: '/useRequest/' },
 		],
 		sidebar: {
 			'/': getHooksSidebar(),
