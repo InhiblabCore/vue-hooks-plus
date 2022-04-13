@@ -7,8 +7,10 @@ import useDebounceFn from './useDebounceFn'
 import useDrag from './useDrag'
 import useDrop from './useDrop'
 import useEcharts from './useEcharts'
+import useExternal from './useExternal'
 import useEventListener from './useEventListener'
 import useEventEmitter from './useEventEmitter'
+import useFavicon from './useFavicon'
 import useFocusWithin from './useFocusWithin'
 import useHover from './useHover'
 import useInterval from './useInterval'
@@ -41,8 +43,10 @@ export {
 	useDrag,
 	useDrop,
 	useEcharts,
+	useExternal,
 	useEventListener,
 	useEventEmitter,
+	useFavicon,
 	useFocusWithin,
 	useInterval,
 	useHover,

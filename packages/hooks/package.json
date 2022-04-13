@@ -1,6 +1,6 @@
 {
 	"name": "vue3-hooks-plus",
-	"version": "2.3.0",
+	"version": "2.3.1",
 	"files": [
 		"dist",
 		"package.json"
@@ -16,6 +16,7 @@
 	"scripts": {
 		"dev": "vitepress-fc dev docs --host",
 		"build": "vue-tsc --noEmit && vite build && node scripts/build-types.js",
+		"docs-serve": "cross-env NODE_ENV=production vitepress-fc serve --root=docs",
 		"docs-build": "rimraf docs/dist && cross-env NODE_ENV=production vitepress-fc build --root=docs",
 		"preview": "vite preview",
 		"build:types": "node scripts/build-types.js",

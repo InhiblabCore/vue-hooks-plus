@@ -127,7 +127,12 @@ function getHooksSidebar() {
 					text: 'useEventListener',
 					link: '/useEventListener/',
 				},
+				{
+					text: 'useExternal',
+					link: '/useExternal/',
+				},
 				{ text: 'useDrop & useDrag', link: '/useDrop/' },
+				{ text: 'useFavicon', link: '/useFavicon/' },
 				{ text: 'useTitle', link: '/useTitle/' },
 				{ text: 'useSize', link: '/useSize/' },
 				{ text: 'useHover', link: '/useHover/' },
