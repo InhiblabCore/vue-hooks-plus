@@ -3,5 +3,5 @@
 # 当发生错误时中止脚本
 set -e
  
-yarn build
-yarn build:types
+pnpm run build
+pnpm run build:types
