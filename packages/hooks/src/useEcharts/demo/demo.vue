@@ -6,7 +6,6 @@
 
 <script lang="ts" setup>
 import { onMounted } from 'vue'
-
 import { useEcharts } from 'vue3-hooks-plus'
 
 const { chart, container } = useEcharts()
