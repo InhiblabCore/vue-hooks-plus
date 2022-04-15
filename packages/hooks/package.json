@@ -1,13 +1,13 @@
 {
 	"name": "vue3-hooks-plus",
-	"version": "2.3.1",
+	"version": "2.3.2",
 	"files": [
 		"dist",
 		"package.json"
 	],
 	"module": "dist/js/index.cjs.js",
 	"main": "dist/js/index.es.js",
-	"types": "dist/lib/src/index.d.ts",
+	"types": "dist/src/index.d.ts",
 	"keywords": [
 		"vue3",
 		"vue3 hooks",

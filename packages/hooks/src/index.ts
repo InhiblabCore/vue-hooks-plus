@@ -1,4 +1,3 @@
-import useAsync from './useAsync'
 import useRequest from './useRequest'
 import useBoolean from './useBoolean'
 import useCookieState from './useCookieState'
@@ -34,7 +33,6 @@ import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
 
 export {
-	useAsync,
 	useRequest,
 	useBoolean,
 	useCookieState,
