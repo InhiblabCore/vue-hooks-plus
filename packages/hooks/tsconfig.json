@@ -30,6 +30,6 @@
 			"vue3-hooks-plus": ["src/index.ts"]
 		}
 	},
-	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules", "dist", "src/**/demo"]
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }
