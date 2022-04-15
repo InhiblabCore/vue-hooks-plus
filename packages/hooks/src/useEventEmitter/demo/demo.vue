@@ -17,7 +17,6 @@
 import GlobalDemo from './GlobalDemo.vue'
 import DemoA from './DemoA.vue'
 
-//@ts-ignore
 import { useEventEmitter } from 'vue3-hooks-plus'
 
 const eventGlobal = useEventEmitter({ global: true })

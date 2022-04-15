@@ -4,7 +4,7 @@ Vue3 Hooks.
 
 ## 📚 Documentation
 
-- In writing ✍️
+[docs📒](https://nelsonyong.github.io/hooks-doc/)
 
 ## ✨ Features
 
@@ -25,5 +25,5 @@ $ yarn add vue3-hooks-plus
 ## 🔨 Usage
 
 ```typescript
-import { useRequest } from "vue3-hooks-plus";
+import { useRequest } from 'vue3-hooks-plus'
 ```

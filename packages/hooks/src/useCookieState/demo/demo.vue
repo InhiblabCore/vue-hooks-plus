@@ -11,13 +11,11 @@
 </template>
 
 <script lang="ts" setup>
-//@ts-ignore
 import { useCookieState } from 'vue3-hooks-plus'
 const [message, setMessage] = useCookieState('useCookieStateString')
 
-const change = (e: Event) => {
-	//@ts-ignore
-	setMessage(e.target.value)
+const change = (e: any) => {
+	setMessage(e.target?.value)
 }
 </script>
 

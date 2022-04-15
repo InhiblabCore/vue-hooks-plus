@@ -43,7 +43,7 @@ const useInfiniteScroll = <TData extends Data>(
       } else {
         finalData.value = {
           ...currentData,
-          // @ts-ignore
+           
           list: [...lastData.list, ...currentData.list],
         };
       }

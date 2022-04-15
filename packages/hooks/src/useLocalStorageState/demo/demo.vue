@@ -11,7 +11,6 @@
 </template>
 
 <script lang="ts" setup>
-//@ts-ignore
 import { useLocalStorageState } from 'vue3-hooks-plus'
 const [message, setMessage] = useLocalStorageState(
 	'use-local-storage-state-demo1',
@@ -21,7 +20,6 @@ const [message, setMessage] = useLocalStorageState(
 )
 
 const change = (e: Event) => {
-	//@ts-ignore
 	setMessage(e.target.value)
 }
 </script>

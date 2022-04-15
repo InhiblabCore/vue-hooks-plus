@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { watch } from 'vue'
-//@ts-ignore
+
 import { useRequest, useToggle } from 'vue3-hooks-plus'
 
 function getUsername(): Promise<string> {

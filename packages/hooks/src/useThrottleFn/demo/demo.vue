@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-//@ts-ignore
+
 import { useThrottleFn } from 'vue3-hooks-plus'
 const valueRef = ref(0)
 

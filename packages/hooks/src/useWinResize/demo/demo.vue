@@ -5,7 +5,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-// @ts-ignore
 import { useWinResize } from 'vue3-hooks-plus'
 
 const countRef = ref(0)

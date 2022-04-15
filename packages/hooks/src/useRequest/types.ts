@@ -55,7 +55,7 @@ export interface Options<TData, TParams extends any[]> {
   loadingDelay?: number;
 
   // 轮询
-  pollingInterval?: Ref<number>;
+  pollingInterval?: Ref<number> | number;
   pollingWhenHidden?: Ref<boolean>;
 
   // 屏幕聚焦重新请求

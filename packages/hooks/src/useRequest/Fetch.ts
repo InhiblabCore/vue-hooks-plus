@@ -47,7 +47,8 @@ export default class Fetch<TData, TParams extends any[]> {
   // 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
   runPluginHandler(event: keyof PluginReturn<TData, TParams>, ...rest: any[]) {
     // @ts-ignore
-    const r = this.pluginImpls.map((i) => i[event]?.(...rest)).filter(Boolean);
+    const r = this.pluginImpls?.map((i) => i[event]?.(...rest)).filter(Boolean);
+      // @ts-ignore
     return Object.assign({}, ...r);
   }
 
@@ -159,20 +160,20 @@ export default class Fetch<TData, TParams extends any[]> {
   }
 
   refresh() {
-    // @ts-ignore
-    this.run(...(this.state.params || []));
+     
+    this.run(...(this.state.params || []) as TParams);
   }
 
   refreshAsync() {
-    // @ts-ignore
-    return this.runAsync(...(this.state.params || []));
+     
+    return this.runAsync(...(this.state.params || []) as TParams);
   }
 
   mutate(data?: TData | ((oldData?: TData) => TData | undefined)) {
     let targetData: TData | undefined;
     if (typeof data === "function") {
       // @ts-ignore
-      targetData = data(this.state.data);
+      targetData = data?.(this.state.data);
     } else {
       targetData = data;
     }

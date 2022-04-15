@@ -1,4 +1,7 @@
-const base = process.env.NODE_ENV === 'production' ? '/hooks-doc' : ''
+const base =
+	process.env.NODE_ENV === 'production'
+		? '/InhiblabCore/vue3-hooks-plus-docs'
+		: ''
 const { resolve } = require('path')
 
 module.exports = {
@@ -18,7 +21,7 @@ module.exports = {
 
 		nav: [
 			{ text: '指南', link: '/' },
-			{ text: 'Hooks', link: '/useBoolean/' },
+			{ text: 'Hooks', link: '/useRequest/' },
 		],
 		sidebar: {
 			'/': getHooksSidebar(),
@@ -28,7 +31,7 @@ module.exports = {
 			searchMaxSuggestions: 10,
 		},
 		lang: 'zh-CN',
-		repo: 'InhiblabCore/vue3-hooks-plus-docs',
+		repo: '/InhiblabCore/vue3-hooks-plus',
 		repoLabel: 'Github',
 		lastUpdated: '最近更新',
 		prevLink: true,
@@ -127,7 +130,12 @@ function getHooksSidebar() {
 					text: 'useEventListener',
 					link: '/useEventListener/',
 				},
+				{
+					text: 'useExternal',
+					link: '/useExternal/',
+				},
 				{ text: 'useDrop & useDrag', link: '/useDrop/' },
+				{ text: 'useFavicon', link: '/useFavicon/' },
 				{ text: 'useTitle', link: '/useTitle/' },
 				{ text: 'useSize', link: '/useSize/' },
 				{ text: 'useHover', link: '/useHover/' },

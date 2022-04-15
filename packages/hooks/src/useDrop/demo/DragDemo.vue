@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-//@ts-ignore
+
 import { useDrag, useBoolean } from 'vue3-hooks-plus'
 
 const props = defineProps<{

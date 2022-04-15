@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-//@ts-ignore
+ 
 import { useDrag, useBoolean } from 'vue3-hooks-plus'
 
 const props = defineProps<{
@@ -53,7 +53,7 @@ useDrag(props.data, dragRef, {
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-// @ts-ignore
+
 import { useBoolean, useDrop } from 'vue3-hooks-plus'
 import DragDemo from './DragDemo.vue'
 

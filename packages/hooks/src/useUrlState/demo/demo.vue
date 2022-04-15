@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-//@ts-ignore
+
 import { useUrlState } from 'vue3-hooks-plus'
 const { state, setState } = useUrlState({ count: 1 })
 
