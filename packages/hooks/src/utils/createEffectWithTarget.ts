@@ -40,7 +40,7 @@ const createEffectWithTarget = (useEffectType: typeof watchEffect) => {
 
       if (
         els.length !== lastElementRef.value.length ||
-        // @ts-ignore
+         
         !depsAreSame(els, lastElementRef.value) ||
         !depsAreSame(deps, lastDepsRef.value)
       ) {

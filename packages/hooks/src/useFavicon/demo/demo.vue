@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-// @ts-ignore
+
 import { useFavicon } from 'vue3-hooks-plus'
 const url = ref('https://nelsonyong.github.io/hooks-doc/favicon.ico')
 

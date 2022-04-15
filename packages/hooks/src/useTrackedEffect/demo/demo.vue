@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-// @ts-ignore
+
 import { useTrackedEffect } from 'vue3-hooks-plus'
 
 const count1 = ref(0)

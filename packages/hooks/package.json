@@ -16,6 +16,8 @@
 	"scripts": {
 		"dev": "vitepress-fc dev docs --host",
 		"build": "vue-tsc --noEmit && vite build && node scripts/build-types.js",
+		"type": "tsc -d",
+		"test": "jest",
 		"docs-serve": "cross-env NODE_ENV=production vitepress-fc serve --root=docs",
 		"docs-build": "rimraf docs/dist && cross-env NODE_ENV=production vitepress-fc build --root=docs",
 		"preview": "vite preview",
@@ -26,20 +28,24 @@
 		"vue": "^3.2.25"
 	},
 	"dependencies": {
-		"@types/js-cookie": "^3.0.1",
 		"echarts": "^5.3.0",
 		"js-cookie": "^2.x.x",
 		"lodash": "^4.17.21",
 		"query-string": "^7.1.1"
 	},
 	"devDependencies": {
+		"@types/jest": "^27.4.1",
+		"@types/js-cookie": "^3.0.1",
 		"@types/lodash": "^4.14.178",
 		"@types/node": "^17.0.21",
 		"@vitejs/plugin-vue": "^2.0.0",
 		"cross-env": "^7.0.3",
+		"jest": "^27.4.1",
 		"prettier": "^1.19.1",
 		"rimraf": "^3.0.2",
+		"ts-jest": "^27.1.4",
 		"ts-morph": "^13.0.2",
+		"ts-node": "^10.7.0",
 		"typescript": "^4.4.4",
 		"vite": "^2.7.2",
 		"vite-plugin-dts": "^0.9.9",
@@ -47,9 +53,5 @@
 		"vue": "^3.2.25",
 		"vue-tsc": "^0.29.8"
 	},
-	"homepage": "https://nelsonyong.github.io/hooks-doc/",
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org"
-	}
+	"homepage": "https://nelsonyong.github.io/hooks-doc/"
 }

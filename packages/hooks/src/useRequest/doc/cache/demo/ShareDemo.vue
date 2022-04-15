@@ -6,7 +6,6 @@
 </template>
 
 <script lang="ts" setup>
-//@ts-ignore
 import { useRequest } from 'vue3-hooks-plus'
 
 function getUsername(): Promise<string> {

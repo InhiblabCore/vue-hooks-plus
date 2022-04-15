@@ -77,7 +77,6 @@ export const orchestrator: Orchestrator = reactive({
 	runtimeErrors: [],
 
 	get activeFile() {
-		// @ts-ignore
 		return orchestrator.files[this.activeFilename]
 	},
 

@@ -20,7 +20,7 @@ function useEcharts(options?: { defaultOptions?: EChartsOption }): {
     if (!container.value) {
       return;
     }
-    //@ts-ignore
+     
     const myEcharts = echarts.init(container.value);
     chart.value = myEcharts;
   });
@@ -43,7 +43,7 @@ function useEcharts(options?: { defaultOptions?: EChartsOption }): {
     });
   });
 
-  //@ts-ignore
+   
   return { chart, container };
 }
 

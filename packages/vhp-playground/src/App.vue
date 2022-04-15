@@ -13,7 +13,7 @@ setVH()
 
 const store = new ReplStore({
 	serializedState: location.hash.slice(1),
-	// @ts-ignore
+
 	defaultVueRuntimeURL: import.meta.env.PROD
 		? undefined
 		: `${location.origin}/src/vue-dev-proxy`,

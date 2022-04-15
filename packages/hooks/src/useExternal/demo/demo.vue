@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { watchEffect, ref } from 'vue'
-// @ts-ignore
+
 import { useExternal } from 'vue3-hooks-plus'
 
 const status = useExternal(
@@ -24,7 +24,6 @@ const data = ref()
 
 watchEffect(() => {
 	if (status.value === 'ready') {
-		//@ts-ignore
 		axios
 			.get(
 				'https://yiketianqi.com/api?unescape=1&version=v1&appid=85841439&appsecret=EKCDLT4I&city=广州'

@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-//@ts-ignore
+
 import { useEventEmitter } from 'vue3-hooks-plus'
 
 const event = useEventEmitter({ global: true })

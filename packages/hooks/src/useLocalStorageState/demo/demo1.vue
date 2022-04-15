@@ -23,7 +23,6 @@
 </template>
 
 <script lang="ts" setup>
-//@ts-ignore
 import { useLocalStorageState } from 'vue3-hooks-plus'
 const defaultArray = ['a', 'e', 'i', 'o', 'u']
 
@@ -35,7 +34,6 @@ const [value, setValue] = useLocalStorageState(
 )
 
 const change = (e: Event) => {
-	//@ts-ignore
 	setMessage(() => e.target.value)
 }
 </script>

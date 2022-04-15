@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-//@ts-ignore
+
 import { useRequest } from 'vue3-hooks-plus'
 
 function getUsername(id: number): Promise<string> {

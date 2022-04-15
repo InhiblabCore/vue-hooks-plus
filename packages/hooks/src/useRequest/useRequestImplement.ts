@@ -85,8 +85,8 @@ function useRequestImplement<TData, TParams extends any[]>(
     if (!manual) {
       const params =
         fetchInstance.value.state.params || options.defaultParams || [];
-      // @ts-ignore
-      fetchInstance.value.run(...params);
+       
+      fetchInstance.value.run(...params as TParams);
     }
   });
 
@@ -97,16 +97,12 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   return {
     ...toRefs(state),
-    cancel: fetchInstance.value.cancel.bind(fetchInstance.value),
-    refresh: fetchInstance.value.refresh.bind(fetchInstance.value),
-    refreshAsync: fetchInstance.value.refreshAsync.bind(fetchInstance.value),
-    // @ts-ignore
-    run: fetchInstance.value.run.bind(fetchInstance.value),
-
-    runAsync:
-      // @ts-ignore
-      fetchInstance.value.runAsync.bind(fetchInstance.value),
-    mutate: fetchInstance.value.mutate.bind(fetchInstance.value),
+    cancel: fetchInstance.value.cancel,
+    refresh: fetchInstance.value.refresh,
+    refreshAsync: fetchInstance.value.refreshAsync,
+    run: fetchInstance.value.run,
+    runAsync:fetchInstance.value.runAsync,
+    mutate: fetchInstance.value.mutate,
   } as unknown as Result<TData, TParams>;
 }
 

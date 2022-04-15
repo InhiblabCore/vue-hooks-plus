@@ -24,7 +24,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-// @ts-ignore
+
 import { useExternal } from 'vue3-hooks-plus'
 
 const path = ref('')

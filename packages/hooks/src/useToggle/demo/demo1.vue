@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-// @ts-ignore
 import { useToggle } from 'vue3-hooks-plus'
 
 const [flag, { toggle, set, setLeft, setRight }] = useToggle(

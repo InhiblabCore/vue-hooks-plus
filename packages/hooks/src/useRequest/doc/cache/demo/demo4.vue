@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-//@ts-ignore
 import { useRequest, useToggle } from 'vue3-hooks-plus'
 
 const [state, { toggle }] = useToggle()
@@ -31,7 +30,7 @@ const { data } = useRequest(() => getUsername(), {
 		localStorage.setItem(cacheKey, `${res.data}`)
 	},
 	getCache: () => {
-		return localStorage.getItem(cacheKey)
+		return JSON.parse(localStorage.getItem(cacheKey) ?? '{}')
 	},
 })
 </script>

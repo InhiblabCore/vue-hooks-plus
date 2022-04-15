@@ -5,7 +5,7 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-//@ts-ignore
+
 import { useRequest } from 'vue3-hooks-plus'
 
 function getUsername(): Promise<string> {
@@ -18,7 +18,7 @@ function getUsername(): Promise<string> {
 
 const text = ref('')
 
-const { data, run, loading } = useRequest(() => getUsername(), {
+const { data, run } = useRequest(() => getUsername(), {
 	debounceWait: 1000,
 	manual: true,
 })

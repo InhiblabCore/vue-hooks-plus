@@ -19,7 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-//@ts-ignore
 import { useSet } from 'vue3-hooks-plus'
 
 const [set, { add, remove, reset }] = useSet(['hi vue3-hooks-plus'])
