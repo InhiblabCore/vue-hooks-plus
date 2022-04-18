@@ -1,6 +1,6 @@
 {
 	"name": "vue3-hooks-plus",
-	"version": "2.3.4",
+	"version": "2.3.5",
 	"files": [
 		"dist",
 		"package.json"
@@ -49,7 +49,7 @@
 		"typescript": "^4.4.4",
 		"vite": "^2.7.2",
 		"vite-plugin-dts": "^0.9.10",
-		"vitepress-for-component": "^0.16.6",
+		"vitepress-for-component": "^0.17.1",
 		"vue": "^3.2.25",
 		"vue-tsc": "^0.29.8"
 	},
