@@ -4,7 +4,7 @@ map:
   realPath: src/useRequest/doc/refreshOnWindowFocus/index.md
 ---
 
-# 依赖刷新
+# 屏幕聚焦重新请求
 
 `useRequest` 提供了一个 `options.refreshOnWindowFocus` 参数，在浏览器窗口 `refocus` 和 `revisible` 时，会重新发起请求。
 
