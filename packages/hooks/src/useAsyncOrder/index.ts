@@ -1,7 +1,7 @@
 import { useTimeout } from '../index'
 
-type Resolve = (value: any) => void
-type interruptibleRejectType = (error: any) => void
+export type Resolve = (value: any) => void
+export type interruptibleRejectType = (error: any) => void
 
 export type AsyncOrder = {
 	task: ((
