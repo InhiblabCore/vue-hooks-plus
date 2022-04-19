@@ -1,3 +1,4 @@
+import useAsyncOrder from './useAsyncOrder'
 import useRequest from './useRequest'
 import useBoolean from './useBoolean'
 import useCookieState from './useCookieState'
@@ -17,6 +18,7 @@ import useLocalStorageState from './useLocalStorageState'
 import useLockFn from './useLockFn'
 import useInfiniteScroll from './useInfiniteScroll'
 import useMap from './useMap'
+import useNetwork from './useNetwork'
 import useSessionStorageState from './useSessionStorageState'
 import useSet from './useSet'
 import useSize from './useSize'
@@ -33,6 +35,7 @@ import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
 
 export {
+	useAsyncOrder,
 	useRequest,
 	useBoolean,
 	useCookieState,
@@ -52,6 +55,7 @@ export {
 	useLockFn,
 	useInfiniteScroll,
 	useMap,
+	useNetwork,
 	useSessionStorageState,
 	useSet,
 	useSize,

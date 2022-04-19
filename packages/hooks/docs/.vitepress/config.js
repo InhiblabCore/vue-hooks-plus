@@ -119,6 +119,7 @@ function getHooksSidebar() {
 			children: [
 				{ text: 'useEcharts', link: '/useEcharts/' },
 				{ text: 'useVirtualList', link: '/useVirtualList/' },
+				{ text: 'useNetwork', link: '/useNetwork/' },
 			],
 		},
 		{
@@ -143,7 +144,13 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'Advanced',
-			children: [{ text: 'useEventEmitter', link: '/useEventEmitter/' }],
+			children: [
+				{ text: 'useEventEmitter', link: '/useEventEmitter/' },
+				{
+					text: 'useAsyncOrder',
+					link: '/useAsyncOrder/',
+				},
+			],
 		},
 		{
 			text: 'Dev',
