@@ -14,9 +14,7 @@ type Actions<K, T> = {
 
 function useMap<K, T>(
 	initialValue?: MapValue<K, T>
-): [Ref<Map<K, T>>, Actions<K, T>]
-
-function useMap<K, T>(initialValue?: MapValue<K, T>) {
+): [Ref<Map<K, T>>, Actions<K, T>] {
 	const initialMap = initialValue ? new Map(initialValue) : new Map()
 	const state = ref(initialMap) as Ref<Map<K, T>>
 
