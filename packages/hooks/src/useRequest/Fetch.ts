@@ -1,187 +1,178 @@
-import { Ref } from "vue";
-import type {
-  FetchState,
-  Options,
-  PluginReturn,
-  Service,
-} from "./types";
+import { Ref } from 'vue'
+import { FetchState, Options, PluginReturn, Service } from './types'
 
-export default class Fetch<TData, TParams extends any[]> {
-  pluginImpls: PluginReturn<TData, TParams>[] | undefined;
+export default class Fetch<TData, TParams extends any[] = any> {
+	pluginImpls: PluginReturn<TData, TParams>[] | undefined
 
-  count: number = 0;
+	count: number = 0
 
-  state:  FetchState<TData, TParams> = ({
-    loading: false,
-    params: undefined,
-    data: undefined,
-    error: undefined,
-  });
+	state: FetchState<TData, TParams> = {
+		loading: false,
+		params: undefined,
+		data: undefined,
+		error: undefined,
+	}
 
-  constructor(
-    public serviceRef: Ref<Service<TData, TParams>>,
-    public options: Options<TData, TParams>,
-    // public subscribe: Subscribe,
-    public setUpdataData:(s: any) => void,
-    public initState: Partial<FetchState<TData, TParams>> = {}
-  ) {
-   
-    this.state = ({
-      ...this.state,
-      loading: !options.manual,
-      ...initState,
-    });
-    
-  }
+	constructor(
+		public serviceRef: Ref<Service<TData, TParams>>,
+		public options: Options<TData, TParams>,
+		// public subscribe: Subscribe,
+		public setUpdataData: (s: any) => void,
+		public initState: Partial<FetchState<TData, TParams>> = {}
+	) {
+		this.state = {
+			...this.state,
+			loading: !options.manual,
+			...initState,
+		}
+	}
 
-  // 设置state
-  setState(s: Partial<FetchState<TData, TParams>> = {}) { 
-    this.state = {
-      ...this.state,
-      ...s,
-    };
-    this.setUpdataData(this.state)
-    // this.subscribe();
-  }
+	// 设置state
+	setState(s: Partial<FetchState<TData, TParams>> = {}) {
+		this.state = {
+			...this.state,
+			...s,
+		}
+		this.setUpdataData(this.state)
+		// this.subscribe();
+	}
 
-  // 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
-  runPluginHandler(event: keyof PluginReturn<TData, TParams>, ...rest: any[]) {
-    // @ts-ignore
-    const r = this.pluginImpls?.map((i) => i[event]?.(...rest)).filter(Boolean);
-      // @ts-ignore
-    return Object.assign({}, ...r);
-  }
+	// 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
+	runPluginHandler(event: keyof PluginReturn<TData, TParams>, ...rest: any[]) {
+		// @ts-ignore
+		const r = this.pluginImpls?.map((i) => i[event]?.(...rest)).filter(Boolean)
+		// @ts-ignore
+		return Object.assign({}, ...r)
+	}
 
-  // 异步请求
-  async runAsync(...params: TParams): Promise<TData> {
-    this.count += 1;
-    const currentCount = this.count;
-    const {
-      stopNow = false,
-      returnNow = false,
-      ...state
-    } = this.runPluginHandler("onBefore", params);
-   
-    // 是否停止请求
-    if (stopNow) {
-      return new Promise(() => {});
-    }
+	// 异步请求
+	async runAsync(...params: TParams): Promise<TData> {
+		this.count += 1
+		const currentCount = this.count
+		const {
+			stopNow = false,
+			returnNow = false,
+			...state
+		} = this.runPluginHandler('onBefore', params)
 
-    this.setState({
-      loading: true,
-      params,
-      ...state,
-    });
+		// 是否停止请求
+		if (stopNow) {
+			return new Promise(() => {})
+		}
 
-    // 是否立刻返回
-    if (returnNow) {
-      return Promise.resolve(state.data);
-    }
+		this.setState({
+			loading: true,
+			params,
+			...state,
+		})
 
-    // 请求前返回
-    this.options.onBefore?.(params);
+		// 是否立刻返回
+		if (returnNow) {
+			return Promise.resolve(state.data)
+		}
 
-    try {
-      // replace service 开始请求，如果含有onRequest事件名
-      let { servicePromise } = this.runPluginHandler(
-        "onRequest",
-        this.serviceRef.value,
-        params
-      );
+		// 请求前返回
+		this.options.onBefore?.(params)
 
-      if (!servicePromise) {
-        servicePromise = this.serviceRef.value(...params);
-      }
+		try {
+			// replace service 开始请求，如果含有onRequest事件名
+			let { servicePromise } = this.runPluginHandler(
+				'onRequest',
+				this.serviceRef.value,
+				params
+			)
 
-      const res = await servicePromise;
-      
-      // 取消了请求，count将与currentCount不一致，将发送空请求
-      if (currentCount !== this.count) {
-        return new Promise(() => {});
-      }
+			if (!servicePromise) {
+				servicePromise = this.serviceRef.value(...params)
+			}
 
-      this.setState({
-        data: res,
-        error: undefined,
-        loading: false,
-      });
-      // 请求成功
-      this.options.onSuccess?.(res, params);
+			const res = await servicePromise
 
-      this.runPluginHandler("onSuccess", res, params);
+			// 取消了请求，count将与currentCount不一致，将发送空请求
+			if (currentCount !== this.count) {
+				return new Promise(() => {})
+			}
 
-      // 无论请求成功还是失败都执行
-      this.options.onFinally?.(params, res, undefined);
+			this.setState({
+				data: res,
+				error: undefined,
+				loading: false,
+			})
+			// 请求成功
+			this.options.onSuccess?.(res, params)
 
-      if (currentCount === this.count) {
-        this.runPluginHandler("onFinally", params, res, undefined);
-      }
+			this.runPluginHandler('onSuccess', res, params)
 
-      return res;
-    } catch (error: any) {
-      if (currentCount !== this.count) {
-        return new Promise(() => {});
-      }
+			// 无论请求成功还是失败都执行
+			this.options.onFinally?.(params, res, undefined)
 
-      this.setState({
-        error,
-        loading: false,
-      });
+			if (currentCount === this.count) {
+				this.runPluginHandler('onFinally', params, res, undefined)
+			}
 
-      this.options.onError?.(error, params);
-      this.runPluginHandler("onError", error, params);
+			return res
+		} catch (error) {
+			if (currentCount !== this.count) {
+				return new Promise(() => {})
+			}
 
-      // 无论请求成功还是失败都执行
-      this.options.onFinally?.(params, undefined, error);
+			this.setState({
+				error,
+				loading: false,
+			})
 
-      if (currentCount === this.count) {
-        this.runPluginHandler("onFinally", params, undefined, error);
-      }
+			this.options.onError?.(error as Error, params)
+			this.runPluginHandler('onError', error, params)
 
-      throw error;
-    }
-  }
+			// 无论请求成功还是失败都执行
+			this.options.onFinally?.(params, undefined, error as Error)
 
-  run(...params: TParams) {
-    this.runAsync(...params).catch((error) => {
-      if (!this.options.onError) {
-        console.error(error);
-      }
-    });
-  }
+			if (currentCount === this.count) {
+				this.runPluginHandler('onFinally', params, undefined, error)
+			}
 
-  cancel() {
-    this.count += 1;
-    this.setState({
-      loading: false,
-    });
+			throw error
+		}
+	}
 
-    this.runPluginHandler("onCancel");
-  }
+	run(...params: TParams) {
+		this.runAsync(...(params as TParams)).catch((error) => {
+			if (!this.options.onError) {
+				console.error(error)
+			}
+		})
+	}
 
-  refresh() {
-     
-    this.run(...(this.state.params || []) as TParams);
-  }
+	cancel() {
+		this.count += 1
+		this.setState({
+			loading: false,
+		})
 
-  refreshAsync() {
-     
-    return this.runAsync(...(this.state.params || []) as TParams);
-  }
+		this.runPluginHandler('onCancel')
+	}
 
-  mutate(data?: TData | ((oldData?: TData) => TData | undefined)) {
-    let targetData: TData | undefined;
-    if (typeof data === "function") {
-      // @ts-ignore
-      targetData = data?.(this.state.data);
-    } else {
-      targetData = data;
-    }
+	refresh() {
+		this.run(...((this.state.params || []) as TParams))
+	}
 
-    this.runPluginHandler("onMutate", targetData);
+	refreshAsync() {
+		return this.runAsync(...((this.state.params || []) as TParams))
+	}
 
-    this.setState({
-      data: targetData,
-    });
-  }
+	mutate(data?: TData | ((oldData?: TData) => TData | undefined)) {
+		let targetData: TData | undefined
+		if (typeof data === 'function') {
+			// @ts-ignore
+			targetData = data?.(this.state.data)
+		} else {
+			targetData = data
+		}
+
+		this.runPluginHandler('onMutate', targetData)
+
+		this.setState({
+			data: targetData,
+		})
+	}
 }

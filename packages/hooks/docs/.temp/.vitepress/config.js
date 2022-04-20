@@ -86,6 +86,10 @@ function getHooksSidebar() {
 					text: '错误重试',
 					link: '/useRequest/retry/',
 				},
+				{
+					text: '自定义插件',
+					link: '/useRequest/plugin',
+				},
 			],
 		},
 		{

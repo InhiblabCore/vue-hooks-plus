@@ -97,12 +97,14 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   return {
     ...toRefs(state),
-    cancel: fetchInstance.value.cancel,
-    refresh: fetchInstance.value.refresh,
-    refreshAsync: fetchInstance.value.refreshAsync,
-    run: fetchInstance.value.run,
-    runAsync:fetchInstance.value.runAsync,
-    mutate: fetchInstance.value.mutate,
+    cancel: fetchInstance.value.cancel.bind(fetchInstance.value),
+    refresh: fetchInstance.value.refresh.bind(fetchInstance.value),
+    refreshAsync: fetchInstance.value.refreshAsync.bind(fetchInstance.value),
+    // @ts-ignore
+    run: fetchInstance.value.run.bind(fetchInstance.value),
+    // @ts-ignore
+    runAsync:fetchInstance.value.runAsync.bind(fetchInstance.value),
+    mutate: fetchInstance.value.mutate.bind(fetchInstance.value),
   } as unknown as Result<TData, TParams>;
 }
 

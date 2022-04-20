@@ -9,6 +9,8 @@ import { ref, watch } from 'vue'
 import { useRequest } from 'vue3-hooks-plus'
 
 function getUsername(): Promise<string> {
+	console.log('进入')
+
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			resolve(`${String(Date.now())}`)
@@ -23,7 +25,9 @@ const { data, run } = useRequest(() => getUsername(), {
 	manual: true,
 })
 
-watch(text, () => {
+watch(text, (c) => {
+	console.log(c)
+
 	run()
 })
 </script>
