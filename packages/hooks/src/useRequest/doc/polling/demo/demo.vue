@@ -4,8 +4,6 @@
 </template>
 
 <script lang="ts" setup>
-// import { ref } from 'vue'
-
 import { useRequest } from 'vue3-hooks-plus'
 
 function getUsername(): Promise<string> {
@@ -23,9 +21,6 @@ function getUsername(): Promise<string> {
 const { data, loading, cancel } = useRequest(() => getUsername(), {
 	pollingInterval: 3000,
 	pollingWhenHidden: false,
-
-	//ref(3000)
-	// onf
 })
 </script>
 

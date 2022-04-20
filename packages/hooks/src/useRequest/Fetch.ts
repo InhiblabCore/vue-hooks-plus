@@ -16,8 +16,10 @@ export default class Fetch<TData, TParams extends any[] = any> {
 	constructor(
 		public serviceRef: Ref<Service<TData, TParams>>,
 		public options: Options<TData, TParams>,
-		// public subscribe: Subscribe,
-		public setUpdataData: (s: any) => void,
+		public setUpdataData: (
+			s: any,
+			key?: keyof FetchState<TData, TParams>
+		) => void,
 		public initState: Partial<FetchState<TData, TParams>> = {}
 	) {
 		this.state = {
@@ -34,7 +36,23 @@ export default class Fetch<TData, TParams extends any[] = any> {
 			...s,
 		}
 		this.setUpdataData(this.state)
-		// this.subscribe();
+	}
+
+	setData(
+		data: any,
+		key?:
+			| keyof FetchState<TData, TParams>
+			| (keyof FetchState<TData, TParams>)[]
+	) {
+		if (key instanceof Array) {
+			key.forEach((k) => {
+				this.state[k as keyof FetchState<TData, TParams>] = data
+				this.setUpdataData(data, k)
+			})
+		} else {
+			this.state[key as keyof FetchState<TData, TParams>] = data
+			this.setUpdataData(data, key)
+		}
 	}
 
 	// 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
@@ -136,7 +154,7 @@ export default class Fetch<TData, TParams extends any[] = any> {
 	}
 
 	run(...params: TParams) {
-		this.runAsync(...(params as TParams)).catch((error) => {
+		this.runAsync(...params).catch((error) => {
 			if (!this.options.onError) {
 				console.error(error)
 			}

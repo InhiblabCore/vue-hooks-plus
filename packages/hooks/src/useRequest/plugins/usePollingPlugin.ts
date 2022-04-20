@@ -5,7 +5,7 @@ import subscribeReVisible from "../utils/subscribeReVisible";
 
 const usePollingPlugin: Plugin<any, any[]> = (
   fetchInstance,
-  { pollingInterval, pollingWhenHidden = ref(true) }
+  { pollingInterval, pollingWhenHidden = true }
 ) => {
   const timerRef = ref<Interval>();
   const unsubscribeRef = ref<() => void>();
@@ -33,7 +33,7 @@ const usePollingPlugin: Plugin<any, any[]> = (
       stopPolling();
     },
     onFinally: () => {
-      if (!pollingWhenHidden.value && !isDocumentVisible()) {
+      if (!pollingWhenHidden && !isDocumentVisible()) {
         unsubscribeRef.value = subscribeReVisible(() => {
           fetchInstance.refresh();
         });

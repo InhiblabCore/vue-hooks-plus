@@ -15,5 +15,5 @@ map:
 <demo src="./demo/demo.vue"
   language="vue"
   title=""
-  desc="字段过滤插件">
+  desc="字段过滤插件, 在数据请求成功的时候修改名字和年龄">
 </demo>

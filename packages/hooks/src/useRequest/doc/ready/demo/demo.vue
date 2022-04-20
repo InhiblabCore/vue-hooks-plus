@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import { watch } from 'vue'
-
 import { useRequest, useToggle } from 'vue3-hooks-plus'
 
 function getUsername(): Promise<string> {
@@ -20,9 +18,6 @@ const [ready, { toggle }] = useToggle(false)
 
 const { data } = useRequest(() => getUsername(), {
 	ready,
-})
-watch(data, (c) => {
-	console.log(c)
 })
 </script>
 

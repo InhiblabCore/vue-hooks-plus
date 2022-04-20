@@ -15,7 +15,7 @@ function useRequest<TData, TParams extends any[]>(
   plugins?: Plugin<TData, TParams>[]
 ) {
   return useRequestImplement<TData, TParams>(service, options, [
-    ...(plugins || []),
+    ...(plugins|| []),
     useDebouncePlugin,
     useLoadingDelayPlugin,
     usePollingPlugin,

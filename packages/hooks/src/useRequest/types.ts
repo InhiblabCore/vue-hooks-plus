@@ -56,7 +56,7 @@ export interface Options<TData, TParams extends any[]> {
 
   // 轮询
   pollingInterval?: Ref<number> | number;
-  pollingWhenHidden?: Ref<boolean>;
+  pollingWhenHidden?:boolean;
 
   // 屏幕聚焦重新请求
   refreshOnWindowFocus?: Ref<boolean>;
@@ -86,16 +86,16 @@ export interface Options<TData, TParams extends any[]> {
 
   // 只有当 ready 为 true 时，才会发起请求
   ready?: Ref<boolean>;
+
+  [x:string]:any
 }
 
 export type Plugin<TData, TParams extends any[]> = {
-  (
-    fetchInstance: Fetch<TData, TParams>,
-    options: Options<TData, TParams>
-  ): PluginReturn<TData, TParams>;
-  onInit?: (
-    options: Options<TData, TParams>
-  ) => Partial<FetchState<TData, TParams>>;
+  (fetchInstance: Fetch<TData, TParams>, options: Options<TData, TParams>): PluginReturn<
+    TData,
+    TParams
+  >;
+  onInit?: (options: Options<TData, TParams>) => Partial<FetchState<TData, TParams>>;
 };
 
 export interface Result<TData, TParams extends any[]> {

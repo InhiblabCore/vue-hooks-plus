@@ -18,8 +18,8 @@ module.exports = {
 		logo: `/logo.png`,
 
 		nav: [
-			{ text: '指南', link: '/' },
-			{ text: 'Hooks', link: '/useRequest/' },
+			{ text: '🧭 ·指南', link: '/' },
+			{ text: '🪝 ·Hooks', link: '/useRequest/' },
 		],
 		sidebar: {
 			'/': getHooksSidebar(),
@@ -40,7 +40,7 @@ module.exports = {
 function getHooksSidebar() {
 	return [
 		{
-			text: 'useRequest',
+			text: '🔥 useRequest',
 			children: [
 				{
 					text: '快速使用',
@@ -79,7 +79,7 @@ function getHooksSidebar() {
 					link: '/useRequest/throttle/',
 				},
 				{
-					text: '缓存 & SWR',
+					text: '缓存 & SWR 💡',
 					link: '/useRequest/cache/',
 				},
 				{
@@ -87,8 +87,8 @@ function getHooksSidebar() {
 					link: '/useRequest/retry/',
 				},
 				{
-					text: '自定义插件',
-					link: '/useRequest/plugin',
+					text: '自定义插件 🌟',
+					link: '/useRequest/plugin/',
 				},
 			],
 		},

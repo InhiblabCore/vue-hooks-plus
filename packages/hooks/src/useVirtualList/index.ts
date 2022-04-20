@@ -18,7 +18,7 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
 	const { wrapperTarget, itemHeight, overscan = 5 } = options
 
 	// 列表子项的高度
-	const itemHeightRef = ref(itemHeight)
+	// const itemHeightRef = ref(itemHeight)
 
 	// 计算外部容器的尺寸
 	const size = useSize(containerTarget)
@@ -29,14 +29,14 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
 	const scrollTriggerByScrollToFunc = ref(false)
 
 	const getVisibleCount = (containerHeight: number, fromIndex: number) => {
-		if (typeof itemHeightRef.value === 'number') {
-			return Math.ceil(containerHeight / itemHeightRef.value)
+		if (typeof itemHeight === 'number') {
+			return Math.ceil(containerHeight / itemHeight)
 		}
 
 		let sum = 0
 		let endIndex = 0
 		for (let i = fromIndex; i < list.value.length; i++) {
-			const height = itemHeightRef.value(i, list.value[i])
+			const height = itemHeight(i, list.value[i])
 			sum += height
 			endIndex = i
 			if (sum >= containerHeight) {
@@ -48,13 +48,13 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
 
 	// 计算指定滚动高度的项在列表中的偏移量（索引+1）
 	const getOffset = (scrollTop: number) => {
-		if (typeof itemHeightRef.value === 'number') {
-			return Math.floor(scrollTop / itemHeightRef.value) + 1
+		if (typeof itemHeight === 'number') {
+			return Math.floor(scrollTop / itemHeight) + 1
 		}
 		let sum = 0
 		let offset = 0
 		for (let i = 0; i < list.value.length; i++) {
-			const height = itemHeightRef.value(i, list.value[i])
+			const height = itemHeight(i, list.value[i])
 			sum += height
 			if (sum >= scrollTop) {
 				offset = i
@@ -66,16 +66,15 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
 
 	// 获取偏移元素的上部高度
 	const getDistanceTop = (index: number) => {
-		if (typeof itemHeightRef.value === 'number') {
-			const height = index * itemHeightRef.value
+		if (typeof itemHeight === 'number') {
+			const height = index * itemHeight
 			return height
 		}
 		const height = list.value
 			?.slice(0, index)
 			?.reduce(
 				(sum, _, i) =>
-					sum +
-					(itemHeightRef.value as Function)?.(i, list?.value[index as number]),
+					sum + (itemHeight as Function)?.(i, list?.value[index as number]),
 				0
 			)
 		return height
@@ -83,17 +82,13 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
 
 	// 首次数据总量的高度
 	const totalHeight = computed(() => {
-		if (typeof itemHeightRef.value === 'number') {
-			return list.value.length * itemHeightRef.value
+		if (typeof itemHeight === 'number') {
+			return list.value.length * itemHeight
 		}
 
 		return list.value.reduce(
 			(sum: any, _: any, index: string | number) =>
-				sum +
-				(itemHeightRef.value as Function)?.(
-					index,
-					list?.value[index as number]
-				),
+				sum + (itemHeight as Function)?.(index, list?.value[index as number]),
 			0
 		)
 	})
@@ -137,17 +132,8 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
 	}
 
 	// 当size和list变化重新计算偏移
-	watch([size, list], () => {
-		if (!size?.width || !size?.height || list.value.length) {
-			return
-		}
+	watch([size?.width, size?.height, list], () => {
 		calculateRange()
-	})
-
-	onMounted(() => {
-		if (size?.width && size?.height && list.value.length) {
-			calculateRange()
-		}
 	})
 
 	// 快速滚动到指定元素
@@ -155,6 +141,7 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
 		const container = getTargetElement(containerTarget)
 		if (container) {
 			scrollTriggerByScrollToFunc.value = true
+
 			container.scrollTop = getDistanceTop(index)
 			calculateRange()
 		}
