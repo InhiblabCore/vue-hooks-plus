@@ -19,8 +19,8 @@ const [message, setMessage] = useLocalStorageState(
 	}
 )
 
-const change = (e: Event) => {
-	setMessage(e.target.value)
+const change = (e: Event | any) => {
+	setMessage(e?.target?.value)
 }
 </script>
 

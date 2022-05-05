@@ -33,7 +33,7 @@ function isFunction<T>(obj: any): obj is T {
 export function createUseStorageState(getStorage: () => Storage | undefined) {
 	function useStorageState<T>(
 		key: Ref<string> | string,
-		options: OptionsWithDefaultValue<T>
+		options?: OptionsWithDefaultValue<T>
 	): StorageStateResultHasDefaultValue<T>
 
 	function useStorageState<T>(

@@ -6,6 +6,7 @@ import useDebounce from './useDebounce'
 import useDebounceFn from './useDebounceFn'
 import useDrag from './useDrag'
 import useDrop from './useDrop'
+import useDarkMode from './useDarkMode'
 import useEcharts from './useEcharts'
 import useExternal from './useExternal'
 import useEventListener from './useEventListener'
@@ -18,6 +19,7 @@ import useLocalStorageState from './useLocalStorageState'
 import useLockFn from './useLockFn'
 import useInfiniteScroll from './useInfiniteScroll'
 import useMap from './useMap'
+import useMedia from './useMedia'
 import useNetwork from './useNetwork'
 import useSessionStorageState from './useSessionStorageState'
 import useSet from './useSet'
@@ -43,6 +45,7 @@ export {
 	useDebounceFn,
 	useDrag,
 	useDrop,
+	useDarkMode,
 	useEcharts,
 	useExternal,
 	useEventListener,
@@ -55,6 +58,7 @@ export {
 	useLockFn,
 	useInfiniteScroll,
 	useMap,
+	useMedia,
 	useNetwork,
 	useSessionStorageState,
 	useSet,

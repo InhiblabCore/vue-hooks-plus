@@ -18,8 +18,8 @@ module.exports = {
 		logo: `/logo.png`,
 
 		nav: [
-			{ text: '🧭 ·指南', link: '/' },
-			{ text: '🪝 ·Hooks', link: '/useRequest/' },
+			{ text: '指南', link: '/' },
+			{ text: 'Hooks', link: '/useRequest/' },
 		],
 		sidebar: {
 			'/': getHooksSidebar(),
@@ -138,10 +138,12 @@ function getHooksSidebar() {
 					link: '/useExternal/',
 				},
 				{ text: 'useDrop & useDrag', link: '/useDrop/' },
+				{ text: 'useDarkMode', link: '/useDarkMode/' },
 				{ text: 'useFavicon', link: '/useFavicon/' },
 				{ text: 'useTitle', link: '/useTitle/' },
 				{ text: 'useSize', link: '/useSize/' },
 				{ text: 'useHover', link: '/useHover/' },
+				{ text: 'useMedia', link: '/useMedia/' },
 				{ text: 'useWinResize', link: '/useWinResize/' },
 				{ text: 'useFocusWithin', link: '/useFocusWithin/' },
 			],
