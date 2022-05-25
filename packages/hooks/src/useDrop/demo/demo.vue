@@ -43,7 +43,7 @@ useDrag(props.data, dragRef, {
 		</div>
 		<div style="display: flex; margin-top: 8px">
 			<drag-demo
-				v-for="(item, index) in ['1', '2', '3', '4', '5']"
+				v-for="item in ['1', '2', '3', '4', '5']"
 				:key="item"
 				:data="item"
 			/>
@@ -63,6 +63,7 @@ const [isHovering, { set: setIsHovering }] = useBoolean(false)
 
 useDrop(dropRef, {
 	onDom: (content: string, e) => {
+		// @ts-ignore
 		list.value.push(`custom: ${content} dropped`)
 		setIsHovering(false)
 	},

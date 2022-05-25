@@ -19,9 +19,6 @@ function useRequestImplement<TData, TParams extends any[]>(
 	// 定义一个serviceRef
 	const serviceRef = ref(service)
 
-	// 强制改变的响应式对象
-	// const { update, setUpdate } = useUpdate();
-
 	// 存储state的响应式对象
 	const state = reactive<{
 		data?: TData
@@ -60,14 +57,6 @@ function useRequestImplement<TData, TParams extends any[]>(
 			Object.assign({}, ...initState)
 		)
 	})
-
-	// 监听update，每一次实例中进行setstate都会调用此update
-	// watch(update, () => {
-	//   // 监听到update进行响应式数据绑定
-	//   console.log(fetchInstance.value.state);
-
-	//   setState(fetchInstance.value.state);
-	// });
 
 	fetchInstance.value.options = fetchOptions
 

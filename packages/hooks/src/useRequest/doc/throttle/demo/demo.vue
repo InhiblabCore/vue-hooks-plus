@@ -18,7 +18,7 @@ function getUsername(): Promise<string> {
 
 const text = ref('')
 
-const { data, run, loading } = useRequest(() => getUsername(), {
+const { data, run } = useRequest(() => getUsername(), {
 	throttleWait: 300,
 	manual: true,
 })

@@ -29,8 +29,6 @@ import { useExternal } from 'vue3-hooks-plus'
 
 const path = ref('')
 const status = useExternal(path)
-
-const data = ref()
 </script>
 
 <style scoped lang="less"></style>

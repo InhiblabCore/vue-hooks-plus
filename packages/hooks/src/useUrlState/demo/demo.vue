@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 
 import { useUrlState } from 'vue3-hooks-plus'
 const { state, setState } = useUrlState({ count: 1 })

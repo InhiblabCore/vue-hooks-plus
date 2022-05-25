@@ -28,6 +28,5 @@ export function getTargetElement<T extends TargetType>(target: BasicTarget<T>, d
   } else {
     targetElement = target;
   }
-
   return targetElement;
 }

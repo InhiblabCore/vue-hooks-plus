@@ -4,7 +4,7 @@ Vue3 Hooks.
 
 ## 📚 Documentation
 
-[Live 💻](https://inhiblabcore.github.io/vue3-hooks-plus-docs/)
+[Live 💻](http://43.138.187.142:9000/vue3-hooks-plus/docs/)
 
 ## ✨ Features
 

@@ -24,8 +24,8 @@ const [state, { toggle }] = useToggle()
 
 const id = ref('')
 
-function getUsername(userId): Promise<string> {
-	return new Promise((resolve, reject) => {
+function getUsername(userId: any): Promise<string> {
+	return new Promise((resolve) => {
 		setTimeout(() => {
 			resolve(String(Date.now()) + '-' + userId)
 		}, 1000)
@@ -37,6 +37,7 @@ const { data, params, loading, run } = useRequest(getUsername, {
 })
 
 watchEffect(() => {
+	// @ts-ignore
 	id.value = params?.[0]
 })
 </script>

@@ -59,7 +59,7 @@ export interface Options<TData, TParams extends any[]> {
   pollingWhenHidden?:boolean;
 
   // 屏幕聚焦重新请求
-  refreshOnWindowFocus?: Ref<boolean>;
+  refreshOnWindowFocus?: Ref<boolean> | boolean;
   focusTimespan?: number;
 
   // 防抖

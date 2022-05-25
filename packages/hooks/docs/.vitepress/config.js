@@ -1,9 +1,17 @@
 const base =
-	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus-docs' : ''
+	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/docs' : ''
 const { resolve } = require('path')
 
 module.exports = {
-	head: [['link', { rel: 'icon', href: `${base}/favicon.ico` }]],
+	head: [
+		[
+			'link',
+			{
+				rel: 'icon',
+				href: `http://43.138.187.142:9000/assets/vue3-hooks-plus/favicon.ico`,
+			},
+		],
+	],
 	title: 'Vue3-hooks-plus',
 	description: '_description',
 	// // 扫描srcIncludes里面的 *.md文件
@@ -15,7 +23,11 @@ module.exports = {
 	themeConfig: {
 		lang: 'zh-CN',
 		title: 'Vue3-hooks-plus',
-		logo: `/logo.png`,
+		logo: `${
+			process.env.NODE_ENV === 'production'
+				? '/logo.png'
+				: '/.vitepress/public/logo.png'
+		}`,
 
 		nav: [
 			{ text: '指南', link: '/' },
@@ -124,6 +136,7 @@ function getHooksSidebar() {
 				{ text: 'useEcharts', link: '/useEcharts/' },
 				{ text: 'useVirtualList', link: '/useVirtualList/' },
 				{ text: 'useNetwork', link: '/useNetwork/' },
+				{ text: 'useCounter', link: '/useCounter/' },
 			],
 		},
 		{
@@ -142,8 +155,10 @@ function getHooksSidebar() {
 				{ text: 'useFavicon', link: '/useFavicon/' },
 				{ text: 'useTitle', link: '/useTitle/' },
 				{ text: 'useSize', link: '/useSize/' },
+				{ text: 'useScroll', link: '/useScroll/' },
 				{ text: 'useHover', link: '/useHover/' },
 				{ text: 'useMedia', link: '/useMedia/' },
+				{ text: 'useMouse', link: '/useMouse/' },
 				{ text: 'useWinResize', link: '/useWinResize/' },
 				{ text: 'useFocusWithin', link: '/useFocusWithin/' },
 			],

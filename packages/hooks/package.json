@@ -1,6 +1,6 @@
 {
 	"name": "vue3-hooks-plus",
-	"version": "2.3.8",
+	"version": "2.4.0",
 	"files": [
 		"dist",
 		"package.json"

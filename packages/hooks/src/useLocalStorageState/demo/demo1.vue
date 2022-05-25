@@ -1,12 +1,13 @@
 <template>
 	<div>
-		<p>{{ value.join('-') }}</p>
+		<p>{{ value?.join('-') }}</p>
 		<button
 			type="button"
 			style="margin-right: 16px"
 			@click="
 				() =>
 					setValue([
+						// @ts-ignore
 						...value,
 						Math.random()
 							.toString(36)
@@ -32,10 +33,6 @@ const [value, setValue] = useLocalStorageState(
 		defaultValue: defaultArray,
 	}
 )
-
-const change = (e: Event) => {
-	setMessage(() => e.target.value)
-}
 </script>
 
 <style scoped lang="less"></style>

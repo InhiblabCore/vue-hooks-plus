@@ -9,11 +9,12 @@ export default {
 		lib: {
 			entry: path.resolve(__dirname, 'src/index.ts'),
 			name: 'vue3-hooks-plus',
-			formats: ['es', 'cjs', 'umd'],
+			formats: ['es', 'cjs'],
 			fileName: (format) => {
 				return `js/index.${format}.js`
 			},
 		},
+		chunkSizeWarningLimit: 1000,
 
 		rollupOptions: {
 			// 确保外部化处理那些你不想打包进库的依赖
