@@ -3,8 +3,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-
 import { useRequest } from 'vue3-hooks-plus'
 
 function getUsername(): Promise<string> {
