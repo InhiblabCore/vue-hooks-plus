@@ -1,6 +1,6 @@
 {
 	"name": "vue3-hooks-plus",
-	"version": "2.4.0",
+	"version": "2.4.1",
 	"files": [
 		"dist",
 		"package.json"
@@ -55,5 +55,5 @@
 		"vue-tsc": "^0.29.8"
 	},
 	"repository": "https://github.com/InhiblabCore/vue3-hooks-plus",
-	"homepage": "https://inhiblabcore.github.io/vue3-hooks-plus-docs/"
+	"homepage": "https://github.com/InhiblabCore/vue3-hooks-plus"
 }
