@@ -17,7 +17,7 @@ export const COMP_IDENTIFIER = '__sfc__'
 let SFCCompiler: typeof defaultCompiler = defaultCompiler
 
 const defaultVueUrl = import.meta.env.PROD
-	? `${location.origin}/vue.runtime.esm-browser.js` // to be copied on build
+	? `${location.origin}/vue3-hooks-plus/play/vue.runtime.esm-browser.js` // to be copied on build
 	: `${location.origin}/src/vue-dev-proxy`
 
 export const vueRuntimeUrl = ref(defaultVueUrl)

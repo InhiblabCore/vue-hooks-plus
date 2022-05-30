@@ -7,6 +7,9 @@ import Icons, { ViteIconsResolver } from 'vite-plugin-icons'
 import { copyVuePlugin } from './plugins/copy-vue'
 import fs from 'fs'
 
+const base =
+	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/play' : ''
+
 const prefix = 'monaco-editor/esm/vs'
 const vhpESMBundleFile = resolve(__dirname, '../hooks/dist/js/index.es.js')
 
@@ -14,13 +17,14 @@ function copyVHPPlugin(): Plugin {
 	return {
 		name: 'copy-vue3-hooks-plus',
 		buildStart() {
-			fs.copyFileSync(vhpESMBundleFile, resolve('public/index.es.js'))
+			fs.copyFileSync(vhpESMBundleFile, resolve('./public/index.es.js'))
 		},
 	}
 }
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	base,
 	build: {
 		rollupOptions: {
 			output: {
