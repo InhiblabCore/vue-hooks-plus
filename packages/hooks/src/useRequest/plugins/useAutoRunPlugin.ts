@@ -1,4 +1,4 @@
-import { ref, watch } from "vue";
+import { isRef, ref, watch } from "vue";
 import type { FetchState, Plugin } from "../types";
 
 // support refreshDeps & ready
@@ -6,19 +6,19 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
   fetchInstance,
   {
     manual,
-    ready = ref(true),
+    ready = true,
     defaultParams = [],
     refreshDeps = [],
     refreshDepsAction,
   }
 ) => {
-  watch(ready, (curr) => {   
+  watch(isRef(ready) ? ready : ref(ready), (curr) => {   
     if (curr && !manual) {     
       fetchInstance.run(...defaultParams);
     }
   });
 
-  watch([...refreshDeps], () => {
+  watch(refreshDeps, () => {
     if (!manual) {
       if (refreshDepsAction) {
         refreshDepsAction();
@@ -30,7 +30,7 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
 
   return {
     onBefore: () => {       
-      if (!ready.value) {
+      if (!(isRef(ready) ? ready.value : ready)) {
         return {
           stopNow: true,
         };
@@ -41,7 +41,7 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
 
 useAutoRunPlugin.onInit = ({ ready = ref(true), manual }) => {
   return {
-    loading: (!manual && ready.value) as FetchState<any, any[]>["loading"],
+    loading: (!manual && isRef(ready) ? ready.value : ready) as FetchState<any, any[]>["loading"],
   };
 };
 

@@ -1,25 +1,25 @@
 <template>
-  <div>
-    <div ref="divRef">点击我！</div>
-    <br />
-    <div>点击：{{ valueRef }}</div>
-  </div>
+	<div>
+		<div ref="divRef">点击我！</div>
+		<br />
+		<div>点击：{{ valueRef }}</div>
+	</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { useEventListener } from 'vue3-hooks-plus';
+import { ref } from 'vue'
+import { useEventListener } from 'vue3-hooks-plus'
 
-const divRef = ref();
-const valueRef = ref(0);
+const divRef = ref()
+const valueRef = ref(0)
 
 useEventListener(
-  'click',
-  () => {
-    valueRef.value += 1;
-  },
-  { target: divRef },
-);
+	'click',
+	() => {
+		valueRef.value += 1
+	},
+	{ target: divRef }
+)
 </script>
 
 <style scoped lang="less"></style>

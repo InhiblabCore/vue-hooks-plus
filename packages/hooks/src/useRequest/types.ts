@@ -1,4 +1,4 @@
-import { Ref } from "vue";
+import { Ref,WatchSource } from "vue";
 import type { CachedData } from "./utils/cache";
 import Fetch from "./Fetch";
 
@@ -48,7 +48,7 @@ export interface Options<TData, TParams extends any[]> {
   defaultParams?: TParams;
 
   // 依赖更新
-  refreshDeps?: Ref<any>[];
+  refreshDeps?: WatchSource[] | any;
   refreshDepsAction?: () => void;
 
   // loading延迟
@@ -85,7 +85,7 @@ export interface Options<TData, TParams extends any[]> {
   retryInterval?: number;
 
   // 只有当 ready 为 true 时，才会发起请求
-  ready?: Ref<boolean>;
+  ready?: Ref<boolean> | boolean;
 
   [x:string]:any
 }

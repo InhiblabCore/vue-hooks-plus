@@ -41,9 +41,23 @@ useDrag(props.data, dragRef, {
 
 			<p v-for="(item, index) in list" :key="index">{{ item }}</p>
 		</div>
-		<div style="display: flex; margin-top: 8px">
+		<div style=" margin-top: 8px">
 			<drag-demo
-				v-for="item in ['1', '2', '3', '4', '5']"
+				v-for="item in [
+					'1',
+					'2',
+					'3',
+					'4',
+					'5',
+					'6',
+					'7',
+					'8',
+					'9',
+					'10',
+					'11',
+					'12',
+					'13',
+				]"
 				:key="item"
 				:data="item"
 			/>

@@ -15,6 +15,7 @@ import useEventEmitter from './useEventEmitter'
 import useFavicon from './useFavicon'
 import useFocusWithin from './useFocusWithin'
 import useHover from './useHover'
+import usePreview from './usePreview'
 import useInterval from './useInterval'
 import useInfiniteScroll from './useInfiniteScroll'
 import useLocalStorageState from './useLocalStorageState'
@@ -59,6 +60,7 @@ export {
 	useHover,
 	useInterval,
 	useInfiniteScroll,
+	usePreview,
 	useLocalStorageState,
 	useLockFn,
 	useMap,

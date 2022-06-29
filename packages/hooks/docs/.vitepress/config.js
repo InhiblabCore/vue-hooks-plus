@@ -178,6 +178,7 @@ function getHooksSidebar() {
 			children: [
 				{ text: 'useTrackedEffect', link: '/useTrackedEffect/' },
 				{ text: 'useWhyDidYouUpdate', link: '/useWhyDidYouUpdate/' },
+				{ text: 'usePreview', link: '/usePreview/' },
 			],
 		},
 	]

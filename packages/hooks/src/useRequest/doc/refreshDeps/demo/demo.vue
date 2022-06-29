@@ -1,8 +1,8 @@
 <template>
 	<div>参数值：{{ id }}</div>
 	<div style="margin-top: 16px;">
-		<button @click="() => (id = 1)">改变ID为 1</button>
-		<button @click="() => (id = 2)" style="margin-left: 16px;">
+		<button @click="() => (store.id = 3)">改变ID为 1</button>
+		<button @click="() => (store.id = 2)" style="margin-left: 16px;">
 			改变ID为 2
 		</button>
 		<button @click="() => (id = 3)" style="margin-left: 16px;">
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 import { useRequest } from 'vue3-hooks-plus'
 
@@ -27,8 +27,12 @@ function getUsername(id: number): Promise<string> {
 
 const id = ref(1)
 
+const store = reactive({
+	id: 1,
+})
+
 const { data } = useRequest(() => getUsername(id.value), {
-	refreshDeps: [id],
+	refreshDeps: [id, () => store.id],
 })
 </script>
 
