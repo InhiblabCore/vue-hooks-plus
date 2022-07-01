@@ -1,6 +1,6 @@
 {
 	"name": "vue3-hooks-plus",
-	"version": "2.4.2",
+	"version": "2.4.4",
 	"files": [
 		"dist",
 		"package.json"
@@ -32,12 +32,14 @@
 		"echarts": "^5.3.0",
 		"js-cookie": "^2.x.x",
 		"lodash": "^4.17.21",
+		"marked": "^4.0.17",
 		"query-string": "^7.1.1"
 	},
 	"devDependencies": {
 		"@types/jest": "^27.4.1",
 		"@types/js-cookie": "^3.0.1",
 		"@types/lodash": "^4.14.178",
+		"@types/marked": "^4.0.3",
 		"@types/node": "^17.0.21",
 		"@vitejs/plugin-vue": "^2.0.0",
 		"cross-env": "^7.0.3",

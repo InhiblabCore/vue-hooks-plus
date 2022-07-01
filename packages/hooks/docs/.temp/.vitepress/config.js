@@ -171,6 +171,7 @@ function getHooksSidebar() {
 					text: 'useAsyncOrder',
 					link: '/useAsyncOrder/',
 				},
+				{ text: 'usePreview', link: '/usePreview/' },
 			],
 		},
 		{
@@ -178,7 +179,6 @@ function getHooksSidebar() {
 			children: [
 				{ text: 'useTrackedEffect', link: '/useTrackedEffect/' },
 				{ text: 'useWhyDidYouUpdate', link: '/useWhyDidYouUpdate/' },
-				{ text: 'usePreview', link: '/usePreview/' },
 			],
 		},
 	]

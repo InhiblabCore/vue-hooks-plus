@@ -8,6 +8,8 @@ import { useRequest } from 'vue3-hooks-plus'
 function getUsername(): Promise<string> {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
+			console.log(666)
+
 			resolve('yong_git')
 		}, 1000)
 	})
