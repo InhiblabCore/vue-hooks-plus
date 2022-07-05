@@ -17,3 +17,13 @@ map:
   title=""
   desc="防止闪烁">
 </demo>
+
+## API
+
+| 参数         | 说明                                  | 类型     | 默认值 |
+| ------------ | ------------------------------------- | -------- | ------ |
+| loadingDelay | 设置 `loading` 变成 `true` 的延迟时间 | `number` \| `Ref<number>` | `0`    |
+
+## 备注
+
+`options.loadingDelay` 支持动态变化。

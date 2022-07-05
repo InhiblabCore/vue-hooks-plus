@@ -17,3 +17,14 @@ map:
   title="基本用法"
   desc="控制台查看打印结果">
 </demo>
+
+
+## API
+
+```typescript
+useTrackedEffect(
+  effect: (changes: [], previousDeps: [], currentDeps: []) => (void | (() => void | undefined)),
+  deps?: deps,
+)
+```
+

@@ -35,9 +35,7 @@ const initState: CursorState = {
 
 export default function useMouse (target?: BasicTarget){
   const state = ref(initState);
-  console.log(target);
   
-
   useEventListener(
     'mousemove',
     (event: MouseEvent) => {

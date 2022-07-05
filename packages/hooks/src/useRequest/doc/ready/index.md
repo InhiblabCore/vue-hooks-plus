@@ -17,3 +17,13 @@ map:
   title=""
   desc="每次 ready 从 false 变为 true 时，都会重新发起请求">
 </demo>
+
+## API
+
+### Options
+
+| 参数  | 说明                 | 类型      | 默认值 |
+| ----- | -------------------- | --------- | ------ |
+| ready | 当前请求是否准备好了 | `boolean`\|`Ref<boolean>` | `true` |
+
+

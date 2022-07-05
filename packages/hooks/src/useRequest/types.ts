@@ -52,7 +52,7 @@ export interface Options<TData, TParams extends any[]> {
   refreshDepsAction?: () => void;
 
   // loading延迟
-  loadingDelay?: number;
+  loadingDelay?: number | Ref<number>;
 
   // 轮询
   pollingInterval?: Ref<number> | number;

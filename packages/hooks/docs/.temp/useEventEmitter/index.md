@@ -21,3 +21,24 @@ map:
   title="基本用法"
   desc="">
 </demo>
+
+## API
+
+```typescript
+const event = useEventEmitter<T>();
+
+```
+
+### Params
+
+| 参数            | 说明             | 类型                                   |默认值                                 |
+| --------------- | ---------------- | -------------------------------------- |-------------------------------------- |
+| global            | 是否为全局 | `boolean`                     | `false` |
+
+
+### Result
+
+| 参数            | 说明             | 类型                                   |
+| --------------- | ---------------- | -------------------------------------- |
+| emit            | 发送一个事件通知 | `(eventName?:string,val: T) => void`                     |
+| useSubscription | 订阅事件         | `(eventName?:string,callback: (val: T) => void) => void` |

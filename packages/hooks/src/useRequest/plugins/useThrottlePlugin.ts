@@ -9,6 +9,8 @@ const useThrottlePlugin: Plugin<any, any[]> = (
 ) => {
   const throttledRef = ref<DebouncedFunc<any>>();
 
+
+
   const options: ThrottleSettings = {};
   if (throttleLeading?.value !== undefined) {
     options.leading = throttleLeading.value;

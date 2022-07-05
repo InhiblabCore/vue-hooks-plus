@@ -52,7 +52,7 @@ module.exports = {
 function getHooksSidebar() {
 	return [
 		{
-			text: '🔥 useRequest',
+			text: 'useRequest',
 			children: [
 				{
 					text: '快速使用',
@@ -91,7 +91,7 @@ function getHooksSidebar() {
 					link: '/useRequest/throttle/',
 				},
 				{
-					text: '缓存 & SWR 💡',
+					text: '缓存 & SWR',
 					link: '/useRequest/cache/',
 				},
 				{

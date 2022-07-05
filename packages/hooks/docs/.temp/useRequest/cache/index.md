@@ -68,3 +68,39 @@ map:
      title=""
      desc="">
    </demo>
+
+
+   ## API
+
+```ts
+interface CachedData<TData, TParams> {
+  data: TData;
+  params: TParams;
+  time: number;
+}
+```
+
+### Options
+
+| 参数      | 说明                                                                                                                                                                          | 类型                              | 默认值   |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | -------- |
+| cacheKey  | 请求唯一标识。如果设置了 `cacheKey`，我们会启用缓存机制。同一个 `cacheKey` 的数据全局同步。                                                                                   | `string`                          | -        |
+| cacheTime | <ul><li> 设置缓存数据回收时间。默认缓存数据 5 分钟后回收 </li><li> 如果设置为 `-1`, 则表示缓存数据永不过期</li></ul>                                                          | `number`                          | `300000` |
+| staleTime | <ul><li> 缓存数据保持新鲜时间。在该时间间隔内，认为数据是新鲜的，不会重新发请求 </li><li> 如果设置为 `-1`，则表示数据永远新鲜</li></ul>                                       | `number`                          | `0`      |
+| setCache  | <ul><li> 自定义设置缓存 </li><li> `setCache` 和 `getCache` 需要配套使用</li><li> 在自定义缓存模式下，`cacheTime` 和 `clearCache` 不会生效，请根据实际情况自行实现。</li></ul> | `(data: CachedData) => void;`     | -        |
+| getCache  | 自定义读取缓存                                                                                                                                                                | `(params: TParams) => CachedData` | -        |
+
+### clearCache
+
+```tsx | pure
+import { clearCache } from 'ahooks';
+clearCache(cacheKey?: string | string[]);
+```
+
+1. 支持清空单个缓存，或一组缓存
+2. 如果 `cacheKey` 为空，则清空所有缓存数据
+
+## 注意
+
+- 只有成功的请求数据才会缓存
+- 缓存的数据包括 `data` 和 `params`

@@ -4,7 +4,7 @@ map:
   path: /useDrop
 ---
 
-# useHover
+# useDrop & useDrag
 
 处理元素拖拽的 Hook。
 
@@ -23,3 +23,73 @@ map:
   title="基本用法"
   desc="拖拽区域可以接受文件，链接，文字，和下方的 box 节点。">
 </demo>
+
+
+## API
+
+### useDrag
+
+```typescript
+useDrag<T>(
+  data: any,
+  target: (() => Element) | Element | MutableRefObject<Element>,
+  options?: DragOptions
+);
+```
+
+#### Params
+
+| 参数    | 说明                  | 类型                                                        | 默认值 |
+| ------- | --------------------- | ----------------------------------------------------------- | ------ |
+| data    | 拖拽的内容            | `any`                                                       | -      |
+| target  | DOM 节点或者 Ref 对象 | `() => Element` \| `Element` \| `MutableRefObject<Element>` | -      |
+| options | 额外的配置项          | `DragOptions`                                               | -      |
+
+#### DragOptions
+
+| 参数        | 说明           | 类型                           | 默认值 |
+| ----------- | -------------- | ------------------------------ | ------ |
+| onDragStart | 开始拖拽的回调 | `(e: React.DragEvent) => void` | -      |
+| onDragEnd   | 结束拖拽的回调 | `(e: React.DragEvent) => void` | -      |
+
+### useDrop
+
+```typescript
+useDrop<T>(
+  target: (() => Element) | Element | MutableRefObject<Element>,
+  options?: DropOptions
+);
+```
+
+#### Params
+
+| 参数    | 说明                  | 类型                                                        | 默认值 |
+| ------- | --------------------- | ----------------------------------------------------------- | ------ |
+| target  | DOM 节点或者 Ref 对象 | `() => Element` \| `Element` \| `MutableRefObject<Element>` | -      |
+| options | 额外的配置项          | `DragOptions`                                               | -      |
+
+#### DropOptions
+
+| 参数        | 说明                           | 类型                                          | 默认值 |
+| ----------- | ------------------------------ | --------------------------------------------- | ------ |
+| onText      | 拖拽/粘贴文字的回调            | `(text: string, e: React.DragEvent) => void`  | -      |
+| onFiles     | 拖拽/粘贴文件的回调            | `(files: File[], e: React.DragEvent) => void` | -      |
+| onUri       | 拖拽/粘贴链接的回调            | `(text: string, e: React.DragEvent) => void`  | -      |
+| onDom       | 拖拽/粘贴自定义 DOM 节点的回调 | `(content: any, e: React.DragEvent) => void`  | -      |
+| onDrop      | 拖拽任意内容的回调             | `(e: React.DragEvent) => void`                | -      |
+| onPaste     | 粘贴内容的回调                 | `(e: React.DragEvent) => void`                | -      |
+| onDragEnter | 拖拽进入                       | `(e: React.DragEvent) => void`                | -      |
+| onDragOver  | 拖拽中                         | `(e: React.DragEvent) => void`                | -      |
+| onDragLeave | 拖拽出去                       | `(e: React.DragEvent) => void`                | -      |
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training

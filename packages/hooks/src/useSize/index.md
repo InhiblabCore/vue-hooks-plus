@@ -25,3 +25,22 @@ map:
   title="基本用法"
   desc="传入 body dom">
 </demo>
+
+
+## API
+
+```typescript
+const size = useSize(target);
+```
+
+### Params
+
+| 参数   | 说明             | 类型                                                          | 默认值 |
+| ------ | ---------------- | ------------------------------------------------------------- | ------ |
+| target | DOM 节点或者 ref | `Element` \| `(() => Element)` \| `JSX.Element` | -      |
+
+### Result
+
+| 参数 | 说明           | 类型                                             |
+| ---- | -------------- | ------------------------------------------------ |
+| size | DOM 节点的尺寸 | `Ref<{ width: number, height: number } \| undefined>` |

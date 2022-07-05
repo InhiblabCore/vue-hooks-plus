@@ -17,3 +17,20 @@ map:
   title="基本用法"
   desc="可跟随系统和用户手动切换">
 </demo>
+
+## API
+
+```typescript
+const [darkMode, setDarkMode] = useDarkMode()
+```
+
+
+
+### Result
+
+| 参数    | 说明     | 类型      |
+| ------- | -------- | --------- |
+| darkMode   | 是否是暗黑模式   | `Ref<boolean>` |
+| setDarkMode | 设置暗黑模式，undefined为跟随系统 | `boolean` \| `undefined` |
+
+

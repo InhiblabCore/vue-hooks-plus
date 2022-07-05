@@ -17,3 +17,31 @@ map:
   title=""
   desc="字段过滤插件, 在数据请求成功的时候修改名字和年龄">
 </demo>
+
+## API
+
+``` typescript
+const useFormatter: Plugin<
+	{
+		name: string
+		age: number
+	},
+	[]
+> = (fetchInstance, { formatter }) => {
+	return {
+		onSuccess: () => {
+			fetchInstance.setData(formatter(fetchInstance.state.data), 'data')
+		},
+	}
+}
+```
+
+### Options
+
+| 参数  | 说明                 | 类型      | 默认值 |
+| ----- | -------------------- | --------- | ------ |
+| Plugin | 自定义插件 | ` (fetchInstance, option)=>Result` | - |
+
+
+### 注意
+符合useRequest约定式的规则

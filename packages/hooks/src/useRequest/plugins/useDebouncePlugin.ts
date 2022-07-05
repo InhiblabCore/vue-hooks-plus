@@ -1,4 +1,4 @@
-import { ref, computed, watchEffect } from "vue";
+import { ref, computed, watchEffect, isRef } from "vue";
 import type { DebouncedFunc, DebounceSettings } from "lodash";
 import debounce from "lodash/debounce";
 import type { Plugin } from "../types";
@@ -8,17 +8,19 @@ const useDebouncePlugin: Plugin<any, any[]> = (
   { debounceWait, debounceLeading, debounceTrailing, debounceMaxWait }
 ) => {
   const debouncedRef = ref<DebouncedFunc<any>>();
-
   const options = computed(() => {
     const ret: DebounceSettings = {};
-    if (debounceLeading?.value !== undefined) {
-      ret.leading = debounceLeading.value;
+    const debounceLeading_ = isRef(debounceLeading) ? debounceLeading.value : debounceLeading;
+    const debounceTrailing_ = isRef(debounceTrailing) ? debounceTrailing.value : debounceTrailing;
+    const debounceMaxWait_ = isRef(debounceMaxWait) ? debounceMaxWait.value : debounceMaxWait;
+    if (debounceLeading_ !== undefined) {
+      ret.leading =debounceLeading_;
     }
-    if (debounceTrailing?.value !== undefined) {
-      ret.trailing = debounceTrailing.value;
+    if (debounceTrailing_ !== undefined) {
+      ret.trailing = debounceTrailing_
     }
-    if (debounceMaxWait?.value !== undefined) {
-      ret.maxWait = debounceMaxWait.value;
+    if (debounceMaxWait_ !== undefined) {
+      ret.maxWait =debounceMaxWait_;
     }
     return ret;
   });
