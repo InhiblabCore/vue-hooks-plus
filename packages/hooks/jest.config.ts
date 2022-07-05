@@ -9,6 +9,7 @@ const config: InitialOptionsTsJest = {
 	collectCoverageFrom: ['src/**/*.ts'],
 	moduleNameMapper: {
 		'^lodash-es$': 'lodash',
+		'^@/(.*)$': '<rootDir>/src/$1',
 	},
 	globals: {
 		'ts-jest': {
