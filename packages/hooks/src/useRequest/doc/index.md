@@ -6,7 +6,7 @@ map:
 
 # useRequest
 
-优雅的管理网络请求 的 Hook
+拥有强大管理网络请求能力 的 Hook
 <br />
 <br />
 

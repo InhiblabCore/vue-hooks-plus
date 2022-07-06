@@ -105,11 +105,11 @@ function getHooksSidebar() {
 			],
 		},
 		{
-			text: 'DataDesign',
+			text: 'DataDesign·Beta',
 			children: [
-				{ text: '快速使用', link: '/useData/' },
-				{ text: '类型处理', link: '/useData/typesCheck/' },
-				{ text: '数据转换', link: '/useData/transforms/' },
+				{ text: '介绍使用', link: '/useData/' },
+				{ text: 'Type 类型处理', link: '/useData/typesCheck/' },
+				{ text: 'Transform 数据转换', link: '/useData/transforms/' },
 			],
 		},
 		{

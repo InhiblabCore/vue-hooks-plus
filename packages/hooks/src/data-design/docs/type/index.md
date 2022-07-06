@@ -10,5 +10,15 @@ map:
 <br />
 <br />
 
+## 代码演示
+
+### 基本用法
+
+<demo src="./demo/demo.vue"
+  language="vue"
+  title="基本用法"
+  desc="判断类型">
+</demo>
+
 
 
