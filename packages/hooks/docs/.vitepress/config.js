@@ -105,6 +105,14 @@ function getHooksSidebar() {
 			],
 		},
 		{
+			text: 'DataDesign',
+			children: [
+				{ text: '快速使用', link: '/useData/' },
+				{ text: '类型处理', link: '/useData/typesCheck/' },
+				{ text: '数据转换', link: '/useData/transforms/' },
+			],
+		},
+		{
 			text: 'State',
 			children: [
 				{ text: 'useBoolean', link: '/useBoolean/' },
@@ -119,6 +127,7 @@ function getHooksSidebar() {
 				{ text: 'useSet', link: '/useSet/' },
 			],
 		},
+
 		{
 			text: 'Effect',
 			children: [
