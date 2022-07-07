@@ -1,17 +1,19 @@
 <template>
-	<div>{{ a }}</div>
-	<div>{{ a1 }}</div>
+	<h3>isArray是否是数组</h3>
+	<br />
+	<div>{{ JSON.stringify([1, 2, 3]) }}是{{ result }}</div>
+	<div>1是{{ result1 }}</div>
 </template>
 
 <script lang="ts" setup>
-import { useData } from 'vue3-hooks-plus'
+import { useDataDesign } from 'vue3-hooks-plus'
 
-const { dataType } = useData()
-const a = dataType({
+const { dataType } = useDataDesign()
+const result = dataType({
 	type: 'isArray',
 	target: [1, 2, 3],
 })
-const a1 = dataType({
+const result1 = dataType({
 	type: 'isArray',
 	target: 1,
 })

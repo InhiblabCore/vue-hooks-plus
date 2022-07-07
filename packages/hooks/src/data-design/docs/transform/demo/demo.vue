@@ -3,29 +3,40 @@
 </template>
 
 <script lang="ts" setup>
-import { useData } from 'vue3-hooks-plus'
+import { useDataDesign } from 'vue3-hooks-plus'
 
-const { transform } = useData()
+const { transform } = useDataDesign()
 
 const result = transform({
-	type: 'sortBy',
+	type: 'flatTree',
 	data: [
 		{
-			name: '123',
+			name: '1',
+			parentId: null,
+			id: 100,
 			age: 123,
-		},
-		{
-			name: '123',
-			age: 123,
-		},
-		{
-			name: '123',
-			age: 1234,
+			children: [
+				{
+					parentId: 100,
+					name: '2',
+					age: 123,
+					id: 200,
+					children: [{ name: '3', age: 1234, parentId: 200, id: 300 }],
+				},
+				{
+					parentId: 100,
+					name: '2',
+					age: 123,
+					id: 201,
+					children: [{ name: '23', age: 12345, parentId: 201, id: 302 }],
+				},
+			],
 		},
 	],
-	fields: ['age'],
-	order: 'DESC',
+	flatKey: 'children',
 })
+
+console.log(result)
 </script>
 
 <style scoped lang="less"></style>

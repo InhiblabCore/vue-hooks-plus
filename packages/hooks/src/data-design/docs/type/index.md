@@ -1,7 +1,7 @@
 ---
 map:
   # 映射到docs的路径
-  path: /useData/typesCheck/
+  path: /useDataDesign/typesCheck/
 ---
 
 # 类型处理
@@ -19,6 +19,19 @@ map:
   title="基本用法"
   desc="判断类型">
 </demo>
+
+### Params
+
+| 参数         | 说明                     | 类型      | 默认值  |
+| ------------ | ------------------------ | --------- | ------- |
+| type | isArray 、isMap 、 isFunction ...| string | - |
+| target | 传入的目标值| any | - |
+
+### Result
+
+| 参数    | 说明     | 类型      |
+| ------- | -------- | --------- |
+| result   | 布尔值   | boolean |
 
 
 

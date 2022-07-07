@@ -1,5 +1,5 @@
 const base =
-	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/docs' : ''
+	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/docs-beta' : ''
 const { resolve } = require('path')
 
 module.exports = {
@@ -107,9 +107,9 @@ function getHooksSidebar() {
 		{
 			text: 'DataDesign·Beta',
 			children: [
-				{ text: '介绍使用', link: '/useData/' },
-				{ text: 'Type 类型处理', link: '/useData/typesCheck/' },
-				{ text: 'Transform 数据转换', link: '/useData/transforms/' },
+				{ text: '介绍使用', link: '/useDataDesign/' },
+				{ text: 'Type 类型处理', link: '/useDataDesign/typesCheck/' },
+				{ text: 'Transform 数据转换', link: '/useDataDesign/transforms/' },
 			],
 		},
 		{
@@ -170,6 +170,15 @@ function getHooksSidebar() {
 				{ text: 'useMouse', link: '/useMouse/' },
 				{ text: 'useWinResize', link: '/useWinResize/' },
 				{ text: 'useFocusWithin', link: '/useFocusWithin/' },
+			],
+		},
+		{
+			text: 'Browser',
+			children: [
+				{
+					text: 'useDisableBrowserBehavior',
+					link: '/useDisableBrowserBehavior/',
+				},
 			],
 		},
 		{

@@ -1,7 +1,7 @@
 ---
 map:
   # 映射到docs的路径
-  path: /useData/transforms/
+  path: /useDataDesign/transforms/
 ---
 
 # Transform 数据转换
@@ -9,13 +9,15 @@ map:
 <br />
 <br />
 
-<!-- ## 代码演示
+
 
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
   desc="判断类型">
-</demo> -->
+</demo>
+
+## 数组处理
 
 ### 基本用法
 
@@ -145,7 +147,7 @@ const data =  [
 			age: 1234,
 		},
 	]
-  
+
 transform({
 	type: 'sortBy',
 	data,
@@ -155,6 +157,102 @@ transform({
 // [{"name":"123","age":1234},{"name":"123","age":123},{"name":"123","age":123}]
 ```
 
+### partition 数据分组
+```typescript
+const data =  [
+		{
+			name: '1',
+			age: 123,
+		},
+		{
+			name: '2',
+			age: 123,
+		},
+		{
+			name: '3',
+			age: 1234,
+		},
+	]
+
+transform({
+	type: 'partition',
+	data,
+	groupBy: ['name'],
+	orderBy: ['age'],
+})
+// {"_1":[{"name":"1","age":123}],"_2":[{"name":"2","age":123}],"_3":[{"name":"3","age":1234}]}
+
+```
+
+## 树处理
+
+### 生成树结构
+
+```typescript
+const data = [
+		{
+			name: '1',
+			parentId: null,
+			id: 100,
+			age: 123,
+		},
+		{
+			parentId: 100,
+			name: '2',
+			age: 123,
+			id: 200,
+		},
+		{
+			name: '3',
+			age: 1234,
+			parentId: 200,
+			id: 300,
+		},
+	]
+transform({
+	type: 'toTree',
+	data,
+})
+//[{"name":"1","parentId":null,"id":100,"age":123,"children":[{"parentId":100,"name":"2","age":123,"id":200,"children":[{"name":"3","age":1234,"parentId":200,"id":300}]}]}]
+
+```
+
+### 扁平化树形结构
+
+扁平化树形取所有子集
+
+```typescript
+const data = [
+		{
+			name: '1',
+			parentId: null,
+			id: 100,
+			age: 123,
+			children: [
+				{
+					parentId: 100,
+					name: '2',
+					age: 123,
+					id: 200,
+					children: [{ name: '3', age: 1234, parentId: 200, id: 300 }],
+				},
+				{
+					parentId: 100,
+					name: '2',
+					age: 123,
+					id: 201,
+					children: [{ name: '23', age: 12345, parentId: 201, id: 302 }],
+				},
+			],
+		},
+	]
+transform({
+	type: 'flatTree',
+	data,
+    flatKey: 'children',
+})
+// [{"name":"3","age":1234,"parentId":200,"id":300},{"name":"23","age":12345,"parentId":201,"id":302}]
+```
 
 
 

@@ -5,6 +5,9 @@ import './transforms/map'
 import './transforms/rename'
 import './transforms/pick'
 import './transforms/sort-by'
+import './transforms/partition'
+import './transforms/tree/toTree'
+import './transforms/tree/flatTree'
 
 import { Transforms } from './transforms'
 

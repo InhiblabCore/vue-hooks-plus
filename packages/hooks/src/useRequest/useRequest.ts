@@ -6,8 +6,10 @@ import usePollingPlugin from "./plugins/usePollingPlugin";
 import useRefreshOnWindowFocusPlugin from "./plugins/useRefreshOnWindowFocusPlugin";
 import useRetryPlugin from "./plugins/useRetryPlugin";
 import useThrottlePlugin from "./plugins/useThrottlePlugin";
-import type { Options, Plugin, Service } from "./types";
+
 import useRequestImplement from "./useRequestImplement";
+
+import type { Options, Plugin, Service } from "./types";
 
 function useRequest<TData, TParams extends any[]>(
   service: Service<TData, TParams>,
