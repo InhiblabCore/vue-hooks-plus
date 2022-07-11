@@ -8,7 +8,6 @@ import useDebounceFn from './useDebounceFn'
 import useDrag from './useDrag'
 import useDrop from './useDrop'
 import useDarkMode from './useDarkMode'
-import useEcharts from './useEcharts'
 import useExternal from './useExternal'
 import useEventListener from './useEventListener'
 import useEventEmitter from './useEventEmitter'
@@ -51,7 +50,6 @@ export {
 	useDrag,
 	useDrop,
 	useDarkMode,
-	useEcharts,
 	useExternal,
 	useEventListener,
 	useEventEmitter,
