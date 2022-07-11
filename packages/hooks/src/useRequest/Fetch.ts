@@ -58,7 +58,9 @@ export default class Fetch<TData, TParams extends any[] = any> {
 	// 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
 	runPluginHandler(event: keyof PluginReturn<TData, TParams>, ...rest: any[]) {
 		// @ts-ignore
-		const r = this.pluginImpls?.map((i) => i[event]?.(...rest)).filter(Boolean)
+		const r = (this.pluginImpls?.map((i) => i[event]?.(...rest)) ?? [])?.filter(
+			Boolean
+		)
 		// @ts-ignore
 		return Object.assign({}, ...r)
 	}
