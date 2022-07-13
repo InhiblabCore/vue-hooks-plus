@@ -12,14 +12,18 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
     refreshDepsAction,
   }
 ) => {
+  const hasAutoRun = ref(false);
+  hasAutoRun.value = false;
+
   watch(isRef(ready) ? ready : ref(ready), (curr) => {   
-    if (curr && !manual) {     
+    if (curr && !manual) {   
+      hasAutoRun.value=true  
       fetchInstance.run(...defaultParams);
     }
   });
 
   watch(refreshDeps, () => {
-    if (!manual) {
+    if (!manual &&  hasAutoRun.value) {
       if (refreshDepsAction) {
         refreshDepsAction();
       } else {
