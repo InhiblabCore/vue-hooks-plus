@@ -142,7 +142,6 @@ function getHooksSidebar() {
 		{
 			text: 'Scene',
 			children: [
-				{ text: 'useEcharts', link: '/useEcharts/' },
 				{ text: 'useVirtualList', link: '/useVirtualList/' },
 				{ text: 'useNetwork', link: '/useNetwork/' },
 				{ text: 'useCounter', link: '/useCounter/' },
