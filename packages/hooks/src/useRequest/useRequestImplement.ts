@@ -1,4 +1,12 @@
-import { ref, reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import {
+	ref,
+	reactive,
+	toRefs,
+	computed,
+	onMounted,
+	onUnmounted,
+	isRef,
+} from 'vue'
 
 import Fetch from './Fetch'
 import { Options, Plugin, Result, Service } from './types'
@@ -9,10 +17,11 @@ function useRequestImplement<TData, TParams extends any[]>(
 	plugins: Plugin<TData, TParams>[] = []
 ) {
 	// 读取配置
-	const { manual = false, ...rest } = options
+	const { manual = false, ready = true, ...rest } = options
 
 	const fetchOptions = {
 		manual,
+		ready,
 		...rest,
 	}
 
@@ -70,8 +79,8 @@ function useRequestImplement<TData, TParams extends any[]>(
 		if (!manual) {
 			const params =
 				fetchInstance.value.state.params || options.defaultParams || []
-
-			fetchInstance.value.run(...(params as TParams))
+			if (isRef(ready) ? ready.value : ready)
+				fetchInstance.value.run(...(params as TParams))
 		}
 	})
 

@@ -24,15 +24,21 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
 		}
 	})
 
-	watch(refreshDeps, () => {
-		if (!manual && hasAutoRun.value) {
-			if (refreshDepsAction) {
-				refreshDepsAction()
-			} else {
-				fetchInstance.refresh()
+	watch(
+		refreshDeps,
+		() => {
+			if (!manual && hasAutoRun.value) {
+				if (refreshDepsAction) {
+					refreshDepsAction()
+				} else {
+					fetchInstance.refresh()
+				}
 			}
+		},
+		{
+			deep: true,
 		}
-	})
+	)
 
 	return {
 		onBefore: () => {
@@ -45,7 +51,7 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
 	}
 }
 
-useAutoRunPlugin.onInit = ({ ready = ref(true), manual }) => {
+useAutoRunPlugin.onInit = ({ ready = true, manual }) => {
 	return {
 		loading: (!manual && isRef(ready) ? ready.value : ready) as FetchState<
 			any,
