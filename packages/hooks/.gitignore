@@ -3,8 +3,10 @@ node_modules
 dist
 .cache
 .temp
+.docs
 
 docs/.temp
+docs/.docs
 
 package-lock.json
 yarn.lock

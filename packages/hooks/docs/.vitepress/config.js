@@ -1,8 +1,12 @@
+import { defineConfig } from 'vitepress'
+import { applyPlugins } from '@vfc/md-demo-plugins'
+import { genTemp } from '@vfc/vite-plugin-gen-temp'
+
 const base =
 	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/docs-beta' : ''
 const { resolve } = require('path')
 
-module.exports = {
+export default defineConfig({
 	head: [
 		[
 			'link',
@@ -40,20 +44,31 @@ module.exports = {
 		search: {
 			searchMaxSuggestions: 10,
 		},
-		lang: 'zh-CN',
 		repo: '/InhiblabCore/vue3-hooks-plus',
 		repoLabel: 'Github',
 		lastUpdated: '最近更新',
 		prevLink: true,
 		nextLink: true,
 	},
-}
+	vite: {
+		plugins: [genTemp()],
+	},
+	markdown: {
+		config: (md) => {
+			applyPlugins(md)
+		},
+		theme: {
+			light: 'github-light',
+			dark: 'github-dark',
+		},
+	},
+})
 
 function getHooksSidebar() {
 	return [
 		{
 			text: 'useRequest',
-			children: [
+			items: [
 				{
 					text: '快速使用',
 					link: '/useRequest/',
@@ -106,7 +121,7 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'DataDesign·Beta',
-			children: [
+			items: [
 				{ text: '介绍使用', link: '/useDataDesign/' },
 				{ text: 'Type 类型处理', link: '/useDataDesign/typesCheck/' },
 				{ text: 'Transform 数据转换', link: '/useDataDesign/transforms/' },
@@ -114,7 +129,7 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'State',
-			children: [
+			items: [
 				{ text: 'useBoolean', link: '/useBoolean/' },
 				// { text: 'useUrlState', link: '/useUrlState/' },
 				{ text: 'useDebounce', link: '/useDebounce/' },
@@ -130,7 +145,7 @@ function getHooksSidebar() {
 
 		{
 			text: 'Effect',
-			children: [
+			items: [
 				{ text: 'useDebounceFn', link: '/useDebounceFn/' },
 				{ text: 'useThrottleFn', link: '/useThrottleFn/' },
 				{ text: 'useLockFn', link: '/useLockFn/' },
@@ -141,7 +156,7 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'Scene',
-			children: [
+			items: [
 				// { text: 'useEcharts', link: '/useEcharts/' },
 				{ text: 'useVirtualList', link: '/useVirtualList/' },
 				{ text: 'useNetwork', link: '/useNetwork/' },
@@ -150,7 +165,7 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'Dom',
-			children: [
+			items: [
 				{
 					text: 'useEventListener',
 					link: '/useEventListener/',
@@ -174,7 +189,7 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'Browser',
-			children: [
+			items: [
 				{
 					text: 'useDisableBrowserBehavior',
 					link: '/useDisableBrowserBehavior/',
@@ -183,7 +198,7 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'Advanced',
-			children: [
+			items: [
 				{ text: 'useEventEmitter', link: '/useEventEmitter/' },
 				{
 					text: 'useAsyncOrder',
@@ -194,7 +209,7 @@ function getHooksSidebar() {
 		},
 		{
 			text: 'Dev',
-			children: [
+			items: [
 				{ text: 'useTrackedEffect', link: '/useTrackedEffect/' },
 				{ text: 'useWhyDidYouUpdate', link: '/useWhyDidYouUpdate/' },
 			],
