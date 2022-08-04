@@ -19,7 +19,7 @@ export default defineConfig({
 	title: 'Vue3-hooks-plus',
 	description: '_description',
 	// // 扫描srcIncludes里面的 *.md文件
-	srcIncludes: ['src'],
+	// srcIncludes: ['src'],
 	alias: {
 		'vue3-hooks-plus': resolve('./src'),
 	},
