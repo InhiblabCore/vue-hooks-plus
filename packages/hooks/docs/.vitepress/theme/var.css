@@ -9,6 +9,11 @@
   --vp-code-copy-code-active-text: var(--vp-c-bg-alt);
 }
 
+input {
+  opacity: 1;
+  background-color: var(--vp-code-block-bg);
+}
+
 .dark {
   --vp-code-block-bg: var(--vp-c-bg-alt);
 }

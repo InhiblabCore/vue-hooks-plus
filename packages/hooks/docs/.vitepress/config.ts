@@ -20,38 +20,34 @@ export default defineConfig({
 	description: '_description',
 	// // 扫描srcIncludes里面的 *.md文件
 	// srcIncludes: ['src'],
-	alias: {
-		'vue3-hooks-plus': resolve('./src'),
-	},
+	// srcDir: 'src',
+
 	base,
 	themeConfig: {
-		lang: 'zh-CN',
-		title: 'Vue3-hooks-plus',
-		logo: `${
-			process.env.NODE_ENV === 'production'
-				? '/logo.png'
-				: '/.vitepress/public/logo.png'
-		}`,
-
+		logo: `/logo.png`,
 		nav: [
-			{ text: '指南', link: '/' },
+			{ text: '首页', link: '/' },
 			{ text: 'Hooks', link: '/useRequest/' },
 		],
 		sidebar: {
 			'/': getHooksSidebar(),
 		},
 
-		search: {
-			searchMaxSuggestions: 10,
-		},
+		// @ts-ignore
 		repo: '/InhiblabCore/vue3-hooks-plus',
 		repoLabel: 'Github',
 		lastUpdated: '最近更新',
 		prevLink: true,
 		nextLink: true,
 	},
+
 	vite: {
 		plugins: [genTemp()],
+		resolve: {
+			alias: {
+				'vue3-hooks-plus': resolve('./src'),
+			},
+		},
 	},
 	markdown: {
 		config: (md) => {
