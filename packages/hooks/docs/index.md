@@ -1,12 +1,9 @@
 ---
 home: true
-
-# heroImage: /logo.png
-
-# heroAlt: Logo image
+title: Vue3 Hooks Plus
 
 footer: This website is served by GitHub Pages
-heroText: Vue3 Hooks Plus
+
 tagline: InhiblabCore's
 actionText: 开始指引 🔜
 actionLink: /useRequest/
@@ -19,6 +16,12 @@ features:
   - title: TypeScript
     details: 使用 TypeScript 构建，提供完整的类型定义文件
 ---
+<script setup>
+import Home from '/@theme/components/Home.vue'
+</script>
+
+<Home />
+
 
 # Vue3-hooks-plus 安装
 

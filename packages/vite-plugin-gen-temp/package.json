@@ -1,0 +1,50 @@
+{
+  "name": "@vfc/vite-plugin-gen-temp",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "bin": {
+    "initial-scan": "bin/initial-scan.js"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build:vite-plugin-gen-temp": "unbuild",
+    "patch-cjs": "tsx ./scripts/patchCJS.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "author": "dewfall123",
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/is-plain-object": "^2.0.4",
+    "@types/minimist": "^1.2.2",
+    "lodash-es": "^4.17.21",
+    "picocolors": "^1.0.0",
+    "rollup": "^2.77.0",
+    "tsx": "^3.8.0",
+    "unbuild": "^0.7.6"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "colorette": "^2.0.19",
+    "fs-extra": "^10.1.0",
+    "globby": "^13.1.2",
+    "gray-matter": "^4.0.3",
+    "is-plain-object": "^5.0.0",
+    "minimist": "^1.2.6",
+    "vitepress": "1.0.0-alpha.4"
+  }
+}
