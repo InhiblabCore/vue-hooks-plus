@@ -50,12 +50,6 @@ export {
 	useDrag,
 	useDrop,
 	useDarkMode,
-<<<<<<< HEAD
-=======
-	// useDataDesign,
-	useDisableBrowserBehavior,
-	// useEcharts,
->>>>>>> theme2.0
 	useExternal,
 	useEventListener,
 	useEventEmitter,
