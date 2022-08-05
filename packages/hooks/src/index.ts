@@ -8,7 +8,7 @@ import useDebounceFn from './useDebounceFn'
 import useDrag from './useDrag'
 import useDrop from './useDrop'
 import useDarkMode from './useDarkMode'
-import useDataDesign from './data-design/useData'
+// import useDataDesign from './data-design/useData'
 import useDisableBrowserBehavior from './browser/useDisableBrowserBehavior'
 // import useEcharts from './useEcharts'
 import useExternal from './useExternal'
@@ -53,7 +53,7 @@ export {
 	useDrag,
 	useDrop,
 	useDarkMode,
-	useDataDesign,
+	// useDataDesign,
 	useDisableBrowserBehavior,
 	// useEcharts,
 	useExternal,

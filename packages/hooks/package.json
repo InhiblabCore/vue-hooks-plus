@@ -17,7 +17,7 @@
 		"vite": "vitepress-fc dev .docs --host",
 		"dev": "vitepress-fc dev docs --host",
 		"site:dev": "initial-scan .docs && vitepress dev .docs --host",
-		"site:build": "cross-env NODE_ENV=production vitepress build docs",
+		"site:build": "cross-env NODE_ENV=production vitepress build .docs",
 		"build": "vue-tsc --noEmit && vite build",
 		"type": "tsc -d",
 		"test": "jest",

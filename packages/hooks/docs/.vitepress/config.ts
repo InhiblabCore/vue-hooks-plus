@@ -39,6 +39,12 @@ export default defineConfig({
 		lastUpdated: '最近更新',
 		prevLink: true,
 		nextLink: true,
+		socialLinks: [
+			{
+				icon: 'github',
+				link: 'https://github.com//InhiblabCore/vue3-hooks-plus',
+			},
+		],
 	},
 
 	vite: {
@@ -113,14 +119,6 @@ function getHooksSidebar() {
 					text: '自定义插件 🌟',
 					link: '/useRequest/plugin/',
 				},
-			],
-		},
-		{
-			text: 'DataDesign·Beta',
-			items: [
-				{ text: '介绍使用', link: '/useDataDesign/' },
-				{ text: 'Type 类型处理', link: '/useDataDesign/typesCheck/' },
-				{ text: 'Transform 数据转换', link: '/useDataDesign/transforms/' },
 			],
 		},
 		{
