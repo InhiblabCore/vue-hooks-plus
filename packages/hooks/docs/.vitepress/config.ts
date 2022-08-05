@@ -3,7 +3,7 @@ import { applyPlugins } from '@vfc/md-demo-plugins'
 import { genTemp } from '@vfc/vite-plugin-gen-temp'
 
 const base =
-	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/docs-beta' : ''
+	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/docs' : ''
 const { resolve } = require('path')
 
 export default defineConfig({
