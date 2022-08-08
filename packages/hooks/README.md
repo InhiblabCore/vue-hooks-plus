@@ -1,10 +1,10 @@
-# vue-hooks-plus
+# vue3-hooks-plus rename vue-hooks-plus
 
-Vue3 Hooks.
+Vue3 Hooks Rename Vue Hooks.
 
 ## 📚 Documentation
 
-[Live 💻](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+[Live 💻](http://43.138.187.142:9000/vue3-hooks-plus/docs/)
 
 ## ✨ Features
 
@@ -17,13 +17,13 @@ Vue3 Hooks.
 ## 📦 Install
 
 ```
-$ npm install --save vue-hooks-plus
+$ npm install --save vue3-hooks-plus
 # or
-$ yarn add vue-hooks-plus
+$ yarn add vue3-hooks-plus
 ```
 
 ## 🔨 Usage
 
 ```typescript
-import { useRequest } from 'vue-hooks-plus'
+import { useRequest } from 'vue3-hooks-plus'
 ```
