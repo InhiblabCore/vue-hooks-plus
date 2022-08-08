@@ -17,13 +17,13 @@ Vue3 Hooks Rename Vue Hooks.
 ## 📦 Install
 
 ```
-$ npm install --save vue3-hooks-plus
+$ npm install --save vue-hooks-plus
 # or
-$ yarn add vue3-hooks-plus
+$ yarn add vue-hooks-plus
 ```
 
 ## 🔨 Usage
 
 ```typescript
-import { useRequest } from 'vue3-hooks-plus'
+import { useRequest } from 'vue-hooks-plus'
 ```
