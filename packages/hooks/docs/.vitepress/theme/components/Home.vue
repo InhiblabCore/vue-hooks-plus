@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import HomeTeam from './HomeTeam.vue'
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import { onMounted } from 'vue'
 			InhiblabCore's develop.
 		</p>
 		<p class="actions">
-			<a class="get-started" href="/vue3-hooks-plus/docs/useRequest/">
+			<a class="get-started" href="/vue3-hooks-plus/docs/guide/">
 				Get Started
 				<svg
 					class="icon"
@@ -28,6 +29,45 @@ import { onMounted } from 'vue'
 			</a>
 		</p>
 	</section>
+	<section id="highlights" class="vt-box-container">
+		<div class="vt-box">
+			<h2>🛸 Vue3 的 Hooks</h2>
+			<p>
+				基础和高级的 hook， 高性能逻辑的抽象封装，满足大量场景。
+			</p>
+		</div>
+		<div class="vt-box">
+			<h2>🏄🏼‍♂️ 简洁易用</h2>
+			<p>
+				简洁的语法和易用的特性，轻松上手，详细的文档。
+			</p>
+		</div>
+		<div class="vt-box">
+			<h2>🎯 TypeScript</h2>
+			<p>
+				使用 TypeScript 构建，提供完整的类型定义文件，安全严谨。
+			</p>
+		</div>
+		<div class="vt-box">
+			<h2>🎪 交互式demo演示</h2>
+			<p>
+				支持服务端的使用。
+			</p>
+		</div>
+		<div class="vt-box">
+			<h2>🔋 支持 SSR</h2>
+			<p>
+				服务器端渲染的友好支持
+			</p>
+		</div>
+		<div class="vt-box">
+			<h2>🦾 useRequest</h2>
+			<p>
+				基于插件模式设计的请求函数
+			</p>
+		</div>
+	</section>
+	<HomeTeam />
 </template>
 
 <style scoped>
@@ -37,6 +77,9 @@ section {
 #hero {
 	padding: 96px 32px;
 	text-align: center;
+}
+#team {
+	padding: 64px 232px;
 }
 .tagline {
 	font-size: 76px;
@@ -64,7 +107,7 @@ html:not(.dark) .accent,
 .actions a {
 	font-size: 16px;
 	display: inline-block;
-	background-color: var(--vt-c-bg-mute);
+	background-color: var(--vt-c-black-mute);
 	padding: 8px 18px;
 	font-weight: 500;
 	border-radius: 8px;
@@ -90,7 +133,7 @@ html:not(.dark) .accent,
 }
 .actions .get-started,
 .actions .setup {
-	color: var(--vt-c-text-code);
+	color: var(--vt-c-indigo-light);
 }
 .actions .get-started:hover,
 .actions .setup:hover {
@@ -126,6 +169,10 @@ html:not(.dark) .accent,
 #highlights {
 	max-width: 960px;
 	margin: 0px auto;
+	color: var(--vt-c-text-2);
+}
+#team {
+	/* max-width: 960px; */
 	color: var(--vt-c-text-2);
 }
 #highlights h2 {
@@ -198,4 +245,63 @@ html:not(.dark) .accent,
 		font-size: 36px;
 	}
 }
+@media (max-width: 768px) {
+	.vt-box-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.vt-box-container .vt-box {
+		background-color: var(--vt-c-bg-soft);
+		transition: color 0.5s, background-color 0.5s;
+		padding: 28px 36px;
+		border-radius: 8px;
+		flex: 0 100%;
+		margin-bottom: 20px;
+		font-size: 14px;
+		font-weight: 500;
+	}
+}
+
+@media (min-width: 769px) {
+	.vt-box-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.vt-box-container .vt-box {
+		background-color: var(--vt-c-bg-soft);
+		transition: color 0.5s, background-color 0.5s;
+		padding: 28px 36px;
+		border-radius: 8px;
+		flex: 0 32%;
+		font-size: 14px;
+		font-weight: 500;
+	}
+}
+
+/* .vt-box-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.vt-box-container .vt-box {
+	background-color: var(--vt-c-bg-soft);
+	transition: color 0.5s, background-color 0.5s;
+	padding: 28px 36px;
+	border-radius: 8px;
+	flex: 0 32%;
+	font-size: 14px;
+	font-weight: 500;
+} */
+
+/* .get-started {
+	color: var(--vt-c-text-code);
+	background: var(--vt-c-black-mute);
+}
+
+.actions .get-started {
+	margin-right: 18px;
+	background: var(--vt-c-black-mute);
+} */
 </style>

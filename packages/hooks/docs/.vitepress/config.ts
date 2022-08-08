@@ -69,6 +69,15 @@ export default defineConfig({
 function getHooksSidebar() {
 	return [
 		{
+			text: '介绍',
+			items: [
+				{
+					text: '快速安装',
+					link: '/guide/',
+				},
+			],
+		},
+		{
 			text: 'useRequest',
 			items: [
 				{
