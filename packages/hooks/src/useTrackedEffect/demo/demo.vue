@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useTrackedEffect } from 'vue3-hooks-plus'
+import { useTrackedEffect } from 'vue-hooks-plus'
 
 const count1 = ref(0)
 const count2 = ref(0)

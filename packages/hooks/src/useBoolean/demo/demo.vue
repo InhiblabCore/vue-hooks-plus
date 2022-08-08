@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useBoolean } from 'vue3-hooks-plus'
+import { useBoolean } from 'vue-hooks-plus'
 
 const [flag, { set, setFalse, setTrue }] = useBoolean(true)
 </script>

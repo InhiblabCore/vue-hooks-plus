@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useRequest, useToggle } from 'vue3-hooks-plus'
+import { useRequest, useToggle } from 'vue-hooks-plus'
 
 const [state, { toggle }] = useToggle()
 

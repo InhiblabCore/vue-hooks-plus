@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useMap } from 'vue3-hooks-plus'
+import { useMap } from 'vue-hooks-plus'
 
 const [map, { set, setAll, remove, reset }] = useMap<string | number, any>([
 	['msg', 'hello useMap'],

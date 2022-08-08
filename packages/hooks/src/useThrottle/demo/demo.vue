@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useThrottle } from 'vue3-hooks-plus'
+import { useThrottle } from 'vue-hooks-plus'
 const valueRef = ref('')
 
 const throttledValue = useThrottle(valueRef, { wait: 500 })

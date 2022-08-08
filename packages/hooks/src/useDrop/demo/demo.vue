@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
  
-import { useDrag, useBoolean } from 'vue3-hooks-plus'
+import { useDrag, useBoolean } from 'vue-hooks-plus'
 
 const props = defineProps<{
 	data?: string
@@ -68,7 +68,7 @@ useDrag(props.data, dragRef, {
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useBoolean, useDrop } from 'vue3-hooks-plus'
+import { useBoolean, useDrop } from 'vue-hooks-plus'
 import DragDemo from './DragDemo.vue'
 
 const dropRef = ref(null)

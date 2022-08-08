@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useInterval } from 'vue3-hooks-plus'
+import { useInterval } from 'vue-hooks-plus'
 
 const valueRef = ref(0)
 useInterval(() => {

@@ -1,18 +1,18 @@
 
-# Vue3-hooks-plus 安装
+# vue-hooks-plus 安装
 
 ## 📦 安装
 
 ```
-$ npm install --save vue3-hooks-plus
+$ npm install --save vue-hooks-plus
 # or
-$ yarn add vue3-hooks-plus
+$ yarn add vue-hooks-plus
 ```
 
 ## 🔨 使用
 
 ```typescript
-import { useRequest } from 'vue3-hooks-plus'
+import { useRequest } from 'vue-hooks-plus'
 ```
 
 <br />

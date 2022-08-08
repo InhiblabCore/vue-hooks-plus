@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useHover } from 'vue3-hooks-plus'
+import { useHover } from 'vue-hooks-plus'
 
 const valueRef = ref()
 const isHovering = useHover(valueRef)

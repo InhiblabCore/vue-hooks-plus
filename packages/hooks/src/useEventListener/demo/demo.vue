@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useEventListener } from 'vue3-hooks-plus'
+import { useEventListener } from 'vue-hooks-plus'
 
 const divRef = ref()
 const valueRef = ref(0)

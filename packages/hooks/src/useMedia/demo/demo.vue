@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useMedia } from 'vue3-hooks-plus'
+import { useMedia } from 'vue-hooks-plus'
 
 const value = useMedia(['(min-width: 320px)'], [true], false)
 </script>

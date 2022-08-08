@@ -13,7 +13,7 @@ import HomeTeam from './HomeTeam.vue'
 			InhiblabCore's develop.
 		</p>
 		<p class="actions">
-			<a class="get-started" href="/vue3-hooks-plus/docs/guide/">
+			<a class="get-started" href="/vue-hooks-plus/docs/guide/">
 				Get Started
 				<svg
 					class="icon"

@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { useVirtualList } from 'vue3-hooks-plus'
+import { useVirtualList } from 'vue-hooks-plus'
 
 const originalList = computed(() => Array.from(Array(999).keys()))
 const wrapperRef = ref()

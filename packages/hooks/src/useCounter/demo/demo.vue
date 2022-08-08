@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useCounter } from 'vue3-hooks-plus'
+import { useCounter } from 'vue-hooks-plus'
 const [current, { inc, dec, set, reset }] = useCounter(20, { min: 1, max: 10 })
 </script>
 

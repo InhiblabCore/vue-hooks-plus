@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useCookieState } from 'vue3-hooks-plus'
+import { useCookieState } from 'vue-hooks-plus'
 const [message, setMessage] = useCookieState('useCookieStateString')
 
 const change = (e: any) => {

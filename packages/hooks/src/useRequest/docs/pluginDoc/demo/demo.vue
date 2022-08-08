@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useRequest } from 'vue3-hooks-plus'
+import { useRequest } from 'vue-hooks-plus'
 
 import { Plugin } from '../../../types'
 

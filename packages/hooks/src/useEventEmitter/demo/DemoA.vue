@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useEventEmitter } from 'vue3-hooks-plus'
+import { useEventEmitter } from 'vue-hooks-plus'
 
 const event = useEventEmitter({ global: true })
 const props = defineProps<{

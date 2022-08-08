@@ -1,6 +1,6 @@
 {
-	"name": "vue3-hooks-plus",
-	"version": "2.4.9",
+	"name": "vue-hooks-plus",
+	"version": "1.0.0",
 	"files": [
 		"dist",
 		"package.json"
@@ -10,7 +10,7 @@
 	"types": "dist/src/index.d.ts",
 	"keywords": [
 		"vue3",
-		"vue3 hooks",
+		"vue hooks",
 		"typeScript"
 	],
 	"scripts": {
@@ -59,8 +59,8 @@
 		"vue-tsc": "^0.29.8",
 		"vue-typical": "^2.1.0"
 	},
-	"repository": "https://github.com/InhiblabCore/vue3-hooks-plus",
-	"homepage": "https://github.com/InhiblabCore/vue3-hooks-plus",
+	"repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"author": "NelsonYong",
 	"license": "MIT"
 }

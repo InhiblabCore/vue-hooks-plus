@@ -7,13 +7,13 @@ import { utoa, atou } from './utils/encode'
 const defaultMainFile = 'App.vue'
 // const varletReplPlugin = 'varlet-repl-plugin.js'
 const vhpImports = {
-	'vue3-hooks-plus': './index.es.js',
+	'vue-hooks-plus': './index.es.js',
 }
 
 const welcomeCode = `\
 <script setup lang='ts'>
 import { ref } from 'vue'
-import { useBoolean } from 'vue3-hooks-plus'  
+import { useBoolean } from 'vue-hooks-plus'  
 
 const msg = ref('Hello V3-Hooks-Plus!')
 const [flag] = useBoolean(true)

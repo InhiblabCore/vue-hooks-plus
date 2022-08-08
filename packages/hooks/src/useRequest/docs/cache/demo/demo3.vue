@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import { ref, watchEffect } from 'vue'
 
-import { useRequest, useToggle } from 'vue3-hooks-plus'
+import { useRequest, useToggle } from 'vue-hooks-plus'
 
 const [state, { toggle }] = useToggle()
 

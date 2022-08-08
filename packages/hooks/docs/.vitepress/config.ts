@@ -2,8 +2,7 @@ import { defineConfig } from 'vitepress'
 import { applyPlugins } from '@vfc/md-demo-plugins'
 import { genTemp } from '@vfc/vite-plugin-gen-temp'
 
-const base =
-	process.env.NODE_ENV === 'production' ? '/vue3-hooks-plus/docs' : ''
+const base = process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/docs' : ''
 const { resolve } = require('path')
 
 export default defineConfig({
@@ -12,11 +11,11 @@ export default defineConfig({
 			'link',
 			{
 				rel: 'icon',
-				href: `http://43.138.187.142:9000/assets/vue3-hooks-plus/favicon.ico`,
+				href: `http://43.138.187.142:9000/assets/vue-hooks-plus/favicon.ico`,
 			},
 		],
 	],
-	title: 'Vue3-hooks-plus',
+	title: 'vue-hooks-plus',
 	description: '_description',
 	// // 扫描srcIncludes里面的 *.md文件
 	// srcIncludes: ['src'],
@@ -34,7 +33,7 @@ export default defineConfig({
 		},
 
 		// @ts-ignore
-		repo: '/InhiblabCore/vue3-hooks-plus',
+		repo: '/InhiblabCore/vue-hooks-plus',
 		repoLabel: 'Github',
 		lastUpdated: '最近更新',
 		prevLink: true,
@@ -42,7 +41,7 @@ export default defineConfig({
 		socialLinks: [
 			{
 				icon: 'github',
-				link: 'https://github.com//InhiblabCore/vue3-hooks-plus',
+				link: 'https://github.com//InhiblabCore/vue-hooks-plus',
 			},
 		],
 	},
@@ -51,7 +50,7 @@ export default defineConfig({
 		plugins: [genTemp()],
 		resolve: {
 			alias: {
-				'vue3-hooks-plus': resolve('./src'),
+				'vue-hooks-plus': resolve('./src'),
 			},
 		},
 	},

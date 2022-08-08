@@ -11,7 +11,7 @@
 					() => (url = 'https://nelsonyong.github.io/hooks-doc/favicon.ico')
 				"
 			>
-				切换至 vue3-hooks-plus favicon。
+				切换至vue-hooks-plus favicon。
 			</button>
 		</div>
 	</div>
@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useFavicon } from 'vue3-hooks-plus'
+import { useFavicon } from 'vue-hooks-plus'
 const url = ref('https://nelsonyong.github.io/hooks-doc/favicon.ico')
 
 useFavicon(url)

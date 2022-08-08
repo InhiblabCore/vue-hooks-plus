@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useRequest, useToggle } from 'vue3-hooks-plus'
+import { useRequest, useToggle } from 'vue-hooks-plus'
 
 function getUsername(): Promise<string> {
 	return new Promise((resolve, reject) => {

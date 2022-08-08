@@ -6,7 +6,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 
-import { useRequest } from 'vue3-hooks-plus'
+import { useRequest } from 'vue-hooks-plus'
 
 function getUsername(): Promise<string> {
 	return new Promise((resolve, reject) => {

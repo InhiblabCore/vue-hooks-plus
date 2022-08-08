@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 import { watchEffect, ref } from 'vue'
 
-import { useExternal } from 'vue3-hooks-plus'
+import { useExternal } from 'vue-hooks-plus'
 
 const status = useExternal(
 	'https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js',

@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <div>窗口尺寸改变：{{ valueRef }}</div>
-  </div>
+	<div>
+		<div>窗口尺寸改变：{{ valueRef }}</div>
+	</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { useEventListener } from 'vue3-hooks-plus';
+import { ref } from 'vue'
+import { useEventListener } from 'vue-hooks-plus'
 
-const valueRef = ref(0);
+const valueRef = ref(0)
 
 useEventListener('resize', () => {
-  valueRef.value += 1;
-});
+	valueRef.value += 1
+})
 </script>
 
 <style scoped lang="less"></style>
