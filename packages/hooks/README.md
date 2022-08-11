@@ -2,19 +2,19 @@
 
 Vue Hooks.
 
-## 📚 Documentation
+## 📚 文档 (Documentation)
 
-[Live 💻](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+[在线文档docs📒](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
-## ✨ Features
+## ✨ 特性（Features）
 
-- Easy to learn and use
-- Supports SSR
-- Contains a comprehensive collection of basic Hooks
-- A wide range of application scenarios
-- Written in TypeScript with predictable static types
+- 简易上手和学习 （Easy to learn and use）
+- 支持SSR （Supports SSR）
+- 大量的全面的hooks（Contains a comprehensive collection of basic Hooks）
+- 覆盖大部分业务场景 （A wide range of application scenarios）
+- TypeScript编写，完整的类型 （Written in TypeScript with predictable static types）
 
-## 📦 Install
+## 📦 安装 (Install)
 
 ```
 $ npm install --save vue-hooks-plus
@@ -22,7 +22,7 @@ $ npm install --save vue-hooks-plus
 $ yarn add vue-hooks-plus
 ```
 
-## 🔨 Usage
+## 🔨  使用 (Usage)
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
