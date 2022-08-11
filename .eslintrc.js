@@ -22,6 +22,7 @@ module.exports = {
   // extends: '@antfu/eslint-config',
   rules: {
      "@typescript-eslint/explicit-module-boundary-types": "off",
+     "@typescript-eslint/ban-ts-comment":"off",
     "no-sparse-arrays": 0,
     "no-inner-declarations": 0,
     "@typescript-eslint/indent": 0,
