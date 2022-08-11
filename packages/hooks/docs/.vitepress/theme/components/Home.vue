@@ -6,7 +6,7 @@ import HomeTeam from './HomeTeam.vue'
 <template>
 	<section id="hero">
 		<h1 class="tagline">
-			<span class="accent">Vue3 &nbsp Hooks Plus</span>
+			<span class="accent">VueHooks &nbsp Plus</span>
 			<br />
 		</h1>
 		<p class="description">

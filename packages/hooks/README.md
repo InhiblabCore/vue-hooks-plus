@@ -1,10 +1,10 @@
-# vue3-hooks-plus rename vue-hooks-plus
+# vue-hooks-plus
 
-Vue3 Hooks Rename Vue Hooks.
+Vue Hooks.
 
 ## 📚 Documentation
 
-[Live 💻](http://43.138.187.142:9000/vue3-hooks-plus/docs/)
+[Live 💻](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
 ## ✨ Features
 

@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"files": [
 		"dist",
 		"package.json"
@@ -59,8 +59,8 @@
 		"vue-tsc": "^0.29.8",
 		"vue-typical": "^2.1.0"
 	},
-	"repository": "https://github.com/InhiblabCore/vue3-hooks-plus/tree/rename",
-	"homepage": "https://github.com/InhiblabCore/vue3-hooks-plus/tree/rename",
+	"repository": "https://github.com/InhiblabCore/vue-hooks-plus/tree/rename",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus/tree/rename",
 	"author": "NelsonYong",
 	"license": "MIT"
 }
