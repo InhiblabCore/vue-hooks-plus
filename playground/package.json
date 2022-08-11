@@ -21,7 +21,7 @@
 		"lodash": "^4.17.21",
 		"query-string": "^7.1.1",
 		"vue": "^3.2.29",
-		"vue-hooks-plus": "^2.2.4"
+		"vue-hooks-plus": "^1.0.5"
 	},
 	"devDependencies": {
 		"@types/file-saver": "^2.0.5",
