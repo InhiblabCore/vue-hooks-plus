@@ -17,20 +17,25 @@ module.exports = {
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
   ],
-  plugins: ["@typescript-eslint", "prettier"],
+  plugins: ["@typescript-eslint"],
   // extends: '@antfu/eslint-config',
   rules: {
+     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-sparse-arrays": 0,
     "no-inner-declarations": 0,
-    "prettier/prettier": 2,
     "@typescript-eslint/indent": 0,
     "no-constant-condition": 0,
     "@typescript-eslint/no-empty-function": 0,
-    "@typescript-eslint/explicit-member-accessibility": [2, { accessibility: "no-public" }],
+    "@typescript-eslint/explicit-member-accessibility": [
+      2,
+      { accessibility: "no-public" },
+    ],
     "@typescript-eslint/no-non-null-assertion": 0,
-    "@typescript-eslint/explicit-function-return-type": [1, { allowExpressions: true }],
+    "@typescript-eslint/explicit-function-return-type": [
+      1,
+      { allowExpressions: true },
+    ], 
     "@typescript-eslint/no-use-before-define": [2, { functions: false }],
     "@typescript-eslint/no-namespace": 0,
     "@typescript-eslint/ban-ts-ignore": 0,
@@ -41,7 +46,12 @@ module.exports = {
     "no-restricted-imports": [
       "error",
       {
-        paths: ["vue-hooks-plus", "..", "../..", resolve(__dirname, "packages/hooks/src/index.ts")],
+        paths: [
+          "vue-hooks-plus",
+          "..",
+          "../..",
+          resolve(__dirname, "packages/hooks/src/index.ts"),
+        ],
       },
     ],
     "no-unused-vars": [
@@ -58,11 +68,26 @@ module.exports = {
     "import/default": "off",
     "import/no-named-as-default": "off",
     "import/no-named-as-default-member": "off",
+
+    "vue/attributes-order": "off",
+    "vue/one-component-per-file": "off",
+    "vue/html-closing-bracket-newline": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/multiline-html-element-content-newline": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/attribute-hyphenation": "off",
+    "vue/require-default-prop": "off",
   },
 
   overrides: [
     {
-      files: ["**/*.md", "**/*.md/*.*", "demo.vue", "scripts/*.ts", "*.test.ts"],
+      files: [
+        "**/*.md",
+        "**/*.md/*.*",
+        "demo.vue",
+        "scripts/*.ts",
+        "*.test.ts",
+      ],
       rules: {
         "no-alert": "off",
         "no-console": "off",
@@ -80,4 +105,4 @@ module.exports = {
       },
     },
   ],
-};
+}
