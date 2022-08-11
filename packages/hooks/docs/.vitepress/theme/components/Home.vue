@@ -6,14 +6,14 @@ import HomeTeam from './HomeTeam.vue'
 <template>
 	<section id="hero">
 		<h1 class="tagline">
-			<span class="accent">Vue3 &nbsp Hooks Plus</span>
+			<span class="accent">VueHooks &nbsp Plus</span>
 			<br />
 		</h1>
 		<p class="description">
 			InhiblabCore's develop.
 		</p>
 		<p class="actions">
-			<a class="get-started" href="/vue3-hooks-plus/docs/guide/">
+			<a class="get-started" href="/vue-hooks-plus/docs/guide/">
 				Get Started
 				<svg
 					class="icon"

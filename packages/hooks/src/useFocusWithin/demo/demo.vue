@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useFocusWithin } from 'vue3-hooks-plus'
+import { useFocusWithin } from 'vue-hooks-plus'
 const divRef = ref(null)
 
 const isFocusWithin = useFocusWithin(divRef, {

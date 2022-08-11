@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { ref, watch, toRef, toRefs, computed } from 'vue'
  
-import { useWhyDidYouUpdate } from 'vue3-hooks-plus'
+import { useWhyDidYouUpdate } from 'vue-hooks-plus'
 
 const props = defineProps<{
 	count: number

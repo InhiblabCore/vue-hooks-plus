@@ -38,7 +38,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useScroll } from 'vue3-hooks-plus'
+import { useScroll } from 'vue-hooks-plus'
 const domRef = ref(null)
 const scroll = useScroll(domRef)
 </script>

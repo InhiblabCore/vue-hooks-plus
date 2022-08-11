@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useToggle } from 'vue3-hooks-plus'
+import { useToggle } from 'vue-hooks-plus'
 
 const [flag, { toggle, setLeft, setRight }] = useToggle()
 </script>

@@ -11,11 +11,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorageState } from 'vue3-hooks-plus'
+import { useLocalStorageState } from 'vue-hooks-plus'
 const [message, setMessage] = useLocalStorageState(
 	'use-local-storage-state-demo1',
 	{
-		defaultValue: 'Hello~ Vue3-hooks-plus',
+		defaultValue: 'Hello~ vue-hooks-plus',
 	}
 )
 

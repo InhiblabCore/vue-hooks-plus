@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useScroll } from 'vue3-hooks-plus'
+import { useScroll } from 'vue-hooks-plus'
 const scroll = useScroll(document)
 </script>
 

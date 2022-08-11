@@ -8,7 +8,7 @@ export default {
 		minify: true,
 		lib: {
 			entry: path.resolve(__dirname, 'src/index.ts'),
-			name: 'vue3-hooks-plus',
+			name: 'vue-hooks-plus',
 			formats: ['es', 'cjs'],
 			fileName: (format) => {
 				return `js/index.${format}.js`

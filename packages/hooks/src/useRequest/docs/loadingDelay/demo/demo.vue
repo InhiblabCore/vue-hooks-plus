@@ -6,12 +6,12 @@
 <script lang="ts" setup>
 // import { ref } from 'vue'
 
-import { useRequest } from 'vue3-hooks-plus'
+import { useRequest } from 'vue-hooks-plus'
 
 function getUsername(): Promise<string> {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve('vue3-hooks-plus useRequest')
+			resolve('vue-hooks-plus useRequest')
 		}, 1000)
 	})
 }
@@ -19,7 +19,7 @@ function getUsername(): Promise<string> {
 function getUsername1(): Promise<string> {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve('vue3-hooks-plus useRequest A')
+			resolve('vue-hooks-plus useRequest A')
 		}, 1000)
 	})
 }

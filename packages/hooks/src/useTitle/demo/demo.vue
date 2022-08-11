@@ -1,13 +1,13 @@
 <template>
-  <div>设置标题：hello vue3-hooks-plus</div>
+	<div>设置标题：hellovue-hooks-plus</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { useTitle } from 'vue3-hooks-plus';
+import { ref } from 'vue'
+import { useTitle } from 'vue-hooks-plus'
 
-const title = ref('hello vue3-hooks-plus');
-useTitle(title);
+const title = ref('hello vue-hooks-plus')
+useTitle(title)
 </script>
 
 <style scoped lang="less"></style>

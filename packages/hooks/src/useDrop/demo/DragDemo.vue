@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useDrag, useBoolean } from 'vue3-hooks-plus'
+import { useDrag, useBoolean } from 'vue-hooks-plus'
 
 const props = defineProps<{
 	data?: string

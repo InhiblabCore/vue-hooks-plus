@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useAsyncOrder } from 'vue3-hooks-plus'
+import { useAsyncOrder } from 'vue-hooks-plus'
 
 const error = ref<number>(0)
 const list = ref<string[]>([])

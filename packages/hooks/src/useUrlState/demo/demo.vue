@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 
-import { useUrlState } from 'vue3-hooks-plus'
+import { useUrlState } from 'vue-hooks-plus'
 const { state, setState } = useUrlState({ count: 1 })
 
 const count = computed(() => state.value.count)

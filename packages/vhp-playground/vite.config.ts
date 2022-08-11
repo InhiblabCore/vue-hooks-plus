@@ -10,7 +10,7 @@ const vhpESMBundleFile = resolve(__dirname, '../hooks/dist/js/index.es.js')
 
 function copyVHPPlugin(): Plugin {
 	return {
-		name: 'copy-vue3-hooks-plus',
+		name: 'copy-vue-hooks-plus',
 		buildStart() {
 			fs.copyFileSync(vhpESMBundleFile, resolve('public/index.es.js'))
 		},

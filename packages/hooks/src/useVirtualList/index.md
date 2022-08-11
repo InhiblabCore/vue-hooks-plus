@@ -29,7 +29,7 @@ map:
 ## API
 
 ```ts
-import { useVirtualList } from 'vue3-hooks-plus'
+import { useVirtualList } from 'vue-hooks-plus'
 ```
 
 ## Params

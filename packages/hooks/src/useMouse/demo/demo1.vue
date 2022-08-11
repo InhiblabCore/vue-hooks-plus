@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useMouse } from 'vue3-hooks-plus'
+import { useMouse } from 'vue-hooks-plus'
 const domRef = ref(null)
 const mouse = useMouse(domRef)
 </script>

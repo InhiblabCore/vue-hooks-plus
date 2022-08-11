@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
 
-import { useRequest } from 'vue3-hooks-plus'
+import { useRequest } from 'vue-hooks-plus'
 
 function getUsername(id: number): Promise<string> {
 	return new Promise((resolve, reject) => {

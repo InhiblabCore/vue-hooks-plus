@@ -33,15 +33,15 @@ const coreTeamMembers: CoreTeam[] = [
 		github: 'NelsonYong',
 		twitter: 'Yong_Git',
 		sponsors: true,
-		description: 'vue3-hooks-plus 作者',
-		packages: ['vue3-hooks-plus'],
+		description: 'vue-hooks-plus 作者',
+		packages: ['vue-hooks-plus'],
 	},
 	{
 		avatar: contributorsAvatars.hongaah,
 		name: 'Hongaah',
 		github: 'hongaah',
 		description: 'hongaah',
-		packages: ['vue3-hooks-plus'],
+		packages: ['vue-hooks-plus'],
 	},
 ].sort(
 	(pre, cur) =>

@@ -8,7 +8,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useDebounce } from 'vue3-hooks-plus'
+import { useDebounce } from 'vue-hooks-plus'
 const valueRef = ref('')
 
 const debouncedValue = useDebounce(valueRef, { wait: 500 })

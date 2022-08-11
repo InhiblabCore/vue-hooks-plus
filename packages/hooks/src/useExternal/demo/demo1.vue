@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-import { useExternal } from 'vue3-hooks-plus'
+import { useExternal } from 'vue-hooks-plus'
 
 const path = ref('')
 const status = useExternal(path)

@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useDarkMode } from 'vue3-hooks-plus'
+import { useDarkMode } from 'vue-hooks-plus'
 
 const [darkMode, setDarkMode] = useDarkMode()
 

@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useMouse } from 'vue3-hooks-plus'
+import { useMouse } from 'vue-hooks-plus'
 const mouse = useMouse()
 </script>
 

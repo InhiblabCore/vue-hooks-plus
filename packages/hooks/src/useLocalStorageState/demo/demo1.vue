@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useLocalStorageState } from 'vue3-hooks-plus'
+import { useLocalStorageState } from 'vue-hooks-plus'
 const defaultArray = ['a', 'e', 'i', 'o', 'u']
 
 const [value, setValue] = useLocalStorageState(

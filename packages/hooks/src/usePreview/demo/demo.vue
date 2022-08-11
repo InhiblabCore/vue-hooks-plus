@@ -9,7 +9,7 @@
 import { ref, VueElement } from 'vue'
 import demo1 from './demo1.vue'
 
-import { usePreview } from 'vue3-hooks-plus'
+import { usePreview } from 'vue-hooks-plus'
 
 const mdRef = ref('# MarkDown  in the browser\n\nRender')
 const { container } = usePreview(mdRef)

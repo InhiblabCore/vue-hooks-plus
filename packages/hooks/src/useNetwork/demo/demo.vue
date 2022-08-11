@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useNetwork } from 'vue3-hooks-plus'
+import { useNetwork } from 'vue-hooks-plus'
 
 const networkState = useNetwork()
 </script>
