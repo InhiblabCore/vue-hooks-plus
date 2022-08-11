@@ -1,6 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
-import DemoBlock from '@vfc/vitepress-demo-block'
-import '@vfc/vitepress-demo-block/dist/style.css'
+import DemoBlock from '@vue-hooks-plus/vitepress-demo-block'
+import '@vue-hooks-plus/vitepress-demo-block/dist/style.css'
 import './var.css'
 
 export default {

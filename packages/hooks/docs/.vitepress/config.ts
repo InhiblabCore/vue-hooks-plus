@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
-import { applyPlugins } from '@vfc/md-demo-plugins'
-import { genTemp } from '@vfc/vite-plugin-gen-temp'
+import { applyPlugins } from '@vue-hooks-plus/md-demo-plugins'
+import { genTemp } from '@vue-hooks-plus/vite-plugin-gen-temp'
 
 const base = process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/docs' : ''
 const { resolve } = require('path')
