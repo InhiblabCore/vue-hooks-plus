@@ -1,6 +1,6 @@
 # vue-hooks-plus
 
-Vue3 Hooks.
+Vue Hooks.
 
 ## 📚 Documentation
 
