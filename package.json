@@ -5,8 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
-
+		"prepare": "husky install"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^0.25.2",
@@ -22,9 +21,11 @@
 		"husky": "^8.0.1",
 		"lint-staged": "^13.0.3",
 		"prettier": "^2.7.1",
-		"typescript": "^4.6.3"
+		"typescript": "^4.6.3",
+		"vue": "^3.2.37",
+		"vue-eslint-parser": "^9.0.3"
 	},
-  	"lint-staged": {
+	"lint-staged": {
 		"*.{js,ts,tsx,vue}": [
 			"eslint --fix"
 		]
