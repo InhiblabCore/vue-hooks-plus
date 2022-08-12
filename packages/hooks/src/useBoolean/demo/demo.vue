@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>{{ flag }}</div>
-    <br />
+    <br>
     <div>
       <p>
         <button style="margin-left: 16px" @click="() => set(!flag)">set</button>
@@ -14,6 +14,5 @@
 
 <script lang="ts" setup>
   import { useBoolean } from 'vue-hooks-plus'
-
   const [flag, { set, setFalse, setTrue }] = useBoolean(true)
 </script>
