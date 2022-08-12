@@ -1,4 +1,4 @@
-# vue-hooks-plus
+# Vue-hooks-plus
 
 <img src="https://ahooks.js.org/logo.svg" alt="ahooks" style="zoom: 200%;" />
 
