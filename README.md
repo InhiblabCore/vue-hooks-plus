@@ -1,6 +1,6 @@
 # vue-hooks-plus
 
-Vue Hooks.
+[ahooks](https://ahooks.js.org/zh-CN/) Vue Hooks.
 
 ## 📚 文档 (Documentation)
 
@@ -8,11 +8,11 @@ Vue Hooks.
 
 ## ✨ 特性（Features）
 
-- 简易上手和学习 （Easy to learn and use）
-- 支持SSR （Supports SSR）
-- 大量的全面的hooks (Contains a comprehensive collection of basic Hooks)
+- 易学易用 （Easy to learn and use）
+- 支持 SSR （Supports SSR）
+- 丰富的 Hooks (Contains a comprehensive collection of basic Hooks)
 - 覆盖大部分业务场景 （A wide range of application scenarios）
-- TypeScript编写，完整的类型 （Written in TypeScript with predictable static types）
+- 使用 TypeScript 构建，提供完整的类型定义文件 （Written in TypeScript with predictable static types）
 
 ## 📦 安装 (Install)
 
