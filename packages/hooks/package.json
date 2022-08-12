@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"files": [
 		"dist",
 		"package.json"
