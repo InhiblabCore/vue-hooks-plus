@@ -26,7 +26,7 @@
 		"vue-eslint-parser": "^9.0.3"
 	},
 	"lint-staged": {
-		"*.{js,ts,tsx,vue}": [
+		"*.{js,ts,tsx}": [
 			"eslint --fix"
 		]
 	},
