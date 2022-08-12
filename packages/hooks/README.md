@@ -1,8 +1,16 @@
-# Vue-hooks-plus
+<p align="center">
+  <a href="https://ahooks.js.org">
+    <img width="200" src="https://ahooks.js.org/logo.svg">
+  </a>
+</p>
 
-<img src="https://ahooks.js.org/logo.svg" alt="ahooks" style="zoom: 200%;" />
+<div align="center">
 
-[ahooks](https://ahooks.js.org/zh-CN/) Vue Hooks.
+[ahooks](https://ahooks.js.org/zh-CN/) Vue 的实现.
+
+<h1>Vue-hooks-plus</h1>
+
+</div>
 
 ## 📚 文档 (Documentation)
 
