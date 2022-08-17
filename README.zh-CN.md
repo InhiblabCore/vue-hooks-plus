@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://ahooks.js.org">
-    <img width="200" src="https://ahooks.js.org/logo.svg">
+  <a href="http://43.138.187.142:9000/vue-hooks-plus/docs/">
+    <img width="216" src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo@2x.png">
   </a>
 </p>
 
