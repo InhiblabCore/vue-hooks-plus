@@ -11,7 +11,7 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        href: `http://43.138.187.142:9000/assets/vue-hooks-plus/favicon.ico`,
+        href: `http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg`,
       },
     ],
   ],
@@ -23,7 +23,7 @@ export default defineConfig({
 
   base,
   themeConfig: {
-    logo: `/logo.png`,
+    logo: `http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg`,
     nav: [
       { text: '首页', link: '/' },
       { text: 'Hooks', link: '/useRequest/' },
