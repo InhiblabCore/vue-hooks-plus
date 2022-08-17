@@ -33,6 +33,7 @@
       flex-direction: column;
       align-items: center;
       padding: 16px;
+      padding-top: 32px;
     }
     img {
       width: 162px;
