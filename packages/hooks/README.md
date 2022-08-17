@@ -1,30 +1,33 @@
 <p align="center">
-  <a href="https://ahooks.js.org">
-    <img width="200" src="https://ahooks.js.org/logo.svg">
+  <a href="http://43.138.187.142:9000/vue-hooks-plus/docs/">
+    <img width="216" src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo@2x.png">
   </a>
 </p>
 
 <div align="center">
 
-[ahooks](https://ahooks.js.org/zh-CN/) Vue 的实现.
+[ahooks](https://ahooks.js.org/) Vue realize.
 
-<h1>Vue-hooks-plus</h1>
+<h1 style="background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff); background-clip: text;
+-webkit-background-clip: text;-webkit-text-fill-color: transparent;">Vue-hooks-plus</h1>
+
+English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
 
 </div>
 
-## 📚 文档 (Documentation)
+## 📚 Documentation
 
-[docs📒](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+[Live](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
-## ✨ 特性（Features）
+## ✨ Features
 
-- 易学易用 （Easy to learn and use）
-- 支持 SSR （Supports SSR）
-- 丰富的 Hooks (Contains a comprehensive collection of basic Hooks)
-- 覆盖大部分业务场景 （A wide range of application scenarios）
-- 使用 TypeScript 构建，提供完整的类型定义文件 （Written in TypeScript with predictable static types）
+- Easy to learn and use
+- Supports SSR
+- Contains a comprehensive collection of basic Hooks
+- A wide range of application scenarios
+- Written in TypeScript with predictable static types
 
-## 📦 安装 (Install)
+## 📦 Install
 
 ```
 $ npm install --save vue-hooks-plus
@@ -32,7 +35,7 @@ $ npm install --save vue-hooks-plus
 $ yarn add vue-hooks-plus
 ```
 
-## 🔨  使用 (Usage)
+## 🔨  Usage
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'

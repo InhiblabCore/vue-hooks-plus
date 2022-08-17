@@ -8,7 +8,8 @@
 
 [ahooks](https://ahooks.js.org/) Vue realize.
 
-<h1>Vue-hooks-plus</h1>
+<h1 style="background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff); background-clip: text;
+-webkit-background-clip: text;-webkit-text-fill-color: transparent;">Vue-hooks-plus</h1>
 
 English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
 
