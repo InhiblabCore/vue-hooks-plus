@@ -13,8 +13,10 @@ function useSet<T = any>(
 ): [state: Ref<Set<any>>, actions: Actions<T>];
 
 function useSet<T = any>(initialValue?: T[]) {
-  const initialSet = initialValue ? new Set(initialValue) : new Set();
-  const state = ref(initialSet);
+   const getInitValue = () => {
+    return initialValue === undefined ? new Set<T>() : new Set(initialValue);
+  };
+  const state = ref(getInitValue());
 
   const actions: Actions<T> = {
     add: (value: T) => {
@@ -26,7 +28,7 @@ function useSet<T = any>(initialValue?: T[]) {
     has: (value: T) => state.value.has(value),
     clear: () => state.value.clear(),
     reset: () => {
-      state.value = new Set();
+      state.value = getInitValue();
     },
   };
 
