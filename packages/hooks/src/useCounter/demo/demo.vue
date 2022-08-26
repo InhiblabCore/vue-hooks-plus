@@ -8,7 +8,7 @@
       <button type="button" @click="dec()">
         dec()
       </button>
-      <button type="button" @click="set(4)">
+      <button type="button" @click="set(3)">
         set(3)
       </button>
       <button type="button" @click="reset()">
