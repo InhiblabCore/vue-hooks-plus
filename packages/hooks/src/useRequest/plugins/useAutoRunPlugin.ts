@@ -1,63 +1,61 @@
-import { isRef, ref, watch, watchEffect } from 'vue'
+import { isRef, ref, watch } from 'vue'
 import { FetchState, Plugin } from '../types'
 
 // support refreshDeps & ready
 const useAutoRunPlugin: Plugin<any, any[]> = (
-	fetchInstance,
-	{
-		manual,
-		ready = true,
-		defaultParams = [],
-		refreshDeps = [],
-		refreshDepsAction,
-	}
+  fetchInstance,
+  { manual, ready = true, defaultParams = [], refreshDeps = [], refreshDepsAction },
 ) => {
-	const hasAutoRun = ref(false)
-	hasAutoRun.value = false
+  const hasAutoRun = ref(false)
+  hasAutoRun.value = false
 
-	watchEffect(() => {
-		if (!manual) {
-			if (isRef(ready) ? ready.value : ready) {
-				hasAutoRun.value = true
-				fetchInstance.run(...defaultParams)
-			}
-		}
-	})
+  // watchEffect(() => {
+  //   if (!manual) {
+  //     if (isRef(ready) ? ready.value : ready) {
+  //       hasAutoRun.value = true
+  //       fetchInstance.run(...defaultParams)
+  //     }
+  //   }
+  // })
 
-	watch(
-		refreshDeps,
-		() => {
-			if (!manual && hasAutoRun.value) {
-				if (refreshDepsAction) {
-					refreshDepsAction()
-				} else {
-					fetchInstance.refresh()
-				}
-			}
-		},
-		{
-			deep: true,
-		}
-	)
+  watch(isRef(ready) ? ready : ref(ready), r => {
+    if (!manual && r) {
+      hasAutoRun.value = true
+      fetchInstance.run(...defaultParams)
+    }
+  })
 
-	return {
-		onBefore: () => {
-			if (!(isRef(ready) ? ready.value : ready)) {
-				return {
-					stopNow: true,
-				}
-			}
-		},
-	}
+  watch(
+    refreshDeps,
+    () => {
+      if (!manual && hasAutoRun.value) {
+        if (refreshDepsAction) {
+          refreshDepsAction()
+        } else {
+          fetchInstance.refresh()
+        }
+      }
+    },
+    {
+      deep: true,
+    },
+  )
+
+  return {
+    onBefore: () => {
+      if (!(isRef(ready) ? ready.value : ready)) {
+        return {
+          stopNow: true,
+        }
+      }
+    },
+  }
 }
 
 useAutoRunPlugin.onInit = ({ ready = true, manual }) => {
-	return {
-		loading: (!manual && isRef(ready) ? ready.value : ready) as FetchState<
-			any,
-			any[]
-		>['loading'],
-	}
+  return {
+    loading: (!manual && isRef(ready) ? ready.value : ready) as FetchState<any, any[]>['loading'],
+  }
 }
 
 export default useAutoRunPlugin

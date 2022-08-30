@@ -1,105 +1,93 @@
-import {
-	ref,
-	reactive,
-	toRefs,
-	computed,
-	onMounted,
-	onUnmounted,
-	isRef,
-} from 'vue'
+import { ref, reactive, toRefs, computed, onMounted, onUnmounted, isRef } from 'vue'
 
 import Fetch from './Fetch'
 import { Options, Plugin, Result, Service } from './types'
 
 function useRequestImplement<TData, TParams extends any[]>(
-	service: Service<TData, TParams>,
-	options: Options<TData, TParams> = {},
-	plugins: Plugin<TData, TParams>[] = []
+  service: Service<TData, TParams>,
+  options: Options<TData, TParams> = {},
+  plugins: Plugin<TData, TParams>[] = [],
 ) {
-	// 读取配置
-	const { manual = false, ready = true, ...rest } = options
+  // 读取配置
+  const { manual = false, ready = true, ...rest } = options
 
-	const fetchOptions = {
-		manual,
-		ready,
-		...rest,
-	}
+  const fetchOptions = {
+    manual,
+    ready,
+    ...rest,
+  }
 
-	// 定义一个serviceRef
-	const serviceRef = ref(service)
+  // 定义一个serviceRef
+  const serviceRef = ref(service)
 
-	// 存储state的响应式对象
-	const state = reactive<{
-		data?: TData
-		loading: boolean
-		params?: TParams
-		error?: Error
-	}>({
-		data: undefined,
-		loading: true,
-		params: undefined,
-		error: undefined,
-	})
+  // 存储state的响应式对象
+  const state = reactive<{
+    data?: TData
+    loading: boolean
+    params?: TParams
+    error?: Error
+  }>({
+    data: undefined,
+    loading: true,
+    params: undefined,
+    error: undefined,
+  })
 
-	const setState = (s: any, field?: keyof typeof state) => {
-		if (field) {
-			state[field] = s
-		} else {
-			state.data = s.data
-			state.loading = s.loading
-			state.error = s.error
-			state.params = s.params
-		}
-	}
+  const setState = (s: any, field?: keyof typeof state) => {
+    if (field) {
+      state[field] = s
+    } else {
+      state.data = s.data
+      state.loading = s.loading
+      state.error = s.error
+      state.params = s.params
+    }
+  }
 
-	// fetch的实例化
-	const fetchInstance = computed(() => {
-		// 获取初始化initState
-		const initState = plugins
-			.map((p) => p?.onInit?.(fetchOptions))
-			.filter(Boolean)
-		return new Fetch<TData, TParams>(
-			serviceRef,
-			fetchOptions,
-			// setUpdate,
-			setState,
-			Object.assign({}, ...initState)
-		)
-	})
+  // fetch的实例化
+  const fetchInstance = computed(() => {
+    // 获取初始化initState
+    const initState = plugins.map(p => p?.onInit?.(fetchOptions)).filter(Boolean)
+    return new Fetch<TData, TParams>(
+      serviceRef,
+      fetchOptions,
+      // setUpdate,
+      setState,
+      Object.assign({}, ...initState),
+    )
+  })
 
-	fetchInstance.value.options = fetchOptions
+  fetchInstance.value.options = fetchOptions
 
-	// 运行插件
-	fetchInstance.value.pluginImpls = plugins.map((p) => {
-		return p(fetchInstance.value as any, fetchOptions)
-	})
+  // 运行插件
+  fetchInstance.value.pluginImpls = plugins.map(p => {
+    return p(fetchInstance.value as any, fetchOptions)
+  })
 
-	// manual控制是否自动发送请求
-	onMounted(() => {
-		if (!manual) {
-			const params =
-				fetchInstance.value.state.params || options.defaultParams || []
-			if (isRef(ready) ? ready.value : ready)
-				fetchInstance.value.run(...(params as TParams))
-		}
-	})
+  // manual控制是否自动发送请求
+  onMounted(() => {
+    if (!manual) {
+      const params = fetchInstance.value.state.params || options.defaultParams || []
+      if (isRef(ready) ? ready.value : ready) fetchInstance.value.run(...(params as TParams))
+    }
+  })
 
-	// 组件卸载的时候取消请求
-	onUnmounted(() => {
-		fetchInstance.value.cancel()
-	})
+  // 组件卸载的时候取消请求
+  onUnmounted(() => {
+    fetchInstance.value.cancel()
+  })
 
-	return ({
-		...toRefs(state),
-		cancel: fetchInstance.value.cancel.bind(fetchInstance.value),
-		refresh: fetchInstance.value.refresh.bind(fetchInstance.value),
-		refreshAsync: fetchInstance.value.refreshAsync.bind(fetchInstance.value),
-		// @ts-ignore
-		run: fetchInstance.value.run.bind(fetchInstance.value),
-		// @ts-ignore
-		runAsync: fetchInstance.value.runAsync.bind(fetchInstance.value),
-		mutate: fetchInstance.value.mutate.bind(fetchInstance.value),
-	} as unknown) as Result<TData, TParams>
+  return ({
+    ...toRefs(state),
+    cancel: fetchInstance.value.cancel.bind(fetchInstance.value),
+    refresh: fetchInstance.value.refresh.bind(fetchInstance.value),
+    refreshAsync: fetchInstance.value.refreshAsync.bind(fetchInstance.value),
+    // @ts-ignore
+    run: fetchInstance.value.run.bind(fetchInstance.value),
+    // @ts-ignore
+    runAsync: fetchInstance.value.runAsync.bind(fetchInstance.value),
+    mutate: fetchInstance.value.mutate.bind(fetchInstance.value),
+  } as unknown) as Result<TData, TParams>
 }
 
 export default useRequestImplement
