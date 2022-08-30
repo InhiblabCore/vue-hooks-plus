@@ -9,15 +9,6 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
   const hasAutoRun = ref(false)
   hasAutoRun.value = false
 
-  // watchEffect(() => {
-  //   if (!manual) {
-  //     if (isRef(ready) ? ready.value : ready) {
-  //       hasAutoRun.value = true
-  //       fetchInstance.run(...defaultParams)
-  //     }
-  //   }
-  // })
-
   watch(isRef(ready) ? ready : ref(ready), r => {
     if (!manual && r) {
       hasAutoRun.value = true
