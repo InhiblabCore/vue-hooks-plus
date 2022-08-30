@@ -21,19 +21,13 @@ const useAutoRunPlugin: Plugin<any, any[]> = (
   watch(isRef(ready) ? ready : ref(ready), r => {
     if (!manual && r) {
       hasAutoRun.value = true
-      console.log(666)
-
       fetchInstance.run(...defaultParams)
     }
   })
 
   watch(
     refreshDeps,
-    c => {
-      console.log(c)
-
-      console.log('变化')
-
+    () => {
       if (hasAutoRun.value) return
       if (!manual) {
         if (refreshDepsAction) {
