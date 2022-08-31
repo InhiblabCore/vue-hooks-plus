@@ -28,7 +28,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     error?: Error
   }>({
     data: undefined,
-    loading: true,
+    loading: false,
     params: undefined,
     error: undefined,
   })
