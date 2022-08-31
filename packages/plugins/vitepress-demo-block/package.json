@@ -1,11 +1,12 @@
 {
 	"name": "@vue-hooks-plus/vitepress-demo-block",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"license": "MIT",
 	"type": "module",
 	"types": "./dist/index.d.ts",
 	"main": "./dist/vitepress-demo-block.umd.cjs",
 	"module": "./dist/vitepress-demo-block.js",
+  "author": "yangjie",
 	"exports": {
 		".": {
 			"import": "./dist/vitepress-demo-block.js",
