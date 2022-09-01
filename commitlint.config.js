@@ -10,6 +10,7 @@
 // chore：不属于以上类型的其他类，比如构建流程, 依赖管理
 // revert：回滚某个更早之前的提交
 // version: 改变package.json 版本
+// readme: 修改readme内容
 
 module.exports = {
   ignores: [(commit) => commit.includes('init')],
@@ -41,6 +42,7 @@ module.exports = {
         'types',
         'release',
         'version',
+        'readme',
       ],
     ],
   },
