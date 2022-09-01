@@ -26,6 +26,7 @@ English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/mas
 - Contains a comprehensive collection of basic Hooks
 - A wide range of application scenarios
 - Written in TypeScript with predictable static types
+- Support the on-demand load, and reduce the packing volume
 
 ## 📦 Install
 
