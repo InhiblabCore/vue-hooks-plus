@@ -9,6 +9,8 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^0.25.2",
+		"@commitlint/cli": "^17.1.2",
+		"@commitlint/config-conventional": "^17.1.0",
 		"@types/md5": "^2.3.2",
 		"@types/node": "^18.0.6",
 		"@types/prettier": "^2.6.3",
