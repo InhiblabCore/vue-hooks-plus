@@ -11,8 +11,16 @@ $ yarn add vue-hooks-plus
 
 ## 🔨 使用
 
+### 全量引入
+
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
+```
+
+### 按需引入
+
+```typescript
+import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
 <br />

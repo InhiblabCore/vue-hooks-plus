@@ -77,7 +77,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
   /* :deep(html, .VPHome) {
     background: url('/light.jpg') !important;
   }
@@ -85,6 +85,15 @@
   :deep(.dark .VPHome) {
     background: url('/dark.jpg') !important;
   } */
+
+  .home {
+    background: url('/light.jpg');
+  }
+  .dark {
+    .home {
+      background: url('/dark.jpg');
+    }
+  }
   section {
     padding: 0 42px 32px 32px;
     background: url('/grid.svg');

@@ -75,7 +75,7 @@ function getHooksSidebar() {
       text: '介绍',
       items: [
         {
-          text: '快速安装',
+          text: '入手指南',
           link: '/guide/',
         },
       ],
