@@ -1,0 +1,76 @@
+:root {
+  --vp-code-block-bg: #f9fafb;
+  /* --vp-code-block-bg: var(--vp-c-bg-alt); */
+
+  --vp-code-line-highlight-color: rgba(0, 0, 0, 0.5);
+  --vp-code-line-number-color: var(--vp-c-text-dark-3);
+
+  --vp-code-copy-code-hover-bg: rgba(255, 255, 255, 0.05);
+  --vp-code-copy-code-active-text: var(--vp-c-bg-alt);
+
+  --vp-home-hero-name-color: #42d392;
+  --vp-home-hero-name-background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+
+  --vp-font-color: rgba(41, 65, 86, 1);
+}
+
+input {
+  opacity: 1;
+  background-color: var(--vp-code-block-bg);
+}
+
+.vitepress-demo {
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark {
+  --vp-code-block-bg: var(--vp-c-bg-alt);
+  --vp-font-color: rgba(182, 202, 230, 1);
+}
+
+// .VPNav {
+//   background-color: var(--vp-c-bg);
+// }
+
+// .VPNavBar {
+//   background-color: #f9fafc;
+// }
+
+// .dark .VPNavBar {
+//   background-color: #0b1121;
+// }
+
+.vp-doc [class*='language-']:before {
+  color: var(--vp-c-text-2);
+}
+
+@media (min-width: 640px) {
+  .vp-doc div[class*='language-'] {
+    border-radius: 4px;
+    margin: 16px 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .vp-doc div[class*='language-'] {
+    border-radius: 4px;
+  }
+}
+
+/* 中文字太大了 */
+@media (min-width: 640px) {
+  .name,
+  .text {
+    font-size: 28px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .name,
+  .text {
+    font-size: 32px !important;
+  }
+}

@@ -5,79 +5,89 @@
 </script>
 
 <template>
-  <Icon />
-  <section id="hero">
-    <!-- <div class="head">
+  <div class="home">
+    <Icon />
+    <section id="hero">
+      <!-- <div class="head">
       <div class="logo"> </div>
     </div> -->
-    <h1 class="tagline">
-      <span class="accent">VueHooks &nbsp Plus</span>
-      <br />
-    </h1>
-    <p class="description">
-      InhiblabCore's develop.
-    </p>
-    <p class="actions">
-      <a class="get-started" href="/vue-hooks-plus/docs/guide/">
-        Get Started
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-          />
-        </svg>
-      </a>
-    </p>
-  </section>
-  <section id="highlights" class="vt-box-container">
-    <div class="vt-box">
-      <h2>🛸 Vue3 的 Hooks</h2>
-      <p>
-        基础和高级的 hook， 高性能逻辑的抽象封装，满足大量场景。
+      <h1 class="tagline">
+        <span class="accent">VueHooks &nbsp Plus</span>
+        <br />
+      </h1>
+      <p class="description">
+        InhiblabCore's develop.
       </p>
-    </div>
-    <div class="vt-box">
-      <h2>🏄🏼‍♂️ 简洁易用</h2>
-      <p>
-        简洁的语法和易用的特性，轻松上手，详细的文档。
+      <p class="actions">
+        <a class="get-started" href="/vue-hooks-plus/docs/guide/">
+          Get Started
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
+            />
+          </svg>
+        </a>
       </p>
-    </div>
-    <div class="vt-box">
-      <h2>🎯 TypeScript</h2>
-      <p>
-        使用 TypeScript 构建，提供完整的类型定义文件，安全严谨。
-      </p>
-    </div>
-    <div class="vt-box">
-      <h2>🎪 交互式demo演示</h2>
-      <p>
-        支持服务端的使用。
-      </p>
-    </div>
-    <div class="vt-box">
-      <h2>🔋 支持 SSR</h2>
-      <p>
-        服务器端渲染的友好支持
-      </p>
-    </div>
-    <div class="vt-box">
-      <h2>🦾 useRequest</h2>
-      <p>
-        基于插件模式设计的请求函数
-      </p>
-    </div>
-  </section>
-  <HomeTeam />
+    </section>
+    <section id="highlights" class="vt-box-container">
+      <div class="vt-box">
+        <h2>🛸 Vue3 的 Hooks</h2>
+        <p>
+          基础和高级的 hook， 高性能逻辑的抽象封装，满足大量场景。
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>🏄🏼‍♂️ 简洁易用</h2>
+        <p>
+          简洁的语法和易用的特性，轻松上手，详细的文档。
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>🎯 TypeScript</h2>
+        <p>
+          使用 TypeScript 构建，提供完整的类型定义文件，安全严谨。
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>🎪 交互式demo演示</h2>
+        <p>
+          支持服务端的使用。
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>🔋 支持 SSR</h2>
+        <p>
+          服务器端渲染的友好支持
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>🦾 useRequest</h2>
+        <p>
+          基于插件模式设计的请求函数
+        </p>
+      </div>
+    </section>
+    <HomeTeam />
+  </div>
 </template>
 
 <style scoped>
+  /* :deep(html, .VPHome) {
+    background: url('/light.jpg') !important;
+  }
+
+  :deep(.dark .VPHome) {
+    background: url('/dark.jpg') !important;
+  } */
   section {
     padding: 0 42px 32px 32px;
+    background: url('/grid.svg');
   }
   #hero {
     padding: 0 96px 32px 32px;

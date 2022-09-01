@@ -1,6 +1,9 @@
 node_modules
 .DS_Store
 dist
+lib
+es
+types
 .cache
 .temp
 .docs
