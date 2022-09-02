@@ -5,7 +5,7 @@
     "lib": ["esnext", "dom"],
     "baseUrl": "./",
     "rootDir": "./",
-    "types": ["node", "jest"],
+    "types": ["node"],
     "paths": {
       "@/*": ["src/*"],
       "vue-hooks-plus": ["src/index.ts"]
