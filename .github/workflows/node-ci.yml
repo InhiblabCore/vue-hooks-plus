@@ -1,4 +1,4 @@
-name: "Node CI"
+name: Node CI
 
 on: [push, pull_request]
 
@@ -7,22 +7,24 @@ jobs:
      runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x]
   steps:
-    - name: Check out repository code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+    - uses: pnpm/action-setup@v2
+      with:
+          version: 7.9.5
+    - uses: actions/setup-node@v3
+      with:
+          node-version: '16'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
 
     - name: Install pnpm
-     uses: pnpm/action-setup@v2.2.2
+      uses: pnpm/action-setup@v2.2.2
 
     - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-    - name: pnpm run intall, build
-      run: |
-          cd packages/hooks
-          pnpm install
-          pnpm build
     - name: pnpm run test
       run: pnpm tets    
