@@ -18,6 +18,7 @@ importers:
       eslint-plugin-prettier: ^4.2.1
       husky: ^8.0.1
       lint-staged: ^13.0.3
+      lodash: ^4.17.21
       prettier: ^2.7.1
       sleep: link:@/utils/sleep
       typescript: ^4.6.3
@@ -40,6 +41,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_h62lvancfh4b7r6zn2dgodrh5e
       husky: 8.0.1
       lint-staged: 13.0.3
+      lodash: 4.17.21
       prettier: 2.7.1
       sleep: link:@/utils/sleep
       typescript: 4.7.4
