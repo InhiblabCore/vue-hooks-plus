@@ -1,6 +1,13 @@
 name: Node CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - vitest
+
+ pull_request:
+    branches:
+      - vitest
 
 jobs:
   deploy:
@@ -27,4 +34,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
     - name: pnpm run test
-      run: pnpm tets    
+      run: pnpm test   
+      env:
+          CI: true
