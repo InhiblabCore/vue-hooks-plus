@@ -4,8 +4,8 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   resolve: {
     alias: {
-      'vue-hooks-plus': resolve(__dirname, 'packages/hooks/src/index.ts'),
-      '@': resolve(__dirname, 'packages/hooks/src'),
+      'vue-hooks-plus': resolve(__dirname, './src/index.ts'),
+      '@': resolve(__dirname, './src'),
     },
     dedupe: ['vue', '@vue/runtime-core'],
   },

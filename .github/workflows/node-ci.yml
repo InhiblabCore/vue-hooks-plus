@@ -19,6 +19,7 @@ jobs:
 
       - name: pnpm run intall, build, and test
         run: |
+          cd packages/hooks
           pnpm install
           pnpm run test
         env:

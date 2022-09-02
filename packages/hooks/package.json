@@ -2,18 +2,18 @@
 	"name": "vue-hooks-plus",
 	"version": "1.1.4",
 	"files": [
-    "dist",
-    "lib",
-    "es",
-    "types",
-    "metadata.json",
-    "package.json",
-    "README.md" 
+		"dist",
+		"lib",
+		"es",
+		"types",
+		"metadata.json",
+		"package.json",
+		"README.md"
 	],
 	"main": "./lib/index.js",
-  "module": "./es/index.js",
-  "types": "./types/index.d.ts",
-  "unpkg": "dist/index.es.js",
+	"module": "./es/index.js",
+	"types": "./types/index.d.ts",
+	"unpkg": "dist/index.es.js",
 	"keywords": [
 		"vue3",
 		"vue hooks",
@@ -24,10 +24,11 @@
 		"docs:dev": " vitepress dev .docs --host",
 		"docs:build": "cross-env NODE_ENV=production vitepress build .docs",
 		"docs:serve": "vitepress serve .docs --host",
-    "clean": "rimraf dist lib es",
+		"clean": "rimraf dist lib es",
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
 		"build:types": "node scripts/build-types.js",
 		"type": "tsc -d",
+    "test": "vitest",
 		"preview": "vite preview"
 	},
 	"peerDependencies": {
@@ -60,6 +61,7 @@
 		"vite-plugin-build": "^0.6.0",
 		"vite-plugin-dts": "^1.4.1",
 		"vitepress": "1.0.0-alpha.4",
+		"vitest": "^0.22.1",
 		"vue": "^3.2.25",
 		"vue-tsc": "^0.29.8",
 		"vue-typical": "^2.1.0"
