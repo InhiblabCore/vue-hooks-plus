@@ -28,7 +28,7 @@
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
 		"build:types": "node scripts/build-types.js",
 		"type": "tsc -d",
-		"test": "jest",
+		"test": "npm run clean  && jest",
 		"preview": "vite preview",
 		"deply": "chmod +x ./deply.sh  && ./deply.sh"
 	},
