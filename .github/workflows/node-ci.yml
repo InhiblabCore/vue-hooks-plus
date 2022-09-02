@@ -3,8 +3,8 @@ name: Node CI
 on: [push, pull_request]
 
 jobs:
-  build:
-     runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
