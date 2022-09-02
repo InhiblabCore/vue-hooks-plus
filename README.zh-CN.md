@@ -39,4 +39,8 @@ $ yarn add vue-hooks-plus
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
+
+// or 按需引入
+
+import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
