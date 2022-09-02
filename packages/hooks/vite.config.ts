@@ -13,7 +13,13 @@ export default {
     buildPlugin({
       fileBuild: {
         emitDeclaration: true,
-        ignoreInputs: ['**/*.spec.*', '**/*.tests.*', '**/*.d.ts', '**/*.vue', '**/__tests__'],
+        ignoreInputs: [
+          'src/*/__tests__/*.spec.*',
+          '**/*.tests.*',
+          '**/*.d.ts',
+          '**/*.vue',
+          '**/__tests__',
+        ],
       },
       libBuild: {
         buildOptions: {

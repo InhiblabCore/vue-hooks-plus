@@ -5,12 +5,12 @@
     "lib": ["esnext", "dom"],
     "baseUrl": "./",
     "rootDir": "./",
-    "types": ["node"],
+    "types": ["node", "vitest", "vitest/globals"],
     "paths": {
       "@/*": ["src/*"],
       "vue-hooks-plus": ["src/index.ts"]
     }
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "lib", "es", "example"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "lib", "es", "example", "src/**/demo", "src/**/__tests__/*"]
 }

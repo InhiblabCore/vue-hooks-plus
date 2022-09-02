@@ -28,7 +28,7 @@
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
 		"build:types": "node scripts/build-types.js",
 		"type": "tsc -d",
-    "test": "vitest",
+		"test": "vitest",
 		"preview": "vite preview"
 	},
 	"peerDependencies": {
@@ -41,6 +41,7 @@
 		"query-string": "^7.1.1"
 	},
 	"devDependencies": {
+		"@types/jest": "^29.0.0",
 		"@types/js-cookie": "^3.0.1",
 		"@types/lodash": "^4.14.178",
 		"@types/marked": "^4.0.3",

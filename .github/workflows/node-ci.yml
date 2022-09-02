@@ -15,12 +15,10 @@ jobs:
         with:
           node-version: '16'
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
-
       - name: VueHooks Plus-Build
         run: |
           cd packages/hooks
-          pnpm install
+          pnpm install --frozen-lockfile
           pnpm run build
 
       - name: VueHooks Plus-Test
