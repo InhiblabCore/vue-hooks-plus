@@ -3,23 +3,38 @@ name: Node CI
 on: [push, pull_request]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7.9.5
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
+      - uses: actions/checkout@v3
 
-      - name: pnpm run intall, build, and test
-        run: |
-          pnpm
-          pnpm run test
-        env:
-          CI: true
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: pnpm
+test:
+  runs-on: ubuntu-latest
+
+  strategy:
+    matrix:
+      node: [14.x, 16.x]
+    fail-fast: false
+
+  steps:
+    - uses: actions/checkout@v3
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v2
+
+    - name: Set node version to ${{ matrix.node }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node }}
+        cache: pnpm
+
+    - name: Test VueHooks Plus
+      run: pnpm run test
