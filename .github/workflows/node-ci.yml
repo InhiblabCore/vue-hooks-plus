@@ -1,39 +1,28 @@
 name: Node CI
 
-on:
-  push:
-    branches:
-      - vitest
-
- pull_request:
-    branches:
-      - vitest
+on: [push, pull_request]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [16.x]
-  steps:
-    - uses: actions/checkout@v2
-    - uses: pnpm/action-setup@v2
-      with:
-          version: 7.9.5
-    - uses: actions/setup-node@v3
-      with:
-          node-version: '16'
-          cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
+        node-version: [14.x, 16.x]
 
-    - name: Install pnpm
-      uses: pnpm/action-setup@v2.2.2
+    steps:
+      - uses: actions/checkout@v1
 
-    - name: Use Node.js ${{ matrix.node-version }}
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-    - name: pnpm run test
-      run: pnpm test   
-      env:
+
+      - name: pnpm run intall, build, and test
+        run: |
+          pnpm run test
+        env:
           CI: true
