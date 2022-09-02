@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "vitest",
 		"prepare": "husky install"
 	},
 	"devDependencies": {
@@ -23,7 +23,10 @@
 		"husky": "^8.0.1",
 		"lint-staged": "^13.0.3",
 		"prettier": "^2.7.1",
+		"sleep": "link:@/utils/sleep",
 		"typescript": "^4.6.3",
+		"vite": "^3.0.9",
+		"vitest": "^0.22.1",
 		"vue": "^3.2.37",
 		"vue-eslint-parser": "^9.0.3"
 	},

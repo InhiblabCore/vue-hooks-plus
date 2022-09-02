@@ -80,7 +80,7 @@ module.exports = {
 
   overrides: [
     {
-      files: ['**/*.md', '**/*.md/*.*', 'demo.vue', 'scripts/*.ts', '*.test.ts'],
+      files: ['**/*.md', '**/*.md/*.*', 'demo.vue', 'scripts/*.ts', '*.test.ts', '*.spec.ts'],
       rules: {
         'no-alert': 'off',
         'no-console': 'off',
