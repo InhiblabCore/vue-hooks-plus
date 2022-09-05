@@ -26,7 +26,7 @@
 		"docs:serve": "vitepress serve .docs --host",
 		"clean": "rimraf dist lib es",
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
-		"build:types": "node scripts/build-types.js",
+		"build:types": "vue-tsc --noEmit && vite build --mode fullTypes",
 		"type": "tsc -d",
 		"test": "vitest",
 		"preview": "vite preview"
@@ -41,6 +41,7 @@
 		"query-string": "^7.1.1"
 	},
 	"devDependencies": {
+		"@types/fs-extra": "^9.0.13",
 		"@types/jest": "^29.0.0",
 		"@types/js-cookie": "^3.0.1",
 		"@types/lodash": "^4.14.178",
@@ -51,6 +52,7 @@
 		"@vue-hooks-plus/vite-plugin-gen-temp": "1.4.0",
 		"@vue-hooks-plus/vitepress-demo-block": "^1.0.0",
 		"cross-env": "^7.0.3",
+		"fs-extra": "^10.1.0",
 		"gh-pages": "^4.0.0",
 		"less": "^4.1.3",
 		"prettier": "^1.19.1",

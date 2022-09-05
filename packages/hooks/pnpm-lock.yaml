@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/fs-extra': ^9.0.13
   '@types/jest': ^29.0.0
   '@types/js-cookie': ^3.0.1
   '@types/lodash': ^4.14.178
@@ -11,6 +12,7 @@ specifiers:
   '@vue-hooks-plus/vite-plugin-gen-temp': 1.4.0
   '@vue-hooks-plus/vitepress-demo-block': ^1.0.0
   cross-env: ^7.0.3
+  fs-extra: ^10.1.0
   gh-pages: ^4.0.0
   js-cookie: ^2.x.x
   less: ^4.1.3
@@ -38,6 +40,7 @@ dependencies:
   query-string: 7.1.1
 
 devDependencies:
+  '@types/fs-extra': 9.0.13
   '@types/jest': 29.0.0
   '@types/js-cookie': 3.0.1
   '@types/lodash': 4.14.181
@@ -48,6 +51,7 @@ devDependencies:
   '@vue-hooks-plus/vite-plugin-gen-temp': 1.4.0_less@4.1.3
   '@vue-hooks-plus/vitepress-demo-block': 1.0.0
   cross-env: 7.0.3
+  fs-extra: 10.1.0
   gh-pages: 4.0.0
   less: 4.1.3
   prettier: 1.19.1
@@ -451,6 +455,12 @@ packages:
 
   /@types/chai/4.3.3:
     resolution: {integrity: sha512-hC7OMnszpxhZPduX+m+nrx+uFoLkWOMiR4oa/AZF3MuSETYTZmFfJAHqZEM8MVlvfG7BEUcgvtwoCTxBp6hm3g==}
+    dev: true
+
+  /@types/fs-extra/9.0.13:
+    resolution: {integrity: sha512-nEnwB++1u5lVDM2UI4c1+5R+FYaKfaAzS4OococimjVm3nQw3TuzH5UNsocrcTBbhnerblyHj4A49qXbIiZdpA==}
+    dependencies:
+      '@types/node': 17.0.24
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
