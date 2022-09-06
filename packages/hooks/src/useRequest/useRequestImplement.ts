@@ -5,7 +5,7 @@ import { Options, Plugin, Result, Service } from './types'
 
 function useRequestImplement<TData, TParams extends any[]>(
   service: Service<TData, TParams>,
-  options: Options<TData, TParams> = {},
+  options: Options<TData, TParams, any> = {},
   plugins: Plugin<TData, TParams>[] = [],
 ) {
   // 读取配置
