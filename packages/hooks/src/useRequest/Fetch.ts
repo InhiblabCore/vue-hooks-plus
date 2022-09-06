@@ -15,7 +15,7 @@ export default class Fetch<TData, TParams extends any[] = any> {
 
   constructor(
     public serviceRef: Ref<Service<TData, TParams>>,
-    public options: Options<TData, TParams>,
+    public options: Options<TData, TParams, any>,
     public setUpdataData: (s: any, key?: keyof FetchState<TData, TParams>) => void,
     public initState: Partial<FetchState<TData, TParams>> = {},
   ) {
