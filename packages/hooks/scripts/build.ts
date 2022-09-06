@@ -42,6 +42,7 @@ export const buildFullTypesConfig: UserConfig = {
       to: resolve(__dirname, '..', 'dist/types/index.d.ts'),
     }),
     dts({
+      include: ['src/**/*.ts'],
       insertTypesEntry: true,
       rollupTypes: true,
       outputDir: path.resolve(__dirname, '..', 'types'),

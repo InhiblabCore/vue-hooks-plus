@@ -11,6 +11,6 @@
       "vue-hooks-plus": ["src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "lib", "es", "example", "src/**/demo", "src/**/__tests__/*"]
+  "include": ["src/**/*.ts", "src/**/demo"],
+  "exclude": ["node_modules", "dist", "lib", "es", "example", "src/**/__tests__/*"]
 }
