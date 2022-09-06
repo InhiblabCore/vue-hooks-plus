@@ -92,7 +92,7 @@ export type Options<TData, TParams extends any[],TPlugin> = {
   [x:string]:any
 }
 
-export type Plugin<TData, TParams extends any[],TPlugin> = {
+export type Plugin<TData, TParams extends any[],TPlugin =any> = {
   (fetchInstance: Fetch<TData, TParams>, options: Options<TData, TParams,TPlugin>): PluginReturn<
     TData,
     TParams
