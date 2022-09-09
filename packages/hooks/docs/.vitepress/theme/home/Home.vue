@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { onMounted } from 'vue'
-  import HomeTeam from './HomeTeam.vue'
+  // import HomeTeam from './HomeTeam.vue'
   import Icon from './Icon.vue'
 </script>
 
@@ -63,17 +63,35 @@
       <div class="vt-box">
         <h2>🔋 支持 SSR</h2>
         <p>
-          服务器端渲染的友好支持
+          服务器端渲染的友好支持。
         </p>
       </div>
       <div class="vt-box">
         <h2>🦾 useRequest</h2>
         <p>
-          基于插件模式设计的请求函数
+          基于插件模式设计的请求函数。
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>🤺 演练场</h2>
+        <p>
+          在线快速体验 hooks 编码。
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>⚡️ 按需加载</h2>
+        <p>
+          拿你想要的，减少打包体积。
+        </p>
+      </div>
+      <div class="vt-box">
+        <h2>🔐 安全性</h2>
+        <p>
+          安全极速 Vitest 单元测试。
         </p>
       </div>
     </section>
-    <HomeTeam />
+    <!-- <HomeTeam /> -->
   </div>
 </template>
 
@@ -88,6 +106,7 @@
 
   .home {
     background: url('/light.jpg');
+    height: 100%;
   }
   .dark {
     .home {
@@ -219,7 +238,8 @@
     font-size: 15px;
   }
   #highlights .vt-box {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.08);
+    margin-top: 16px;
   }
   #sponsors {
     max-width: 900px;
@@ -267,6 +287,7 @@
     }
     #highlights .vt-box {
       padding: 20px 36px;
+      margin-top: 0px;
     }
     .actions a {
       margin: 0.5em 0;

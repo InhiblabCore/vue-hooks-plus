@@ -31,6 +31,10 @@ export default defineConfig({
         text: '演练场 (PC)',
         link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
       },
+      {
+        text: '更新日志',
+        link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
+      },
     ],
     sidebar: {
       '/': getHooksSidebar(),
