@@ -13,6 +13,7 @@ export const buildConfig: UserConfig = {
           'src/*/__tests__/*.spec.*',
           '**/*.tests.*',
           '**/*.d.ts',
+          'docs/**/*.ts',
           '**/*.vue',
           '**/__tests__',
         ],
