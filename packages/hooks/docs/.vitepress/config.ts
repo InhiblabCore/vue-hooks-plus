@@ -15,7 +15,7 @@ export default defineConfig({
       },
     ],
   ],
-  title: 'vue-hooks-plus',
+  title: 'VueHook Plus',
   description: '_description',
   // // 扫描srcIncludes里面的 *.md文件
   // srcIncludes: ['src'],

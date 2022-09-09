@@ -2,18 +2,18 @@
   <div>
     <p>{{ current }} [max: 10; min: 1;]</p>
     <div class="contain">
-      <button type="button" @click="inc()">
+      <vhp-button type="vhp-button" @click="inc()">
         inc()
-      </button>
-      <button type="button" @click="dec()">
+      </vhp-button>
+      <vhp-button type="vhp-button" @click="dec()">
         dec()
-      </button>
-      <button type="button" @click="set(3)">
+      </vhp-button>
+      <vhp-button type="vhp-button" @click="set(3)">
         set(3)
-      </button>
-      <button type="button" @click="reset()">
+      </vhp-button>
+      <vhp-button type="vhp-button" @click="reset()">
         reset()
-      </button>
+      </vhp-button>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@
 
 <style scoped lang="less">
   .contain {
-    & > button {
+    & > vhp-button {
       margin-right: 8px;
     }
   }

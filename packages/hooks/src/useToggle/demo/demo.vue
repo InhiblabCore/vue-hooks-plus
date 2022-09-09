@@ -1,12 +1,12 @@
 <template>
   <div>
     <div>{{ flag }}</div>
-    <br />
+    <br>
     <div>
       <p>
-        <button style="margin-left: 16px" @click="() => toggle()">toggle</button>
-        <button style="margin-left: 16px" @click="() => setRight()">togle True</button>
-        <button style="margin-left: 16px" @click="() => setLeft()">togle False</button>
+        <vhp-button style="margin-left: 16px" @click="() => toggle()">toggle</vhp-button>
+        <vhp-button style="margin-left: 16px" @click="() => setRight()">togle True</vhp-button>
+        <vhp-button style="margin-left: 16px" @click="() => setLeft()">togle False</vhp-button>
       </p>
     </div>
   </div>

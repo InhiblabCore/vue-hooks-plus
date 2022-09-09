@@ -4,9 +4,9 @@
 		<div>number: {{ count }}</div>
 		<div>
 			randomNum: {{ mathRef }}
-			<button @click="() => (mathRef = Math.random())" style="margin-left: 8px">
+			<vhp-button @click="() => (mathRef = Math.random())" style="margin-left: 8px">
 				🎲
-			</button>
+			</vhp-button>
 		</div>
 	</div>
 </template>
@@ -32,18 +32,18 @@ useWhyDidYouUpdate('useWhyDidYouUpdateComponent', {
  -->
 
 <template>
-	<div>
-		<demo-item :count="count" />
-		<button @click="count += 1">新增</button>
-		<button @click="count -= 1">减少</button>
-	</div>
+  <div>
+    <demo-item :count="count" />
+    <vhp-button @click="count += 1">新增</vhp-button>
+    <vhp-button @click="count -= 1">减少</vhp-button>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import DemoItem from './DemoItem.vue'
+  import { ref } from 'vue'
+  import DemoItem from './DemoItem.vue'
 
-const count = ref(0)
+  const count = ref(0)
 </script>
 
 <style scoped lang="less"></style>

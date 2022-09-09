@@ -1,12 +1,12 @@
 <template>
   <div style="margin-top: 16px;">
-    <button @click="() => (store.id = 1)">改变ID为 1</button>
-    <button @click="() => (store.id = 2)" style="margin-left: 16px;">
+    <vhp-button @click="() => (store.id = 1)">改变ID为 1</vhp-button>
+    <vhp-button @click="() => (store.id = 2)" style="margin-left: 16px;">
       改变store ID为 2
-    </button>
-    <button @click="() => (id = 3)" style="margin-left: 16px;">
+    </vhp-button>
+    <vhp-button @click="() => (id = 3)" style="margin-left: 16px;">
       改变 store ID为 3
-    </button>
+    </vhp-button>
   </div>
   <div style="margin-top: 16px;">读取值：{{ data }}</div>
 </template>
