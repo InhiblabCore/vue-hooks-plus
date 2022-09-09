@@ -1,7 +1,7 @@
 <!-- <template>
-	<button @click="() => refresh()">
+	<vhp-button @click="() => refresh()">
 		重新发起请求:{{ `loading：${loading}` }}
-	</button>
+	</vhp-button>
 	<div>{{ data }}</div>
 </template>
 
@@ -25,16 +25,16 @@ const { data, loading, refresh } = useRequest(() => getUsername(), {
 <style scoped lang="less"></style> -->
 
 <template>
-	<div style="padding: 16px;">
-		<h2>A请求内容</h2>
-		<share-demo />
-		<h2>B请求内容</h2>
-		<share-demo />
-	</div>
+  <div style="padding: 16px;">
+    <h2>A请求内容</h2>
+    <share-demo />
+    <h2>B请求内容</h2>
+    <share-demo />
+  </div>
 </template>
 
 <script lang="ts" setup>
-import ShareDemo from './ShareDemo.vue'
+  import ShareDemo from './ShareDemo.vue'
 </script>
 
 <style scoped lang="less"></style>

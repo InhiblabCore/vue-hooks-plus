@@ -1,16 +1,16 @@
 <template>
   <div>
     <div>{{ flag }}</div>
-    <br />
+    <br>
     <div>
       <p>
-        <button style="margin-left: 16px" @click="() => toggle()">toggle</button>
-        <button style="margin-left: 16px" @click="() => set('Hello')">set Hello</button>
-        <button style="margin-left: 16px" @click="() => set('Vue-hooks-plus')"
-          >setvue-hooks-plus</button
+        <vhp-button style="margin-left: 16px" @click="() => toggle()">toggle</vhp-button>
+        <vhp-button style="margin-left: 16px" @click="() => set('Hello')">set Hello</vhp-button>
+        <vhp-button style="margin-left: 16px" @click="() => set('Vue-hooks-plus')"
+        >setvue-hooks-plus</vhp-button
         >
-        <button style="margin-left: 16px" @click="() => setRight()">setRight</button>
-        <button style="margin-left: 16px" @click="() => setLeft()">setLeft</button>
+        <vhp-button style="margin-left: 16px" @click="() => setRight()">setRight</vhp-button>
+        <vhp-button style="margin-left: 16px" @click="() => setLeft()">setLeft</vhp-button>
       </p>
     </div>
   </div>

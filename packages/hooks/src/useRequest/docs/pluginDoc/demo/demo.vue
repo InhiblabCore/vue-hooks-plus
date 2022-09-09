@@ -29,7 +29,7 @@
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({
-          name: 'yong_git',
+          name: 'vue-hooks-plus',
           age: 18,
         })
       }, 1000)

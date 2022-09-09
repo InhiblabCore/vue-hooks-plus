@@ -1,17 +1,17 @@
 <template>
   <div>
     <div>
-      <button style="margin-left: 8px;" @click="() => add(String(Date.now()))">
+      <vhp-button style="margin-left: 8px;" @click="() => add(String(Date.now()))">
         添加
-      </button>
-      <button
+      </vhp-button>
+      <vhp-button
         style="margin-left: 8px;"
         @click="() => remove('hi vue-hooks-plus')"
         :disabled="!set.has('hi vue-hooks-plus')"
       >
         移除
-      </button>
-      <button style="margin-left: 8px;" @click="() => reset()">重置</button>
+      </vhp-button>
+      <vhp-button style="margin-left: 8px;" @click="() => reset()">重置</vhp-button>
     </div>
     <div>
       <pre>{{ JSON.stringify(Array.from(set), null, 2) }}</pre>

@@ -1,118 +1,121 @@
-import { Ref,WatchSource } from "vue";
-import type { CachedData } from "./utils/cache";
-import Fetch from "./Fetch";
+import { Ref, WatchSource } from 'vue'
+import { CachedData } from './utils/cache'
+import Fetch from './Fetch'
 
-export type Service<TData, TParams extends any[]> = (
-  ...args: TParams
-) => Promise<TData>;
+export type Service<TData, TParams extends any[]> = (...args: TParams) => Promise<TData>
 
-export type Subscribe = () => void;
+export type Subscribe = () => void
 
 export interface FetchState<TData, TParams extends any[]> {
-  loading: boolean;
-  params?: TParams;
-  data?: TData;
-  error?: Error | unknown;
+  loading: boolean
+  params?: TParams
+  data?: TData
+  error?: Error | unknown
 }
 
 export interface PluginReturn<TData, TParams extends any[]> {
-  onBefore?: (params: TParams) =>
+  onBefore?: (
+    params: TParams,
+  ) =>
     | ({
-        stopNow?: boolean;
-        returnNow?: boolean;
+        stopNow?: boolean
+        returnNow?: boolean
       } & Partial<FetchState<TData, TParams>>)
-    | void;
+    | void
 
   onRequest?: (
     service: Service<TData, TParams>,
-    params: TParams
+    params: TParams,
   ) => {
-    servicePromise?: Promise<TData>;
-  };
+    servicePromise?: Promise<TData>
+  }
 
-  onSuccess?: (data: TData, params: TParams) => void;
-  onError?: (e: Error, params: TParams) => void;
-  onFinally?: (params: TParams, data?: TData, e?: Error) => void;
-  onCancel?: () => void;
-  onMutate?: (data: TData) => void;
+  onSuccess?: (data: TData, params: TParams) => void
+  onError?: (e: Error, params: TParams) => void
+  onFinally?: (params: TParams, data?: TData, e?: Error) => void
+  onCancel?: () => void
+  onMutate?: (data: TData) => void
 }
 
-export type Options<TData, TParams extends any[],TPlugin> = { 
-  [K in keyof TPlugin] : TPlugin[K]
-}& {
-  manual?: boolean;
+export type Options<TData, TParams extends any[], TPlugin> = {
+  [K in keyof TPlugin]: TPlugin[K]
+} & {
+  manual?: boolean
 
-  onBefore?: (params: TParams) => void;
-  onSuccess?: (data: TData, params: TParams) => void;
-  onError?: (e: Error, params: TParams) => void;
-  onFinally?: (params: TParams, data?: TData, e?: Error) => void;
+  onBefore?: (params: TParams) => void
+  onSuccess?: (data: TData, params: TParams) => void
+  onError?: (e: Error, params: TParams) => void
+  onFinally?: (params: TParams, data?: TData, e?: Error) => void
 
-  defaultParams?: TParams;
+  defaultParams?: TParams
 
   // 依赖更新
-  refreshDeps?: WatchSource[] | any;
-  refreshDepsAction?: () => void;
+  refreshDeps?: WatchSource[] | any
+  refreshDepsAction?: () => void
 
   // loading延迟
-  loadingDelay?: number | Ref<number>;
+  loadingDelay?: number | Ref<number>
+
+  // 格式化数据
+  formatResult?: (data?: TData) => any
 
   // 轮询
-  pollingInterval?: Ref<number> | number;
-  pollingWhenHidden?:boolean;
+  pollingInterval?: Ref<number> | number
+  pollingWhenHidden?: boolean
 
   // 屏幕聚焦重新请求
-  refreshOnWindowFocus?: Ref<boolean> | boolean;
-  focusTimespan?: number;
+  refreshOnWindowFocus?: Ref<boolean> | boolean
+  focusTimespan?: number
 
   // 防抖
-  debounceWait?: number;
-  debounceLeading?: Ref<boolean>;
-  debounceTrailing?: Ref<boolean>;
-  debounceMaxWait?: Ref<number>;
+  debounceWait?: number
+  debounceLeading?: Ref<boolean>
+  debounceTrailing?: Ref<boolean>
+  debounceMaxWait?: Ref<number>
 
   // 节流
-  throttleWait?: number;
-  throttleLeading?: Ref<boolean>;
-  throttleTrailing?: Ref<boolean>;
+  throttleWait?: number
+  throttleLeading?: Ref<boolean>
+  throttleTrailing?: Ref<boolean>
 
   // 请求缓存
-  cacheKey?: string;
-  cacheTime?: number;
-  staleTime?: number;
-  setCache?: (data: CachedData<TData, TParams>) => void;
-  getCache?: (params: TParams) => CachedData<TData, TParams> | undefined;
+  cacheKey?: string
+  cacheTime?: number
+  staleTime?: number
+  setCache?: (data: CachedData<TData, TParams>) => void
+  getCache?: (params: TParams) => CachedData<TData, TParams> | undefined
 
   // 错误重试
-  retryCount?: number;
-  retryInterval?: number;
+  retryCount?: number
+  retryInterval?: number
 
   // 只有当 ready 为 true 时，才会发起请求
-  ready?: Ref<boolean> | boolean;
+  ready?: Ref<boolean> | boolean
 
-  [x:string]:any
+  [x: string]: any
 }
 
-export type Plugin<TData, TParams extends any[],TPlugin =any> = {
-  (fetchInstance: Fetch<TData, TParams>, options: Options<TData, TParams,TPlugin>): PluginReturn<
+export type Plugin<TData, TParams extends any[], TPlugin = any> = {
+  (fetchInstance: Fetch<TData, TParams>, options: Options<TData, TParams, TPlugin>): PluginReturn<
     TData,
     TParams
-  >;
-  onInit?: (options: Options<TData, TParams,TPlugin>) => Partial<FetchState<TData, TParams>>;
-};
-
-export interface Result<TData, TParams extends any[]> {
-  loading: Ref<boolean>;
-  data?: Ref<TData>;
-  error?: Ref<Error>;
-  params: Ref<TParams | []>;
-  cancel: Fetch<TData, TParams>["cancel"];
-  refresh: Fetch<TData, TParams>["refresh"];
-  refreshAsync: Fetch<TData, TParams>["refreshAsync"];
-  run: Fetch<TData, TParams>["run"];
-  runAsync: Fetch<TData, TParams>["runAsync"];
-  mutate: Fetch<TData, TParams>["mutate"];
+  >
+  onInit?: (options: Options<TData, TParams, TPlugin>) => Partial<FetchState<TData, TParams>>
 }
 
-export type Timeout = ReturnType<typeof setTimeout>;
+export interface Result<TData, TParams extends any[]> {
+  loading: Ref<boolean>
+  data?: Ref<TData>
+  error?: Ref<Error>
+  params: Ref<TParams | []>
+  cancel: Fetch<TData, TParams>['cancel']
+  refresh: Fetch<TData, TParams>['refresh']
+  refreshAsync: Fetch<TData, TParams>['refreshAsync']
+  run: Fetch<TData, TParams>['run']
+  runAsync: Fetch<TData, TParams>['runAsync']
+  mutate: Fetch<TData, TParams>['mutate']
+}
 
-export type Interval = ReturnType<typeof setInterval>;
+export type Timeout = ReturnType<typeof setTimeout>
+
+export type Interval = ReturnType<typeof setInterval>

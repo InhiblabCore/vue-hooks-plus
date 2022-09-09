@@ -1,27 +1,27 @@
 <template>
-	<div>读取用户名称：{{ loading ? 'loading' : data }}</div>
-	<button @click="cancel()">停止</button>
+  <div>读取用户名称：{{ loading ? 'loading' : data }}</div>
+  <vhp-button @click="cancel()">停止</vhp-button>
 </template>
 
 <script lang="ts" setup>
-import { useRequest } from 'vue-hooks-plus'
+  import { useRequest } from 'vue-hooks-plus'
 
-function getUsername(): Promise<string> {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			if (Math.random() > 0.5) {
-				resolve(String(Date.now()))
-			} else {
-				reject(new Error('Failed to get username'))
-			}
-		}, 1000)
-	})
-}
+  function getUsername(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (Math.random() > 0.5) {
+          resolve(String(Date.now()))
+        } else {
+          reject(new Error('Failed to get username'))
+        }
+      }, 1000)
+    })
+  }
 
-const { data, loading, cancel } = useRequest(() => getUsername(), {
-	pollingInterval: 3000,
-	pollingWhenHidden: false,
-})
+  const { data, loading, cancel } = useRequest(() => getUsername(), {
+    pollingInterval: 3000,
+    pollingWhenHidden: false,
+  })
 </script>
 
 <style scoped lang="less"></style>

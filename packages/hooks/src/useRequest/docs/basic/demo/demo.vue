@@ -8,9 +8,7 @@
   function getUsername(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log(666)
-
-        resolve('yong_git')
+        resolve('vue-hooks-plus')
       }, 1000)
     })
   }

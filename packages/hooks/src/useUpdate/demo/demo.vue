@@ -1,20 +1,20 @@
 <template>
-	<div>
-		<div>Time: {{ date }}</div>
-		<button type="button" @click="() => setUpdate()">update</button>
-	</div>
+  <div>
+    <div>Time: {{ date }}</div>
+    <vhp-button type="vhp-button" @click="() => setUpdate()">update</vhp-button>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { watch, ref } from 'vue'
-import { useUpdate } from 'vue-hooks-plus'
+  import { watch, ref } from 'vue'
+  import { useUpdate } from 'vue-hooks-plus'
 
-const { update, setUpdate } = useUpdate()
-const date = ref(Date.now())
+  const { update, setUpdate } = useUpdate()
+  const date = ref(Date.now())
 
-watch(update, () => {
-	date.value = Date.now()
-})
+  watch(update, () => {
+    date.value = Date.now()
+  })
 </script>
 
 <style scoped lang="less"></style>

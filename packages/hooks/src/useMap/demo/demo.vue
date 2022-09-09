@@ -1,14 +1,17 @@
 <template>
   <div>
     <div>
-      <button style="margin-left: 8px;" @click="() => set(String(Date.now()), new Date().toJSON())">
+      <vhp-button
+        style="margin-left: 8px;"
+        @click="() => set(String(Date.now()), new Date().toJSON())"
+      >
         添加
-      </button>
-      <button style="margin-left: 8px;" @click="() => setAll([['text', 'this is a new Map']])">
+      </vhp-button>
+      <vhp-button style="margin-left: 8px;" @click="() => setAll([['text', 'this is a new Map']])">
         设置新的 Map
-      </button>
-      <button style="margin-left: 8px;" @click="() => remove('msg')">移除 msg</button>
-      <button style="margin-left: 8px;" @click="() => reset()">重置</button>
+      </vhp-button>
+      <vhp-button style="margin-left: 8px;" @click="() => remove('msg')">移除 msg</vhp-button>
+      <vhp-button style="margin-left: 8px;" @click="() => reset()">重置</vhp-button>
     </div>
     <div>
       <pre>{{ JSON.stringify(Array.from(map), null, 2) }}</pre>

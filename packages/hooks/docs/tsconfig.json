@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist", //输出文件
     "lib": ["esnext", "dom"],
@@ -11,6 +11,5 @@
       "vue-hooks-plus": ["src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/demo/*.vue"],
-  "exclude": ["node_modules", "dist", "lib", "es", "example", "src/**/__tests__/*"]
+  "include": [".vitepress/components/**/*.vue", ".vitepress/**/*.ts"]
 }
