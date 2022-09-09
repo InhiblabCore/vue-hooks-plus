@@ -8,8 +8,6 @@
   function getUsername(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        console.log(666)
-
         resolve('vue-hooks-plus')
       }, 1000)
     })

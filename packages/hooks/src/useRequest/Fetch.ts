@@ -100,25 +100,27 @@ export default class Fetch<TData, TParams extends any[] = any> {
       if (currentCount !== this.count) {
         return new Promise(() => {})
       }
+      // 格式化数据
+      const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
 
       this.setState({
-        data: res,
+        data: formattedResult,
         error: undefined,
         loading: false,
       })
       // 请求成功
-      this.options.onSuccess?.(res, params)
+      this.options.onSuccess?.(formattedResult, params)
 
-      this.runPluginHandler('onSuccess', res, params)
+      this.runPluginHandler('onSuccess', formattedResult, params)
 
       // 无论请求成功还是失败都执行
-      this.options.onFinally?.(params, res, undefined)
+      this.options.onFinally?.(params, formattedResult, undefined)
 
       if (currentCount === this.count) {
-        this.runPluginHandler('onFinally', params, res, undefined)
+        this.runPluginHandler('onFinally', params, formattedResult, undefined)
       }
 
-      return res
+      return formattedResult
     } catch (error) {
       if (currentCount !== this.count) {
         return new Promise(() => {})
