@@ -28,7 +28,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: 'Hooks', link: '/useRequest/' },
       {
-        text: '演练场',
+        text: '演练场 (PC)',
         link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
       },
     ],
