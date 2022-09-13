@@ -167,7 +167,7 @@ function getHooksSidebar() {
     {
       text: 'Scene',
       items: [
-        // { text: 'useEcharts', link: '/useEcharts/' },
+        { text: 'useInfiniteScroll', link: '/useInfiniteScroll/' },
         { text: 'useVirtualList', link: '/useVirtualList/' },
         { text: 'useNetwork', link: '/useNetwork/' },
         { text: 'useCounter', link: '/useCounter/' },

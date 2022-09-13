@@ -31,7 +31,7 @@
         //   console.log(JSON.parse(JSON.stringify(block.value!.innerText.replace('|', ''))))
         // },
       })
-        .type('<br><h1>欢迎使用 VueHooks Plus!</h1><br /><br />', {
+        .type('<br><h1 style="opacity: 0.5;">欢迎使用 VueHooks Plus!</h1><br /><br />', {
           delay: 100,
         })
         .type(
@@ -45,8 +45,8 @@
         )
         .type(
           `&nbspconst { <span class="variable-code">data</span>  } = <span class="module-code">useRequest</span>(()=><span class="module-code">getData</span>(),{
-          <span class="variable-code"> ...options</span>
-        })`,
+    <span class="variable-code">...options</span>
+ })`,
         )
         .type(`<br /><br /><br /><span class="label-code">&lt;script /&gt;</span>`)
         .type(
@@ -97,8 +97,8 @@
   }
 
   .terminal {
-    line-height: 18px;
-    min-height: 450px;
+    line-height: 16px;
+    min-height: 480px;
     margin-top: 25px;
     padding: 30px;
     margin-left: 12px;

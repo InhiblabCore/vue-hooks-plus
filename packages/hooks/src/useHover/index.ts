@@ -1,5 +1,5 @@
 import { Ref } from "vue";
-import { useBoolean } from "..";
+import { useBoolean } from "../index";
 import useEventListener from "../useEventListener";
 import type { BasicTarget } from "../utils/domTarget";
 
