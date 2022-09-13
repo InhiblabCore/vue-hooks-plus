@@ -38,7 +38,7 @@
     border: 1px solid;
     height: 100px;
     width: 100px;
-    textalign: center;
-    margintop: 80px;
+    text-align: center;
+    margin-top: 80px;
   }
 </style>
