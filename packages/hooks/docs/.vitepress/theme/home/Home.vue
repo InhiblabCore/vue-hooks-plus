@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { onMounted } from 'vue'
-  // import HomeTeam from './HomeTeam.vue'
+  import DemoEditor from './DemoEditor.vue'
   import Icon from './Icon.vue'
 </script>
 
@@ -92,17 +92,27 @@
       </div>
     </section>
     <!-- <HomeTeam /> -->
+
+    <DemoEditor>
+      <div class="demo-name">
+        Demo.vue
+      </div>
+
+      <!-- <div class="language-md !bg-transparent">
+        <pre ref="block" class="text-left whitespace-normal font-mono bg-transparent"></pre>
+      </div> -->
+    </DemoEditor>
   </div>
 </template>
 
 <style scoped lang="less">
   /* :deep(html, .VPHome) {
-    background: url('/light.jpg') !important;
-  }
+      background: url('/light.jpg') !important;
+    }
 
-  :deep(.dark .VPHome) {
-    background: url('/dark.jpg') !important;
-  } */
+    :deep(.dark .VPHome) {
+      background: url('/dark.jpg') !important;
+    } */
 
   .home {
     background: url('/light.jpg');
@@ -113,6 +123,12 @@
       background: url('/dark.jpg');
     }
   }
+
+  .demo-name {
+    opacity: 0.5;
+    text-align: center;
+  }
+
   section {
     padding: 0 42px 32px 32px;
     background: url('/grid.svg');
@@ -334,27 +350,27 @@
   }
 
   /* .vt-box-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.vt-box-container .vt-box {
-	background-color: var(--vt-c-bg-soft);
-	transition: color 0.5s, background-color 0.5s;
-	padding: 28px 36px;
-	border-radius: 8px;
-	flex: 0 32%;
-	font-size: 14px;
-	font-weight: 500;
-} */
+  	display: flex;
+  	flex-wrap: wrap;
+  	justify-content: space-between;
+  }
+  .vt-box-container .vt-box {
+  	background-color: var(--vt-c-bg-soft);
+  	transition: color 0.5s, background-color 0.5s;
+  	padding: 28px 36px;
+  	border-radius: 8px;
+  	flex: 0 32%;
+  	font-size: 14px;
+  	font-weight: 500;
+  } */
 
   /* .get-started {
-	color: var(--vt-c-text-code);
-	background: var(--vt-c-black-mute);
-}
+  	color: var(--vt-c-text-code);
+  	background: var(--vt-c-black-mute);
+  }
 
-.actions .get-started {
-	margin-right: 18px;
-	background: var(--vt-c-black-mute);
-} */
+  .actions .get-started {
+  	margin-right: 18px;
+  	background: var(--vt-c-black-mute);
+  } */
 </style>

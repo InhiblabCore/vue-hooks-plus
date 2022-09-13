@@ -23,6 +23,7 @@ specifiers:
   rimraf: ^3.0.2
   ts-morph: ^13.0.2
   ts-node: ^10.7.0
+  typeit: ^8.7.0
   typescript: ^4.4.4
   vite: ^3.0.2
   vite-plugin-build: ^0.6.0
@@ -58,6 +59,7 @@ devDependencies:
   rimraf: 3.0.2
   ts-morph: 13.0.3
   ts-node: 10.7.0_c6ucwwwirjo6ockovr3lj3o2cm
+  typeit: 8.7.0
   typescript: 4.6.3
   vite: 3.0.5_less@4.1.3
   vite-plugin-build: 0.6.0
@@ -3026,6 +3028,11 @@ packages:
   /type-detect/4.0.8:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
+    dev: true
+
+  /typeit/8.7.0:
+    resolution: {integrity: sha512-MeraWJAquZr0EPo2yRYQnSdAxIuzgS5s4JEvzOdp63ZRRpETxtiHYvCJiK4aJA6FuScz3oUJkjmjQsLrx6VOMA==}
+    requiresBuild: true
     dev: true
 
   /typescript/4.6.3:
