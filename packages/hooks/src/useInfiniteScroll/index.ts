@@ -1,5 +1,5 @@
 import { computed, ref, watch } from "vue";
-import { useBoolean, useEventListener, useRequest } from "..";
+import { useBoolean, useEventListener, useRequest } from "../index";
 
 import { getTargetElement } from "../utils/domTarget";
 
@@ -76,7 +76,7 @@ const useInfiniteScroll = <TData extends Data>(
   };
 
   const loadMoreAsync = () => {
-    if (noMore) return;
+    if (noMore.value) return;
     setLoadingMore(true);
     return runAsync(finalData.value);
   };

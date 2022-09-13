@@ -14,6 +14,7 @@ specifiers:
   cross-env: ^7.0.3
   fs-extra: ^10.1.0
   gh-pages: ^4.0.0
+  intersection-observer: ^0.12.2
   js-cookie: ^2.x.x
   less: ^4.1.3
   lodash: ^4.17.21
@@ -35,6 +36,7 @@ specifiers:
   vue-typical: ^2.1.0
 
 dependencies:
+  intersection-observer: 0.12.2
   js-cookie: 2.2.1
   lodash: 4.17.21
   marked: 4.0.17
@@ -2038,6 +2040,10 @@ packages:
   /inherits/2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
     dev: true
+
+  /intersection-observer/0.12.2:
+    resolution: {integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==}
+    dev: false
 
   /is-binary-path/2.1.0:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}

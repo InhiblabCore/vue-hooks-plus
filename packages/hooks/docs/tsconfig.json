@@ -7,8 +7,7 @@
     "rootDir": "./",
     "types": ["node", "vitest", "vitest/globals"],
     "paths": {
-      "@/*": ["src/*"],
-      "vue-hooks-plus": ["src/index.ts"]
+      "vue-hooks-plus": ["../src/index.ts"]
     }
   },
   "include": [".vitepress/components/**/*.vue", ".vitepress/**/*.ts"]

@@ -35,6 +35,7 @@
 		"vue": "^3.2.25"
 	},
 	"dependencies": {
+		"intersection-observer": "^0.12.2",
 		"js-cookie": "^2.x.x",
 		"lodash": "^4.17.21",
 		"marked": "^4.0.17",

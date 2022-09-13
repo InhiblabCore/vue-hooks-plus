@@ -186,6 +186,7 @@ function getHooksSidebar() {
         },
         { text: 'useDrop & useDrag', link: '/useDrop/' },
         { text: 'useDarkMode', link: '/useDarkMode/' },
+        { text: 'useInViewport', link: '/useInViewport/' },
         { text: 'useFavicon', link: '/useFavicon/' },
         { text: 'useTitle', link: '/useTitle/' },
         { text: 'useSize', link: '/useSize/' },
