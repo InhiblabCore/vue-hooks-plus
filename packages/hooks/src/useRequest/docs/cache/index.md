@@ -63,11 +63,12 @@ map:
 
 1. `setCache` 和 `getCache` 需要配套使用。
 2. 在自定义缓存模式下，`cacheTime` 和 `clearCache` 不会生效，请根据实际情况自行实现。
-   <demo src="./demo/demo4.vue"
-     language="vue"
-     title=""
-     desc="">
-   </demo>
+
+<demo src="./demo/demo4.vue"
+  language="vue"
+  title=""
+  desc="">
+</demo>
 
 
    ## API
