@@ -132,6 +132,10 @@ function getHooksSidebar() {
           link: '/useRequest/retry/',
         },
         {
+          text: '滚动加载、分页加载',
+          link: '/useRequest/scroll/',
+        },
+        {
           text: '自定义插件 🌟',
           link: '/useRequest/plugin/',
         },
