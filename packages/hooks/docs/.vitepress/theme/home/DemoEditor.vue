@@ -28,19 +28,19 @@
         `<span class="label-code">&lt;script</span> setup lang="ts" <span class="label-code">&gt</span> <br /><br /><br />`,
       )
       .type(
-        '&nbsp&nbsp<span class="import-code">import</span> { <span class="module-code">useRequest</span> } from  "<span class="export-code">vue-hooks-plus</span>" <br /> <br />',
+        '&nbsp<span class="import-code">import</span> { <span class="module-code">useRequest</span> } from "<span class="export-code">vue-hooks-plus</span>" <br /> <br />',
         {
           delay: 100,
         },
       )
       .type(
-        `&nbsp&nbspconst { <span class="variable-code">data</span>  } = <span class="module-code">useRequest</span>(()=><span class="module-code">getData</span>(),{
+        `&nbspconst { <span class="variable-code">data</span>  } = <span class="module-code">useRequest</span>(()=><span class="module-code">getData</span>(),{
           <span class="variable-code"> ...options</span>
         })`,
       )
       .type(`<br /><br /><br /><span class="label-code">&lt;script /&gt;</span>`)
       .type(
-        `<br /><br /><span class="label-code">&lt;template&gt;</span><br /><br />&nbsp&nbsp<span class="label-code">&lt;div&gt; <br /></span>&nbsp&nbsp&nbsp&nbspdata值为：{{<span class="variable-code"> undefined </span>}} <br />&nbsp&nbsp<span class="label-code">&lt;div /&gt; </span><br />`,
+        `<br /><br /><span class="label-code">&lt;template&gt;</span><br /><br />&nbsp<span class="label-code">&lt;div&gt; <br /></span>&nbsp&nbsp&nbspdata值为：{{<span class="variable-code"> undefined </span>}} <br />&nbsp<span class="label-code">&lt;div /&gt; </span><br />`,
       )
       .type(`<br /><span class="label-code">&lt;template /&gt;</span>`)
       .move(-27)
