@@ -55,7 +55,13 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [genTemp()],
+    plugins: [
+      process.env.NODE_ENV === 'production'
+        ? null
+        : genTemp({
+            srcDir: 'packages',
+          }),
+    ],
     resolve: {
       alias: {
         'vue-hooks-plus': resolve('./src'),

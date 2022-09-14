@@ -22,7 +22,7 @@
 	"scripts": {
 		"initial": "initial-scan .docs",
 		"docs:dev": " vitepress dev .docs --host",
-		"docs:build": "cross-env NODE_ENV=production vitepress build .docs",
+		"docs:build": "cross-env NODE_ENV=production vhp-vitepress build .docs",
 		"docs:serve": "vitepress serve .docs --host",
 		"clean": "rimraf dist lib es",
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
@@ -51,6 +51,7 @@
 		"@vitejs/plugin-vue": "^2.0.0",
 		"@vue-hooks-plus/md-demo-plugins": "^1.0.0",
 		"@vue-hooks-plus/vite-plugin-gen-temp": "1.4.0",
+		"@vue-hooks-plus/vitepress": "1.0.1",
 		"@vue-hooks-plus/vitepress-demo-block": "^1.0.0",
 		"cross-env": "^7.0.3",
 		"fs-extra": "^10.1.0",
