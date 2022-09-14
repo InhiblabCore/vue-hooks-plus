@@ -6,4 +6,4 @@ map:
 
 # 见👇 useInfiniteScroll
 
-<a href="/useInfiniteScroll/" >滚动加载和分页加载</a>
+<a href="/vue-hooks-plus/docs/useInfiniteScroll/" >滚动加载和分页加载</a>
