@@ -52,7 +52,6 @@ hooks 目录下
 ```
 npm run initial
 npm run docs:dev
-
 ```
 
 注意： 需要先初始化再启动文档项目，由于插件原因 `useAsyncOrder`、`useBoolean` 、 `useCookieState` 初始化会出现空缺状态，需要手动去到当前文件夹内的md文件中进行保存，插件会监听保存操作，后续会进行修复。
