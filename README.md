@@ -45,3 +45,15 @@ import { useRequest } from 'vue-hooks-plus'
 
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
+
+## 🏃 Start the document
+
+hooks Dir
+
+```
+npm run initial
+npm run docs:dev
+
+```
+
+Note: You need to initialize before starting the document project. Due to the plug-ins, `useAsyncOrder`, `useBoolean` and `useCookieState` initialization will be open, so you need to manually go to the md file in the current folder to save it. The plug-in will listen for the save operation and will be repaired later.
