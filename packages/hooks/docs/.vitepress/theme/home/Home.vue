@@ -16,7 +16,8 @@
         <br />
       </h1>
       <p class="description">
-        InhiblabCore's develop.
+        <!-- <br /> -->
+        <!-- InhiblabCore's develop. -->
       </p>
       <p class="actions">
         <a class="get-started" href="/vue-hooks-plus/docs/guide/">
@@ -130,11 +131,11 @@
   }
 
   section {
-    padding: 0 42px 32px 32px;
+    padding: 0 42px 32px 42px;
     background: url('/grid.svg');
   }
   #hero {
-    padding: 0 96px 32px 32px;
+    padding: 0 32px 32px 32px;
     text-align: center;
   }
   #team {
@@ -341,7 +342,7 @@
     .vt-box-container .vt-box {
       background-color: var(--vt-c-bg-soft);
       transition: color 0.5s, background-color 0.5s;
-      padding: 28px 36px;
+      padding: 28px 28px;
       border-radius: 8px;
       flex: 0 32%;
       font-size: 14px;
