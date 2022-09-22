@@ -18,14 +18,15 @@
   }
   .img {
     background-image: linear-gradient(-25deg, #647eff 40%, #42d392 50%);
-    filter: blur(80px);
+    filter: blur(60px);
     position: absolute;
-    width: 324px;
-    height: 288px;
+    width: 260px;
+    height: 230px;
     border-radius: 50%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    /* z-index: 1; */
   }
 
   img {
@@ -35,9 +36,9 @@
   }
   @media (max-width: 1450px) {
     .img {
-      width: 270px;
-      height: 240px;
-      filter: blur(70px);
+      width: 216px;
+      height: 192px;
+      filter: blur(60px);
     }
     img {
       width: 216px;
@@ -46,8 +47,8 @@
   }
   @media (max-width: 1100px) {
     .img {
-      width: 216px;
-      height: 192px;
+      width: 173px;
+      height: 154px;
       filter: blur(60px);
     }
     img {
@@ -65,9 +66,9 @@
     }
 
     .img {
-      width: 162px;
-      height: 144px;
-      filter: blur(50px);
+      width: 131px;
+      height: 115px;
+      filter: blur(40px);
     }
 
     img {
@@ -84,8 +85,8 @@
     }
 
     .img {
-      width: 108px;
-      height: 96px;
+      width: 87px;
+      height: 77px;
       filter: blur(30px);
     }
 
