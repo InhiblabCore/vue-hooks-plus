@@ -17,7 +17,7 @@
       </h1>
       <p class="description">
         <!-- <br /> -->
-        <!-- InhiblabCore's develop. -->
+        InhiblabCore's develop.
       </p>
       <p class="actions">
         <a class="get-started" href="/vue-hooks-plus/docs/guide/">
