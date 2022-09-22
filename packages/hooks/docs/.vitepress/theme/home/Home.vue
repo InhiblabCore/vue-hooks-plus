@@ -173,7 +173,7 @@
   .actions a {
     font-size: 16px;
     display: inline-block;
-    background-color: var(--vt-c-black-mute);
+    background: -webkit-linear-gradient(120deg, #647eff 30%, #41d1ff);
     padding: 8px 18px;
     font-weight: 500;
     border-radius: 8px;
