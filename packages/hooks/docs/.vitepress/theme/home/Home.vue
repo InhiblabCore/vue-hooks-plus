@@ -12,9 +12,8 @@
       <div class="logo"> </div>
     </div> -->
       <h1 class="tagline">
-        <div class="accent">VueHooks</div>
-        <!-- <span class="accent">Plus</span> -->
-        <div class="accent" style="font-size:20px">Plus</div>
+        <span class="accent">VueHooks</span>
+        <br />Plus
       </h1>
       <p class="description">
         <!-- <br /> -->
