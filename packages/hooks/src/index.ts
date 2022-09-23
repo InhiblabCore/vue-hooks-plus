@@ -13,6 +13,7 @@ import useEventListener from './useEventListener'
 import useEventEmitter from './useEventEmitter'
 import useFavicon from './useFavicon'
 import useFocusWithin from './useFocusWithin'
+import useFormatResult from './useFormatResult'
 import useHover from './useHover'
 import usePreview from './usePreview'
 import useInterval from './useInterval'
@@ -56,6 +57,7 @@ export {
   useEventEmitter,
   useFavicon,
   useFocusWithin,
+  useFormatResult,
   useHover,
   useInterval,
   useInfiniteScroll,

@@ -145,7 +145,7 @@ function getHooksSidebar() {
       text: 'State',
       items: [
         { text: 'useBoolean', link: '/useBoolean/' },
-        // { text: 'useUrlState', link: '/useUrlState/' },
+        { text: 'useFormatResult', link: '/useFormatResult/' },
         { text: 'useDebounce', link: '/useDebounce/' },
         { text: 'useThrottle', link: '/useThrottle/' },
         { text: 'useToggle', link: '/useToggle/' },
