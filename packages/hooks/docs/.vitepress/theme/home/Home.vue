@@ -155,6 +155,9 @@
     max-width: 960px;
     margin: 0px auto;
   }
+  .accent {
+    font-size: 76px;
+  }
 
   html:not(.dark) .accent,
   .dark .tagline {
@@ -277,6 +280,9 @@
     .tagline {
       font-size: 64px;
       letter-spacing: -0.5px;
+    }
+    .accent {
+      font-size: 74px;
     }
     .description {
       font-size: 18px;
