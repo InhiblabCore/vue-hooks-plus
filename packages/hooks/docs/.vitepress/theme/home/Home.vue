@@ -156,14 +156,6 @@
     margin: 0px auto;
   }
 
-  // .accent::after {
-  //   content: 'plus';
-  //   font-size: 16px;
-  //   border-radius: 100%;
-  //   padding: 5px;
-  //   border: 1px solid red;
-  // }
-
   html:not(.dark) .accent,
   .dark .tagline {
     background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
@@ -293,8 +285,11 @@
   }
   @media (max-width: 768px) {
     .tagline {
-      font-size: 48px;
+      font-size: 36px;
       letter-spacing: -0.5px;
+    }
+    .accent {
+      font-size: 48px;
     }
   }
   @media (max-width: 576px) {
@@ -322,6 +317,9 @@
   }
   @media (max-width: 370px) {
     .tagline {
+      font-size: 26px;
+    }
+    .accent {
       font-size: 36px;
     }
   }
