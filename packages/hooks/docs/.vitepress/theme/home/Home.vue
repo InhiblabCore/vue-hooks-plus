@@ -12,12 +12,13 @@
       <div class="logo"> </div>
     </div> -->
       <h1 class="tagline">
-        <span class="accent">VueHooks &nbsp Plus</span>
-        <br />
+        <div class="accent">VueHooks</div>
+        <!-- <span class="accent">Plus</span> -->
+        <div class="accent" style="font-size:20px">Plus</div>
       </h1>
       <p class="description">
         <!-- <br /> -->
-        InhiblabCore's develop.
+        <!-- <span class="accent">Plus</span> -->
       </p>
       <p class="actions">
         <a class="get-started" href="/vue-hooks-plus/docs/guide/">
@@ -148,13 +149,22 @@
   }
 
   .tagline {
-    font-size: 76px;
+    font-size: 66px;
     line-height: 1.25;
     font-weight: 900;
     letter-spacing: -1.5px;
     max-width: 960px;
     margin: 0px auto;
   }
+
+  // .accent::after {
+  //   content: 'plus';
+  //   font-size: 16px;
+  //   border-radius: 100%;
+  //   padding: 5px;
+  //   border: 1px solid red;
+  // }
+
   html:not(.dark) .accent,
   .dark .tagline {
     background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
@@ -165,7 +175,7 @@
   .description {
     max-width: 960px;
     line-height: 1.5;
-    color: var(--vt-c-text-2);
+    // color: var(--vt-c-text-2);
     transition: color 0.5s;
     font-size: 22px;
     margin: 24px auto 40px;
@@ -174,15 +184,15 @@
   .actions a {
     font-size: 16px;
     display: inline-block;
-    background: -webkit-linear-gradient(120deg, #647eff 30%, #41d1ff);
+    background: var(--vhp-getstart-bg);
+    border-radius: 20px;
     padding: 8px 18px;
     font-weight: 500;
-    border-radius: 8px;
     transition: background-color 0.5s, color 0.5s;
   }
   .actions .get-started {
     /* margin-right: 18px; */
-    font-size: 20px;
+    font-size: 16px;
   }
   .actions .icon {
     display: inline;
@@ -204,12 +214,12 @@
   }
   .actions .get-started:hover,
   .actions .setup:hover {
-    background-color: var(--vt-c-gray-light-4);
+    background: var(--vhp-getstart-bg);
     transition-duration: 0.2s;
   }
   .dark .actions .get-started:hover,
   .dark .actions .setup:hover {
-    background-color: var(--vt-c-gray-dark-3);
+    background: var(--vhp-getstart-bg);
   }
   #special-sponsor {
     border-top: 1px solid var(--vt-c-divider-light);
@@ -255,9 +265,10 @@
     font-size: 15px;
   }
   #highlights .vt-box {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: var(--vhp-func-bg);
     margin-top: 16px;
   }
+
   #sponsors {
     max-width: 900px;
     margin: 0px auto;
