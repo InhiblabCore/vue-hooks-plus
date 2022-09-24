@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { applyPlugins } from '@vue-hooks-plus/md-demo-plugins'
 import { genTemp } from '@vue-hooks-plus/vite-plugin-gen-temp'
+import { resolve } from 'path'
 
 const base = process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/docs' : ''
-const { resolve } = require('path')
 
 export default defineConfig({
   head: [
@@ -124,6 +124,10 @@ function getHooksSidebar() {
           link: '/useRequest/throttle/',
         },
         {
+          text: '并行请求',
+          link: '/useRequest/fetchs/',
+        },
+        {
           text: '缓存 & SWR',
           link: '/useRequest/cache/',
         },
@@ -145,6 +149,7 @@ function getHooksSidebar() {
       text: 'State',
       items: [
         { text: 'useBoolean', link: '/useBoolean/' },
+        { text: 'useUrlState', link: '/useUrlState/' },
         { text: 'useFormatResult', link: '/useFormatResult/' },
         { text: 'useDebounce', link: '/useDebounce/' },
         { text: 'useThrottle', link: '/useThrottle/' },
@@ -162,6 +167,7 @@ function getHooksSidebar() {
       items: [
         { text: 'useDebounceFn', link: '/useDebounceFn/' },
         { text: 'useThrottleFn', link: '/useThrottleFn/' },
+        { text: 'useFetchs', link: '/useFetchs/' },
         { text: 'useLockFn', link: '/useLockFn/' },
         { text: 'useUpdate', link: '/useUpdate/' },
         { text: 'useInterval', link: '/useInterval/' },
