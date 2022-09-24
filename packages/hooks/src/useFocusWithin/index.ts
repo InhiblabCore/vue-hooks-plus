@@ -1,6 +1,6 @@
 import useEventListener from "../useEventListener";
 import type { BasicTarget } from "../utils/domTarget";
-import { useBoolean } from "..";
+import useBoolean from "../useBoolean";
 
 export interface Options {
   onFocus?: (e: FocusEvent) => void;

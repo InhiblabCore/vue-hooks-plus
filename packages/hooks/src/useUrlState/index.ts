@@ -1,104 +1,118 @@
-import { computed, Ref, ref, watch, watchEffect } from "vue";
+import qs from 'qs'
+import { Ref, ref, watch } from 'vue'
+import { useLocalStorageState } from '../index'
 
-import { parse, stringify } from "query-string";
-import type { ParseOptions, StringifyOptions } from "query-string";
-
-type UrlState = Record<string, any>;
-
-export interface Options {
-  navigateMode?: "push" | "replace";
-  parseOptions?: ParseOptions;
-  stringifyOptions?: StringifyOptions;
+export interface UseUrlStateOptions {
+  localStorageKey?: string
+  detectNumber?: boolean
+  routerPush?: (url: string) => void
 }
 
-const baseParseConfig: ParseOptions = {
-  parseNumbers: false,
-  parseBooleans: false,
-};
+interface UrlState {
+  [key: string]: any
+}
 
-const baseStringifyConfig: StringifyOptions = {
-  skipNull: false,
-  skipEmptyString: false,
-};
+function encodeParams(value: UrlState) {
+  return qs.stringify(value)
+}
 
-const routerPushFn = (s: string) => (location.hash = s);
+function decodeParams(valueStr: string, detectNumber: boolean) {
+  // return JSON.parse(decodeURIComponent(atob(valueStr)));
+  return qs.parse(valueStr, {
+    // fix: 数组长度限制问题
+    arrayLimit: 10000,
+    decoder(str: string, _: any, charset: string) {
+      const strWithoutPlus = str.replace(/\+/g, ' ')
+      if (charset === 'iso-8859-1') {
+        // unescape never throws, no try...catch needed:
+        return strWithoutPlus.replace(/%[0-9a-f]{2}/gi, unescape)
+      }
 
-const useUrlState = <S extends UrlState = UrlState>(
+      if (detectNumber && /^[+-]?\d+(\.\d+)?$/.test(str)) {
+        return parseFloat(str)
+      }
+
+      const keywords: Record<string, any> = {
+        true: true,
+        false: false,
+        null: null,
+        undefined,
+      }
+      if (str in keywords) {
+        return keywords[str]
+      }
+
+      // utf-8
+      try {
+        return decodeURIComponent(strWithoutPlus)
+      } catch (e) {
+        return strWithoutPlus
+      }
+    },
+  })
+}
+
+function useUrlState<S extends UrlState = Partial<UrlState>>(
   initialState?: S | (() => S),
-  options?: Options
-) => {
-  type State = Partial<{ [key in keyof S]: any }>;
+  options?: UseUrlStateOptions,
+): Ref<S> {
+  const routerPushFn = options?.routerPush ? options.routerPush : (s: string) => (location.hash = s)
+  const { localStorageKey, detectNumber = true } = options ?? {}
 
-  const { parseOptions, stringifyOptions } = options || {};
+  const [path, paramsStr] = location.hash.slice(1).split('?')
 
-  const mergedParseOptions = { ...baseParseConfig, ...parseOptions };
+  const defaultState =
+    (typeof initialState === 'function' ? (initialState as () => S)() : initialState) ?? ({} as S)
+  let state = ref(defaultState) as Ref<S>
 
-  const mergedStringifyOptions = {
-    ...baseStringifyConfig,
-    ...stringifyOptions,
-  };
+  if (localStorageKey) {
+    state = useLocalStorageState(localStorageKey, {
+      defaultValue: defaultState,
+    })[0] as Ref<S>
+  }
 
-  const initialStateRef = ref(
-    typeof initialState === "function"
-      ? (initialState as () => S)()
-      : initialState || {}
-  );
-  const state = ref(initialStateRef.value) as Ref<any>;
+  // 初始状态 url > localstorage
+  if (paramsStr) {
+    try {
+      const paramsValue = decodeParams(paramsStr, detectNumber)
 
-  const [path] = location.hash.slice(1).split("?");
+      state.value = {
+        ...defaultState,
+        ...state.value,
+        ...paramsValue,
+      }
+    } catch {
+      state.value = defaultState
+    }
+  }
 
-  const queryFromUrl = computed(() => {
-    return parse(location.search, mergedParseOptions);
-  });
+  // 去掉多余的key
+  if (initialState && Object.keys(initialState).length) {
+    const newState = { ...initialState } as any
+    for (const key in newState) {
+      if (key in state.value) {
+        newState[key] = state.value[key]
+      }
+    }
+    state.value = newState
+  }
 
-  
+  // 把params写到url
+  watch(
+    state,
+    () => {
+      const newParamsStr = encodeParams(state.value)
+      routerPushFn(`${path}?${newParamsStr}`)
+      // console.log('写url')
+      // console.log(`${path}?${newParamsStr}`)
+    },
+    {
+      deep: true,
+      immediate: true,
+    },
+  )
 
-  const targetQuery = computed(() => ({
-    ...initialStateRef.value,
-    ...queryFromUrl.value,
-  }));
+  return state
+}
 
-  // onMounted(() => {
-  //   state.value = {
-  //     ...initialStateRef.value,
-  //     ...queryFromUrl.value,
-  //   };
-  // });
-
-  watchEffect(() => {
-    state.value = {
-      ...initialStateRef.value,
-      ...queryFromUrl.value,
-    };
-  });
-
-  const setState = (s: State | ((prev: any) => State)) => {
-    const newQuery =
-      typeof s === "function"
-        ? s({
-            ...targetQuery.value,
-            ...state.value,
-          })
-        : s;
-    state.value = {
-      ...state.value,
-      ...newQuery,
-    };
-  };
-
-  watch(state, (curr) => {
-    routerPushFn(
-      `${path}?${stringify(
-        {
-          ...initialStateRef.value,
-          ...queryFromUrl.value,
-          ...curr,
-        },
-        mergedStringifyOptions
-      )}`
-    );
-  });
-  return { state, setState };
-};
-
-export default useUrlState;
+export default useUrlState
