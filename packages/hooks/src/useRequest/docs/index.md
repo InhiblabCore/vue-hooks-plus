@@ -23,3 +23,7 @@ map:
 - loading delay
 - SWR(stale-while-revalidate)
 - 缓存
+- 滚动加载和分页加载
+- 并行请求
+- 自定义插件
+
