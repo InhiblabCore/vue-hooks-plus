@@ -1,9 +1,13 @@
 <template>
   <div class="container">
     <div class="img"> </div>
-    <img src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo@2x.png" alt="vue-hooks-plus" />
+    <img :src="imageBase64" alt="vue-hooks-plus" />
   </div>
 </template>
+
+<script setup lang="ts">
+  import { imageBase64 } from './iconBase64'
+</script>
 
 <style scoped>
   .container {
