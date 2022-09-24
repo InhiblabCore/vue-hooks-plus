@@ -18,6 +18,14 @@ map:
   desc="通过改变ref的对象，用watch进行监听动态渲染页面">
 </demo>
 
+### 刷新页面
+
+<demo src="./demo/demo1.vue"
+  language="vue"
+  title="基本用法"
+  desc="改变hash值刷新页面">
+</demo>
+
 
 ## API
 
