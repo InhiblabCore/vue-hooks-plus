@@ -1,23 +1,30 @@
 <template>
   <div>
-    <vhp-button @click="add">add</vhp-button>
-    <vhp-button style="margin-left: 16px;" @click="() => setState({ count: 1 })">
+    <vhp-button @click="() => addCount()">add</vhp-button>
+    <vhp-button style="margin-left: 16px;" @click="() => subCount()">sub</vhp-button>
+    <vhp-button style="margin-left: 16px;" @click="() => addPage()">add-page</vhp-button>
+    <vhp-button style="margin-left: 16px;" @click="() => subPage()">sub-page</vhp-button>
+    <vhp-button style="margin-left: 16px;" @click="() => clear()">
       clear
     </vhp-button>
-    <div>state: {{ count }}</div>
+    <br>
+    <div>count: {{ state.count }}</div>
+    <div>page: {{ state.page }}</div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
-
   import { useUrlState } from 'vue-hooks-plus'
-  const { state, setState } = useUrlState({ count: 1 })
 
-  const count = computed(() => state.value.count)
-  const add = () => {
-    setState({ count: count.value + 1 })
-  }
+  const defaultState = { count: 0, page: 1 }
+  const state = useUrlState(defaultState, {
+    localStorageKey: 'localStorageKey',
+  })
+  const addCount = () => state.value.count++
+  const subCount = () => state.value.count--
+  const addPage = () => state.value.page++
+  const subPage = () => state.value.page--
+  const clear = () => (state.value = defaultState)
 </script>
 
 <style scoped lang="less"></style>
