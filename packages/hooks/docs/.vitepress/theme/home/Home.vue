@@ -107,23 +107,7 @@
 </template>
 
 <style scoped lang="less">
-  /* :deep(html, .VPHome) {
-      background: url('/light.jpg') !important;
-    }
-
-    :deep(.dark .VPHome) {
-      background: url('/dark.jpg') !important;
-    } */
-
-  .home {
-    background: url('/light.jpg');
-    height: 100%;
-  }
-  .dark {
-    .home {
-      background: url('/dark.jpg');
-    }
-  }
+  @import url('./index.less');
 
   .demo-name {
     opacity: 0.5;
