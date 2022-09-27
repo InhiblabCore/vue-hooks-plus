@@ -5,7 +5,7 @@ function useFormatResult<TData, FData>(
   formatResultCallback: (data: TData) => FData,
 ): ComputedRef<FData> {
   const formatResultData = computed(() =>
-    isRef(data) ? formatResultCallback(data.value) : formatResultCallback(data),
+    isRef(data) ? formatResultCallback(data.value as TData) : formatResultCallback(data as TData),
   )
   return formatResultData
 }

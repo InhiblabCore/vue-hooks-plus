@@ -1,6 +1,7 @@
 <template>
   <div>
     <div v-for="item in datas" :key="item.key">
+      {{ item.loading ? 'loading' : '' }}
       {{ item.data }}
     </div>
   </div>
@@ -12,9 +13,12 @@
 
   async function getUsername(params: { desc: string }): Promise<string> {
     return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(`vue-hooks-plus ${params.desc}`)
-      }, 2000)
+      setTimeout(
+        () => {
+          resolve(`vue-hooks-plus ${params.desc}`)
+        },
+        params.desc === '大牛' ? 4000 : 2000,
+      )
     })
   }
 

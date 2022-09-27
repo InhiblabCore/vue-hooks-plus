@@ -1,5 +1,5 @@
 import { Service, Options } from '@/useRequest/types'
-import { ref, watch } from 'vue'
+import { ref, watch, watchEffect } from 'vue'
 import useRequest from '../useRequest/index'
 
 const DEFAULT_KEY = 'VUE_HOOKS_PLUS_USE_REQUEST_DEFAULT_KEY'
@@ -45,10 +45,18 @@ function useFetchs<TData, TParams>(
       manual: true,
     })
 
-    // @ts-ignore
-    fetchs.value[cacheKey as string] = { key: cacheKey, data, params, loading }
-
-    getFetchs(fetchs.value)
+    watchEffect(() => {
+      fetchs.value[cacheKey as string] = {
+        key: cacheKey,
+        // @ts-ignore
+        data: data?.value,
+        //  @ts-ignore
+        params: params.value,
+        loading: loading.value,
+      }
+      // debugger
+      getFetchs(fetchs.value)
+    })
 
     run(...args)
 
