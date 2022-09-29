@@ -167,6 +167,9 @@
     padding: 8px 18px;
     font-weight: 500;
     transition: background-color 0.5s, color 0.5s;
+
+    // -webkit-background-clip: text;
+    // animation: move 2s infinite linear;
   }
   .actions .get-started {
     /* margin-right: 18px; */
@@ -193,12 +196,20 @@
   .actions .get-started:hover,
   .actions .setup:hover {
     background: var(--vhp-getstart-bg);
-    transition-duration: 0.2s;
   }
   .dark .actions .get-started:hover,
   .dark .actions .setup:hover {
     background: var(--vhp-getstart-bg);
   }
+
+  // @keyframes move {
+  //   0% {
+  //     background-position: 0 0;
+  //   }
+  //   100% {
+  //     background-position: 9rem 0;
+  //   }
+  // }
   #special-sponsor {
     border-top: 1px solid var(--vt-c-divider-light);
     border-bottom: 1px solid var(--vt-c-divider-light);
