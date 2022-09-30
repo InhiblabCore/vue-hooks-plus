@@ -2,6 +2,7 @@
   import { onMounted } from 'vue'
   import DemoEditor from './DemoEditor.vue'
   import Icon from './Icon.vue'
+  import { light_bg, dark_bg } from './iconBase64'
 </script>
 
 <template>
@@ -107,7 +108,7 @@
 </template>
 
 <style scoped lang="less">
-  @import url('./index.less');
+  @import './index.less';
 
   .demo-name {
     opacity: 0.5;
