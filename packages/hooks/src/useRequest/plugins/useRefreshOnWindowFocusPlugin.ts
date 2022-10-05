@@ -14,10 +14,10 @@ const useRefreshOnWindowFocusPlugin: Plugin<any, any[]> = (
   };
 
   watchEffect((onInvalidate) => {
-    if (isRef(refreshOnWindowFocus) ? refreshOnWindowFocus?.value : refreshOnWindowFocus) {
+    if (isRef(refreshOnWindowFocus) ? refreshOnWindowFocus.value : refreshOnWindowFocus) {
       const limitRefresh = limit(
         fetchInstance.refresh.bind(fetchInstance),
-        focusTimespan
+        isRef(focusTimespan) ? focusTimespan.value : focusTimespan
       );
       unsubscribeRef.value = subscribeFocus(() => {
         limitRefresh();

@@ -65,7 +65,7 @@ export type Options<TData, TParams extends any[], TPlugin> = {
 
   // 屏幕聚焦重新请求
   refreshOnWindowFocus?: Ref<boolean> | boolean
-  focusTimespan?: number
+  focusTimespan?: Ref<number> | number
 
   // 防抖
   debounceWait?: number
