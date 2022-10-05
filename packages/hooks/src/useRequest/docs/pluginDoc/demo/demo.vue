@@ -8,7 +8,7 @@
 
   import { Plugin } from '../../../types'
 
-  const useFormatter: Plugin<
+  const useFormatterPlugin: Plugin<
     {
       name: string
       age: number
@@ -26,7 +26,7 @@
   }
 
   function getUsername(): Promise<{ name: string; age: number }> {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         resolve({
           name: 'vue-hooks-plus',
@@ -39,16 +39,15 @@
   const { data } = useRequest(
     () => getUsername(),
     {
-      formatter: () => {
+      formatter: (data: any) => {
         return {
-          name: 'plugins update',
+          name: `${data.name} - plugins update`,
           age: 20,
         }
       },
     },
-    [useFormatter],
+    [useFormatterPlugin],
   )
 </script>
-s
 
 <style scoped lang="less"></style>

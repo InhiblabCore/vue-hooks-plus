@@ -128,19 +128,19 @@ function getHooksSidebar() {
           link: '/useRequest/fetchs/',
         },
         {
-          text: '缓存 & SWR',
-          link: '/useRequest/cache/',
-        },
-        {
           text: '错误重试',
           link: '/useRequest/retry/',
         },
         {
-          text: '滚动加载、分页加载',
+          text: '缓存 & SWR',
+          link: '/useRequest/cache/',
+        },
+        {
+          text: '滚动加载 & 分页加载',
           link: '/useRequest/scroll/',
         },
         {
-          text: '自定义插件 🌟',
+          text: '🌟 开发插件',
           link: '/useRequest/plugin/',
         },
       ],

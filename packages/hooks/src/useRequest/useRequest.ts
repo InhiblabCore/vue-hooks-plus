@@ -11,23 +11,12 @@ import useRequestImplement from './useRequestImplement'
 
 import { Options, Plugin, Service } from './types'
 
-function useRequest<
-  TData,
-  TParams extends any[],
-  TPluginOptions,
-  PluginsOptions extends any[] = Plugin<TData, TParams, TPluginOptions>[]
->(
+function useRequest<TData, TParams extends any[], PluginsOptions extends Plugin<TData, TParams>[]>(
   service: Service<TData, TParams>,
   options?: Options<
     TData,
     TParams,
-    PluginsOptions['length'] extends 1
-      ? TPluginOptions
-      : PluginsOptions extends (infer P)[]
-      ? P extends Plugin<TData, TParams, infer R>
-        ? R
-        : any
-      : any
+    PluginsOptions extends (infer P)[] ? (P extends Plugin<TData, TParams, infer R> ? R : any) : any
   >,
   plugins?: PluginsOptions,
 ) {
@@ -41,7 +30,7 @@ function useRequest<
     useAutoRunPlugin,
     useCachePlugin,
     useRetryPlugin,
-  ] as Plugin<TData, TParams, TPluginOptions>[])
+  ] as Plugin<TData, TParams>[])
 }
 
 export default useRequest
