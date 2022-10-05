@@ -1,14 +1,20 @@
 <template>
   <div style="margin-top: 16px;">
-    <vhp-button @click="() => (store.id = 1)">改变ID为 1</vhp-button>
-    <vhp-button @click="() => (store.id = 2)" style="margin-left: 16px;">
-      改变store ID为 2
+    <div>
+      <p>id:{{ id }}</p>
+      <p>storeID:{{ store.id }}</p>
+    </div>
+    <vhp-button @click="() => (id = 1)">改变ID为 1</vhp-button>
+    <vhp-button @click="() => (id = 2)" style="margin-left: 16px;">改变ID为 2</vhp-button>
+    <vhp-button @click="() => (store.id = 1)" style="margin-left: 16px;">
+      改变store ID为 1
     </vhp-button>
-    <vhp-button @click="() => (id = 3)" style="margin-left: 16px;">
-      改变 store ID为 3
+    <vhp-button @click="() => (store.id = 2)" style="margin-left: 16px;">
+      改变 store ID为 2
     </vhp-button>
   </div>
-  <div style="margin-top: 16px;">读取值：{{ data }}</div>
+  <div style="margin-top: 16px;">请求的状态值：{{ loading ? 'loading' : '' }}</div>
+  <div style="margin-top: 16px;">请求的Data值：{{ data }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -16,10 +22,10 @@
 
   import { useRequest } from 'vue-hooks-plus'
 
-  function getUsername(): Promise<string> {
-    return new Promise((resolve, reject) => {
+  function getUsername({ id, storeId }: { id: number; storeId: number }): Promise<string> {
+    return new Promise(resolve => {
       setTimeout(() => {
-        resolve(`${String(Date.now())}`)
+        resolve(`${String(Date.now())}； \t 参数id: ${id} \t； 参数storeId: ${storeId}`)
       }, 1000)
     })
   }
@@ -27,7 +33,7 @@
   const store = reactive({
     id: 1,
   })
-  const { data } = useRequest(() => getUsername(), {
+  const { data, loading } = useRequest(() => getUsername({ id: id.value, storeId: store.id }), {
     refreshDeps: [id, () => store.id],
   })
 </script>
