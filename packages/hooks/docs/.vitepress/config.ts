@@ -85,36 +85,17 @@ function getHooksSidebar() {
       ],
     },
     {
-      text: 'useRequest',
+      text: '🚀 useRequest',
       items: [
         {
-          text: '快速使用',
+          text: '介绍',
           link: '/useRequest/',
         },
         {
           text: '基础用法',
           link: '/useRequest/basic/',
         },
-        {
-          text: 'loadingDelay',
-          link: '/useRequest/loadingDelay/',
-        },
-        {
-          text: '轮询',
-          link: '/useRequest/polling/',
-        },
-        {
-          text: 'Ready',
-          link: '/useRequest/ready/',
-        },
-        {
-          text: '依赖刷新',
-          link: '/useRequest/refreshDeps/',
-        },
-        {
-          text: '屏幕聚焦重新请求',
-          link: '/useRequest/refreshOnWindowFocus/',
-        },
+
         {
           text: '防抖',
           link: '/useRequest/debounce/',
@@ -123,6 +104,21 @@ function getHooksSidebar() {
           text: '节流',
           link: '/useRequest/throttle/',
         },
+
+        {
+          text: '轮询',
+          link: '/useRequest/polling/',
+        },
+
+        {
+          text: 'Ready',
+          link: '/useRequest/ready/',
+        },
+        {
+          text: '依赖刷新',
+          link: '/useRequest/refreshDeps/',
+        },
+
         {
           text: '并行请求',
           link: '/useRequest/fetchs/',
@@ -131,9 +127,18 @@ function getHooksSidebar() {
           text: '错误重试',
           link: '/useRequest/retry/',
         },
+
         {
           text: '缓存 & SWR',
           link: '/useRequest/cache/',
+        },
+        {
+          text: 'loadingDelay',
+          link: '/useRequest/loadingDelay/',
+        },
+        {
+          text: '屏幕聚焦重新请求',
+          link: '/useRequest/refreshOnWindowFocus/',
         },
         {
           text: '滚动加载 & 分页加载',
