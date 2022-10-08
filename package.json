@@ -5,8 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "vitest",
-		"prepare": "husky install",
-    "changelog": "rimraf CHANGELOG.md && conventional-changelog -p angular -i CHANGELOG.md -s"
+		"prepare": "husky install"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^0.25.2",
