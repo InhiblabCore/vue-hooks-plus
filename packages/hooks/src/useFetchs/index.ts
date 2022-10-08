@@ -1,6 +1,6 @@
+import { ref, UnwrapRef, watch, watchEffect } from 'vue'
 import { Service, Options } from '@/useRequest/types'
-import { ref, watch, watchEffect } from 'vue'
-import useRequest from '../useRequest/index'
+import useRequest from '../useRequest'
 
 const DEFAULT_KEY = 'VUE_HOOKS_PLUS_USE_REQUEST_DEFAULT_KEY'
 
@@ -16,6 +16,10 @@ type FetchType<TData, TParams> = Record<
 
 type ParamsType<P> = P extends any[] ? any[] : any
 
+function keyIsStringOrNumber(value: unknown): value is string | number {
+  return typeof value === 'string' || typeof value === 'number'
+}
+
 function useFetchs<TData, TParams>(
   service: Service<TData, ParamsType<TParams>>,
   options: Options<TData, ParamsType<TParams>, any> & {
@@ -25,16 +29,19 @@ function useFetchs<TData, TParams>(
     fetchKey?: (...args: ParamsType<TParams>) => string
   },
 ) {
+  type Fetchs = FetchType<TData, TParams>
+
   const fetchKeyPersist = ref(self?.fetchKey)
 
-  const fetchs = ref<FetchType<TData, TParams>>({})
-  const newFetchs = ref<FetchType<TData, TParams>>({})
+  const fetchs = ref<Fetchs>({})
+  const newFetchs = ref<Fetchs>({})
 
-  const getFetchs = (fetchs_: Record<string | number, any>) => {
+  const getFetchs = (fetchs_: Fetchs) => {
+    // @ts-ignore
     newFetchs.value = fetchs_
   }
 
-  const fetchRun = (...args: TParams extends any[] ? any[] : any) => {
+  const fetchRun = (...args: TParams extends any[] ? any[] : never) => {
     const newstFetchKey = ref()
     const cacheKey = fetchKeyPersist.value?.(...args) ?? DEFAULT_KEY
     newstFetchKey.value = cacheKey
@@ -48,14 +55,11 @@ function useFetchs<TData, TParams>(
     watchEffect(() => {
       fetchs.value[cacheKey as string] = {
         key: cacheKey,
-        // @ts-ignore
-        data: data?.value,
-        //  @ts-ignore
-        params: params.value,
-        loading: loading.value,
+        data: data?.value as UnwrapRef<TData>,
+        params: params.value as UnwrapRef<TParams>,
+        loading: loading.value as UnwrapRef<boolean>,
       }
-      // debugger
-      getFetchs(fetchs.value)
+      getFetchs(fetchs.value as Fetchs)
     })
 
     run(...args)
@@ -67,16 +71,15 @@ function useFetchs<TData, TParams>(
         newLoading = false,
         key = DEFAULT_KEY,
       ] = curr
-      fetchs.value[key as string] = {
-        key: key as string | number,
-        // @ts-ignore
-        data: newData,
-        // @ts-ignore
-        params: newParams,
-        // @ts-ignore
-        loading: newLoading,
+
+      const fetchKey = keyIsStringOrNumber(key) ? key : DEFAULT_KEY
+      fetchs.value[fetchKey] = {
+        key: fetchKey,
+        data: newData as UnwrapRef<TData>,
+        params: newParams as UnwrapRef<TParams>,
+        loading: newLoading as UnwrapRef<boolean>,
       }
-      getFetchs(fetchs.value)
+      getFetchs(fetchs.value as Fetchs)
     })
   }
 
