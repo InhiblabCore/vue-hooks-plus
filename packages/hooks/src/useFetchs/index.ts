@@ -41,7 +41,7 @@ function useFetchs<TData, TParams>(
     newFetchs.value = fetchs_
   }
 
-  const fetchRun = (...args: TParams extends any[] ? any[] : never) => {
+  const fetchRun = (...args: TParams extends any[] ? any[] : any) => {
     const newstFetchKey = ref()
     const cacheKey = fetchKeyPersist.value?.(...args) ?? DEFAULT_KEY
     newstFetchKey.value = cacheKey
