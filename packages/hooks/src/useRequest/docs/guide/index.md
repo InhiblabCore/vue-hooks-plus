@@ -124,7 +124,7 @@ export async function getUserInfo(id: string) {
 
 模块导出类型，防止类型污染全局
 
-`src/views/home/services.ts`
+`src/views/home/data.d.ts`
 
 ```typescript
 export type NameType = {
