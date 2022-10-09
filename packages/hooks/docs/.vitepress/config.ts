@@ -85,7 +85,7 @@ function getHooksSidebar() {
       ],
     },
     {
-      text: '🚀 useRequest',
+      text: 'useRequest',
       items: [
         {
           text: '介绍',
@@ -147,6 +147,10 @@ function getHooksSidebar() {
         {
           text: '🌟 开发插件',
           link: '/useRequest/plugin/',
+        },
+        {
+          text: '📐 业务开发规范',
+          link: '/useRequest/guide/',
         },
       ],
     },
