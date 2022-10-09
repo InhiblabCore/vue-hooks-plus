@@ -124,7 +124,7 @@ export async function getUserInfo(id: string) {
 
 模块导出类型，防止类型污染全局
 
-`src/views/home/Home.vue`
+`src/views/home/services.ts`
 
 ```typescript
 export type NameType = {
@@ -137,7 +137,7 @@ export type NameType = {
 
 .vue 中使用 `useRequest` 使用 `getUserInfo`,传入参数，`data` 是一个 `Ref<NameType>` 类型，可以很简单的获取到你提前定义好的类型。在 .vue 文件中只需要关注业务，不需要书写过多的类型和函数定义，方便后续进行维护。
 
-`src/network/axios.ts`
+`src/views/home/Home.vue`
 
 ```vue
 <template>
