@@ -45,7 +45,7 @@ map:
 
 ```
 
-## 封装 axios
+## 一、封装 axios
 
 `src/network/axios.ts`
 
@@ -103,7 +103,7 @@ const request = <ResponseType = unknown>(
 export { axiosInstance, request }
 ```
 
-## 封装业务请求函数
+## 二、封装业务请求函数
 
 模块化导出请求函数，`request` 的泛型传入的是请求数据的类型，需要提前定义好，看 👇。
 
@@ -133,7 +133,7 @@ export type NameType = {
 }
 ```
 
-## 在 .vue 中使用 useRequest
+## 三、在 .vue 中使用 useRequest
 
 .vue 中使用 `useRequest` 使用 `getUserInfo`,传入参数，`data` 是一个 `Ref<NameType>` 类型，可以很简单的获取到你提前定义好的类型。在 .vue 文件中只需要关注业务，不需要书写过多的类型和函数定义，方便后续进行维护。
 
