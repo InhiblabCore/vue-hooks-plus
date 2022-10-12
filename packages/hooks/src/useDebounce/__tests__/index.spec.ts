@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { sleep } from '@/utils/sleep'
-import { useDebounce } from 'vue-hooks-plus'
+import useDebounce from '..'
 
 describe('useDebounce', () => {
   it('should be defined', () => {
