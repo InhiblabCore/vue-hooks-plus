@@ -13,6 +13,7 @@ docs/.docs
 
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
 .local
 # local env files
