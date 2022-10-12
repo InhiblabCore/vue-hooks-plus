@@ -1,4 +1,4 @@
-import { useBoolean } from 'vue-hooks-plus'
+import useBoolean from '..'
 
 describe('useBoolean', () => {
   it('should be defined', () => {
