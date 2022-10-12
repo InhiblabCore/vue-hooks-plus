@@ -1,20 +1,22 @@
-import debounce from "lodash/debounce";
+import debounce from 'lodash/debounce'
 
 export interface DebounceOptions {
-  wait?: number;
-  leading?: boolean;
-  trailing?: boolean;
-  maxWait?: number;
+  wait?: number
+  leading?: boolean
+  trailing?: boolean
+  maxWait?: number
 }
 
-type noop = (...args: any) => any;
+type noop = (...args: any) => any
 
 function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
-  const wait = options?.wait ?? 1000;
-  const run = debounce(fn, wait, options);
+  const wait = options?.wait ?? 1000
+  const debounced = debounce(fn, wait, options)
   return {
-    run,
-  };
+    run: debounced,
+    cancel: debounced.cancel,
+    flush: debounced.flush,
+  }
 }
 
-export default useDebounceFn;
+export default useDebounceFn
