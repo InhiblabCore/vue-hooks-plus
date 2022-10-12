@@ -29,7 +29,8 @@
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
 		"build:types": "vue-tsc --noEmit && vite build --mode fullTypes",
 		"type": "tsc -d",
-		"test": "vitest --ui",
+		"test": "vitest",
+    "test:ui": "vitest --ui",
 		"preview": "vite preview"
 	},
 	"peerDependencies": {
