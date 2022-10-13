@@ -17,9 +17,6 @@ export default defineConfig({
   ],
   title: 'VueHook Plus',
   description: '_description',
-  // // 扫描srcIncludes里面的 *.md文件
-  // srcIncludes: ['src'],
-  // srcDir: 'src',
 
   base,
   themeConfig: {
