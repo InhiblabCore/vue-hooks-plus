@@ -30,7 +30,7 @@
 		"build:types": "vue-tsc --noEmit && vite build --mode fullTypes",
 		"type": "tsc -d",
 		"test": "vitest",
-    "test:ui": "vitest --ui",
+		"test:ui": "vitest --ui",
 		"preview": "vite preview"
 	},
 	"peerDependencies": {
@@ -45,6 +45,7 @@
 		"query-string": "^7.1.1"
 	},
 	"devDependencies": {
+		"@ruabick/vite-plugin-gen-temp": "^0.2.8",
 		"@types/fs-extra": "^9.0.13",
 		"@types/jest": "^29.0.0",
 		"@types/js-cookie": "^3.0.1",
@@ -54,10 +55,10 @@
 		"@types/qs": "^6.9.7",
 		"@vitejs/plugin-vue": "^2.0.0",
 		"@vue-hooks-plus/md-demo-plugins": "^1.0.0",
-		"@vue-hooks-plus/vite-plugin-gen-temp": "1.4.0",
 		"@vue-hooks-plus/vitepress": "1.0.1",
 		"@vue-hooks-plus/vitepress-demo-block": "^1.0.0",
 		"cross-env": "^7.0.3",
+		"fast-glob": "^3.2.12",
 		"fs-extra": "^10.1.0",
 		"gh-pages": "^4.0.0",
 		"less": "^4.1.3",

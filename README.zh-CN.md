@@ -12,11 +12,12 @@
 -webkit-background-clip: text;-webkit-text-fill-color: transparent;">VueHooks Plus</h1>
 
 [English](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.md) | 简体中文
+
 </div>
 
 ## 📚 文档
 
-[在线文档📒](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+[在线文档 📒](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
 ## ✨ 特性
 
@@ -35,7 +36,7 @@ $ npm install --save vue-hooks-plus
 $ yarn add vue-hooks-plus
 ```
 
-## 🔨  使用
+## 🔨 使用
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
@@ -53,5 +54,3 @@ hooks 目录下
 npm run initial
 npm run docs:dev
 ```
-
-注意： 需要先初始化再启动文档项目，由于插件原因 `useAsyncOrder`、`useBoolean` 、 `useCookieState` 初始化会出现空缺状态，需要手动去到当前文件夹内的md文件中进行保存，插件会监听保存操作，后续会进行修复。

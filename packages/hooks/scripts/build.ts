@@ -10,12 +10,12 @@ export const buildConfig: UserConfig = {
       fileBuild: {
         emitDeclaration: true,
         ignoreInputs: [
-          'src/*/__tests__/*.spec.*',
-          '**/*.tests.*',
+          '**/*.spec.*',
+          '**/*.test.*',
           '**/*.d.ts',
+          '**/__tests__/**',
           'docs/**/*.ts',
           '**/*.vue',
-          '**/__tests__',
         ],
       },
       libBuild: {
