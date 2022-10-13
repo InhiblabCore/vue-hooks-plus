@@ -12,6 +12,6 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/demo/*.vue"],
-  "exclude": ["node_modules", "dist", "lib", "es", "example", "src/**/__tests__/*"]
+  "exclude": ["node_modules", "dist", "lib", "es", "example"]
   //  "src/**/__tests__/*"
 }
