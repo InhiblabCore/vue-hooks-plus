@@ -55,7 +55,6 @@
 		"@types/qs": "^6.9.7",
 		"@vitejs/plugin-vue": "^2.0.0",
 		"@vue-hooks-plus/md-demo-plugins": "^1.0.0",
-		"@vue-hooks-plus/vite-plugin-gen-temp": "1.4.0",
 		"@vue-hooks-plus/vitepress": "1.0.1",
 		"@vue-hooks-plus/vitepress-demo-block": "^1.0.0",
 		"cross-env": "^7.0.3",
