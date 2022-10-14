@@ -17,10 +17,10 @@ describe('useCookieState', () => {
   })
 
   it('should support undefined', async () => {
-    const [message, setMessage] = useCookieState('useCookieStateString', {
+    const [message, setMessage] = useCookieState('test', {
       defaultValue: undefined,
     })
-    expect(message.value).toEqual(undefined)
+    expect(message.value).toBeUndefined
 
     setMessage('false')
     expect(message.value).toEqual('false')
