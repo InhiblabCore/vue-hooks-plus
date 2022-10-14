@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="item in datas" :key="item.key">
+    <div v-for="item in datas" :key="item.key" class="item">
       {{ item.loading ? 'loading' : '' }}
       {{ item.data }}
     </div>
