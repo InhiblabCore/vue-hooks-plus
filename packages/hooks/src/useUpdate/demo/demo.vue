@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>Time: {{ date }}</div>
-    <vhp-button type="vhp-button" @click="() => setUpdate()">update</vhp-button>
+    <div class="text">Time: {{ date }}</div>
+    <vhp-button class="btn" type="vhp-button" @click="() => setUpdate()">update</vhp-button>
   </div>
 </template>
 
