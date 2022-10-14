@@ -1,7 +1,5 @@
 import useInterval from '..'
 
-// import {} from '@vue/test-utils'
-
 describe('useInterval', () => {
   vitest.useFakeTimers()
   vitest.spyOn(global, 'clearInterval')
