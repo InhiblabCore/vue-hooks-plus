@@ -1,11 +1,10 @@
-import useBoolean from '@/useBoolean'
-import { sleep } from '@/utils/sleep'
 import { ref } from 'vue'
+import { sleep } from '@/utils/sleep'
+
 import useLockFn from '..'
 
 describe('useLockFn', () => {
   const countRef = ref(0)
-  const [tag, { set: updateTag }] = useBoolean(false)
 
   const fn = async (step: number) => {
     countRef.value += step
