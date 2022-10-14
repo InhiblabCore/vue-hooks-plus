@@ -4,7 +4,7 @@ import useFavicon from '..'
 const DEFAULT_FAVICON_URL = 'https://nelsonyong.github.io/hooks-doc/favicon.ico'
 const GOOGLE_FAVICON_URL = 'https://www.google.com/favicon.ico'
 
-describe('should toggle favicon when URL changed', () => {
+describe('useFavicon', () => {
   const url = ref<string | undefined>(DEFAULT_FAVICON_URL)
   useFavicon(url)
   it('default be DEFAULT_FAVICON_URL', () => {
