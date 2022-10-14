@@ -24,19 +24,19 @@ describe('useEventEmitter', () => {
 
   it('should event global work ', () => {
     const event = useEventEmitter<string[]>({ global: true })
-    event.emit('eventMsgA')
-    event.useSubscription('eventMsgA', () => {
-      eventMsgA.value = 'eventMsgAA'
+    event.emit('eventMsgB')
+    event.useSubscription('eventMsgB', () => {
+      eventMsgB.value = 'eventMsgBB'
     })
 
-    expect(eventMsgA.value).toBe('eventMsgAA')
+    expect(eventMsgB.value).toBe('eventMsgBB')
 
-    event.emit('eventMsgA+', 'eventMsgA+')
-    event.emit('eventMsgA+', 'eventMsgA-')
+    event.emit('eventMsgB+', 'eventMsgB+')
+    event.emit('eventMsgB+', 'eventMsgB-')
 
-    event.useSubscription('eventMsgA+', (args: any) => {
-      eventMsgA.value = args.params?.[0]
+    event.useSubscription('eventMsgB+', (args: any) => {
+      eventMsgB.value = args.params?.[0]
     })
-    expect(eventMsgA.value).toBe('eventMsgA-')
+    expect(eventMsgB.value).toBe('eventMsgB-')
   })
 })
