@@ -31,7 +31,7 @@ export default function useAsyncOrder({ task, option }: AsyncOrder) {
   }
   const runTask = () => {
     // eslint-disable-next-line @typescript-eslint/no-extra-semi
-    ;(task.length == 1 ? [0] : Array(...task.keys()))?.reduce((promise, index) => {
+    Array(...task.keys())?.reduce((promise, index) => {
       const promise_ = promise.then((res: any) => {
         if (!res?.error) {
           onSuccess?.(res)

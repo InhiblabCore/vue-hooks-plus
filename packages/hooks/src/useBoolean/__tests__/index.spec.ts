@@ -12,18 +12,18 @@ describe('useBoolean', () => {
 
   it('should work', async () => {
     const [state, { set, setFalse, setTrue, toggle }] = useBoolean(true)
-    expect(state.value).toEqual(true)
+    expect(state.value).toBeTruthy()
 
     toggle()
-    expect(state.value).toEqual(false)
+    expect(state.value).toBeFalsy()
 
     set(true)
-    expect(state.value).toEqual(true)
+    expect(state.value).toBeTruthy()
 
     setTrue()
-    expect(state.value).toEqual(true)
+    expect(state.value).toBeTruthy()
 
     setFalse()
-    expect(state.value).toEqual(false)
+    expect(state.value).toBeFalsy()
   })
 })
