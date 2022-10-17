@@ -6,7 +6,7 @@ describe('useDebounce', () => {
   it('should be defined', () => {
     expect(useDebounce).toBeDefined()
   })
-  it('should useThrottle work', async () => {
+  it('should useDebounce work', async () => {
     const count = ref(0)
     const debouncedCount = useDebounce(count, { wait: 200 })
     count.value++
