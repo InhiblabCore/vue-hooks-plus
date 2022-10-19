@@ -1,21 +1,21 @@
-import useEventListener from '../useEventListener';
-import type { BasicTarget } from '../utils/domTarget';
-import { getTargetElement } from '../utils/domTarget';
-import { ref } from 'vue';
+import useEventListener from '../useEventListener'
+import { BasicTarget } from '../utils/domTarget'
+import { getTargetElement } from '../utils/domTarget'
+import { ref } from 'vue'
 
 export interface CursorState {
-  screenX: number;
-  screenY: number;
-  clientX: number;
-  clientY: number;
-  pageX: number;
-  pageY: number;
-  elementX: number;
-  elementY: number;
-  elementH: number;
-  elementW: number;
-  elementPosX: number;
-  elementPosY: number;
+  screenX: number
+  screenY: number
+  clientX: number
+  clientY: number
+  pageX: number
+  pageY: number
+  elementX: number
+  elementY: number
+  elementH: number
+  elementW: number
+  elementPosX: number
+  elementPosY: number
 }
 
 const initState: CursorState = {
@@ -31,15 +31,15 @@ const initState: CursorState = {
   elementW: NaN,
   elementPosX: NaN,
   elementPosY: NaN,
-};
+}
 
-export default function useMouse (target?: BasicTarget){
-  const state = ref(initState);
-  
+export default function useMouse(target?: BasicTarget) {
+  const state = ref(initState)
+
   useEventListener(
     'mousemove',
     (event: MouseEvent) => {
-      const { screenX, screenY, clientX, clientY, pageX, pageY } = event;
+      const { screenX, screenY, clientX, clientY, pageX, pageY } = event
       const newState = {
         screenX,
         screenY,
@@ -53,24 +53,24 @@ export default function useMouse (target?: BasicTarget){
         elementW: NaN,
         elementPosX: NaN,
         elementPosY: NaN,
-      };
-      const targetElement = getTargetElement(target);
-      
-      if (targetElement) {
-        const { left, top, width, height } = targetElement.getBoundingClientRect();
-        newState.elementPosX = left + window.pageXOffset;
-        newState.elementPosY = top + window.pageYOffset;
-        newState.elementX = pageX - newState.elementPosX;
-        newState.elementY = pageY - newState.elementPosY;
-        newState.elementW = width;
-        newState.elementH = height;
       }
-      state.value=newState;
+      const targetElement = getTargetElement(target)
+
+      if (targetElement) {
+        const { left, top, width, height } = targetElement.getBoundingClientRect()
+        newState.elementPosX = left + window.pageXOffset
+        newState.elementPosY = top + window.pageYOffset
+        newState.elementX = pageX - newState.elementPosX
+        newState.elementY = pageY - newState.elementPosY
+        newState.elementW = width
+        newState.elementH = height
+      }
+      state.value = newState
     },
     {
       target: document,
     },
-  );
+  )
 
-  return state;
-};
+  return state
+}
