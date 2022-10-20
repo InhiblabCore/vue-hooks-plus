@@ -1,6 +1,9 @@
 <template>
-  <div>读取用户名称：{{ loading ? 'loading' : data }}</div>
-  <vhp-button @click="cancel()">停止</vhp-button>
+  <div
+  >读取用户名称：<span>{{ loading ? 'loading' : data }}</span>
+    <br>
+    <vhp-button @click="cancel()">停止</vhp-button>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -9,11 +12,7 @@
   function getUsername(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (Math.random() > 0.5) {
-          resolve(String(Date.now()))
-        } else {
-          reject(new Error('Failed to get username'))
-        }
+        resolve(String(Date.now()))
       }, 1000)
     })
   }
