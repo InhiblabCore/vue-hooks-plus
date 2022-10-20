@@ -1,7 +1,7 @@
 <template>
   <div>ready: {{ ready }}</div>
   <vhp-button style="margin-top: 16px;" @click="() => toggle()">changeReady</vhp-button>
-  <div style="margin-top: 16px;">读取值：{{ data }}</div>
+  <div style="margin-top: 16px;">{{ data }}</div>
 </template>
 
 <script lang="ts" setup>
