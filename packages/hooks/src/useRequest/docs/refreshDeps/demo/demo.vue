@@ -14,7 +14,9 @@
     </vhp-button>
   </div>
   <div style="margin-top: 16px;">请求的状态值：{{ loading ? 'loading' : '' }}</div>
-  <div style="margin-top: 16px;">请求的Data值：{{ data }}</div>
+  <div style="margin-top: 16px;"
+  >请求的Data值： <span>{{ data }}</span>
+  </div>
 </template>
 
 <script lang="ts" setup>
