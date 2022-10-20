@@ -1,4 +1,3 @@
-import { sleep } from '@/utils/sleep'
 import { mount } from '@vue/test-utils'
 import useExternal from '..'
 import Demo from '../demo/demo.vue'
