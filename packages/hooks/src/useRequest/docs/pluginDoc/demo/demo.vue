@@ -1,6 +1,6 @@
 <template>
-  <div>{{ data?.name ?? '-' }}</div>
-  <div>{{ data?.age ?? '-' }}</div>
+  <div>{{ loading ? 'loading' : data?.name ?? '-' }}</div>
+  <div>{{ loading ? 'loading' : data?.age ?? '-' }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -15,7 +15,7 @@
     },
     [],
     {
-      formatter?: ({ name, age }?: { name: string; age: number }) => any
+      formatter?: (params?: { name: string; age: number }) => any
     }
   > = (fetchInstance, { formatter }) => {
     return {
@@ -36,7 +36,7 @@
     })
   }
 
-  const { data } = useRequest(
+  const { data, loading } = useRequest(
     () => getUsername(),
     {
       formatter: (data: any) => {
