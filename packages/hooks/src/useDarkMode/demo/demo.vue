@@ -1,7 +1,7 @@
 <template>
   <div>
     <p :style="darkMode ? theme.dark : theme.light">
-      当前模式: {{ darkMode ? 'dark' : 'light' }}
+      {{ darkMode ? 'dark' : 'light' }}
     </p>
     <div>
       <vhp-button @click="() => setDarkMode(true)">dark</vhp-button>
