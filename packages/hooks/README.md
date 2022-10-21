@@ -4,14 +4,6 @@
   </a>
 </p>
 
-<div align="center">
-
-# VueHooks Plus
-
-[ahooks](https://ahooks.js.org/) Vue realize.
-
-English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
-
 <p align="center">
   <a href="https://www.npmjs.com/package/vue-hooks-plus"><img src="https://img.shields.io/npm/v/vue-hooks-plus.svg" alt="npm package"></a>
   <a href="https://github.com/InhiblabCore/vue-hooks-plus/actions/workflows/node-ci.yml"><img src="https://github.com/InhiblabCore/vue-hooks-plus/actions/workflows/node-ci.yml/badge.svg?branch=master" alt="build status"></a>
@@ -20,6 +12,14 @@ English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/mas
   <a href="#badge"><img src="https://img.shields.io/librariesio/github/InhiblabCore/vue-hooks-plus" alt="librariesio"></a>
   <a href="https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE"><img src="https://img.shields.io/github/license/InhiblabCore/vue-hooks-plus" alt="LICENSE"></a>
 </p>
+
+<div align="center">
+
+# VueHooks Plus
+
+English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
+
+[ahooks](https://ahooks.js.org/) Vue realize.
 
 </div>
 
