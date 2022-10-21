@@ -8,7 +8,7 @@
 
 [ahooks](https://ahooks.js.org/) Vue realize.
 
-<div style="font-size: 250%">VueHooks Plus</div>
+<div style="font-size: 32px">VueHooks Plus</div>
 
 English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
 
