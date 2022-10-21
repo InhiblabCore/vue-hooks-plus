@@ -1,9 +1,9 @@
-import { onUnmounted, ref, watchEffect } from "vue";
-import depsAreSame, { DependencyList } from "./depsAreSame";
-import type { BasicTarget } from "./domTarget";
-import { getTargetElement } from "./domTarget";
+import { onUnmounted, ref, watchEffect, WatchSource } from 'vue'
+import depsAreSame, { DependencyList } from './depsAreSame'
+import { BasicTarget } from './domTarget'
+import { getTargetElement } from './domTarget'
 
-export type EffectCallback = () => void;
+export type EffectCallback = () => void
 
 const createEffectWithTarget = (useEffectType: typeof watchEffect) => {
   /**
@@ -14,50 +14,49 @@ const createEffectWithTarget = (useEffectType: typeof watchEffect) => {
    */
   const useEffectWithTarget = (
     effect: EffectCallback,
-    deps: any[],
-    target: BasicTarget<any> | BasicTarget<any>[]
+    deps: WatchSource[] | any,
+    target: BasicTarget<any> | BasicTarget<any>[],
   ) => {
-    const hasInitRef = ref(false);
+    const hasInitRef = ref(false)
 
-    const lastElementRef = ref<(Element | null)[]>([]);
-    const lastDepsRef = ref<DependencyList>([]);
+    const lastElementRef = ref<(Element | null)[]>([])
+    const lastDepsRef = ref<DependencyList>([])
 
-    const unLoadRef = ref<any>();
+    const unLoadRef = ref<any>()
 
     useEffectType(() => {
-      const targets = Array.isArray(target) ? target : [target];
-      const els = targets.map((item) => getTargetElement(item));
+      const targets = Array.isArray(target) ? target : [target]
+      const els = targets.map(item => getTargetElement(item))
 
       // init run
       if (!hasInitRef.value) {
-        hasInitRef.value = true;
-        lastElementRef.value = els;
-        lastDepsRef.value = deps;
+        hasInitRef.value = true
+        lastElementRef.value = els
+        lastDepsRef.value = deps
 
-        unLoadRef.value = effect();
-        return;
+        unLoadRef.value = effect()
+        return
       }
 
       if (
         els.length !== lastElementRef.value.length ||
-         
         !depsAreSame(els, lastElementRef.value) ||
         !depsAreSame(deps, lastDepsRef.value)
       ) {
-        unLoadRef.value?.();
-        lastElementRef.value = els;
-        lastDepsRef.value = deps;
-        unLoadRef.value = effect();
+        unLoadRef.value?.()
+        lastElementRef.value = els
+        lastDepsRef.value = deps
+        unLoadRef.value = effect()
       }
-    });
+    })
 
     onUnmounted(() => {
-      unLoadRef.value?.();
-      hasInitRef.value = false;
-    });
-  };
+      unLoadRef.value?.()
+      hasInitRef.value = false
+    })
+  }
 
-  return useEffectWithTarget;
-};
+  return useEffectWithTarget
+}
 
-export default createEffectWithTarget;
+export default createEffectWithTarget
