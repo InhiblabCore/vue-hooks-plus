@@ -39,7 +39,7 @@
 ## 📦 安装
 
 ```
-$ npm install --save vue-hooks-plus
+$ npm i vue-hooks-plus
 # or
 $ yarn add vue-hooks-plus
 ```
@@ -62,3 +62,14 @@ hooks 目录下
 npm run initial
 npm run docs:dev
 ```
+
+# 🪴 项目活动
+
+![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
+
+# 🌸 感谢
+
+这个项目的灵感主要来自于以下这些很棒的项目。
+
+- [react-use](https://github.com/streamich/react-use)
+- [ahooks](https://ahooks.js.org/)

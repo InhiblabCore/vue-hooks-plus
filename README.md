@@ -67,7 +67,7 @@ npm run docs:dev
 
 ![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
 
-🌸 Thanks
+# 🌸 Thanks
 
 This project is heavily inspired by the following awesome projects.
 
