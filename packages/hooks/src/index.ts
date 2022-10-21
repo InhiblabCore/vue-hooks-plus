@@ -20,6 +20,7 @@ import usePreview from './usePreview'
 import useInterval from './useInterval'
 import useInfiniteScroll from './useInfiniteScroll'
 import useInViewport from './useInViewport'
+import useKeyPress from './useKeyPress'
 import useLocalStorageState from './useLocalStorageState'
 import useLockFn from './useLockFn'
 import useMouse from './useMouse'
@@ -64,13 +65,14 @@ export {
   useInterval,
   useInfiniteScroll,
   useInViewport,
-  usePreview,
+  useKeyPress,
   useLocalStorageState,
   useLockFn,
   useMap,
   useMedia,
   useMouse,
   useNetwork,
+  usePreview,
   useSessionStorageState,
   useSet,
   useSize,
