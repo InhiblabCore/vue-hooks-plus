@@ -23,7 +23,7 @@ English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/mas
 
 ## 📚 Documentation
 
-See the [Contributing Guide](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+See the [Documentation Guide](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
 ## ✨ Features
 
