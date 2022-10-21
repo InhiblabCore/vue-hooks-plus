@@ -6,9 +6,9 @@
 
 <div align="center">
 
-[ahooks](https://ahooks.js.org/) Vue realize.
+# VueHooks Plus
 
-<div style="font-size: 32px">VueHooks Plus</div>
+[ahooks](https://ahooks.js.org/) Vue realize.
 
 English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
 
