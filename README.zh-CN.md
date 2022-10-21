@@ -19,8 +19,6 @@
 
 [English](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.md) | 简体中文
 
-[ahooks](https://ahooks.js.org/zh-CN/) Vue 的实现.
-
 </div>
 
 ## 📚 文档
