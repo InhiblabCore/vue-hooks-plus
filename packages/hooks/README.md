@@ -25,7 +25,7 @@ English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/mas
 
 ## 📚 Documentation
 
-[Docs Live](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+See the [Contributing Guide](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
 ## ✨ Features
 
@@ -39,7 +39,7 @@ English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/mas
 ## 📦 Install
 
 ```
-$ npm install --save vue-hooks-plus
+$ npm i vue-hooks-plus
 # or
 $ yarn add vue-hooks-plus
 ```
@@ -62,3 +62,14 @@ hooks Dir
 npm run initial
 npm run docs:dev
 ```
+
+# 🪴 Project Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
+
+# 🌸 Thanks
+
+This project is heavily inspired by the following awesome projects.
+
+- [react-use](https://github.com/streamich/react-use)
+- [ahooks](https://ahooks.js.org/)
