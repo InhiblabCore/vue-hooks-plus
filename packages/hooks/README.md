@@ -19,6 +19,8 @@
 
 English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
 
+High-quality and reliable Vue3 Hooks library
+
 </div>
 
 ## 📚 Documentation
