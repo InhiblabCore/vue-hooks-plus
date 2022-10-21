@@ -19,8 +19,6 @@
 
 English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
 
-[ahooks](https://ahooks.js.org/) Vue realize.
-
 </div>
 
 ## 📚 Documentation
