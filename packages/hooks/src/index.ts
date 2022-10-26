@@ -42,6 +42,7 @@ import useUrlState from './useUrlState'
 import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
+import useFullscreen from './useFullscreen'
 
 export {
   useAsyncOrder,
@@ -88,4 +89,5 @@ export {
   useVirtualList,
   useWhyDidYouUpdate,
   useWinResize,
+  useFullscreen
 }

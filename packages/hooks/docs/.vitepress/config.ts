@@ -204,6 +204,7 @@ function getHooksSidebar() {
         { text: 'useDarkMode', link: '/useDarkMode/' },
         { text: 'useFavicon', link: '/useFavicon/' },
         { text: 'useFocusWithin', link: '/useFocusWithin/' },
+        { text: 'useFullscreen', link: '/useFullscreen/' },
         { text: 'useHover', link: '/useHover/' },
         { text: 'useInViewport', link: '/useInViewport/' },
         { text: 'useKeyPress', link: '/useKeyPress/' },

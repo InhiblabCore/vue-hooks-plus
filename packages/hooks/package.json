@@ -42,7 +42,8 @@
 		"lodash": "^4.17.21",
 		"marked": "^4.0.17",
 		"qs": "^6.11.0",
-		"query-string": "^7.1.1"
+		"query-string": "^7.1.1",
+		"screenfull": "^6.0.2"
 	},
 	"devDependencies": {
 		"@ruabick/vite-plugin-gen-temp": "^0.2.8",
