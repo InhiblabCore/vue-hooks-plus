@@ -23,7 +23,8 @@
 	"scripts": {
 		"initial": "initial-scan .docs",
 		"docs:dev": " vitepress dev .docs --host",
-		"docs:build": "cross-env NODE_ENV=production vhp-vitepress build .docs",
+		"docs:build": "cross-env BASE_URL=/docs vhp-vitepress build .docs",
+    "docs:build-ip": "cross-env vhp-vitepress build .docs",
 		"docs:serve": "vitepress serve .docs --host",
 		"clean": "rimraf dist lib es",
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
