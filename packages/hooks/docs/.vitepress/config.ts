@@ -3,7 +3,12 @@ import { applyPlugins } from '@vue-hooks-plus/md-demo-plugins'
 import { genTemp } from '@ruabick/vite-plugin-gen-temp'
 import { resolve } from 'path'
 
-const base = process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/docs' : ''
+const base =
+  process.env.NODE_ENV === 'production'
+    ? process.env?.BASE_URL
+      ? process.env.BASE_URL
+      : '/vue-hooks-plus/docs'
+    : ''
 
 export default defineConfig({
   head: [
