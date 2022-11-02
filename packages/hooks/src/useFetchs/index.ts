@@ -55,7 +55,9 @@ function useFetchs<TData, TParams>(
     watchEffect(() => {
       fetchs.value[cacheKey as string] = {
         key: cacheKey,
+        // @ts-ignore
         data: data?.value as UnwrapRef<TData>,
+        // @ts-ignore
         params: params.value as UnwrapRef<TParams>,
         loading: loading.value as UnwrapRef<boolean>,
       }
@@ -75,7 +77,9 @@ function useFetchs<TData, TParams>(
       const fetchKey = keyIsStringOrNumber(key) ? key : DEFAULT_KEY
       fetchs.value[fetchKey] = {
         key: fetchKey,
+        // @ts-ignore
         data: newData as UnwrapRef<TData>,
+        // @ts-ignore
         params: newParams as UnwrapRef<TParams>,
         loading: newLoading as UnwrapRef<boolean>,
       }
