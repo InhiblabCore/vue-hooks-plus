@@ -29,5 +29,9 @@ jobs:
         run: |
           cd packages/hooks
           pnpm run build
+      - name: Build Full Types
+        run: |
+          cd packages/hooks
+          pnpm run build:types
         env:
           CI: true
