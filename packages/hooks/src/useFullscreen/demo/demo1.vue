@@ -1,17 +1,18 @@
 <template>
-  <div style="background:white">
+  <div>
     <div style="margin-bottom: 16px ">
-      <button id="fullscreen-img" style="width: 320" alt="" />
+      <img id="fullscreen-img" :src="img" style="width: 320px" alt="">
     </div>
-    <button type="button" @click="enterFullscreen">
+    <vhp-button type="button" @click="enterFullscreen">
       enterFullscreen
-    </button>
+    </vhp-button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useFullscreen } from 'vue-hooks-plus'
+  import { useFullscreen } from 'vue-hooks-plus'
 
-const [, { enterFullscreen }] = useFullscreen(() => document.getElementById('fullscreen-img'));
+  const img = 'https://v2.cn.vuejs.org/images/logo.svg'
 
+  const [, { enterFullscreen }] = useFullscreen(() => document.getElementById('fullscreen-img'))
 </script>

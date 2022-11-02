@@ -28,6 +28,7 @@ specifiers:
   qs: ^6.11.0
   query-string: ^7.1.1
   rimraf: ^3.0.2
+  screenfull: ^6.0.2
   ts-morph: ^13.0.2
   ts-node: ^10.7.0
   typeit: ^8.7.0
@@ -48,6 +49,7 @@ dependencies:
   marked: 4.0.17
   qs: 6.11.0
   query-string: 7.1.1
+  screenfull: 6.0.2
 
 devDependencies:
   '@ruabick/vite-plugin-gen-temp': 0.2.8_less@4.1.3
@@ -3183,6 +3185,11 @@ packages:
     resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
     dev: true
     optional: true
+
+  /screenfull/6.0.2:
+    resolution: {integrity: sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dev: false
 
   /section-matter/1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
