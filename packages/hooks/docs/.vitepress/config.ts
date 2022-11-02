@@ -22,7 +22,6 @@ export default defineConfig({
   ],
   title: 'VueHook Plus',
   description: '_description',
-
   base,
   themeConfig: {
     logo: `http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg`,
