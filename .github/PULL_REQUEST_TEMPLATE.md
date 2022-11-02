@@ -6,7 +6,7 @@ Pull requests will be merged after one of the collaborators approve.
 Please makes sure that these forms are filled before submitting your pull request, thank you!
 -->
 
-[[中文版模板 / Chinese template](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/.github/workflows/.github/PULL_REQUEST_TEMPLATE-zh-CN.md)]
+[[中文版模板 / Chinese template](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/.github/PULL_REQUEST_TEMPLATE-zh-CN.md)]
 
 ### 🤔 This is a ...
 

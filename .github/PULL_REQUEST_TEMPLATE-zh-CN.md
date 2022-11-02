@@ -6,7 +6,7 @@
 请确保填写以下 pull request 的信息，谢谢！~
 -->
 
-[[English Template / 英文模板](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/.github/workflows/.github/PULL_REQUEST_TEMPLATE.md)]
+[[English Template / 英文模板](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/.github/PULL_REQUEST_TEMPLATE.md)]
 
 ### 🤔 这个变动的性质是？
 
