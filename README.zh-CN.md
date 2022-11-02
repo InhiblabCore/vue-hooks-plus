@@ -25,7 +25,7 @@
 
 ## 📚 文档
 
-<img src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg" height="16" alt="" />查看 [文档指南](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+<img src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg" height="16" alt="" /> 查看 [文档指南](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
 ## ✨ 特性
 
@@ -71,5 +71,4 @@ npm run docs:dev
 
 这个项目的灵感主要来自于以下这些很棒的项目。
 
-- [react-use](https://github.com/streamich/react-use)
 - [ahooks](https://ahooks.js.org/)

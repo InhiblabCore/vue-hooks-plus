@@ -25,7 +25,7 @@ High-quality and reliable Vue3 Hooks library
 
 ## 📚 Documentation
 
-<img src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg" height="16" alt="" />See the [Documentation Guide](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+<img src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg" height="16" alt="" /> See the [Documentation Guide](http://43.138.187.142:9000/vue-hooks-plus/docs/)
 
 ## ✨ Features
 
@@ -71,5 +71,4 @@ npm run docs:dev
 
 This project is heavily inspired by the following awesome projects.
 
-- [react-use](https://github.com/streamich/react-use)
 - [ahooks](https://ahooks.js.org/)
