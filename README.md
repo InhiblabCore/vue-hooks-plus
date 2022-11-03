@@ -71,5 +71,4 @@ npm run docs:dev
 
 This project is heavily inspired by the following awesome projects.
 
-- [react-use](https://github.com/streamich/react-use)
 - [ahooks](https://ahooks.js.org/)

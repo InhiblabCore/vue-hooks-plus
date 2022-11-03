@@ -71,5 +71,4 @@ npm run docs:dev
 
 这个项目的灵感主要来自于以下这些很棒的项目。
 
-- [react-use](https://github.com/streamich/react-use)
 - [ahooks](https://ahooks.js.org/)
