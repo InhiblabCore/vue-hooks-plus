@@ -25,7 +25,7 @@ High-quality and reliable Vue3 Hooks library
 
 ## 📚 Documentation
 
-<img src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg" height="16" alt="" /> See the [Documentation Guide](http://43.138.187.142:9000/vue-hooks-plus/docs/)
+See the [Documentation Guide](https://inhiblabcore.github.io/docs/hooks)
 
 ## ✨ Features
 
