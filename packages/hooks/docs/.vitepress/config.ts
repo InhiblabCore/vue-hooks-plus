@@ -10,13 +10,19 @@ const base =
       : '/vue-hooks-plus/docs'
     : ''
 
+const isGithub = process.env.FLOW === 'github'
+
+const url = isGithub
+  ? 'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.svg'
+  : 'http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg'
+
 export default defineConfig({
   head: [
     [
       'link',
       {
         rel: 'icon',
-        href: `http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg`,
+        href: url,
       },
     ],
   ],
@@ -24,7 +30,7 @@ export default defineConfig({
   description: '_description',
   base,
   themeConfig: {
-    logo: `http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg`,
+    logo: url,
     nav: [
       { text: '首页', link: '/' },
       { text: 'Hooks', link: '/useRequest/' },
@@ -32,6 +38,15 @@ export default defineConfig({
         text: '演练场 (PC)',
         link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
       },
+      isGithub
+        ? {
+            text: '国内镜像',
+            link: 'http://nelsonyong.gitee.io/docs/hooks/',
+          }
+        : {
+            text: 'github 镜像',
+            link: 'https://inhiblabcore.github.io/docs/hooks/',
+          },
       {
         text: '更新日志',
         link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
