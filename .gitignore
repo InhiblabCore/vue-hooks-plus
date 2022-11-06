@@ -4,16 +4,18 @@ dist
 .cache
 .temp
 
+
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-.local
 # local env files
+.local
 .env.local
 .env.*.local
 .eslintcache
 
+# scripts
 scripts/git-pr.js
 
 # Log files
