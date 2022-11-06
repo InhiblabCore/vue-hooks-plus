@@ -25,7 +25,7 @@
 
 ## 📚 文档
 
-查看 [文档指南 📒](http://nelsonyong.gitee.io/docs/hooks/)
+查看 [文档指南 📒](http://nelsonyong.gitee.io/docs/hooks/){target="\_blank"}
 
 ## ✨ 特性
 
