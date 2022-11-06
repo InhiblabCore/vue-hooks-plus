@@ -18,7 +18,6 @@ function encodeParams(value: UrlState): string {
 }
 
 function decodeParams(valueStr: string, detectNumber: boolean): Record<string, unknown> {
-  // return JSON.parse(decodeURIComponent(atob(valueStr)));
   return qs.parse(valueStr, {
     // fix: 数组长度限制问题
     arrayLimit: 10000,
@@ -62,12 +61,13 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
 
   const [path, paramsStr] = location.hash.slice(1).split('?')
 
-  const defaultState =
-    (isFunction(initialState)? initialState() : initialState) ?? ({} as S)
+  const defaultState = (isFunction(initialState) ? initialState() : initialState) ?? ({} as S)
 
-  const state = (localStorageKey ? useLocalStorageState(localStorageKey, {
-      defaultValue: defaultState,
-    })[0] : ref(defaultState)) as Ref<S>
+  const state = (localStorageKey
+    ? useLocalStorageState(localStorageKey, {
+        defaultValue: defaultState,
+      })[0]
+    : ref(defaultState)) as Ref<S>
 
   // 初始状态 url > localstorage
   if (paramsStr) {
@@ -101,8 +101,6 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
     () => {
       const newParamsStr = encodeParams(state.value)
       routerPushFn(`${path}?${newParamsStr}`)
-      // console.log('写url')
-      // console.log(`${path}?${newParamsStr}`)
     },
     {
       deep: true,
