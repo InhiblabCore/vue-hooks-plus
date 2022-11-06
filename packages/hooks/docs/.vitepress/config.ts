@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import { applyPlugins } from '@vue-hooks-plus/md-demo-plugins'
 import { genTemp } from '@ruabick/vite-plugin-gen-temp'
 import { resolve } from 'path'
+import { svg } from './theme/home/iconBase64'
 
 const base =
   process.env.NODE_ENV === 'production'
@@ -20,7 +21,7 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        href: '/logo.svg',
+        href: svg,
       },
     ],
   ],
