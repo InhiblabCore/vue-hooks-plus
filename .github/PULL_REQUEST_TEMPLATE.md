@@ -47,7 +47,7 @@ Describe changes from the user side, and list all potential break changes or oth
 
 | Language   | Changelog |
 | ---------- | --------- |
-| 🇺🇸 English | -         |
+| 🇺🇸 English |           |
 | 🇨🇳 Chinese |           |
 
 ### ☑️ Self Check before Merge
