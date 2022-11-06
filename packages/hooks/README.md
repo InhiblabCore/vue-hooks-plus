@@ -25,7 +25,7 @@ High-quality and reliable Vue3 Hooks library
 
 ## 📚 Documentation
 
-See the [Documentation Guide](https://inhiblabcore.github.io/docs/hooks){target="\_blank"}
+See the <a href="https://inhiblabcore.github.io/docs/hooks" target="_blank">Documentation Guide</a>
 
 ## ✨ Features
 
