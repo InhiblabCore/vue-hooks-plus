@@ -21,7 +21,7 @@
         <!-- <span class="accent">Plus</span> -->
       </p>
       <p class="actions">
-        <a class="get-started" href="/vue-hooks-plus/docs/guide/">
+        <a class="get-started" href="/docs/hooks/guide/">
           Get Started
           <svg
             class="icon"
