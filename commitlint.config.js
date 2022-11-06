@@ -1,5 +1,5 @@
 // feat：新增功能 | New features
-// fix： bug 修复 | Fix Bug
+// fix： Bug 修复 | Fix Bug
 // docs：文档更新 | Document update
 // style：不影响程序逻辑的代码修改(修改空白字符，格式缩进，补全缺失的分号等，没有改变代码逻辑) | Code modification that does not affect the program logic (modify the blank characters, format indent, complete the missing semicolons, etc., without changing the code logic)
 // refactor：重构代码(既没有新增功能，也没有修复 bug) | Refactoring code (neither new feature nor bug fix)
