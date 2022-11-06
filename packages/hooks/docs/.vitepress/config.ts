@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import { applyPlugins } from '@vue-hooks-plus/md-demo-plugins'
 import { genTemp } from '@ruabick/vite-plugin-gen-temp'
 import { resolve } from 'path'
+import { svg } from './theme/home/iconBase64'
 
 const base =
   process.env.NODE_ENV === 'production'
@@ -12,9 +13,7 @@ const base =
 
 const isGithub = process.env.FLOW === 'github'
 
-const url = isGithub
-  ? 'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.svg'
-  : 'http://43.138.187.142:9000/assets/vue-hooks-plus/logo.svg'
+// const url = process.env.NODE_ENV === 'production' ? '/docs/hooks/logo.svg' : '/logo.svg'
 
 export default defineConfig({
   head: [
@@ -22,7 +21,7 @@ export default defineConfig({
       'link',
       {
         rel: 'icon',
-        href: url,
+        href: svg,
       },
     ],
   ],
@@ -30,7 +29,7 @@ export default defineConfig({
   description: '_description',
   base,
   themeConfig: {
-    logo: url,
+    logo: '/logo.svg',
     nav: [
       { text: '首页', link: '/' },
       { text: 'Hooks', link: '/useRequest/' },
