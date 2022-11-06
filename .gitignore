@@ -3,7 +3,6 @@ node_modules
 dist
 .cache
 .temp
-.docs
 
 package-lock.json
 yarn.lock
@@ -23,8 +22,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Editor directories and files
-.idea
 # .vscode
 *.suo
 *.ntvs*
