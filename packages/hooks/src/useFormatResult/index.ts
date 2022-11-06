@@ -1,12 +1,10 @@
-import { isRef, computed, Ref, ComputedRef } from 'vue'
+import { computed, Ref, ComputedRef, unref } from 'vue'
 
 function useFormatResult<TData, FData>(
   data: TData | Ref<TData>,
   formatResultCallback: (data: TData) => FData,
 ): ComputedRef<FData> {
-  const formatResultData = computed(() =>
-    isRef(data) ? formatResultCallback(data.value as TData) : formatResultCallback(data as TData),
-  )
+  const formatResultData = computed(() => formatResultCallback(unref(data)))
   return formatResultData
 }
 
