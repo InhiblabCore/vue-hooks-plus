@@ -1,6 +1,7 @@
 import qs from 'qs'
 import { Ref, ref, watch } from 'vue'
 import { useLocalStorageState } from '../index'
+import { isFunction } from '../utils'
 
 export interface UseUrlStateOptions {
   localStorageKey?: string
@@ -12,12 +13,11 @@ interface UrlState {
   [key: string]: any
 }
 
-function encodeParams(value: UrlState) {
+function encodeParams(value: UrlState): string {
   return qs.stringify(value)
 }
 
-function decodeParams(valueStr: string, detectNumber: boolean) {
-  // return JSON.parse(decodeURIComponent(atob(valueStr)));
+function decodeParams(valueStr: string, detectNumber: boolean): Record<string, unknown> {
   return qs.parse(valueStr, {
     // fix: 数组长度限制问题
     arrayLimit: 10000,
@@ -61,15 +61,13 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
 
   const [path, paramsStr] = location.hash.slice(1).split('?')
 
-  const defaultState =
-    (typeof initialState === 'function' ? (initialState as () => S)() : initialState) ?? ({} as S)
-  let state = ref(defaultState) as Ref<S>
+  const defaultState = (isFunction(initialState) ? initialState() : initialState) ?? ({} as S)
 
-  if (localStorageKey) {
-    state = useLocalStorageState(localStorageKey, {
-      defaultValue: defaultState,
-    })[0] as Ref<S>
-  }
+  const state = (localStorageKey
+    ? useLocalStorageState(localStorageKey, {
+        defaultValue: defaultState,
+      })[0]
+    : ref(defaultState)) as Ref<S>
 
   // 初始状态 url > localstorage
   if (paramsStr) {
@@ -103,8 +101,6 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
     () => {
       const newParamsStr = encodeParams(state.value)
       routerPushFn(`${path}?${newParamsStr}`)
-      // console.log('写url')
-      // console.log(`${path}?${newParamsStr}`)
     },
     {
       deep: true,

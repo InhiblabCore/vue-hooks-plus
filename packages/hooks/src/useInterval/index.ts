@@ -1,4 +1,4 @@
-import { watchEffect, ref, Ref, isRef } from 'vue'
+import { watchEffect, ref, Ref, isRef, unref } from 'vue'
 
 function useInterval(
 	fn: () => void,
@@ -6,7 +6,7 @@ function useInterval(
 	options?: {
 		immediate?: boolean
 	}
-) {
+): void {
 	const immediate = options?.immediate
 
 	const fnRef = ref(fn)
@@ -20,7 +20,7 @@ function useInterval(
 		if (immediate) {
 			fnRef.value()
 		}
-		const _deply = isRef(delay) ? delay.value : delay
+		const _deply = unref(delay)
 		const timer = setInterval(() => {
 			fnRef.value()
 		}, _deply)

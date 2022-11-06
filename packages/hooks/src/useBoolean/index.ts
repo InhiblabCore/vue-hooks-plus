@@ -1,6 +1,5 @@
-import type { Ref, ComputedRef } from "vue";
+import type { Ref } from "vue";
 import useToggle from "../useToggle";
-import { computed } from "vue";
 
 export interface Actions {
   setTrue: () => void;
@@ -13,16 +12,12 @@ export default function useBoolean(
   defaultValue = false
 ): [Ref<boolean>, Actions] {
   const [state, { set, toggle }] = useToggle(defaultValue);
-  const actions: ComputedRef<Actions> = computed(() => {
-    const setTrue = () => set(true);
-    const setFalse = () => set(false);
-      return {
-      set: (v: boolean) => set(!!v),
-      setTrue,
-      setFalse,
-      toggle,
-    }
-  })
+  const actions = {
+    set: (v: boolean) => set(!!v),
+    setTrue: () => set(true),
+    setFalse: () => set(false),
+    toggle,
+  }
 
-  return [state, { ...actions.value }];
+  return [state, actions];
 }
