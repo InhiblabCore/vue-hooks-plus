@@ -40,9 +40,7 @@ module.exports = {
         'workflow',
         'types',
         'release',
-        'version',
-        'readme',
-        'ts',
+        'version'
       ],
     ],
   },
