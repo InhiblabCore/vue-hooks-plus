@@ -1,20 +1,22 @@
 node_modules
-.DS_Store
 dist
+.DS_Store
 .cache
 .temp
-.docs
 
+
+# lock
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
-.local
 # local env files
+.local
 .env.local
 .env.*.local
 .eslintcache
 
+# scripts
 scripts/git-pr.js
 
 # Log files
@@ -23,8 +25,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Editor directories and files
-.idea
 # .vscode
 *.suo
 *.ntvs*
