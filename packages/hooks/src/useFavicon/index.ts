@@ -1,4 +1,4 @@
-import { watchEffect, computed, Ref, isRef } from 'vue'
+import { watchEffect, computed, Ref, unref } from 'vue'
 
 const ImgTypeMap = {
   SVG: 'image/svg+xml',
@@ -10,7 +10,7 @@ const ImgTypeMap = {
 type ImgTypes = keyof typeof ImgTypeMap
 
 export default function useFavicon(href?: string | Ref<string | undefined>) {
-  const _href = computed(() => (isRef(href) ? href.value : href))
+  const _href = computed(() => unref(href))
   watchEffect(() => {
     if (!_href.value) return
 

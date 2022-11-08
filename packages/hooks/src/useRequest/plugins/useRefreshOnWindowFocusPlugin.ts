@@ -1,4 +1,4 @@
-import { ref, watchEffect, onUnmounted, isRef } from "vue";
+import { ref, watchEffect, onUnmounted, unref } from "vue";
 import type { Plugin } from "../types";
 import limit from "../utils/limit";
 import subscribeFocus from "../utils/subscribeFocus";
@@ -14,10 +14,10 @@ const useRefreshOnWindowFocusPlugin: Plugin<any, any[]> = (
   };
 
   watchEffect((onInvalidate) => {
-    if (isRef(refreshOnWindowFocus) ? refreshOnWindowFocus.value : refreshOnWindowFocus) {
+    if (unref(refreshOnWindowFocus)) {
       const limitRefresh = limit(
         fetchInstance.refresh.bind(fetchInstance),
-        isRef(focusTimespan) ? focusTimespan.value : focusTimespan
+        unref(focusTimespan)
       );
       unsubscribeRef.value = subscribeFocus(() => {
         limitRefresh();

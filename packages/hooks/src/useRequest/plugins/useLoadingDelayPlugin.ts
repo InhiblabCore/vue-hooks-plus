@@ -1,4 +1,4 @@
-import { isRef, ref } from "vue";
+import { unref, ref } from "vue";
 import type { Plugin, Timeout } from "../types";
 
 const useLoadingDelayPlugin: Plugin<any, any[]> = (
@@ -6,7 +6,7 @@ const useLoadingDelayPlugin: Plugin<any, any[]> = (
   { loadingDelay }
 ) => {
   const timerRef = ref<Timeout>();
-  if (isRef(loadingDelay) ? !loadingDelay.value : !loadingDelay) {
+  if (!unref(loadingDelay)) {
     return {};
   }
 
@@ -25,7 +25,7 @@ const useLoadingDelayPlugin: Plugin<any, any[]> = (
         fetchInstance.setState({
           loading: true,
         });
-      }, (isRef(loadingDelay) ? loadingDelay.value : loadingDelay) as number);
+      }, (unref(loadingDelay)) as number);
 
       return {
         loading: false,

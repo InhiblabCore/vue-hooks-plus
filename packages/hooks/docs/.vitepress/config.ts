@@ -34,7 +34,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: 'Hooks', link: '/useRequest/' },
       {
-        text: '演练场 (PC)',
+        text: 'Playground',
         link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
       },
       isGithub
@@ -43,7 +43,7 @@ export default defineConfig({
             link: 'http://nelsonyong.gitee.io/docs/hooks/',
           }
         : {
-            text: 'github 镜像',
+            text: 'Github 站点',
             link: 'https://inhiblabcore.github.io/docs/hooks/',
           },
       {
