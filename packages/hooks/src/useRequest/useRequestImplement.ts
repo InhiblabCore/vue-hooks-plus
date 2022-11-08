@@ -1,4 +1,4 @@
-import { ref, reactive, toRefs, computed, onMounted, onUnmounted, isRef } from 'vue'
+import { ref, reactive, toRefs, computed, onMounted, onUnmounted, unref } from 'vue'
 
 import Fetch from './Fetch'
 import { Options, Plugin, Result, Service } from './types'
@@ -68,7 +68,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   onMounted(() => {
     if (!manual) {
       const params = fetchInstance.value.state.params || options.defaultParams || []
-      if (isRef(ready) ? ready.value : ready) fetchInstance.value.run(...(params as TParams))
+      if (unref(ready)) fetchInstance.value.run(...(params as TParams))
     }
   })
 
