@@ -66,6 +66,10 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com//InhiblabCore/vue-hooks-plus',
       },
+      {
+        icon: 'gitee',
+        link: 'https://github.com//InhiblabCore/vue-hooks-plus',
+      },
     ],
   },
 
