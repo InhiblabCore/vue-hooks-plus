@@ -39,7 +39,6 @@ const usePollingPlugin: Plugin<any, any[]> = (
         });
         return;
       }
-
       timerRef.value = setInterval(() => {
         fetchInstance.refresh();
       },unref(pollingInterval));
