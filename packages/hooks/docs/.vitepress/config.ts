@@ -40,7 +40,7 @@ export default defineConfig({
       isGithub
         ? {
             text: '国内镜像',
-            link: 'http://nelsonyong.gitee.io/docs/hooks/',
+            link: 'https://inhiblab-core.gitee.io/docs/hooks/',
           }
         : {
             text: 'Github 站点',
