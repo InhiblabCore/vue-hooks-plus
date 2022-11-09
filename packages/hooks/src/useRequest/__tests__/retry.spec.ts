@@ -14,7 +14,7 @@ describe('useRequest/Retry', () => {
   it('should auto work', async () => {
     await sleep(1000)
     expect(retryText.text()).toBe('1')
-    await sleep(3000)
+    await sleep(3100)
     expect(retryText.text()).toBe('2')
   })
 })
