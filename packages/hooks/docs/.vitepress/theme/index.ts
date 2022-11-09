@@ -7,9 +7,8 @@ import './var.less'
 
 export default {
   ...DefaultTheme,
-  // @ts-ignore
   enhanceApp({ app }: { app: App<Element> }) {
     app.component('demo', DemoBlock)
     app.component('vhp-button', VhpButton)
   },
-} as any
+} as unknown

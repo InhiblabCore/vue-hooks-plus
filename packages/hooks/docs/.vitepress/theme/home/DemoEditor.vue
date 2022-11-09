@@ -11,56 +11,59 @@
 
 <script setup lang="ts">
   import TypeIt from 'typeit'
+  import { El } from 'typeit/dist/types'
   import { ref, onMounted, watch } from 'vue'
-  import { useInViewport } from 'vue-hooks-plus'
+
+  import useInViewport from '../../../../src/useInViewport'
 
   const domRef = ref(null)
   const isMount = ref(false)
   const isFirst = ref(true)
   const [inViewport] = useInViewport(domRef)
 
-  const block = ref<HTMLPreElement>()
+  const block = ref<El>()
 
   watch([inViewport, isMount], curr => {
     if (curr?.[0] && curr?.[1] && isFirst.value === true) {
       isFirst.value = false
-      new TypeIt(block.value, {
-        speed: 50,
-        startDelay: 900,
-        // afterStep: () => {
-        //   console.log(JSON.parse(JSON.stringify(block.value!.innerText.replace('|', ''))))
-        // },
-      })
-        .type('<br><h1 style="opacity: 0.5;">欢迎使用 VueHooks Plus!</h1><br /><br />', {
-          delay: 100,
+      if (block.value)
+        new TypeIt(block.value, {
+          speed: 50,
+          startDelay: 900,
+          // afterStep: () => {
+          //   console.log(JSON.parse(JSON.stringify(block.value!.innerText.replace('|', ''))))
+          // },
         })
-        .type(
-          `<span class="label-code">&lt;script</span> setup lang="ts" <span class="label-code">&gt</span> <br /><br /><br />`,
-        )
-        .type(
-          '&nbsp<span class="import-code">import</span> { <span class="module-code">useRequest</span> } from "<span class="export-code">vue-hooks-plus</span>" <br /> <br />',
-          {
+          .type('<br><h1 style="opacity: 0.5;">欢迎使用 VueHooks Plus!</h1><br /><br />', {
             delay: 100,
-          },
-        )
-        .type(
-          `&nbspconst { <span class="variable-code">data</span>  } = <span class="module-code">useRequest</span>(()=><span class="module-code">getData</span>(),{
+          })
+          .type(
+            `<span class="label-code">&lt;script</span> setup lang="ts" <span class="label-code">&gt</span> <br /><br /><br />`,
+          )
+          .type(
+            '&nbsp<span class="import-code">import</span> { <span class="module-code">useRequest</span> } from "<span class="export-code">vue-hooks-plus</span>" <br /> <br />',
+            {
+              delay: 100,
+            },
+          )
+          .type(
+            `&nbspconst { <span class="variable-code">data</span>  } = <span class="module-code">useRequest</span>(()=><span class="module-code">getData</span>(),{
     <span class="variable-code">...options</span>
  })`,
-        )
-        .type(`<br /><br /><br /><span class="label-code">&lt;script /&gt;</span>`)
-        .type(
-          `<br /><br /><span class="label-code">&lt;template&gt;</span><br /><br />&nbsp<span class="label-code">&lt;div&gt; <br /></span>&nbsp&nbsp&nbspdata值为：{{<span class="variable-code"> undefined </span>}} <br />&nbsp<span class="label-code">&lt;div /&gt; </span><br />`,
-        )
-        .type(`<br /><span class="label-code">&lt;template /&gt;</span>`)
-        .move(-27)
-        .delete(11, {
-          delay: 400,
-        })
-        .type(`<span class="variable-code"> fetch API data 更新了！ </span>`, {
-          delay: 400,
-        })
-        .go()
+          )
+          .type(`<br /><br /><br /><span class="label-code">&lt;script /&gt;</span>`)
+          .type(
+            `<br /><br /><span class="label-code">&lt;template&gt;</span><br /><br />&nbsp<span class="label-code">&lt;div&gt; <br /></span>&nbsp&nbsp&nbspdata值为：{{<span class="variable-code"> undefined </span>}} <br />&nbsp<span class="label-code">&lt;div /&gt; </span><br />`,
+          )
+          .type(`<br /><span class="label-code">&lt;template /&gt;</span>`)
+          .move(-27)
+          .delete(11, {
+            delay: 400,
+          })
+          .type(`<span class="variable-code"> fetch API data 更新了！ </span>`, {
+            delay: 400,
+          })
+          .go()
     }
   })
 
