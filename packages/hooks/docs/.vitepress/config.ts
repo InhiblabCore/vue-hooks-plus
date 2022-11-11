@@ -183,6 +183,7 @@ function getHooksSidebar() {
         { text: 'useSessionStorageState', link: '/useSessionStorageState/' },
         { text: 'useMap', link: '/useMap/' },
         { text: 'useSet', link: '/useSet/' },
+        { text: 'useSetState', link: '/useSetState/' },
       ],
     },
 

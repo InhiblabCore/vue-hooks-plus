@@ -29,6 +29,7 @@ import useMedia from './useMedia'
 import useNetwork from './useNetwork'
 import useSessionStorageState from './useSessionStorageState'
 import useSet from './useSet'
+import useSetState from './useSetState'
 import useSize from './useSize'
 import useScroll from './useScroll'
 import useToggle from './useToggle'
@@ -76,6 +77,7 @@ export {
   usePreview,
   useSessionStorageState,
   useSet,
+  useSetState,
   useSize,
   useScroll,
   useToggle,
