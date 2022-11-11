@@ -7,19 +7,34 @@ describe('polling', () => {
 
   const pollingText = wrapper.find('span')
 
-  it('should loading is true', () => {
-    expect(pollingText.text()).toBe('loading')
+  const pollingStartBtn = wrapper.findAll('vhp-button')[0]
+  const pollingUpdateBtn = wrapper.findAll('vhp-button')[1]
+
+  it('should loading is false', () => {
+    expect(pollingText.text()).toBe('')
   })
 
   it('should request', async () => {
+    await pollingStartBtn.trigger('click')
     await sleep(1000)
     expect(pollingText.text() === 'loading').toBeFalsy()
   })
 
   it('should polling', async () => {
-    await sleep(3000)
+    await pollingStartBtn.trigger('click')
+    await sleep(900)
     expect(pollingText.text()).toBe('loading')
     await sleep(1000)
+    expect(pollingText.text() === 'loading').toBeFalsy()
+
+    await pollingUpdateBtn.trigger('click')
+    await pollingUpdateBtn.trigger('click')
+    await sleep(1000)
+    expect(pollingText.text() === 'loading').toBeTruthy()
+    await pollingUpdateBtn.trigger('click')
+    await pollingUpdateBtn.trigger('click')
+    await pollingUpdateBtn.trigger('click')
+    await sleep(1500)
     expect(pollingText.text() === 'loading').toBeFalsy()
   })
 })

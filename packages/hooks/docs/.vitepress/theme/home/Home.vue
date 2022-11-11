@@ -1,25 +1,17 @@
 <script setup lang="ts">
-  import { onMounted } from 'vue'
   import DemoEditor from './DemoEditor.vue'
   import Icon from './Icon.vue'
-  import { light_bg, dark_bg } from './iconBase64'
 </script>
 
 <template>
   <div class="home">
     <Icon />
     <section id="hero">
-      <!-- <div class="head">
-      <div class="logo"> </div>
-    </div> -->
       <h1 class="tagline">
         <span class="accent">VueHooks</span>
         <br />Plus
       </h1>
-      <p class="description">
-        <!-- <br /> -->
-        <!-- <span class="accent">Plus</span> -->
-      </p>
+      <p class="description"> </p>
       <p class="actions">
         <a class="get-started" href="/docs/hooks/guide/">
           Get Started
@@ -202,15 +194,6 @@
   .dark .actions .setup:hover {
     background: var(--vhp-getstart-bg);
   }
-
-  // @keyframes move {
-  //   0% {
-  //     background-position: 0 0;
-  //   }
-  //   100% {
-  //     background-position: 9rem 0;
-  //   }
-  // }
   #special-sponsor {
     border-top: 1px solid var(--vt-c-divider-light);
     border-bottom: 1px solid var(--vt-c-divider-light);

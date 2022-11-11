@@ -1,6 +1,8 @@
 <script setup lang="ts">
-  const props = defineProps<{
-    data: any
+  import { CoreTeam } from '../../../contributors'
+
+  defineProps<{
+    data: CoreTeam
   }>()
 </script>
 

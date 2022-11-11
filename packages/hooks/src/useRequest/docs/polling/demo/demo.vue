@@ -2,11 +2,17 @@
   <div
   >读取用户名称：<span>{{ loading ? 'loading' : data }}</span>
     <br>
-    <vhp-button @click="cancel()">停止</vhp-button>
+    <p>轮询间隔：{{ computedTime }}</p>
+    <div class="contain">
+      <vhp-button @click="start()">开始轮询</vhp-button>
+      <vhp-button @click="update()">轮询时间加100ms</vhp-button>
+      <vhp-button @click="cancel()">停止</vhp-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+  import { computed, ref } from 'vue'
   import { useRequest } from 'vue-hooks-plus'
 
   function getUsername(): Promise<string> {
@@ -17,10 +23,29 @@
     })
   }
 
-  const { data, loading, cancel } = useRequest(() => getUsername(), {
-    pollingInterval: 3000,
+  const time = ref(900)
+
+  const computedTime = computed(() => time.value + 100)
+
+  const { data, run, loading, cancel } = useRequest(() => getUsername(), {
+    manual: true,
+    pollingInterval: computedTime,
     pollingWhenHidden: false,
   })
+
+  const start = () => {
+    run()
+  }
+
+  const update = () => {
+    time.value += 100
+  }
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+  .contain {
+    button {
+      margin-right: 8px;
+    }
+  }
+</style>
