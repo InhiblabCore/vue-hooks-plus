@@ -8,7 +8,11 @@
       <vhp-button
         class="button2"
         style="margin-left: 8px;"
-        @click="changeUrl('https://nelsonyong.github.io/hooks-doc/favicon.ico')"
+        @click="
+          changeUrl(
+            'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.svg',
+          )
+        "
       >
         切换至vue-hooks-plus favicon。
       </vhp-button>
@@ -20,7 +24,9 @@
   import { ref } from 'vue'
 
   import { useFavicon } from 'vue-hooks-plus'
-  const url = ref('https://nelsonyong.github.io/hooks-doc/favicon.ico')
+  const url = ref(
+    'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.svg',
+  )
 
   const changeUrl = (_url: string) => {
     url.value = _url

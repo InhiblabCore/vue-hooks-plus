@@ -1,11 +1,12 @@
-import { sleep } from '@/utils/sleep'
+import renderHook from 'test-utils/renderHook'
+import { sleep } from 'test-utils/sleep'
 import { ref } from 'vue'
 import useThrottle from '..'
 
 describe('useThrottle', () => {
   it('default useThrottle should work', async () => {
     const mountedState = ref(1)
-    const throttledValue = useThrottle(mountedState, { wait: 500 })
+    const [throttledValue] = renderHook(() => useThrottle(mountedState, { wait: 500 }))
     expect(throttledValue.value).toEqual(1)
     mountedState.value = 2
     mountedState.value = 3
@@ -17,11 +18,10 @@ describe('useThrottle', () => {
 
   it('leading:false & trailing:false of options useThrottle should work', async () => {
     const mountedState = ref(0)
-    const throttledValue = useThrottle(mountedState, {
-      wait: 500,
-      leading: false,
-      trailing: false,
-    })
+
+    const [throttledValue] = renderHook(() =>
+      useThrottle(mountedState, { wait: 500, leading: false, trailing: false }),
+    )
 
     //Never get the latest value
     mountedState.value = 1
@@ -37,7 +37,9 @@ describe('useThrottle', () => {
 
   it('leading:true & trailing:false of options useThrottle should work', async () => {
     const mountedState = ref(0)
-    const throttledValue = useThrottle(mountedState, { wait: 500, leading: true, trailing: false })
+    const [throttledValue] = renderHook(() =>
+      useThrottle(mountedState, { wait: 500, leading: true, trailing: false }),
+    )
 
     expect(throttledValue.value).toEqual(0)
     mountedState.value = 1

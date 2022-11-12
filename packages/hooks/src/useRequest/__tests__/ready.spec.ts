@@ -1,37 +1,44 @@
-import { sleep } from '@/utils/sleep'
-import { mount } from '@vue/test-utils'
-import Demo from '../docs/ready/demo/demo.vue'
+import useToggle from '../../useToggle'
+import { sleep } from 'test-utils/sleep'
+import renderHook from 'test-utils/renderHook'
+import useRequest from '../useRequest'
+
+let data = ''
+function getUsername(): Promise<string> {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      data = String(Date.now())
+      resolve(String(Date.now()))
+    }, 1000)
+  })
+}
 
 describe('useRequest/Ready', () => {
-  const wrapper = mount(Demo)
-
-  const currentName = wrapper.findAll('div').at(0)
-  const currentName1 = wrapper.findAll('div').at(1)
-
-  const btn = wrapper.find('vhp-button')
-
-  const prevName = currentName1?.text()
-
+  const [ready, { toggle }] = useToggle(false)
+  const [result] = renderHook(() =>
+    useRequest(() => getUsername(), {
+      ready,
+    }),
+  )
   it('should init ready is false', () => {
-    {
-      expect(currentName?.text()).toBe('ready: false')
-      expect(currentName1?.text()).toBe(prevName)
-    }
+    expect(ready.value).toBeFalsy()
+  })
+  it('should no work', async () => {
+    expect(result.data?.value).toBeUndefined()
+    expect(result.loading.value).toBeFalsy()
+    await sleep(1000)
+    await sleep(200)
+    expect(result.data?.value).toBeUndefined()
   })
 
   it('should work with satisfy the condition; meet the condition', async () => {
-    {
-      await btn.trigger('click')
-      expect(currentName?.text()).toBe('ready: true')
-      await sleep(1001)
-      expect(currentName1?.text() === prevName).toBeFalsy()
-
-      const prevName1 = currentName1?.text()
-
-      await btn.trigger('click')
-      expect(currentName?.text()).toBe('ready: false')
-      await sleep(1001)
-      expect(currentName1?.text() === prevName1).toBeTruthy()
-    }
+    toggle()
+    expect(ready.value).toBeTruthy()
+    await sleep(200)
+    expect(result.loading.value).toBeTruthy()
+    await sleep(1000)
+    await sleep(200)
+    expect(result.loading.value).toBeFalsy()
+    expect(result.data?.value).toBe(data)
   })
 })

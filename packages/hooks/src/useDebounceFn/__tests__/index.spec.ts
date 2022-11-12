@@ -1,4 +1,4 @@
-import { sleep } from '@/utils/sleep'
+import { sleep } from 'test-utils/sleep'
 import useDebounceFn from '..'
 
 let count = 0

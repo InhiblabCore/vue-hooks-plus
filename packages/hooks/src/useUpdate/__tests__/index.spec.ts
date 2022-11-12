@@ -1,18 +1,14 @@
-import { mount } from '@vue/test-utils'
-import { ref } from 'vue'
-
-import Demo from '../demo/demo.vue'
+import renderHook from 'test-utils/renderHook'
+import { sleep } from 'test-utils/sleep'
+import useUpdate from '..'
 
 describe('useUpdate', () => {
-  const wrapper = mount(Demo)
-
-  const showText = wrapper.find('.text')
-  const btn = wrapper.find('.btn')
-
-  const prevRef = ref(showText.text())
+  const [{ update, setUpdate }] = renderHook(() => useUpdate())
+  const prev = update.value
 
   it('should work', async () => {
-    await btn.trigger('click')
-    expect(showText.text() === prevRef.value).toBeFalsy()
+    setUpdate()
+    sleep(100)
+    expect(update.value === prev).toBeFalsy()
   })
 })

@@ -1,3 +1,4 @@
+import renderHook from 'test-utils/renderHook'
 import useEventListener from '..'
 
 describe('useEventListener', () => {
@@ -16,7 +17,7 @@ describe('useEventListener', () => {
     const onClick = () => {
       state++
     }
-    useEventListener('click', onClick, { target: () => container })
+    renderHook(() => useEventListener('click', onClick, { target: () => container }))
 
     document.body.click()
     expect(state).toEqual(0)

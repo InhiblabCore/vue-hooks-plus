@@ -1,21 +1,61 @@
-import { sleep } from '@/utils/sleep'
-import { mount } from '@vue/test-utils'
-import Demo from '../docs/pluginDoc/demo/demo.vue'
+import { sleep } from 'test-utils/sleep'
+import renderHook from 'test-utils/renderHook'
+
+import { Plugin } from '../types'
+import useRequest from '../useRequest'
+
+function getUsername(): Promise<{ name: string; age: number }> {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({
+        name: 'vue-hooks-plus',
+        age: 18,
+      })
+    }, 1000)
+  })
+}
+
+const useFormatterPlugin: Plugin<
+  {
+    name: string
+    age: number
+  },
+  [],
+  {
+    formatter?: (params?: { name: string; age: number }) => any
+  }
+> = (fetchInstance, { formatter }) => {
+  return {
+    onSuccess: () => {
+      fetchInstance.setData(formatter?.(fetchInstance.state.data), 'data')
+    },
+  }
+}
 
 describe('useRequest/Plugin', () => {
-  const wrapper = mount(Demo)
-
-  const name = wrapper.findAll('div').at(0)
-  const age = wrapper.findAll('div').at(1)
+  const [{ data, loading }] = renderHook(() =>
+    useRequest(
+      () => getUsername(),
+      {
+        formatter: (data: any) => {
+          return {
+            name: `${data.name} - plugins update`,
+            age: 20,
+          }
+        },
+      },
+      [useFormatterPlugin],
+    ),
+  )
 
   it('useRequest should work', () => {
-    expect(name?.text()).toBe('loading')
-    expect(age?.text()).toBe('loading')
+    expect(loading.value).toBeTruthy()
+    expect(data?.value).toBeUndefined()
   })
 
   it('useRequest custom plugin should work', async () => {
     await sleep(1000)
-    expect(name?.text()).toBe('vue-hooks-plus - plugins update')
-    expect(age?.text()).toBe('20')
+    expect(data?.value.name).toBe('vue-hooks-plus - plugins update')
+    expect(data?.value.age).toBe(20)
   })
 })

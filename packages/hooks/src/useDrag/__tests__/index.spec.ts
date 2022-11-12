@@ -1,3 +1,4 @@
+import renderHook from 'test-utils/renderHook'
 import useDrag from '..'
 
 const events: Record<string, (event: any) => void> = {}
@@ -21,10 +22,12 @@ describe('useDrag', () => {
       },
     }
 
-    useDrag(1, mockTarget as any, {
-      onDragStart,
-      onDragEnd,
-    })
+    renderHook(() =>
+      useDrag(1, mockTarget as any, {
+        onDragStart,
+        onDragEnd,
+      }),
+    )
     events.dragstart(mockEvent)
     expect(onDragStart).toBeCalled()
     expect(mockEvent.dataTransfer.setData).toBeCalledWith('custom', '1')

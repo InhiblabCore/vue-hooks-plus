@@ -1,4 +1,4 @@
-import { sleep } from '@/utils/sleep'
+import { sleep } from 'test-utils/sleep'
 import { ref } from 'vue'
 import useAsyncOrder from '..'
 

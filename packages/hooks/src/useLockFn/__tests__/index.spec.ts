@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { sleep } from '@/utils/sleep'
+import { sleep } from 'test-utils/sleep'
 
 import useLockFn from '..'
 
