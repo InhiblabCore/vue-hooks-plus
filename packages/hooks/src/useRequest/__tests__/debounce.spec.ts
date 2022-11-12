@@ -37,6 +37,7 @@ describe('useRequest/Debounce', () => {
     expect(data?.value).toBe(target)
     await sleep(100)
     await sleep(100)
+    await sleep(100)
     expect(data?.value).toBe(target + 1)
   })
 })
