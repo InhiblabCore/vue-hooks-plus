@@ -1,11 +1,12 @@
-import { sleep } from '@/utils/sleep'
+import renderHook from 'test-utils/renderHook'
+import { sleep } from 'test-utils/sleep'
 
 import useRequest from '..'
 
 let count = 0
 
 function getUsername(): Promise<number> {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       count = count + 1
       resolve(count)
@@ -15,10 +16,12 @@ function getUsername(): Promise<number> {
 
 describe('useRequest/Debounce', () => {
   it('should Debounce work', async () => {
-    const { data, run } = useRequest(() => getUsername(), {
-      debounceWait: 100,
-      manual: true,
-    })
+    const [{ data, run }] = renderHook(() =>
+      useRequest(() => getUsername(), {
+        debounceWait: 100,
+        manual: true,
+      }),
+    )
     run()
     expect(data?.value).toBeUndefined()
     await sleep(100)

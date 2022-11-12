@@ -1,40 +1,60 @@
-import { sleep } from '@/utils/sleep'
-import { mount } from '@vue/test-utils'
-import Demo from '../docs/polling/demo/demo.vue'
+import { sleep } from 'test-utils/sleep'
+import renderHook from 'test-utils/renderHook'
+import useRequest from '../useRequest'
+
+let data: string
+function getUsername(): Promise<string> {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      data = String(Date.now())
+      resolve(String(Date.now()))
+    }, 1000)
+  })
+}
 
 describe('polling', () => {
-  const wrapper = mount(Demo)
+  const [result] = renderHook(() =>
+    useRequest(() => getUsername(), {
+      manual: true,
+      pollingInterval: 2000,
+      pollingWhenHidden: false,
+    }),
+  )
+  it('should loading is true', () => {
+    expect(result.loading.value).toBeFalsy()
+  })
 
-  const pollingText = wrapper.find('span')
-
-  const pollingStartBtn = wrapper.findAll('vhp-button')[0]
-  const pollingUpdateBtn = wrapper.findAll('vhp-button')[1]
-
-  it('should loading is false', () => {
-    expect(pollingText.text()).toBe('')
+  it('should data is undefined', () => {
+    expect(result.data?.value).toBeUndefined()
   })
 
   it('should request', async () => {
-    await pollingStartBtn.trigger('click')
+    result.run()
+    expect(result.loading.value).toBeTruthy()
+    expect(result.data?.value).toBeUndefined()
     await sleep(1000)
-    expect(pollingText.text() === 'loading').toBeFalsy()
+    expect(result.data?.value).toBe(data)
+    expect(result.loading.value).toBeFalsy()
   })
 
   it('should polling', async () => {
-    await pollingStartBtn.trigger('click')
-    await sleep(900)
-    expect(pollingText.text()).toBe('loading')
+    const [pollingResult] = renderHook(() =>
+      useRequest(() => getUsername(), {
+        manual: true,
+        pollingInterval: 2000,
+        pollingWhenHidden: false,
+      }),
+    )
+    let prev = ''
+    pollingResult.run()
+    expect(pollingResult.loading.value).toBeTruthy()
+    expect(pollingResult.data?.value).toBeUndefined()
     await sleep(1000)
-    expect(pollingText.text() === 'loading').toBeFalsy()
-
-    await pollingUpdateBtn.trigger('click')
-    await pollingUpdateBtn.trigger('click')
+    expect(pollingResult.data?.value).toBe(data)
+    prev = data
     await sleep(1000)
-    expect(pollingText.text() === 'loading').toBeTruthy()
-    await pollingUpdateBtn.trigger('click')
-    await pollingUpdateBtn.trigger('click')
-    await pollingUpdateBtn.trigger('click')
-    await sleep(1500)
-    expect(pollingText.text() === 'loading').toBeFalsy()
+    expect(prev).toBe(data)
+    await sleep(1000)
+    expect(prev === data).toBeFalsy()
   })
 })

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed, watchEffect } from 'vue'
+  import { computed } from 'vue'
   import { useFetchs } from 'vue-hooks-plus'
 
   async function getUsername(params: { desc: string }): Promise<string> {
@@ -46,10 +46,6 @@
       key: fetchs.value[key].key,
     })),
   )
-
-  watchEffect(() => {
-    console.log(fetchs.value)
-  })
 </script>
 
 <style scoped lang="less"></style>

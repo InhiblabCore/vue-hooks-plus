@@ -3,7 +3,8 @@ import { ref } from 'vue'
 import useFavicon from '..'
 import Demo from '../demo/demo.vue'
 
-const DEFAULT_FAVICON_URL = 'https://nelsonyong.github.io/hooks-doc/favicon.ico'
+const DEFAULT_FAVICON_URL =
+  'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.svg'
 const GOOGLE_FAVICON_URL = 'https://www.google.com/favicon.ico'
 
 describe('useFavicon', () => {

@@ -1,60 +1,76 @@
-import { sleep } from '@/utils/sleep'
-import { mount } from '@vue/test-utils'
-import Demo from '../docs/refreshDeps/demo/demo.vue'
+import { sleep } from 'test-utils/sleep'
+import renderHook from 'test-utils/renderHook'
+import { reactive, ref } from 'vue'
+import useRequest from '../useRequest'
+
+let text = ''
+function getUsername({ id, storeId }: { id: number; storeId: number }): Promise<string> {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      text = `${String(Date.now())}； \t 参数id: ${id} \t； 参数storeId: ${storeId}`
+      resolve(`${String(Date.now())}； \t 参数id: ${id} \t； 参数storeId: ${storeId}`)
+    }, 1000)
+  })
+}
 
 describe('useRequest/RefreshDeps', () => {
-  const wrapper = mount(Demo)
-  const idText = wrapper.findAll('p').at(0)
-  const storeidText = wrapper.findAll('p').at(1)
-
-  const changeIdBtntoOne = wrapper.findAll('vhp-button').at(0)
-  const changeIdBtntoTwo = wrapper.findAll('vhp-button').at(1)
-
-  const changeStoreIdBtntoOne = wrapper.findAll('vhp-button').at(0)
-  const changeStoreIdBtntoTwo = wrapper.findAll('vhp-button').at(1)
-
-  const dataText = wrapper.find('span')
+  const id = ref(1)
+  const store = reactive({
+    id: 1,
+  })
+  const [{ data }] = renderHook(() =>
+    useRequest(() => getUsername({ id: id.value, storeId: store.id }), {
+      refreshDeps: [id, () => store.id],
+    }),
+  )
 
   let prevDataText = ''
 
   it('should init', () => {
-    expect(idText?.text()).toBe('id:1')
-    expect(storeidText?.text()).toBe('storeID:1')
+    expect(id.value).toBe(1)
+    expect(store.id).toBe(1)
   })
 
   it('change id,id dependency unchanged will not request', async () => {
     await sleep(1000)
-    prevDataText = dataText.text()
-    await changeIdBtntoOne?.trigger('click')
-    expect(dataText.text()).toBe(prevDataText)
+    prevDataText = text
+    expect(prevDataText === data?.value).toBeTruthy()
+    id.value = 1
+    await sleep(1000)
+    expect(data?.value === prevDataText).toBeTruthy()
   })
 
   it('change id', async () => {
-    await changeIdBtntoTwo?.trigger('click')
+    id.value = 2
     await sleep(1000)
-    expect(dataText.text() === prevDataText).toBeFalsy()
-    prevDataText = dataText.text()
+    await sleep(100)
+    expect(data?.value === prevDataText).toBeFalsy()
+    prevDataText = data?.value ?? ''
 
-    await changeIdBtntoOne?.trigger('click')
+    id.value = 1
     await sleep(1000)
-    expect(dataText.text() === prevDataText).toBeFalsy()
+    await sleep(100)
+    expect(data?.value === prevDataText).toBeFalsy()
   })
 
   it('change store id,store id dependency unchanged will not request', async () => {
+    prevDataText = data?.value ?? ''
+    store.id = 1
     await sleep(1000)
-    prevDataText = dataText.text()
-    await changeStoreIdBtntoOne?.trigger('click')
-    expect(dataText.text()).toBe(prevDataText)
+    await sleep(100)
+    expect(data?.value === prevDataText).toBeTruthy()
   })
 
   it('change store id', async () => {
-    await changeStoreIdBtntoTwo?.trigger('click')
+    prevDataText = data?.value ?? ''
+    store.id = 2
     await sleep(1000)
-    expect(dataText.text() === prevDataText).toBeFalsy()
-    prevDataText = dataText.text()
-
-    await changeStoreIdBtntoOne?.trigger('click')
+    await sleep(100)
+    expect(data?.value === prevDataText).toBeFalsy()
+    prevDataText = data?.value ?? ''
+    store.id = 1
     await sleep(1000)
-    expect(dataText.text() === prevDataText).toBeFalsy()
+    await sleep(100)
+    expect(data?.value === prevDataText).toBeFalsy()
   })
 })

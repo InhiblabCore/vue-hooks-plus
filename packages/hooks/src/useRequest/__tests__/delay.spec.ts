@@ -1,4 +1,4 @@
-import { sleep } from '@/utils/sleep'
+import { sleep } from 'test-utils/sleep'
 import { mount } from '@vue/test-utils'
 
 import Demo from '../docs/loadingDelay/demo/demo.vue'
