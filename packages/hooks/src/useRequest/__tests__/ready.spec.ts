@@ -27,15 +27,17 @@ describe('useRequest/Ready', () => {
     expect(result.data?.value).toBeUndefined()
     expect(result.loading.value).toBeFalsy()
     await sleep(1000)
+    await sleep(200)
     expect(result.data?.value).toBeUndefined()
   })
 
   it('should work with satisfy the condition; meet the condition', async () => {
     toggle()
     expect(ready.value).toBeTruthy()
-    await sleep(100)
+    await sleep(200)
     expect(result.loading.value).toBeTruthy()
     await sleep(1000)
+    await sleep(200)
     expect(result.loading.value).toBeFalsy()
     expect(result.data?.value).toBe(data)
   })
