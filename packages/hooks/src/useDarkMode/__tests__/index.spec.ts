@@ -1,14 +1,14 @@
 import { mount } from '@vue/test-utils'
-import Demo from '../demo/demo.vue'
+import Test from '../demo/Test.vue'
 
 describe('useDarkMode', () => {
-  const wrapper = mount(Demo)
+  const wrapper = mount(Test)
 
   const text = wrapper.find('p')
 
-  const darkBtn = wrapper.findAll('vhp-button').at(0)
-  const lightBtn = wrapper.findAll('vhp-button').at(1)
-  const systemBtn = wrapper.findAll('vhp-button').at(2)
+  const darkBtn = wrapper.findAll('button').at(0)
+  const lightBtn = wrapper.findAll('button').at(1)
+  const systemBtn = wrapper.findAll('button').at(2)
 
   const prevText = text.text()
 

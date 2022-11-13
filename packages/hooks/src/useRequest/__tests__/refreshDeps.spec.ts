@@ -33,6 +33,7 @@ describe('useRequest/RefreshDeps', () => {
 
   it('change id,id dependency unchanged will not request', async () => {
     await sleep(1000)
+    await sleep(100)
     prevDataText = text
     expect(prevDataText === data?.value).toBeTruthy()
     id.value = 1

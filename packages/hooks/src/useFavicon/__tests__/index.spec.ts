@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { ref } from 'vue'
 import useFavicon from '..'
-import Demo from '../demo/demo.vue'
+import Test from '../demo/Test.vue'
 
 const DEFAULT_FAVICON_URL =
   'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.svg'
@@ -18,12 +18,12 @@ describe('useFavicon', () => {
     url.value = GOOGLE_FAVICON_URL
     expect(url.value).toBe(GOOGLE_FAVICON_URL)
 
-    const wrapper = mount(Demo)
+    const wrapper = mount(Test)
 
     const currentFaviconURL = wrapper.find('span')
 
-    const toggleToGoogleBtn = wrapper.findAll('vhp-button').at(0)
-    const toggleToAHooksBtn = wrapper.findAll('vhp-button').at(1)
+    const toggleToGoogleBtn = wrapper.find('.button1')
+    const toggleToAHooksBtn = wrapper.find('.button2')
 
     expect(currentFaviconURL.text()).toBe(DEFAULT_FAVICON_URL)
 
