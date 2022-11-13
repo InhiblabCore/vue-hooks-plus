@@ -1,7 +1,7 @@
 import { App, createApp, defineComponent } from 'vue'
 
 export default function renderHook<R = any>(renderFC: () => R): [R, App<Element>] {
-  let result: any
+let result: any
   const app = createApp(
     defineComponent({
       setup() {
@@ -11,5 +11,5 @@ export default function renderHook<R = any>(renderFC: () => R): [R, App<Element>
     }),
   )
   app.mount(document.createElement('div'))
-  return [result, app]
+ return [result, app]
 }
