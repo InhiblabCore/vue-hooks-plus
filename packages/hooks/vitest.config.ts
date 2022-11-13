@@ -11,7 +11,11 @@ export default defineConfig({
     },
     dedupe: ['vue', '@vue/runtime-core'],
   },
-  plugins: [vue()],
+  plugins: [
+    vue({
+      customElement: true,
+    }),
+  ],
   define: {
     __VUE_OPTIONS_API__: 'true',
     __VUE_PROD_DEVTOOLS__: 'false',
