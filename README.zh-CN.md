@@ -56,10 +56,9 @@ import useRequest from 'vue-hooks-plus/es/useRequest'
 
 ## 🏃 启动文档
 
-hooks 目录下
-
 ```
-npm run initial
+<!-- need run initial -->
+
 npm run docs:dev
 ```
 
