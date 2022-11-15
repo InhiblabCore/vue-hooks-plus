@@ -15,16 +15,18 @@ jobs:
         with:
           node-version: '16'
           cache: 'pnpm'
+      - name: Install
+        run: |
+          pnpm install --frozen-lockfile
+      - name: Test
+        run: |
+          pnpm run test
       - name: Docs-Build
         run: |
           cd packages/hooks
           pnpm install --frozen-lockfile
           pnpm run initial
           pnpm run docs:build
-      - name: Test
-        run: |
-          cd packages/hooks
-          pnpm run test
       - name: Build
         run: |
           cd packages/hooks
