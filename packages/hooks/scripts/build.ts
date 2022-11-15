@@ -17,7 +17,7 @@ export const buildConfig: UserConfig = {
           'docs/**/*.ts',
           '**/*.vue',
           'src/type.d.ts',
-          'test-utils/*.ts',
+          'test-utils/**',
         ],
       },
       libBuild: {

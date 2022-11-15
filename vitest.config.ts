@@ -5,17 +5,13 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   resolve: {
     alias: {
-      'vue-hooks-plus': resolve(__dirname, './src/index.ts'),
-      '@': resolve(__dirname, './src'),
-      'test-utils': resolve(__dirname, './test-utils'),
+      'vue-hooks-plus': resolve(__dirname, './packages/hooks/src/index.ts'),
+      '@': resolve(__dirname, './packages/hooks/src'),
+      '@test-utils': resolve(__dirname, './packages/test-utils'),
     },
     dedupe: ['vue', '@vue/runtime-core'],
   },
-  plugins: [
-    vue({
-      customElement: true,
-    }),
-  ],
+  plugins: [vue()],
   define: {
     __VUE_OPTIONS_API__: 'true',
     __VUE_PROD_DEVTOOLS__: 'false',
