@@ -7,7 +7,7 @@ export default defineConfig({
     alias: {
       'vue-hooks-plus': resolve(__dirname, './packages/hooks/src/index.ts'),
       '@': resolve(__dirname, './packages/hooks/src'),
-      '@test-utils': resolve(__dirname, './packages/test-utils'),
+      'test-utils': resolve(__dirname, './packages/hooks/test-utils'),
     },
     dedupe: ['vue', '@vue/runtime-core'],
   },
