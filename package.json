@@ -14,9 +14,6 @@
 		"test:ui": "vitest --ui",
 		"prepare": "husky install"
 	},
-  "peerDependencies": {
-		"vue": "^3.2.25"
-	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.1.2",
 		"@commitlint/config-conventional": "^17.1.0",
