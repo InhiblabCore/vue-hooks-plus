@@ -202,10 +202,10 @@ function getHooksSidebar() {
     {
       text: 'Scene',
       items: [
-        { text: 'useInfiniteScroll', link: '/useInfiniteScroll/' },
-        { text: 'useVirtualList', link: '/useVirtualList/' },
-        { text: 'useNetwork', link: '/useNetwork/' },
         { text: 'useCounter', link: '/useCounter/' },
+        { text: 'useInfiniteScroll', link: '/useInfiniteScroll/' },
+        { text: 'useNetwork', link: '/useNetwork/' },
+        { text: 'useVirtualList', link: '/useVirtualList/' },
       ],
     },
     {

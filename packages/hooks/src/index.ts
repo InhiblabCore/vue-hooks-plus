@@ -15,6 +15,7 @@ import useFavicon from './useFavicon'
 import useFocusWithin from './useFocusWithin'
 import useFormatResult from './useFormatResult'
 import useFetchs from './useFetchs'
+import useFullscreen from './useFullscreen'
 import useHover from './useHover'
 import usePreview from './usePreview'
 import useInterval from './useInterval'
@@ -43,7 +44,6 @@ import useUrlState from './useUrlState'
 import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
-import useFullscreen from './useFullscreen'
 
 export {
   useAsyncOrder,
@@ -63,6 +63,7 @@ export {
   useFocusWithin,
   useFormatResult,
   useFetchs,
+  useFullscreen,
   useHover,
   useInterval,
   useInfiniteScroll,
@@ -91,5 +92,4 @@ export {
   useVirtualList,
   useWhyDidYouUpdate,
   useWinResize,
-  useFullscreen
 }
