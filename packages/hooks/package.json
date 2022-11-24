@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.3.6",
+	"version": "1.4.0",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
@@ -30,9 +30,7 @@
 		"clean": "rimraf dist lib es",
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
 		"build:types": "vue-tsc --noEmit && vite build --mode fullTypes",
-		"type": "tsc -d",
-		"test": "vitest",
-		"test:ui": "vitest --ui"
+		"type": "tsc -d"
 	},
 	"peerDependencies": {
 		"vue": "^3.2.25"
