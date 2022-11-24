@@ -23,18 +23,18 @@
 
 </div>
 
-## 📚 文档
-
-查看 <a href="https://nelsonyong.gitee.io/docs/hooks" target="_blank">文档指南</a>
-
 ## ✨ 特性
 
-- 易学易用
-- 支持 SSR
-- 丰富的 Hooks
-- 覆盖大部分业务场景
-- 使用 TypeScript 构建，提供完整的类型定义文件
-- 支持按需加载，减少打包体积
+- 🏄🏼‍♂️ 易学易用
+- 🔋 支持 SSR
+- 🛸 丰富的 Hooks
+- 🏟️ 覆盖大部分业务场景
+- 🦾 首选 useRequest，强大的请求中间层
+- 🎪 交互式 demo，身临其境
+- 🎯 使用 TypeScript 构建，提供完整的类型定义文件
+- 🪄 支持按需加载，减少打包体积
+- 🤺 演练场，大有用武之地
+- 🔐 测试完善，安全可靠
 
 ## 📦 安装
 
@@ -44,7 +44,7 @@ $ npm i vue-hooks-plus
 $ yarn add vue-hooks-plus
 ```
 
-## 🔨 使用
+## 🤹‍♀️ 使用
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
@@ -54,7 +54,9 @@ import { useRequest } from 'vue-hooks-plus'
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
-## 🏃 启动文档
+更多详情请参考 <a href="https://inhiblab-core.gitee.io/docs/hooks" target="_blank">文档</a>。
+
+## 🕹️ 调试文档
 
 ```
 <!-- need run initial -->
@@ -71,3 +73,7 @@ npm run docs:dev
 这个项目的灵感主要来自于以下这些很棒的项目。
 
 - [ahooks](https://ahooks.js.org/)
+
+## 📄 证书
+
+[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](https://github.com/NelsonYong)

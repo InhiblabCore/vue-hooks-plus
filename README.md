@@ -23,18 +23,18 @@ High-quality and reliable Vue3 Hooks library
 
 </div>
 
-## 📚 Documentation
-
-See the <a href="https://inhiblabcore.github.io/docs/hooks" target="_blank">Documentation Guide</a>
-
 ## ✨ Features
 
-- Easy to learn and use
-- Supports SSR
-- Contains a comprehensive collection of basic Hooks
-- A wide range of application scenarios
-- Written in TypeScript with predictable static types
-- Support the on-demand load, and reduce the packing volume
+- 🏄🏼‍♂️ Easy to learn and use
+- 🔋 Supports SSR
+- 🛸 Contains a comprehensive collection of basic Hooks
+- 🏟️ A wide range of application scenarios
+- 🦾 Preferred useRequest, Powerful request middle tier
+- 🎪 Interactive demo, immersive
+- 🎯 Written in TypeScript with predictable static types
+- 🪄 Support the on-demand load, and reduce the packing volume
+- 🤺 Playground, there's ample scope for one's abilities
+- 🔐 Perfect test, safe and reliable
 
 ## 📦 Install
 
@@ -44,7 +44,7 @@ $ npm i vue-hooks-plus
 $ yarn add vue-hooks-plus
 ```
 
-## 🔨 Usage
+## 🤹‍♀️ Usage
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
@@ -54,7 +54,9 @@ import { useRequest } from 'vue-hooks-plus'
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
-## 🏃 Start the document
+Refer to <a href="https://inhiblabcore.github.io/docs/hooks" target="_blank">Documentations</a> for more details.
+
+## 🕹️ Dev the document
 
 ```
 <!-- need run initial -->
@@ -62,12 +64,16 @@ import useRequest from 'vue-hooks-plus/es/useRequest'
 npm run docs:dev
 ```
 
-# 🪴 Project Activity
+## 🪴 Project Activity
 
 ![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
 
-# 🌸 Thanks
+## 🌸 Thanks
 
 This project is heavily inspired by the following awesome projects.
 
 - [ahooks](https://ahooks.js.org/)
+
+## 📄 License
+
+[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](https://github.com/NelsonYong)

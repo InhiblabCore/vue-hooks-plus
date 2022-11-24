@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import DemoEditor from './DemoEditor.vue'
+  import HomeTeam from './HomeTeam.vue'
   import Icon from './Icon.vue'
 </script>
 
@@ -51,7 +52,7 @@
       <div class="vt-box">
         <h2>🎪 交互式demo演示</h2>
         <p>
-          支持服务端的使用。
+          眼见为实，身临其境。
         </p>
       </div>
       <div class="vt-box">
@@ -69,24 +70,22 @@
       <div class="vt-box">
         <h2>🤺 演练场</h2>
         <p>
-          在线快速体验 hooks 编码。
+          在线编码，大有用武之地。
         </p>
       </div>
       <div class="vt-box">
-        <h2>⚡️ 按需加载</h2>
+        <h2>🪄 按需加载</h2>
         <p>
-          拿你想要的，减少打包体积。
+          拿你想要，包体积更小。
         </p>
       </div>
       <div class="vt-box">
         <h2>🔐 安全性</h2>
         <p>
-          安全极速 Vitest 单元测试。
+          测试完善，安全可靠。
         </p>
       </div>
     </section>
-    <!-- <HomeTeam /> -->
-
     <DemoEditor>
       <div class="demo-name">
         Demo.vue
@@ -96,6 +95,7 @@
         <pre ref="block" class="text-left whitespace-normal font-mono bg-transparent"></pre>
       </div> -->
     </DemoEditor>
+    <!-- <HomeTeam /> -->
   </div>
 </template>
 
