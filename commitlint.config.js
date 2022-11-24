@@ -9,10 +9,11 @@
 // ci：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交 | The main purpose is to modify the submission of project continued integration processes (e. g. Travis, Jenkins, GitLab CI, Circle, etc.)
 // chore：不属于以上类型的其他类，比如构建流程, 依赖管理 | Other classes that do not belong to the above types, such as building processes, dependency management
 // revert：回滚某个更早之前的提交 | Roll back some earlier previous submission
+// workflow: 工作流 ｜ workflow
 // version: 改变package.json 版本 | Change the package.json version
 
 module.exports = {
-  ignores: [(commit) => commit.includes('init')],
+  ignores: [commit => commit.includes('init')],
   extends: ['@commitlint/config-conventional'],
   rules: {
     'body-leading-blank': [2, 'always'],
@@ -36,11 +37,10 @@ module.exports = {
         'ci',
         'chore',
         'revert',
-        'wip',
         'workflow',
         'types',
         'release',
-        'version'
+        'version',
       ],
     ],
   },

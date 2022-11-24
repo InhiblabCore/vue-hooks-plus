@@ -1,3 +1,4 @@
+import renderHook from 'test-utils/renderHook'
 import { ref } from 'vue'
 import useEventEmitter from '..'
 
@@ -5,7 +6,7 @@ describe('useEventEmitter', () => {
   const eventMsgA = ref<string>('')
   const eventMsgB = ref('')
   it('should event work ', () => {
-    const event = useEventEmitter<string[]>()
+    const [event] = renderHook(() => useEventEmitter<string[]>())
     event.emit('eventMsgA')
     event.useSubscription('eventMsgA', () => {
       eventMsgA.value = 'eventMsgAA'
