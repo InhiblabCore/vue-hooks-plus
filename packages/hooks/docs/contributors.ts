@@ -41,12 +41,13 @@ const coreTeamMembers: CoreTeam[] = [
     name: 'Hongaah',
     github: 'hongaah',
     description: '技术达人',
-    packages: ['vue-hooks-plus 构建方案'],
+    functions: ['useFetch'],
   },
-].sort(
-  (pre, cur) =>
-    contributors.findIndex(name => name === pre.github) -
-    contributors.findIndex(name => name === cur.github),
-)
+]
+// .sort(
+//   (pre, cur) =>
+//     contributors.findIndex(name => name === pre.github) -
+//     contributors.findIndex(name => name === cur.github),
+// )
 
 export { coreTeamMembers, contributorList as contributors }

@@ -1,6 +1,8 @@
 <script setup lang="ts">
   import { CoreTeam } from '../../../contributors'
 
+  import { packageIcon, funcIcon } from './iconBase64'
+
   defineProps<{
     data: CoreTeam
   }>()
@@ -9,6 +11,7 @@
 <template>
   <div class="container">
     <img
+      class="avatar"
       loading="lazy"
       width="150"
       height="150"
@@ -64,19 +67,23 @@
       mxa
     >
       <template v-if="data.functions">
-        <!-- <div op50 i-carbon:function-math title="Functions" /> -->
-        <div>
-          <a v-for="f of data.functions" :key="f" :href="`/${f}`" target="_blank">
-            <code>{{ f }}</code>
-          </a>
+        <div class="code">
+          <img class="icon" :src="funcIcon" alt="" />
+          <div class="code-container">
+            <a v-for="f of data.functions" :key="f" :href="`/${f}`" target="_blank">
+              <code>{{ f }}</code>
+            </a>
+          </div>
         </div>
       </template>
       <template v-if="data.packages">
-        <!-- <div /> -->
         <div class="code">
-          <a v-for="f of data.packages" :key="f" href="">
-            <code>{{ f }}</code>
-          </a>
+          <img class="icon" :src="packageIcon" alt="" />
+          <div class="code-container">
+            <a v-for="f of data.packages" :key="f" href="">
+              <code>{{ f }}</code>
+            </a>
+          </div>
         </div>
       </template>
     </div>
@@ -89,7 +96,7 @@
     flex-direction: column;
     align-items: center;
   }
-  img {
+  .avatar {
     min-height: 4.75rem;
     min-width: 4.75rem;
     border-radius: 4.75rem;
@@ -105,9 +112,21 @@
   .code {
     background-color: var(--vp-code-block-bg);
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    align-items: center;
     padding: 12px;
     border-radius: 5px;
     margin-top: 12px;
+  }
+
+  .code-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+  }
+
+  .icon {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 </style>
