@@ -29,11 +29,11 @@ High-quality and reliable Vue3 Hooks library
 - 🔋 Supports SSR
 - 🛸 Contains a comprehensive collection of basic Hooks
 - 🏟️ A wide range of application scenarios
-- 🦾 Powerful [request middle tier](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/packages/hooks/src/useRequest), preferred
+- 🦾 Preferred useRequest, Powerful request middle tier
 - 🎪 Interactive demo, immersive
 - 🎯 Written in TypeScript with predictable static types
-- ⚡️ Support the on-demand load, and reduce the packing volume
-- 🤺 The drill field shows its skills
+- 🪄 Support the on-demand load, and reduce the packing volume
+- 🤺 Playground, there's ample scope for one's abilities
 - 🔐 Perfect test, safe and reliable
 
 ## 📦 Install
