@@ -49,6 +49,7 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3061020221121002",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3061020221121002",
     "vue": "^3.2.41",
+    "vue-hooks-plus": "^1.4.0",
     "vue-i18n": "^9.1.9"
   },
   "devDependencies": {
