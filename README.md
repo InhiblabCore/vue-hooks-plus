@@ -29,7 +29,7 @@ High-quality and reliable Vue3 Hooks library
 - 🔋 Supports SSR
 - 🛸 Contains a comprehensive collection of basic Hooks
 - 🏟️ A wide range of application scenarios
-- 🦾 Powerful request middle tier, preferred
+- 🦾 Powerful [request middle tier](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/packages/hooks/src/useRequest), preferred
 - 🎪 Interactive demo, immersive
 - 🎯 Written in TypeScript with predictable static types
 - ⚡️ Support the on-demand load, and reduce the packing volume
@@ -76,4 +76,4 @@ This project is heavily inspired by the following awesome projects.
 
 ## 📄 License
 
-[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](
+[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](https://github.com/NelsonYong)
