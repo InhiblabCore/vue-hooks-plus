@@ -38,7 +38,7 @@
   const wrapperRef = ref()
   const [list, container, scrollTo] = useVirtualList(originalList, {
     wrapperTarget: wrapperRef,
-    itemHeight: 60,
+    itemHeight: 68,
     overscan: 10,
   })
 
