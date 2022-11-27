@@ -23,7 +23,7 @@ importers:
       '@vitest/ui': ^0.25.3
       '@vue-hooks-plus/md-demo-plugins': ^1.0.0
       '@vue-hooks-plus/vitepress': 1.0.1
-      '@vue-hooks-plus/vitepress-demo-block': ^1.2.3
+      '@vue-hooks-plus/vitepress-demo-block': ^1.2.4
       '@vue/test-utils': ^2.1.0
       cross-env: ^7.0.3
       eslint: ^8.20.0
@@ -72,7 +72,7 @@ importers:
       '@vitest/ui': 0.25.3
       '@vue-hooks-plus/md-demo-plugins': 1.1.0_less@4.1.3
       '@vue-hooks-plus/vitepress': 1.0.1_less@4.1.3
-      '@vue-hooks-plus/vitepress-demo-block': 1.2.3
+      '@vue-hooks-plus/vitepress-demo-block': 1.2.4
       '@vue/test-utils': 2.2.2_vue@3.2.45
       cross-env: 7.0.3
       eslint: 8.27.0
@@ -1217,8 +1217,8 @@ packages:
       - stylus
     dev: true
 
-  /@vue-hooks-plus/vitepress-demo-block/1.2.3:
-    resolution: {integrity: sha512-oEdx1gyukL/8jDiMFriziLQSVHVAwNmK+bkdqRQq8rW/xMZIeHl3rwOyezvfLJ4ZYVFhazBLz7IEqqpP0GLzrw==}
+  /@vue-hooks-plus/vitepress-demo-block/1.2.4:
+    resolution: {integrity: sha512-GQzIaDiHpHSPCz8XCUSRvkauGdRlvFsrgdlLW7EwTU1EqEPejWhVxZf5uqsImScJ9x7/DVNAzuuO2Jvt8NZWzQ==}
     dev: true
 
   /@vue-hooks-plus/vitepress/1.0.1_less@4.1.3:
