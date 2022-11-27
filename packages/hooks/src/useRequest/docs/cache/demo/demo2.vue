@@ -22,7 +22,7 @@ const { data, loading, refresh } = useRequest(() => getUsername(), {
 })
 </script>
 
-<style scoped lang="less"></style> -->
+ -->
 
 <template>
   <div style="padding: 16px;">
@@ -36,5 +36,3 @@ const { data, loading, refresh } = useRequest(() => getUsername(), {
 <script lang="ts" setup>
   import ShareDemo from './ShareDemo.vue'
 </script>
-
-<style scoped lang="less"></style>

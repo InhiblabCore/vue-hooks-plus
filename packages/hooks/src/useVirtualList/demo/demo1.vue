@@ -48,5 +48,3 @@
     scrollTo(number.value)
   }
 </script>
-
-<style scoped lang="less"></style>

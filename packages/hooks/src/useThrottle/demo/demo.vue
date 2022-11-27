@@ -13,4 +13,3 @@
 
   const throttledValue = useThrottle(valueRef, { wait: 500 })
 </script>
-<style scoped lang="less"></style>

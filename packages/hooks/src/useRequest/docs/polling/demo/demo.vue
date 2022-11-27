@@ -3,10 +3,10 @@
   >读取用户名称：<span>{{ loading ? 'loading' : data }}</span>
     <br>
     <p>轮询间隔：{{ computedTime }}</p>
-    <div class="contain">
+    <div style="margin-right: 8px;">
       <vhp-button @click="start()">开始轮询</vhp-button>
-      <vhp-button @click="update()">轮询时间加100ms</vhp-button>
-      <vhp-button @click="cancel()">停止</vhp-button>
+      <vhp-button @click="update()" style="margin-left:8px ;">轮询时间加100ms</vhp-button>
+      <vhp-button @click="cancel()" style="margin-left: 8px;">停止</vhp-button>
     </div>
   </div>
 </template>
@@ -41,11 +41,3 @@
     time.value += 100
   }
 </script>
-
-<style scoped lang="less">
-  .contain {
-    button {
-      margin-right: 8px;
-    }
-  }
-</style>

@@ -1,7 +1,13 @@
 <template>
   <div>
     <p v-if="loading" />
-    <div v-for="item in data?.list" :key="item" class="item"> {{ item }}行</div>
+    <div
+      v-for="item in data?.list"
+      :key="item"
+      style="padding: 12px;border: 1px solid #f5f5f5;text-align: center;"
+    >
+      {{ item }}行</div
+    >
     <div style="margin-top: 8px;">
       <vhp-button v-if="hasMore" type="button" @click="() => loadMore()" :disabled="loadingMore">
         {{ loadingMore ? 'Loading more...' : 'Click to load more' }}
@@ -45,11 +51,3 @@
 
   const hasMore = computed(() => data.value && data.value?.list.length < data.value.total)
 </script>
-
-<style scoped lang="less">
-  .item {
-    padding: 12px;
-    border: 1px solid #f5f5f5;
-    text-align: center;
-  }
-</style>

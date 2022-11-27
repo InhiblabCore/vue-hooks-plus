@@ -157,8 +157,6 @@ export type NameType = {
   import { getUserInfo } from './services'
   const { data } = useRequest(() => getUserInfo('666'))
 </script>
-
-<style scoped lang="less"></style>
 ```
 
 ## 结语

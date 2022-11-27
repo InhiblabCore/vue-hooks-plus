@@ -16,5 +16,3 @@
     date.value = Date.now()
   })
 </script>
-
-<style scoped lang="less"></style>

@@ -19,4 +19,3 @@
     },
   )
 </script>
-<style scoped lang="less"></style>

@@ -23,5 +23,3 @@
     location.hash = `${Date.now()}`
   })
 </script>
-
-<style scoped lang="less"></style>
