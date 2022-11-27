@@ -1,5 +1,5 @@
 import { ref, UnwrapRef, watch, watchEffect } from 'vue'
-import { Service, Options } from '@/useRequest/types'
+import { Service, Options } from '../useRequest/types'
 import useRequest from '../useRequest'
 
 const DEFAULT_KEY = 'VUE_HOOKS_PLUS_USE_REQUEST_DEFAULT_KEY'
