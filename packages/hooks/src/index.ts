@@ -44,6 +44,7 @@ import useUrlState from './useUrlState'
 import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
+import useWebSocket from './useWebSocket'
 
 export {
   useAsyncOrder,
@@ -92,4 +93,5 @@ export {
   useVirtualList,
   useWhyDidYouUpdate,
   useWinResize,
+  useWebSocket,
 }
