@@ -1,61 +1,61 @@
-import { ref, watchEffect } from "vue";
-import type { DebouncedFunc, ThrottleSettings } from "lodash";
-import throttle from "lodash/throttle";
-import type { Plugin } from "../types";
+import { computed, unref, watchEffect } from 'vue'
+import { DebouncedFunc, ThrottleSettings } from 'lodash'
+import throttle from 'lodash/throttle'
+import { Plugin } from '../types'
 
 const useThrottlePlugin: Plugin<any, any[]> = (
   fetchInstance,
-  { throttleWait, throttleLeading, throttleTrailing }
+  { throttleWait, throttleLeading, throttleTrailing },
 ) => {
-  const throttledRef = ref<DebouncedFunc<any>>();
+  const options = computed(() => {
+    const ret: ThrottleSettings = {}
+    if (unref(throttleLeading) !== undefined) {
+      ret.leading = unref(throttleLeading)
+    }
+    if (unref(throttleTrailing) !== undefined) {
+      ret.trailing = unref(throttleTrailing)
+    }
+    return ret
+  })
 
+  const throttledRef = computed<DebouncedFunc<any>>(() =>
+    throttle(
+      (callback: any) => {
+        callback()
+      },
+      unref(throttleWait),
+      options.value,
+    ),
+  )
 
-
-  const options: ThrottleSettings = {};
-  if (throttleLeading?.value !== undefined) {
-    options.leading = throttleLeading.value;
-  }
-  if (throttleTrailing?.value !== undefined) {
-    options.trailing = throttleTrailing.value;
-  }
-
-  watchEffect((onInvalidate) => {
-    if (throttleWait) {
-      const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance);
-
-      throttledRef.value = throttle(
-        (callback: any) => {
-          callback();
-        },
-        throttleWait,
-        options
-      );
+  watchEffect(onInvalidate => {
+    if (unref(throttleWait)) {
+      const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance)
       fetchInstance.runAsync = (...args) => {
         return new Promise((resolve, reject) => {
           throttledRef.value?.(() => {
             _originRunAsync(...args)
               .then(resolve)
-              .catch(reject);
-          });
-        });
-      };
-
+              .catch(reject)
+          })
+        })
+      }
       onInvalidate(() => {
-        fetchInstance.runAsync = _originRunAsync;
-        throttledRef.value?.cancel();
-      });
+        fetchInstance.runAsync = _originRunAsync
+        throttledRef.value?.cancel()
+      })
     }
-  });
+  })
 
-  if (!throttleWait) {
-    return {};
+  if (!unref(throttleWait)) {
+    return {}
   }
 
   return {
     onCancel: () => {
-      throttledRef.value?.cancel();
+      throttledRef.value?.cancel()
     },
-  };
-};
+  }
+}
 
-export default useThrottlePlugin;
+export default useThrottlePlugin
