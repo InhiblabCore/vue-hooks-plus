@@ -26,13 +26,13 @@ const useDebouncePlugin: Plugin<any, any[]> = (
   });
 
   watchEffect((onInvalidate) => {
-    if (debounceWait) {
+    if (unref(debounceWait)) {
       const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance);
       debouncedRef.value = debounce(
         (callback: any) => {
           callback();
         },
-        debounceWait,
+        unref(debounceWait),
         options.value
       );
       fetchInstance.runAsync = (...args) => {
@@ -51,7 +51,7 @@ const useDebouncePlugin: Plugin<any, any[]> = (
     }
   });
 
-  if (!debounceWait) {
+  if (!unref(debounceWait)) {
     return {};
   }
 

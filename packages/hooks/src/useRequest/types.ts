@@ -68,15 +68,15 @@ export type Options<TData, TParams extends any[], TPlugin> = {
   focusTimespan?: Ref<number> | number
 
   // 防抖
-  debounceWait?: number
-  debounceLeading?: Ref<boolean>
-  debounceTrailing?: Ref<boolean>
+  debounceWait?: Ref<number> | number
+  debounceLeading?: Ref<boolean> | boolean
+  debounceTrailing?: Ref<boolean> | boolean
   debounceMaxWait?: Ref<number>
 
   // 节流
-  throttleWait?: number
-  throttleLeading?: Ref<boolean>
-  throttleTrailing?: Ref<boolean>
+  throttleWait?: Ref<number> | number
+  throttleLeading?: Ref<boolean> | boolean
+  throttleTrailing?: Ref<boolean> | boolean
 
   // 请求缓存
   cacheKey?: string
