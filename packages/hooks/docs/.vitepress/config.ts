@@ -206,6 +206,7 @@ function getHooksSidebar() {
         { text: 'useInfiniteScroll', link: '/useInfiniteScroll/' },
         { text: 'useNetwork', link: '/useNetwork/' },
         { text: 'useVirtualList', link: '/useVirtualList/' },
+        { text: 'useWebSocket', link: '/useWebSocket/' },
       ],
     },
     {
