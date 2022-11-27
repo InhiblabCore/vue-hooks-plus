@@ -1,14 +1,12 @@
 <template>
-	<div>
-		<div>Network information:</div>
-		<pre>{{ JSON.stringify(networkState, null, 2) }}</pre>
-	</div>
+  <div>
+    <div>Network information:</div>
+    <pre>{{ JSON.stringify(networkState, null, 2) }}</pre>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { useNetwork } from 'vue-hooks-plus'
+  import { useNetwork } from 'vue-hooks-plus'
 
-const networkState = useNetwork()
+  const networkState = useNetwork()
 </script>
-
-<style scoped lang="less"></style>

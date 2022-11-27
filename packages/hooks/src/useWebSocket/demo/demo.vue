@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div style="height: 400px;overflow: scroll;">
     <vhp-button
       v-if="readyState === ReadyState.Open"
       @click="() => sendMessage && sendMessage(`${Date.now()}`)"
@@ -49,11 +49,3 @@
     if (messageHistory.value?.data) messageList.value.push(messageHistory.value?.data)
   })
 </script>
-
-<style scoped lang="less">
-  .container {
-    height: 400px;
-
-    overflow: scroll;
-  }
-</style>

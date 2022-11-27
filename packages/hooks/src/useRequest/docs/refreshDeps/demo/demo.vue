@@ -39,5 +39,3 @@
     refreshDeps: [id, () => store.id],
   })
 </script>
-
-<style scoped lang="less"></style>

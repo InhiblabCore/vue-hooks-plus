@@ -26,5 +26,3 @@
     staleTime: 50000,
   })
 </script>
-
-<style scoped lang="less"></style>

@@ -32,58 +32,42 @@ useDrag(props.data, dragRef, {
  -->
 
 <template>
-	<div>
-		<div
-			ref="dropRef"
-			style=" border: 1px dashed #e8e8e8 ; padding: 16px; text-align: center;max-height: 400px;overflow-y: scroll;"
-		>
-			{{ isHovering ? 'release here' : 'drop here' }}
+  <div>
+    <div
+      ref="dropRef"
+      style=" border: 1px dashed #e8e8e8 ; padding: 16px; text-align: center;max-height: 400px;overflow-y: scroll;"
+    >
+      {{ isHovering ? 'release here' : 'drop here' }}
 
-			<p v-for="(item, index) in list" :key="index">{{ item }}</p>
-		</div>
-		<div style=" margin-top: 8px">
-			<drag-demo
-				v-for="item in [
-					'1',
-					'2',
-					'3',
-					'4',
-					'5',
-					'6',
-					'7',
-					'8',
-					'9',
-					'10',
-					'11',
-					'12',
-					'13',
-				]"
-				:key="item"
-				:data="item"
-			/>
-		</div>
-	</div>
+      <p v-for="(item, index) in list" :key="index">{{ item }}</p>
+    </div>
+    <div style=" margin-top: 8px">
+      <drag-demo
+        v-for="item in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']"
+        :key="item"
+        :data="item"
+      />
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+  import { ref } from 'vue'
 
-import { useBoolean, useDrop } from 'vue-hooks-plus'
-import DragDemo from './DragDemo.vue'
+  import { useBoolean, useDrop } from 'vue-hooks-plus'
+  import DragDemo from './DragDemo.vue'
 
-const dropRef = ref(null)
-const list = ref([])
-const [isHovering, { set: setIsHovering }] = useBoolean(false)
+  const dropRef = ref(null)
+  const list = ref([])
+  const [isHovering, { set: setIsHovering }] = useBoolean(false)
 
-useDrop(dropRef, {
-	onDom: (content: string, e) => {
-		// @ts-ignore
-		list.value.push(`custom: ${content} dropped`)
-		setIsHovering(false)
-	},
-	onDragEnter: () => setIsHovering(true),
-	onDragLeave: () => setIsHovering(false),
-})
+  useDrop(dropRef, {
+    onDom: (content: string, e) => {
+      // @ts-ignore
+      list.value.push(`custom: ${content} dropped`)
+      setIsHovering(false)
+    },
+    onDragEnter: () => setIsHovering(true),
+    onDragLeave: () => setIsHovering(false),
+  })
 </script>
-
-<style scoped lang="less"></style>

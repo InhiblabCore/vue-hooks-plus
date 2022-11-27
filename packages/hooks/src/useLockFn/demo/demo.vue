@@ -30,4 +30,3 @@
     endRef.value += 1
   })
 </script>
-<style scoped lang="less"></style>

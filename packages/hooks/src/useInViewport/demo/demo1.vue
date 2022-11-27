@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div class="container">
+    <div style="width: 100%;height: 300px;overflow: scroll;border: 1px solid;">
       scroll here
       <div style="height: 800px">
-        <div ref="domRef" class="observer">
+        <div
+          ref="domRef"
+          style="border: 1px solid;height: 100px;width: 100px;text-align: center;margin-top: 80px;"
+        >
           observer dom
         </div>
       </div>
@@ -25,20 +28,3 @@
     root: () => document.getElementById('container'),
   })
 </script>
-
-<style scoped lang="less">
-  .container {
-    width: 100%;
-    height: 300px;
-    overflow: scroll;
-    border: '1px solid';
-  }
-
-  .observer {
-    border: 1px solid;
-    height: 100px;
-    width: 100px;
-    text-align: center;
-    margin-top: 80px;
-  }
-</style>

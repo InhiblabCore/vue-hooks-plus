@@ -25,5 +25,3 @@
     cacheKey: 'cacheKey-demo',
   })
 </script>
-
-<style scoped lang="less"></style>

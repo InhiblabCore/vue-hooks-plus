@@ -18,5 +18,3 @@
     cacheKey: 'cacheKey-share',
   })
 </script>
-
-<style scoped lang="less"></style>

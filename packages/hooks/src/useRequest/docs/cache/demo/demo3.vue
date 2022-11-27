@@ -38,5 +38,3 @@
     id.value = params?.[0]
   })
 </script>
-
-<style scoped lang="less"></style>

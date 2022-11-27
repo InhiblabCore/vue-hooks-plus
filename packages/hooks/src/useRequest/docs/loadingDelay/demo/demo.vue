@@ -30,5 +30,3 @@
     // loadingDelay: ref(500),
   })
 </script>
-
-<style scoped lang="less"></style>

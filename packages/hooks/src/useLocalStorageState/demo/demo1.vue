@@ -31,5 +31,3 @@
     defaultValue: defaultArray,
   })
 </script>
-
-<style scoped lang="less"></style>
