@@ -18,6 +18,7 @@ pnpm-lock.yaml
 
 # scripts
 scripts/git-pr.js
+scripts/publish.sh
 
 # Log files
 npm-debug.log*
