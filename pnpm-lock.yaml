@@ -9,7 +9,6 @@ importers:
       '@ruabick/vite-plugin-gen-temp': ^0.2.8
       '@types/fs-extra': ^9.0.13
       '@types/jest': ^29.0.0
-      '@types/js-cookie': ^3.0.1
       '@types/lodash': ^4.14.178
       '@types/marked': ^4.0.3
       '@types/md5': ^2.3.2
@@ -58,7 +57,6 @@ importers:
       '@ruabick/vite-plugin-gen-temp': 0.2.8_uakuilq6iygkg5ll5cv37w4i7m
       '@types/fs-extra': 9.0.13
       '@types/jest': 29.2.3
-      '@types/js-cookie': 3.0.2
       '@types/lodash': 4.14.189
       '@types/marked': 4.0.7
       '@types/md5': 2.3.2
@@ -104,16 +102,18 @@ importers:
 
   packages/hooks:
     specifiers:
+      '@types/js-cookie': ^3.0.1
       intersection-observer: ^0.12.2
-      js-cookie: ^2.x.x
+      js-cookie: ^3.0.1
       lodash: ^4.17.21
       marked: ^4.0.17
       qs: ^6.11.0
       query-string: ^7.1.1
       screenfull: ^5.0.0
     dependencies:
+      '@types/js-cookie': 3.0.2
       intersection-observer: 0.12.2
-      js-cookie: 2.2.1
+      js-cookie: 3.0.1
       lodash: 4.17.21
       marked: 4.2.2
       qs: 6.11.0
@@ -840,7 +840,7 @@ packages:
 
   /@types/js-cookie/3.0.2:
     resolution: {integrity: sha512-6+0ekgfusHftJNYpihfkMu8BWdeHs9EOJuGcSofErjstGPfPGEu9yTu4t460lTzzAMl2cM5zngQJqPMHbbnvYA==}
-    dev: true
+    dev: false
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
@@ -3329,8 +3329,9 @@ packages:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
     dev: true
 
-  /js-cookie/2.2.1:
-    resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
+  /js-cookie/3.0.1:
+    resolution: {integrity: sha512-+0rgsUXZu4ncpPxRL+lNEptWMOWl9etvPHc/koSRp6MPwpRYAhmk0dUG00J4bxVV3r9uUzfo24wW0knS07SKSw==}
+    engines: {node: '>=12'}
     dev: false
 
   /js-sdsl/4.1.5:
