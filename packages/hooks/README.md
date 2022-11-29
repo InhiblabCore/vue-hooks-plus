@@ -81,4 +81,4 @@ This project is heavily inspired by the following awesome projects.
 
 ## 📄 License
 
-[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](
+[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](https://github.com/NelsonYong)
