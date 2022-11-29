@@ -1,7 +1,11 @@
 <template>
   <div>
     <p v-if="loading" />
-    <div v-for="item in data?.list" :key="item" class="item">
+    <div
+      v-for="item in data?.list"
+      :key="item"
+      style="padding: 12px; border: 1px solid #f5f5f5;text-align: center;"
+    >
       {{ item }}行
       <vhp-button
         style="margin-left: 8px;"
@@ -76,11 +80,3 @@
     },
   })
 </script>
-
-<style scoped lang="less">
-  .item {
-    padding: 12px;
-    border: 1px solid #f5f5f5;
-    text-align: center;
-  }
-</style>

@@ -27,9 +27,9 @@ export const buildConfig: UserConfig = {
             output: { globals: { vue: 'Vue' } },
           },
           lib: {
-            formats: ['es', 'cjs'],
+            formats: ['es', 'cjs', 'iife'],
             entry: path.resolve(__dirname, '..', 'src/index.ts'),
-            name: 'vue-hooks-plus',
+            name: 'VueHooks_Plus',
             fileName: format => `js/index.${format}.js`,
           },
         },
@@ -55,8 +55,8 @@ export const buildFullTypesConfig: UserConfig = {
     minify: true,
     lib: {
       entry: path.resolve(__dirname, '..', 'src/index.ts'),
-      name: 'vue-hooks-plus',
-      formats: ['es', 'cjs'],
+      name: 'VueHooks_Plus',
+      formats: ['es', 'cjs', 'iife'],
       fileName: format => {
         return `js/index.${format}.js`
       },

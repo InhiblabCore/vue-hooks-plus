@@ -38,5 +38,3 @@
     state.value = 5
   })
 </script>
-
-<style scoped lang="less"></style>

@@ -27,7 +27,7 @@ useWhyDidYouUpdate('useWhyDidYouUpdateComponent', {
 })
 </script>
 
-<style scoped lang="less"></style>
+
 
  -->
 
@@ -45,5 +45,3 @@ useWhyDidYouUpdate('useWhyDidYouUpdateComponent', {
 
   const count = ref(0)
 </script>
-
-<style scoped lang="less"></style>

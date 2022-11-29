@@ -21,5 +21,3 @@
     age.value += 1
   }, 1000)
 </script>
-
-<style scoped lang="less"></style>

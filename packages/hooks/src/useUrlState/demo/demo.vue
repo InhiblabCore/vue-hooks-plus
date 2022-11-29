@@ -26,5 +26,3 @@
   const subPage = () => state.value.page--
   const clear = () => (state.value = Object.assign({}, defaultState))
 </script>
-
-<style scoped lang="less"></style>

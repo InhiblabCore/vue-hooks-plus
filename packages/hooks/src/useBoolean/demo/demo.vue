@@ -4,9 +4,9 @@
     <br>
     <div>
       <p>
-        <vhp-button style="margin-left: 16px" @click="() => set(!flag)">set</vhp-button>
-        <vhp-button style="margin-left: 16px" @click="() => setTrue()">setTrue</vhp-button>
-        <vhp-button style="margin-left: 16px" @click="() => setFalse()">setFalse</vhp-button>
+        <vhp-button @click="() => set(!flag)">set</vhp-button>
+        <vhp-button style="margin-left: 8px" @click="() => setTrue()">setTrue</vhp-button>
+        <vhp-button style="margin-left: 8px" @click="() => setFalse()">setFalse</vhp-button>
       </p>
     </div>
   </div>

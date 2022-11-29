@@ -1,13 +1,12 @@
 <template>
-	<div>Windows尺寸变化 {{ countRef }} 次</div>
+  <div>Windows尺寸变化 {{ countRef }} 次</div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+  import { ref } from 'vue'
 
-import { useWinResize } from 'vue-hooks-plus'
+  import { useWinResize } from 'vue-hooks-plus'
 
-const countRef = ref(0)
-useWinResize(() => (countRef.value += 1))
+  const countRef = ref(0)
+  useWinResize(() => (countRef.value += 1))
 </script>
-<style scoped lang="less"></style>

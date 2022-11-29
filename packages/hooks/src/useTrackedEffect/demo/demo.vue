@@ -24,5 +24,3 @@
     [count1, count2],
   )
 </script>
-
-<style scoped lang="less"></style>

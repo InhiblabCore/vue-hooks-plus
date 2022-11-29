@@ -1,21 +1,19 @@
 <template>
-	<div style="margin-top: 16px;">读取值：{{ loading ? 'loading' : data }}</div>
+  <div style="margin-top: 16px;">读取值：{{ loading ? 'loading' : data }}</div>
 </template>
 
 <script lang="ts" setup>
-import { useRequest } from 'vue-hooks-plus'
+  import { useRequest } from 'vue-hooks-plus'
 
-function getUsername(): Promise<string> {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve(`${String(Date.now())}`)
-		}, 1000)
-	})
-}
+  function getUsername(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(`${String(Date.now())}`)
+      }, 1000)
+    })
+  }
 
-const { data, loading } = useRequest(() => getUsername(), {
-	refreshOnWindowFocus: true,
-})
+  const { data, loading } = useRequest(() => getUsername(), {
+    refreshOnWindowFocus: true,
+  })
 </script>
-
-<style scoped lang="less"></style>

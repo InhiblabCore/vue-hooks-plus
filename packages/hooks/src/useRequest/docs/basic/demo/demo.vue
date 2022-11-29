@@ -30,5 +30,3 @@
 
   run({ desc: 'nice' })
 </script>
-
-<style scoped lang="less"></style>

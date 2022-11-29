@@ -31,5 +31,3 @@
     eventA.emit('change')
   }
 </script>
-
-<style scoped lang="less"></style>

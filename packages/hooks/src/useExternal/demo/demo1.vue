@@ -28,5 +28,3 @@
   const path = ref('')
   const status = useExternal(path)
 </script>
-
-<style scoped lang="less"></style>
