@@ -32,17 +32,23 @@ High-quality and reliable Vue3 Hooks library
 - 🦾 Preferred useRequest, Powerful request middle tier
 - 🎪 Interactive demo, immersive
 - 🎯 Written in TypeScript with predictable static types
-- ⚡️ Support the on-demand load, and reduce the packing volume
-- 🤺 The drill field shows its skills
+- 🪄 Support the on-demand load, and reduce the packing volume
+- 🤺 Playground, there's ample scope for one's abilities
 - 🔐 Perfect test, safe and reliable
 
 ## 📦 Install
 
+```bash
+npm i vue-hooks-plus
 ```
-$ npm i vue-hooks-plus
-# or
-$ yarn add vue-hooks-plus
+
+### CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue-hooks-plus/dist/js/index.iife.js"></script>
 ```
+
+It will be exposed to global as `VueHooks_Plus`
 
 ## 🤹‍♀️ Usage
 
@@ -50,7 +56,6 @@ $ yarn add vue-hooks-plus
 import { useRequest } from 'vue-hooks-plus'
 
 // or Introduced on demand
-
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
@@ -76,4 +81,4 @@ This project is heavily inspired by the following awesome projects.
 
 ## 📄 License
 
-[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](https://github.com/NelsonYong)
+[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](

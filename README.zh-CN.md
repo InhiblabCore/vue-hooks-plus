@@ -38,11 +38,17 @@
 
 ## 📦 安装
 
+```bash
+npm i vue-hooks-plus
 ```
-$ npm i vue-hooks-plus
-# or
-$ yarn add vue-hooks-plus
+
+### CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue-hooks-plus/dist/js/index.iife.js"></script>
 ```
+
+它会导出一个全局的变量 `VueHooks_Plus`
 
 ## 🤹‍♀️ 使用
 
@@ -50,7 +56,6 @@ $ yarn add vue-hooks-plus
 import { useRequest } from 'vue-hooks-plus'
 
 // or 按需引入
-
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
