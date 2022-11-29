@@ -49,7 +49,7 @@ describe('polling', () => {
     pollingResult.run()
     expect(pollingResult.loading.value).toBeTruthy()
     expect(pollingResult.data?.value).toBeUndefined()
-    await sleep(1000)
+    await sleep(1100)
     expect(pollingResult.data?.value).toBe(data)
     prev = data
     await sleep(1000)
