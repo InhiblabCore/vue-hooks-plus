@@ -30,6 +30,11 @@ export default defineConfig({
   base,
   themeConfig: {
     logo: '/logo.svg',
+    algolia: {
+      appId: 'F75E9UQXRX',
+      apiKey: '268129e44d6b58950b4626bf86e8bd1e',
+      indexName: 'vue-hooks-plus-search',
+    },
     nav: [
       { text: '首页', link: '/' },
       { text: 'Hooks', link: '/useRequest/' },
