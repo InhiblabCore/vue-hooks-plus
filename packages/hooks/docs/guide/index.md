@@ -1,30 +1,32 @@
+<p align="center">
+  <a href="http://43.138.187.142:9000/vue-hooks-plus/docs/">
+    <img width="216" src="http://43.138.187.142:9000/assets/vue-hooks-plus/logo@2x.png">
+  </a>
+</p>
 
-# vue-hooks-plus 安装
+<div align="center">
 
-## 📦 安装
+# VueHooks Plus
 
-```
-$ npm install --save vue-hooks-plus
-# or
-$ yarn add vue-hooks-plus
-```
+English | [简体中文](https://github.com/InhiblabCore/vue-hooks-plus/tree/master/README.zh-CN.md)
 
-## 🔨 使用
+High-quality and reliable Vue3 Hooks library
 
-### 全量引入
+</div>
 
-```typescript
-import { useRequest } from 'vue-hooks-plus'
-```
+## ✨ Features
 
-### 按需引入
+- 🏄🏼‍♂️ Easy to learn and use
+- 🔋 Supports SSR
+- 🛸 Contains a comprehensive collection of basic Hooks
+- 🏟️ A wide range of application scenarios
+- 🦾 Preferred useRequest, Powerful request middle tier
+- 🎪 Interactive demo, immersive
+- 🎯 Written in TypeScript with predictable static types
+- 🪄 Support the on-demand load, and reduce the packing volume
+- 🤺 Playground, there's ample scope for one's abilities
+- 🔐 Perfect test, safe and reliable
 
-```typescript
-import useRequest from 'vue-hooks-plus/es/useRequest'
-```
+## 🪴 Project Activity
 
-<br />
-
-::: warning
-不兼容 vue2 版本
-:::
+![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')

@@ -36,25 +36,32 @@ export default defineConfig({
       indexName: 'vue-hooks-plus-search',
     },
     nav: [
-      { text: '首页', link: '/' },
+      { text: '指南', link: '/guide/' },
       { text: 'Hooks', link: '/useRequest/' },
-      {
-        text: 'Playground',
-        link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
-      },
       isGithub
         ? {
-            text: '国内镜像',
+            text: 'Playground',
+            link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
+          }
+        : {
+            text: '演练场',
+            link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
+          },
+      isGithub
+        ? {
+            text: 'Gitee 镜像',
             link: 'https://inhiblab-core.gitee.io/docs/hooks/',
           }
         : {
-            text: 'Github 站点',
+            text: 'Github Site',
             link: 'https://inhiblabcore.github.io/docs/hooks/',
           },
-      {
-        text: '更新日志',
-        link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
-      },
+      isGithub
+        ? { text: 'Releases', link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/' }
+        : {
+            text: '发行版本',
+            link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
+          },
     ],
     sidebar: {
       '/': getHooksSidebar(),
@@ -70,6 +77,10 @@ export default defineConfig({
       {
         icon: 'github',
         link: 'https://github.com//InhiblabCore/vue-hooks-plus',
+      },
+      {
+        icon: 'twitter',
+        link: 'https://twitter.com/Yong_Git',
       },
     ],
   },
@@ -96,11 +107,19 @@ export default defineConfig({
 function getHooksSidebar() {
   return [
     {
-      text: '介绍',
+      text: '',
       items: [
         {
-          text: '入手指南',
+          text: '介绍',
           link: '/guide/',
+        },
+        {
+          text: '安装使用',
+          link: '/guide/install/',
+        },
+        {
+          text: 'useRequest 规范',
+          link: '/useRequest/guide/',
         },
       ],
     },
@@ -167,10 +186,6 @@ function getHooksSidebar() {
         {
           text: '🌟 开发插件',
           link: '/useRequest/plugin/',
-        },
-        {
-          text: '📐 业务开发规范',
-          link: '/useRequest/guide/',
         },
       ],
     },

@@ -15,9 +15,7 @@ map:
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
-  desc="频繁调用 run，但只会在所有点击完成 1000ms 后执行一次相关函数">
-</demo>
-
+  desc="频繁调用 run，但只会在所有点击完成 1000ms 后执行一次相关函数"> </demo>
 
 ## API
 
