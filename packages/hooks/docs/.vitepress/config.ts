@@ -36,7 +36,7 @@ export default defineConfig({
       indexName: 'vue-hooks-plus-search',
     },
     nav: [
-      { text: '指南', link: '/guide/' },
+      isGithub ? { text: 'Guide', link: '/guide/' } : { text: '指南', link: '/guide/' },
       { text: 'Hooks', link: '/useRequest/' },
       isGithub
         ? {
