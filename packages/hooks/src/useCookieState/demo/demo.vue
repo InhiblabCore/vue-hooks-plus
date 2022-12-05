@@ -4,9 +4,9 @@
       type="text"
       :value="message"
       @change="change"
-      placeholder="请输入"
+      placeholder="please input"
       style="width: 300px;"
-    />
+    >
   </div>
 </template>
 

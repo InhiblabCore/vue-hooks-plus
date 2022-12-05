@@ -91,7 +91,7 @@ const useRequestRouter = [
     text: 'useRequest',
     items: [
       {
-        text: '介绍',
+        text: '快速开始',
         link: '/useRequest/',
       },
       {
@@ -160,7 +160,7 @@ const useRequestRouterEN = [
     text: 'useRequest',
     items: [
       {
-        text: 'Started',
+        text: 'Quick Start',
         link: '/en/useRequest/',
       },
       {
