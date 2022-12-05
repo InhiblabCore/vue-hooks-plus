@@ -33,15 +33,11 @@ export default defineConfig({
       lang: 'zh-CN',
       title: 'VueHook Plus',
       description: 'vue hooks',
-      label: '中文',
-      selectText: '语言',
     },
     '/en/': {
       lang: 'en-US',
       title: 'VueHook Plus',
       description: 'vue hooks',
-      label: 'English',
-      selectText: 'Languages',
     },
   },
   themeConfig: {

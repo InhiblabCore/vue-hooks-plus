@@ -4,6 +4,6 @@ map:
   path: /useRequest/scroll/
 ---
 
-# 见 👇 useInfiniteScroll
+# Look 👇 useInfiniteScroll
 
-<a href="/docs/hooks/useInfiniteScroll/" >滚动加载和分页加载</a>
+<a href="/docs/hooks/useInfiniteScroll/" >useInfiniteScroll</a>

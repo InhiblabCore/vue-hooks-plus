@@ -4,18 +4,18 @@
       <p>id:{{ id }}</p>
       <p>storeID:{{ store.id }}</p>
     </div>
-    <vhp-button @click="() => (id = 1)">改变ID为 1</vhp-button>
-    <vhp-button @click="() => (id = 2)" style="margin-left: 16px;">改变ID为 2</vhp-button>
+    <vhp-button @click="() => (id = 1)">Change ID = 1</vhp-button>
+    <vhp-button @click="() => (id = 2)" style="margin-left: 16px;">Change ID = 2</vhp-button>
     <vhp-button @click="() => (store.id = 1)" style="margin-left: 16px;">
-      改变store ID为 1
+      Change store ID = 1
     </vhp-button>
     <vhp-button @click="() => (store.id = 2)" style="margin-left: 16px;">
-      改变 store ID为 2
+      Change store ID = 2
     </vhp-button>
   </div>
-  <div style="margin-top: 16px;">请求的状态值：{{ loading ? 'loading' : '' }}</div>
+  <div style="margin-top: 16px;">Loading：{{ loading ? 'loading' : '' }}</div>
   <div style="margin-top: 16px;"
-  >请求的Data值： <span>{{ data }}</span>
+  >Data Value： <span>{{ data }}</span>
   </div>
 </template>
 
@@ -27,7 +27,7 @@
   function getUsername({ id, storeId }: { id: number; storeId: number }): Promise<string> {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(`${String(Date.now())}； \t 参数id: ${id} \t； 参数storeId: ${storeId}`)
+        resolve(`${String(Date.now())}； \n Params id: ${id} \t； Params storeId: ${storeId}`)
       }, 1000)
     })
   }
