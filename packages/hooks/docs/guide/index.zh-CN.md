@@ -1,4 +1,5 @@
-# 🚀 vue-hooks-plus 安装
+
+# vue-hooks-plus 安装
 
 ## 📦 安装
 
@@ -22,14 +23,8 @@ import { useRequest } from 'vue-hooks-plus'
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
-### CDN 引入
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/vue-hooks-plus/dist/js/index.iife.js"></script>
-```
-
-It will be exposed to global as `VueHooks_Plus`
-
 <br />
 
-::: warning 不兼容 vue2 版本 :::
+::: warning
+不兼容 vue2 版本
+:::

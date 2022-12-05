@@ -8,5 +8,5 @@
       "vue-hooks-plus": ["../src/index.ts"]
     }
   },
-  "include": [".vitepress/components/**/*.vue", ".vitepress/**/*.ts"]
+  "include": [".vitepress/components/**/*.vue", ".vitepress/**/*.ts", ".vitepress/theme/**/*.vue"]
 }

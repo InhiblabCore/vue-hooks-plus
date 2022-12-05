@@ -2,7 +2,6 @@
   import DemoEditor from './DemoEditor.vue'
   // import HomeTeam from './HomeTeam.vue'
   import Icon from './Icon.vue'
-
   import Waves from '../Waves/index.vue'
 </script>
 
@@ -15,8 +14,8 @@
         <br />Plus
       </h1>
       <p class="description"> </p>
-      <p class="actions" style="position: relative; z-index: 9;">
-        <a class="get-started" href="/docs/hooks/guide/">
+      <p class="actions">
+        <a class="get-started" href="/docs/hooks/en/guide/" style="position: relative; z-index: 9;">
           Get Started
           <svg
             class="icon"
@@ -35,57 +34,57 @@
     </section>
     <section id="highlights" class="vt-box-container">
       <div class="vt-box">
-        <h2>🛸 Vue3 的 Hooks</h2>
+        <h2>🛸 Hooks for vue3 </h2>
         <p>
-          基础和高级的 hook， 高性能逻辑的抽象封装，满足大量场景。
+          Contains a comprehensive collection of basic Hooks.
         </p>
       </div>
       <div class="vt-box">
-        <h2>🏄🏼‍♂️ 简洁易用</h2>
+        <h2>🏄🏼‍♂️ Easy to learn and use</h2>
         <p>
-          简洁的语法和易用的特性，轻松上手，详细的文档。
+          Simple language and easy-to-use features, easy to use, detailed documentation.
         </p>
       </div>
       <div class="vt-box">
         <h2>🎯 TypeScript</h2>
         <p>
-          使用 TypeScript 构建，提供完整的类型定义文件，安全严谨。
+          Written in TypeScript with predictable static types.
         </p>
       </div>
       <div class="vt-box">
-        <h2>🎪 交互式demo演示</h2>
+        <h2>🎪 Interactive demo</h2>
         <p>
-          眼见为实，身临其境。
+          Interactive demo, immersive.
         </p>
       </div>
       <div class="vt-box">
-        <h2>🔋 支持 SSR</h2>
+        <h2>🔋 Support SSR</h2>
         <p>
-          服务器端渲染的友好支持。
+          Friendly support for server-side rendering.
         </p>
       </div>
       <div class="vt-box">
         <h2>🦾 useRequest</h2>
         <p>
-          基于插件模式设计的请求函数。
+          Preferred useRequest, Powerful request middle tier.
         </p>
       </div>
       <div class="vt-box">
-        <h2>🤺 演练场</h2>
+        <h2>🤺 Playground</h2>
         <p>
-          在线编码，大有用武之地。
+          there's ample scope for one's abilities.
         </p>
       </div>
       <div class="vt-box">
-        <h2>🪄 按需加载</h2>
+        <h2>🪄 On-demand load</h2>
         <p>
-          拿你想要，包体积更小。
+          Take what you want, the package is smaller.
         </p>
       </div>
       <div class="vt-box">
-        <h2>🔐 安全性</h2>
+        <h2>🔐 Safe</h2>
         <p>
-          测试完善，安全可靠。
+          Perfect test, safe and reliable.
         </p>
       </div>
     </section>

@@ -34,7 +34,7 @@
           //   console.log(JSON.parse(JSON.stringify(block.value!.innerText.replace('|', ''))))
           // },
         })
-          .type('<br><h1 style="opacity: 0.5;">欢迎使用 VueHooks Plus!</h1><br /><br />', {
+          .type('<br><h1 style="opacity: 0.5;">Welcome use VueHooks Plus!</h1><br /><br />', {
             delay: 100,
           })
           .type(
@@ -53,14 +53,14 @@
           )
           .type(`<br /><br /><br /><span class="label-code">&lt;script /&gt;</span>`)
           .type(
-            `<br /><br /><span class="label-code">&lt;template&gt;</span><br /><br />&nbsp<span class="label-code">&lt;div&gt; <br /></span>&nbsp&nbsp&nbspdata值为：{{<span class="variable-code"> undefined </span>}} <br />&nbsp<span class="label-code">&lt;div /&gt; </span><br />`,
+            `<br /><br /><span class="label-code">&lt;template&gt;</span><br /><br />&nbsp<span class="label-code">&lt;div&gt; <br /></span>&nbsp&nbsp&nbspdata：{{<span class="variable-code"> undefined </span>}} <br />&nbsp<span class="label-code">&lt;div /&gt; </span><br />`,
           )
           .type(`<br /><span class="label-code">&lt;template /&gt;</span>`)
           .move(-27)
           .delete(11, {
             delay: 400,
           })
-          .type(`<span class="variable-code"> fetch API data 更新了！ </span>`, {
+          .type(`<span class="variable-code"> fetch API data update! </span>`, {
             delay: 400,
           })
           .go()
