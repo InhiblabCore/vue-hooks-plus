@@ -6,4 +6,4 @@ map:
 
 # Look 👇 useInfiniteScroll
 
-<a href="/docs/hooks/useInfiniteScroll/" >useInfiniteScroll</a>
+<a href="/docs/hooks/en/useInfiniteScroll/" >Jump to useInfiniteScroll</a>

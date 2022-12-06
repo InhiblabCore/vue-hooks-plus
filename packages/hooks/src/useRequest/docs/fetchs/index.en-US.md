@@ -6,4 +6,4 @@ map:
 
 # Look 👇 useFetchs
 
-<a href="/docs/hooks/en/useFetchs/" >Give useRequest the ability to make parallel requests</a>
+<a href="/docs/hooks/en/useFetchs/" >Jump to useFetchs</a>
