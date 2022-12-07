@@ -11,7 +11,7 @@
   import ShaderProgram from './waves'
   const wavaRef = ref<HTMLDivElement>()
   onMounted(() => {
-    if (wavaRef) {
+    if (wavaRef.value) {
       const pointSize = 5
       new ShaderProgram(wavaRef.value, {
         texture:

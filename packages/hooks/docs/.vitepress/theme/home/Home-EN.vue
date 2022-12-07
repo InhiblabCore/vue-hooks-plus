@@ -2,13 +2,16 @@
   import DemoEditor from './DemoEditor.vue'
   // import HomeTeam from './HomeTeam.vue'
   import Icon from './Icon.vue'
-  import Waves from '../Waves/index.vue'
+  // import Waves from '../Waves/index.vue'
+  import Waves from '../Wave.vue'
 </script>
 
 <template>
   <div class="home">
     <Icon />
+
     <section id="hero">
+      <Waves />
       <h1 class="tagline">
         <span class="accent">VueHooks</span>
         <br />Plus
@@ -30,7 +33,6 @@
           </svg>
         </a>
       </p>
-      <Waves />
     </section>
     <section id="highlights" class="vt-box-container">
       <div class="vt-box">
