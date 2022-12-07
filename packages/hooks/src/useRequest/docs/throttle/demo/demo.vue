@@ -1,6 +1,6 @@
 <template>
   <div style="margin-top: 16px;"><input type="text" v-model="text"></div>
-  <div style="margin-top: 16px;">读取值：{{ data }}</div>
+  <div style="margin-top: 16px;">value：{{ data }}</div>
 </template>
 
 <script lang="ts" setup>
@@ -9,8 +9,6 @@
   import { useRequest, useTimeout } from 'vue-hooks-plus'
 
   function getUsername(): Promise<string> {
-    console.log('发送请求')
-
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(`${String(Date.now())}`)

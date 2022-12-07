@@ -61,7 +61,8 @@
 		"vitest": "^0.25.3",
 		"vue": "^3.2.25",
 		"vue-tsc": "1.0.9",
-		"vue-typical": "^2.1.0"
+		"vue-typical": "^2.1.0",
+    "three":"0.147.0"
 	},
 	"lint-staged": {
 		"*.{js,ts,tsx,vue}": [

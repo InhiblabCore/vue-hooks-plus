@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" placeholder="输入" v-model="valueRef">
-    <p>500ms后变化：{{ debouncedValue }}</p>
+    <input type="text" placeholder="input" v-model="valueRef">
+    <p>DebouncedValue：{{ debouncedValue }}</p>
   </div>
 </template>
 

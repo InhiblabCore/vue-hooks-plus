@@ -59,7 +59,10 @@ import { useRequest } from 'vue-hooks-plus'
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
-更多详情请参考 <a href="https://inhiblab-core.gitee.io/docs/hooks" target="_blank">文档</a>。
+### 国际化文档
+
+- [English Documentations](https://inhiblab-core.gitee.io/docs/hooks/en)
+- [中文文档](https://inhiblab-core.gitee.io/docs/hooks)
 
 ## 🕹️ 调试文档
 

@@ -1,5 +1,6 @@
 <template>
-  <vhp-button @click="() => refresh()"> 重新发起请求:{{ `loading：${loading}` }} </vhp-button>
+  <vhp-button @click="() => refresh()"> request again </vhp-button>
+  <div>{{ `loading：${loading}` }}</div>
   <div>{{ data }}</div>
 </template>
 

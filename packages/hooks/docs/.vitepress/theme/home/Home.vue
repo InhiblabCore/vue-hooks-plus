@@ -1,19 +1,24 @@
 <script setup lang="ts">
   import DemoEditor from './DemoEditor.vue'
-  import HomeTeam from './HomeTeam.vue'
+  // import HomeTeam from './HomeTeam.vue'
   import Icon from './Icon.vue'
+
+  // import Waves from '../Waves/index.vue'
+  import Waves from '../Wave.vue'
 </script>
 
 <template>
   <div class="home">
     <Icon />
+
     <section id="hero">
+      <Waves />
       <h1 class="tagline">
         <span class="accent">VueHooks</span>
         <br />Plus
       </h1>
       <p class="description"> </p>
-      <p class="actions">
+      <p class="actions" style="position: relative; z-index: 9;">
         <a class="get-started" href="/docs/hooks/guide/">
           Get Started
           <svg
@@ -114,6 +119,7 @@
   #hero {
     padding: 0 32px 32px 32px;
     text-align: center;
+    position: relative;
   }
   #team {
     padding: 64px 232px;
@@ -295,6 +301,9 @@
     #highlights .vt-box {
       padding: 20px 36px;
       margin-top: 0px;
+    }
+    #highlights .vt-box:first-child {
+      margin-top: 8px;
     }
     .actions a {
       margin: 0.5em 0;

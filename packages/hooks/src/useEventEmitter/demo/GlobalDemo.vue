@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 16px;">全局事件: {{ globalCount }}</div>
+  <div style="margin-top: 16px;">Global Event count： {{ globalCount }}</div>
 </template>
 
 <script lang="ts" setup>

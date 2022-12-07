@@ -15,14 +15,14 @@
     return new Promise(resolve => {
       setTimeout(
         () => {
-          resolve(`vue-hooks-plus ${params.desc}`)
+          resolve(`VueHooks Plus ${params.desc}`)
         },
-        params.desc === '大牛' ? 4000 : 2000,
+        params.desc === 'SSS' ? 4000 : 2000,
       )
     })
   }
 
-  const arr = ['牛', '小牛', '中牛', '大牛']
+  const arr = ['A', 'S', 'SS', 'SSS']
 
   const { fetchRun, fetchs } = useFetchs(
     getUsername,

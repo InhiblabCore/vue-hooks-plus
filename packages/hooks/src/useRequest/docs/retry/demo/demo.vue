@@ -1,6 +1,6 @@
 <template>
   <div style="margin-top: 16px;"
-  >请求错误次数： <span>{{ count }}</span></div
+  >Error count： <span>{{ count }}</span></div
   >
 </template>
 

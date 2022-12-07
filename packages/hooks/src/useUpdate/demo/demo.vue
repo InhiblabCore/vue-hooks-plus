@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text">Time: {{ date }}</div>
+    <div>Time: {{ date }}</div>
     <vhp-button class="btn" type="vhp-button" @click="() => setUpdate()">update</vhp-button>
   </div>
 </template>

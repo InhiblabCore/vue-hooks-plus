@@ -26,9 +26,9 @@ const { data, loading, refresh } = useRequest(() => getUsername(), {
 
 <template>
   <div style="padding: 16px;">
-    <h2>A请求内容</h2>
+    <h2>A data</h2>
     <share-demo />
-    <h2>B请求内容</h2>
+    <h2>B data</h2>
     <share-demo />
   </div>
 </template>

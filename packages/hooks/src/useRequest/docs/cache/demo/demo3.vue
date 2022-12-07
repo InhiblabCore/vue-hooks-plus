@@ -4,9 +4,9 @@
     <div v-if="state" style="padding: 16px;">
       <div>{{ `loading: ${loading}` }}</div>
       <input type="text" v-model="id"><vhp-button style="margin-left: 12px;" @click="run(id)">
-        发送
+        send
       </vhp-button>
-      <div>请求参数ID为：{{ id }}</div>
+      <div>params ID：{{ id }}</div>
       <p>{{ data }}</p>
     </div>
   </div>

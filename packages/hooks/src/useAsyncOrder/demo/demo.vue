@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>错误次数: {{ error }}</div>
+    <div>error count: {{ error }}</div>
     <p v-for="(item, index) in list" :key="index">
       {{ item }}
     </p>
@@ -17,7 +17,7 @@
   function getUsername(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('第一个数据')
+        resolve('No.1')
       }, 3000)
     })
   }
@@ -25,7 +25,7 @@
   function getUsername2(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('第二个数据')
+        resolve('No.2')
       }, 2000)
     })
   }
@@ -33,7 +33,7 @@
   function getUsername3(): Promise<string> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve('第三个数据')
+        resolve('No.3')
       }, 2000)
     })
   }

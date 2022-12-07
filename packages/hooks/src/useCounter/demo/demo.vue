@@ -3,16 +3,16 @@
     <p>{{ current }} [max: 10; min: 1;]</p>
     <div class="contain">
       <vhp-button type="vhp-button" @click="inc()">
-        inc()
+        Inc()
       </vhp-button>
-      <vhp-button type="vhp-button" @click="dec()" style="margin-right: 8px">
-        dec()
+      <vhp-button type="vhp-button" @click="dec()" style="margin-left: 8px">
+        Dec()
       </vhp-button>
-      <vhp-button type="vhp-button" @click="set(3)" style="margin-right: 8px">
-        set(3)
+      <vhp-button type="vhp-button" @click="set(3)" style="margin-left: 8px">
+        Set(3)
       </vhp-button>
-      <vhp-button type="vhp-button" @click="reset()" style="margin-right: 8px">
-        reset()
+      <vhp-button type="vhp-button" @click="reset()" style="margin-left: 8px">
+        Reset()
       </vhp-button>
     </div>
   </div>

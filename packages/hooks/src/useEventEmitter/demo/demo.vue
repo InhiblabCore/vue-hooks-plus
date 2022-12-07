@@ -2,9 +2,9 @@
   <div>
     <div>
       <vhp-button @click="changeGlobal">
-        全局事件通信
+        Global Event
       </vhp-button>
-      <vhp-button @click="changeA" style="margin-left: 16px;">子事件A通信</vhp-button>
+      <vhp-button @click="changeA" style="margin-left: 16px;">Sub-event A communication</vhp-button>
     </div>
     <div>
       <global-demo />

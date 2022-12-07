@@ -1,5 +1,5 @@
 <template>
-  <div>Windows尺寸变化 {{ countRef }} 次</div>
+  <div>Windows change count： {{ countRef }}</div>
 </template>
 
 <script lang="ts" setup>

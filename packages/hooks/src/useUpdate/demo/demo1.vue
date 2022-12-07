@@ -3,7 +3,7 @@
     <div>count:{{ count }}</div>
     <vhp-button type="vhp-button" @click="() => count++">Add</vhp-button>
     <vhp-button type="vhp-button" style="margin-left:16px" @click="() => setUpdate()"
-    >刷新页面</vhp-button
+    >Refresh Page</vhp-button
     >
   </div>
 </template>
@@ -16,7 +16,7 @@
   const count = ref(0)
 
   onMounted(() => {
-    console.log('我被创建了')
+    console.log('mounted!')
   })
 
   watch(update, () => {

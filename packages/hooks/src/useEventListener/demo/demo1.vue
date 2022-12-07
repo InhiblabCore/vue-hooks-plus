@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>窗口尺寸改变：{{ valueRef }}</div>
+    <div>Window size change：{{ valueRef }}</div>
   </div>
 </template>
 

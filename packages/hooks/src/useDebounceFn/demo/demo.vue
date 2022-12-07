@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>点击：{{ valueRef }}</div>
-    <vhp-button @click="() => run()">点击我！</vhp-button>
+    <div>Click Count：{{ valueRef }}</div>
+    <vhp-button @click="() => run()">Click me!</vhp-button>
   </div>
 </template>
 
