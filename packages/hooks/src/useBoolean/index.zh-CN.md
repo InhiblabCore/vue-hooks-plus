@@ -10,13 +10,10 @@ map:
 
 ## 代码演示
 
-### 基本用法
-
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
-  desc="切换 boolean，可以接收默认值。">
-</demo>
+  desc="切换 boolean，可以接收默认值。"> </demo>
 
 ## API
 
@@ -34,10 +31,10 @@ const [state, { toggle, set, setTrue, setFalse }] = useBoolean(
 
 ### Result
 
-| 参数    | 说明     | 类型      |
-| ------- | -------- | --------- |
+| 参数    | 说明     | 类型           |
+| ------- | -------- | -------------- |
 | state   | 状态值   | `Ref<boolean>` |
-| actions | 操作集合 | `Actions` |
+| actions | 操作集合 | `Actions`      |
 
 ### Actions
 
@@ -47,4 +44,3 @@ const [state, { toggle, set, setTrue, setFalse }] = useBoolean(
 | set      | 设置 state   | `(value: boolean) => void` |
 | setTrue  | 设置为 true  | `() => void`               |
 | setFalse | 设置为 false | `() => void`               |
-

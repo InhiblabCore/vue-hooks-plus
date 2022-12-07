@@ -10,8 +10,6 @@ A hook that elegantly manages boolean state.
 
 ## Code demonstration
 
-### Basic usage
-
 <demo src="./demo/demo.vue" 
 language="vue" 
 title="Basic usage" 

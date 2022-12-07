@@ -235,11 +235,11 @@ export function getRouterConfig(langPrefix = '/') {
       text: langPrefix === '/' ? '介绍' : 'Getting started',
       items: [
         {
-          text: langPrefix === '/' ? '🪧 入手指南' : '🪧 guide',
+          text: langPrefix === '/' ? '🪧 入手指南' : '🪧 Guide',
           link: `${langPrefix}guide/`,
         },
         {
-          text: langPrefix === '/' ? '📐 useRequest规范' : '📐 useRequest specification',
+          text: langPrefix === '/' ? '📐 UseRequest规范' : '📐 UseRequest specification',
           link: `${langPrefix}useRequest/guide/`,
         },
       ],

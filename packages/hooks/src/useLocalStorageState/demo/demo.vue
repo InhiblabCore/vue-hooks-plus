@@ -13,7 +13,7 @@
 <script lang="ts" setup>
   import { useLocalStorageState } from 'vue-hooks-plus'
   const [message, setMessage] = useLocalStorageState('use-local-storage-state-demo1', {
-    defaultValue: 'Hello~ vue-hooks-plus',
+    defaultValue: 'Hello ~ VueHooks Plus',
   })
 
   const change = (e: Event | any) => {

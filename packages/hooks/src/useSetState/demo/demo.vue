@@ -2,15 +2,15 @@
   <div>{{ JSON.stringify(state) }}</div>
   <div class="contain">
     <vhp-button @click="initAge()">
-      add age
+      Add age
     </vhp-button>
 
     <vhp-button @click="updateAge()">
-      update age
+      Update age
     </vhp-button>
 
     <vhp-button @click="addTag()">
-      add tag
+      Add tag
     </vhp-button>
   </div>
 </template>

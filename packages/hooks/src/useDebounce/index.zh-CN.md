@@ -15,8 +15,7 @@ map:
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
-  desc="debouncedValue 只会在输入结束 500ms 后变化。">
-</demo>
+  desc="debouncedValue 只会在输入结束 500ms 后变化。"> </demo>
 
 ## API
 
@@ -27,14 +26,14 @@ const debouncedValue = useDebounce(
 );
 ```
 
-### Params
+## Params
 
-| 参数    | 说明           | 类型      | 默认值 |
-| ------- | -------------- | --------- | ------ |
-| value   | 需要防抖的值   | `Ref<any>`     | -      |
-| options | 配置防抖的行为 | `Options` | -      |
+| 参数    | 说明           | 类型       | 默认值 |
+| ------- | -------------- | ---------- | ------ |
+| value   | 需要防抖的值   | `Ref<any>` | -      |
+| options | 配置防抖的行为 | `Options`  | -      |
 
-### Options
+## Options
 
 | 参数     | 说明                     | 类型      | 默认值  |
 | -------- | ------------------------ | --------- | ------- |
@@ -42,5 +41,3 @@ const debouncedValue = useDebounce(
 | leading  | 是否在延迟开始前调用函数 | `boolean` | `false` |
 | trailing | 是否在延迟开始后调用函数 | `boolean` | `true`  |
 | maxWait  | 最大等待时间，单位为毫秒 | `number`  | -       |
-
-

@@ -10,13 +10,10 @@ map:
 
 ## 代码演示
 
-### 基础用法
-
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
-  desc="throttledValue 每隔 500ms 变化一次。">
-</demo>
+  desc="throttledValue 每隔 500ms 变化一次。"> </demo>
 
 ## API
 
@@ -27,14 +24,14 @@ const throttledValue = useThrottle(
 );
 ```
 
-### Params
+## Params
 
-| 参数    | 说明           | 类型      | 默认值 |
-| ------- | -------------- | --------- | ------ |
-| value   | 需要节流的值   | `Ref<any>`     | -      |
-| options | 配置节流的行为 | `Options` | -      |
+| 参数    | 说明           | 类型       | 默认值 |
+| ------- | -------------- | ---------- | ------ |
+| value   | 需要节流的值   | `Ref<any>` | -      |
+| options | 配置节流的行为 | `Options`  | -      |
 
-### Options
+## Options
 
 | 参数     | 说明                     | 类型      | 默认值 |
 | -------- | ------------------------ | --------- | ------ |
