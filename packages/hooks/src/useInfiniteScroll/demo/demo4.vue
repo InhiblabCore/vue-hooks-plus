@@ -6,7 +6,7 @@
       :key="item"
       style="padding: 12px; border: 1px solid #f5f5f5;text-align: center;"
     >
-      {{ item }}行
+      {{ item }}
       <vhp-button
         style="margin-left: 8px;"
         :disabled="deleteLading && deleteParams[0] === item"

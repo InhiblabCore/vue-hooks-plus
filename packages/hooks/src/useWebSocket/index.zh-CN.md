@@ -10,8 +10,6 @@ map:
 
 ## 代码演示
 
-### 基础用法
-
 <demo src="./demo/demo.vue"
 language="vue"
 title="基本用法"
@@ -49,14 +47,14 @@ interface Result {
 useWebSocket(socketUrl: string, options?: Options): Result;
 ```
 
-### Params
+## Params
 
 | 参数      | 说明                 | 类型      | 默认值 |
 | --------- | -------------------- | --------- | ------ |
 | socketUrl | 必填，webSocket 地址 | `string`  | -      |
 | options   | 可选，连接配置项     | `Options` | -      |
 
-#### Options
+## Options
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -69,7 +67,7 @@ useWebSocket(socketUrl: string, options?: Options): Result;
 | manual | 手动启动连接 | `boolean` | `false` |
 | protocols | 子协议 | `string` \| `string[]` | - |
 
-### Result
+## Result
 
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
