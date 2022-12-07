@@ -59,7 +59,10 @@ import { useRequest } from 'vue-hooks-plus'
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
-Refer to <a href="https://inhiblabcore.github.io/docs/hooks" target="_blank">Documentations</a> for more details.
+### Globalization Documentations
+
+- [English Documentations](https://inhiblabcore.github.io/docs/hooks/en)
+- [中文文档](https://inhiblabcore.github.io/docs/hooks)
 
 ## 🕹️ Dev the document
 
