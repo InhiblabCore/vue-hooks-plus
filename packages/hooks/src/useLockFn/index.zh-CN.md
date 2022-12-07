@@ -10,13 +10,10 @@ map:
 
 ## 代码演示
 
-### 基础用法
-
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
-  desc="在 submit 函数执行完成前，其余的点击动作都会被忽略。场景：对于表单提交可以限制其多次提交">
-</demo>
+  desc="在 submit 函数执行完成前，其余的点击动作都会被忽略。场景：对于表单提交可以限制其多次提交"> </demo>
 
 ## API
 
@@ -26,13 +23,13 @@ function useLockFn<P extends any[] = any[], V extends any = any>(
 ): fn: (...args: P) => Promise<V | undefined>;
 ```
 
-### Result
+## Result
 
 | 参数 | 说明               | 类型                               |
 | ---- | ------------------ | ---------------------------------- |
 | fn   | 增加了竞态锁的函数 | `(...args: any[]) => Promise<any>` |
 
-### Params
+## Params
 
 | 参数 | 说明                 | 类型                               | 默认值 |
 | ---- | -------------------- | ---------------------------------- | ------ |

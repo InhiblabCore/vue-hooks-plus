@@ -10,8 +10,6 @@ map:
 
 ## 代码演示
 
-### 基础用法
-
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
@@ -25,7 +23,7 @@ const { fetchRun, fetchs } = useFetchs(service, options, {
 })
 ```
 
-### Params
+## Params
 
 | 参数     | 说明               | 类型                        | 默认值 |
 | -------- | ------------------ | --------------------------- | ------ |
@@ -33,7 +31,7 @@ const { fetchRun, fetchs } = useFetchs(service, options, {
 | fetchRun | 需要运行的函数     | `(...args) => void`         | -      |  |
 | options  | 额外的配置项       | `useRequest Options`        | -      |
 
-### Options
+## Options
 
 参考 `useRequest` 的 option，注意，`fetchRun` 需要在手动模式下 `manual` 强制为 `true`
 

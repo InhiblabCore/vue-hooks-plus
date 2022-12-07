@@ -1,9 +1,9 @@
 <template>
   <div>
     <div>submit count: {{ valueRef }}</div>
-    <div>开始：{{ startRef }}</div>
-    <div>成功：{{ endRef }}</div>
-    <div><vhp-button @click="() => sumit()">submit</vhp-button></div>
+    <div>start：{{ startRef }}</div>
+    <div>success：{{ endRef }}</div>
+    <div><vhp-button @click="() => sumit()">Submit</vhp-button></div>
   </div>
 </template>
 
