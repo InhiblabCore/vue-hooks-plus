@@ -1,6 +1,6 @@
 <template>
   <div style="overflow: scroll;min-height: 200px;">
-    <div>Status: {{ status }}</div>
+    <div class="status">Status: {{ status }}</div>
     <img :src="data" alt="">
   </div>
 </template>
