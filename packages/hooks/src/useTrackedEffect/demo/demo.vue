@@ -1,11 +1,11 @@
 <template>
   <div>
     <div>count1: {{ count1 }}</div>
-    <vhp-button @click="count1 += 1">新增</vhp-button>
+    <vhp-button @click="count1 += 1">Add</vhp-button>
   </div>
   <div>
     <div>count2: {{ count2 }}</div>
-    <vhp-button @click="count2 += 1">新增</vhp-button>
+    <vhp-button @click="count2 += 1">Add</vhp-button>
   </div>
 </template>
 

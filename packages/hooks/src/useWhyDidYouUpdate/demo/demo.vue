@@ -34,8 +34,8 @@ useWhyDidYouUpdate('useWhyDidYouUpdateComponent', {
 <template>
   <div>
     <demo-item :count="count" />
-    <vhp-button @click="count += 1">新增</vhp-button>
-    <vhp-button @click="count -= 1">减少</vhp-button>
+    <vhp-button @click="count += 1">+</vhp-button>
+    <vhp-button @click="count -= 1" style="margin-left: 8px;">-</vhp-button>
   </div>
 </template>
 
