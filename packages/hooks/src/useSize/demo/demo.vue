@@ -1,7 +1,7 @@
 <template>
   <div>
     <div ref="divRef">
-      此元素的尺寸为：width:{{ size?.width }}px-----height:{{ size?.height }}px
+      current dom size：width:{{ size?.width }}px-----height:{{ size?.height }}px
     </div>
   </div>
 </template>

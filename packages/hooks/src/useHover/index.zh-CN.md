@@ -10,8 +10,6 @@ map:
 
 ## 代码演示
 
-### 基础用法
-
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
@@ -27,14 +25,14 @@ const isHovering = useHover(target, {
 })
 ```
 
-### Params
+## Params
 
 | 参数    | 说明                  | 类型                                          | 默认值 |
 | ------- | --------------------- | --------------------------------------------- | ------ |
 | target  | DOM 节点或者 Ref 对象 | `() => Element` \| `Element` \| `JSX.Element` | -      |
 | options | 额外的配置项          | `Options`                                     | -      |
 
-### Options
+## Options
 
 | 参数     | 说明                 | 类型                            | 默认值 |
 | -------- | -------------------- | ------------------------------- | ------ |
@@ -42,7 +40,7 @@ const isHovering = useHover(target, {
 | onLeave  | 取消 hover 时触发    | `() => void`                    | -      |
 | onChange | hover 状态变化时触发 | `(isHovering: boolean) => void` | -      |
 
-### Result
+## Result
 
 | 参数       | 说明                   | 类型           |
 | ---------- | ---------------------- | -------------- |

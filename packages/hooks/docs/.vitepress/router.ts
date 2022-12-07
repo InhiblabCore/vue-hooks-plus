@@ -249,7 +249,7 @@ export function getRouterConfig(langPrefix = '/') {
       text: item.text,
       items: item.items?.map(i => ({
         text: i.text,
-        link: `${langPrefix}${i.text}/`,
+        link: `${langPrefix}${i.link.replace('/', '')}`,
       })),
     })),
   ]

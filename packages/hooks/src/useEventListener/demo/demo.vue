@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div ref="divRef">点击我！</div>
+    <div ref="divRef" style="cursor: pointer;">Click me!</div>
     <br>
-    <div>点击：{{ valueRef }}</div>
+    <div>click count：{{ valueRef }}</div>
   </div>
 </template>
 

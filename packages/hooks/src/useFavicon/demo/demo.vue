@@ -3,7 +3,7 @@
     <span>{{ url }}</span>
     <div style="margin-top: 16px;">
       <vhp-button class="button1" @click="changeUrl('https://www.google.com/favicon.ico')">
-        切换至 google favicon。
+        Change To Google favicon。
       </vhp-button>
       <vhp-button
         class="button2"
@@ -14,7 +14,7 @@
           )
         "
       >
-        切换至vue-hooks-plus favicon。
+        Change To VueHooks Plus favicon。
       </vhp-button>
     </div>
   </div>

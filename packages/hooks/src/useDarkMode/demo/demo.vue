@@ -4,12 +4,12 @@
       {{ darkMode ? 'dark' : 'light' }}
     </p>
     <div>
-      <vhp-button @click="() => setDarkMode(true)">dark</vhp-button>
+      <vhp-button @click="() => setDarkMode(true)">Dark</vhp-button>
       <vhp-button style="margin-left: 16px;" @click="() => setDarkMode(false)">
-        light
+        Light
       </vhp-button>
       <vhp-button style="margin-left: 16px;" @click="() => setDarkMode(undefined)">
-        跟随系统
+        Follow System
       </vhp-button>
     </div>
   </div>
@@ -24,10 +24,12 @@
     dark: {
       backgroundColor: '#000',
       color: 'white',
+      paddingLeft: '4px',
     },
     light: {
       backgroundColor: '#fff',
       color: 'black',
+      paddingLeft: '4px',
     },
   }
 </script>

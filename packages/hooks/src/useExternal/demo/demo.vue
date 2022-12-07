@@ -1,12 +1,7 @@
 <template>
   <div style="overflow: scroll;min-height: 200px;">
     <div>Status: {{ status }}</div>
-    <div class="city">Result: {{ `${city ?? ''}星期一天气` }}</div>
-    <div>
-      <div v-for="(item, index) in data" :key="index">
-        <div>{{ item.date }}: {{ item.wea }} （{{ item.tem }}）</div>
-      </div>
-    </div>
+    <img :src="data" alt="">
   </div>
 </template>
 
@@ -22,23 +17,30 @@
   })
 
   const data = ref()
-  const city = ref()
 
   watchEffect(() => {
     if (status.value === 'ready') {
       // @ts-ignore
       axios
         .get(
-          'https://yiketianqi.com/api?unescape=1&version=v1&appid=85841439&appsecret=EKCDLT4I&city=广州',
+          'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.png',
+          {
+            responseType: 'arraybuffer',
+          },
         )
+        .then((response: any) => {
+          return (
+            'data:image/png;base64,' +
+            btoa(
+              new Uint8Array(response.data).reduce(
+                (data, byte) => data + String.fromCharCode(byte),
+                '',
+              ),
+            )
+          )
+        })
         .then((res: any) => {
-          city.value = res?.data?.city ?? ''
-          data.value =
-            (res?.data?.data as any[])?.map(item => ({
-              date: item.date,
-              wea: item.wea,
-              tem: item.tem,
-            })) ?? []
+          data.value = res
         })
     }
   })
