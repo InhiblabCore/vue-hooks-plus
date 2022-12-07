@@ -1,7 +1,7 @@
 <template>
-  <div>A组件props event通信： {{ count }}</div>
+  <div>A Component props event ： {{ count }}</div>
   <div style="margin-top: 8px;">
-    <a @click="changeGlobal">子组件A内进行全局</a>
+    <a @click="changeGlobal">Global is performed within subcomponent A </a>
   </div>
 </template>
 
