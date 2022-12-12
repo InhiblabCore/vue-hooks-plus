@@ -1,7 +1,7 @@
 import renderHook from 'test-utils/renderHook'
 import useSize from '../index'
 
-let callback: (arg0: { target: { clientWidth: number; clientHeight: number } }[]) => void
+// let callback: (arg0: { target: { clientWidth: number; clientHeight: number } }[]) => void
 // vitest.mock('resize-observer-polyfill', () => {
 //   return vitest.fn().mockImplementation(cb => {
 //     callback = cb
