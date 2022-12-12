@@ -1,30 +1,32 @@
-import { ref, Ref, onUnmounted, onMounted, watch } from "vue";
+import { ref, Ref, onUnmounted, onMounted, watch, isRef, unref } from 'vue'
 
-import isBrowser from "../utils/isBrowser";
+import isBrowser from '../utils/isBrowser'
 
 export interface Options {
-  restoreOnUnmount?: boolean;
+  restoreOnUnmount?: boolean
 }
 
 const DEFAULT_OPTIONS: Options = {
   restoreOnUnmount: false,
-};
+}
 
-function useTitle(title: Ref<string>, options: Options = DEFAULT_OPTIONS) {
-  const titleRef = ref(isBrowser ? document.title : "");
-  watch(title, () => {
-    document.title = title.value;
-  });
+function useTitle(title: Ref<string> | string, options: Options = DEFAULT_OPTIONS) {
+  const titleRef = ref(isBrowser ? document.title : '')
+  if (isRef(title)) {
+    watch(title, () => {
+      document.title = title.value
+    })
+  } else document.title = title
 
   onMounted(() => {
-    document.title = title.value;
-  });
+    document.title = unref(title)
+  })
 
   onUnmounted(() => {
     if (options.restoreOnUnmount) {
-      document.title = titleRef.value;
+      document.title = unref(titleRef)
     }
-  });
+  })
 }
 
-export default useTitle;
+export default useTitle
