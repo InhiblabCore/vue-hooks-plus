@@ -1,5 +1,5 @@
 <template>
-  <div>设置标题：hellovue-hooks-plus</div>
+  <div>title：hellovue-hooks-plus</div>
 </template>
 
 <script lang="ts" setup>
