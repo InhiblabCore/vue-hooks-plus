@@ -12,6 +12,7 @@
 		"build:types": "cd packages/hooks && vue-tsc --noEmit && vite build --mode fullTypes",
     "test": "vitest",
 		"test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage",
 		"prepare": "husky install"
 	},
 	"devDependencies": {
@@ -35,6 +36,7 @@
 		"@vue-hooks-plus/vitepress": "1.0.1",
 		"@vue-hooks-plus/vitepress-demo-block": "^1.2.7",
 		"@vue/test-utils": "^2.1.0",
+    "@vitest/coverage-c8":"^0.25.7",
 		"eslint": "^8.20.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",

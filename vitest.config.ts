@@ -11,6 +11,7 @@ export default defineConfig({
     },
     dedupe: ['vue', '@vue/runtime-core'],
   },
+  // @ts-ignore
   plugins: [vue()],
   define: {
     __VUE_OPTIONS_API__: 'true',
@@ -19,6 +20,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
+    coverage: {
+      provider: 'c8',
+    },
   },
   ssr: {
     noExternal: [/vue-hooks-plus\/.*/],
