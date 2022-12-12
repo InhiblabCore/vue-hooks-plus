@@ -29,5 +29,7 @@ throttle 所有参数用法和效果同 [lodash.throttle](https://www.lodashjs.c
 
 ## 注意
 
-- `options.throttleWait`、`options.throttleLeading`、`options.throttleTrailing` 支持动态变化。
+- `options.throttleWait` 支持动态变化。
+- `options.throttleLeading` 支持动态变化。
+- `options.throttleTrailing` 支持动态变化。
 - `runAsync` 在真正执行时，会返回 `Promise`。在未被执行时，不会有任何返回。
