@@ -15,9 +15,7 @@ map:
   title=""
   desc="轮询"> </demo>
 
-## API
-
-### Return
+## Return
 
 | 参数     | 说明     | 类型                                     |
 | -------- | -------- | ---------------------------------------- |
@@ -25,7 +23,7 @@ map:
 | runAsync | 启动轮询 | `(...params: TParams) => Promise<TData>` |
 | cancel   | 停止轮询 | `() => void`                             |
 
-### Options
+## Options
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

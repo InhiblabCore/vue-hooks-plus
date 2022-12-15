@@ -10,16 +10,12 @@ Enter the debounce mode by setting `options.debounceWait`. At this time, if `run
 
 ## Code demonstration
 
-### Basic usage
-
 <demo src="./demo/demo.vue" language="vue" 
 title="" 
 desc="Quickly enter the text in the input box, trigger the run frequently, and will only wait for 1000ms after the last trigger ends
 "> </demo>
 
-## API
-
-### Options
+## Options
 
 The usage and effect of all debounce property are the same as [lodash.debounce](https://www.lodashjs.com/docs/lodash.debounce/)
 

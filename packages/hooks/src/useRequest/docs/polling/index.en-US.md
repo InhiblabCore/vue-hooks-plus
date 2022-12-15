@@ -15,9 +15,7 @@ By setting `options.pollingInterval`, enter the polling mode, `useRequest` will 
   title=""
   desc="polling"> </demo>
 
-## API
-
-### Return
+## Return
 
 | Property | Description   | Type                                     |
 | -------- | ------------- | ---------------------------------------- |
@@ -25,7 +23,7 @@ By setting `options.pollingInterval`, enter the polling mode, `useRequest` will 
 | runAsync | Start polling | `(...params: TParams) => Promise<TData>` |
 | cancel   | Stop polling  | `() => void`                             |
 
-### Options
+## Options
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
