@@ -1,30 +1,63 @@
-import { mount } from '@vue/test-utils'
-import Demo from '../docs/basic/demo/demo.vue'
+import renderHook from 'test-utils/renderHook'
+import { sleep } from 'test-utils/sleep'
+import useRequest from '../useRequest'
+
+function getUsername(params: { desc: string }): Promise<string> {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(`vue-hooks-plus ${params.desc}`)
+    }, 200)
+  })
+}
 
 describe('useRequest/Basic', () => {
-  const wrapper = mount(Demo)
-
-  const currentName = wrapper.findAll('div').at(0)
-  const currentName1 = wrapper.findAll('div').at(1)
-
-  it('should init work is loading', () => {
-    {
-      expect(currentName?.text()).toBe('name：loading')
-      expect(currentName1?.text()).toBe('name1：loading')
-    }
+  it('should auto work', async () => {
+    const [hook] = renderHook(() =>
+      useRequest(getUsername, {
+        defaultParams: [
+          {
+            desc: 'nice',
+          },
+        ],
+      }),
+    )
+    await sleep(200)
+    expect(hook.data?.value).toBe('vue-hooks-plus nice')
   })
 
-  it('should auto run params is null', () => {
-    {
-      const currentAutoRunParams = wrapper.findAll('span').at(0)
-      expect(currentAutoRunParams?.text()).toBe('[]')
-    }
+  it('should manual run', async () => {
+    const [hook] = renderHook(() =>
+      useRequest(getUsername, {
+        manual: true,
+        defaultParams: [
+          {
+            desc: 'nice',
+          },
+        ],
+      }),
+    )
+
+    await sleep(200)
+    expect(hook.data?.value).toBeUndefined()
+    hook.run({ desc: 'nice1' })
+    await sleep(200)
+    expect(hook.data?.value).toBe('vue-hooks-plus nice1')
   })
 
-  it('should manual params work', () => {
-    {
-      const currentManualParams = wrapper.findAll('span').at(1)
-      expect(currentManualParams?.text()).toBe('[{"desc":"nice"}]')
-    }
+  it('should params work', async () => {
+    const [hook] = renderHook(() =>
+      useRequest(getUsername, {
+        defaultParams: [
+          {
+            desc: 'nice',
+          },
+        ],
+      }),
+    )
+    await sleep(200)
+    expect(hook.params.value[0]?.desc).toBe('nice')
+    hook.run({ desc: 'nice1' })
+    await sleep(200)
+    expect(hook.params.value[0]?.desc).toBe('nice1')
   })
 })
