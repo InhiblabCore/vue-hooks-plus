@@ -1,5 +1,5 @@
 import renderHook from 'test-utils/renderHook'
-import useRequest from '..'
+import useRequest from '../useRequest'
 
 function getUsername(): Promise<string> {
   return new Promise(resolve => {

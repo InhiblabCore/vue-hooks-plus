@@ -7,16 +7,14 @@ map:
 
 `useRequest` It provides a `options.throttleWait` parameter into throttling mode, and if the `run` or the `runAsync` is frequently triggered, the request is made by throttling policy.
 
-# Basic usage
+## Basic usage
 
 <demo src="./demo/demo.vue"
   language="vue"
   title=""
   desc="You can quickly enter text in the input box below to experience the effect"> </demo>
 
-## API
-
-### Options
+## Options
 
 The usage and effects of all throttle property are the same as [lodash.throttle](https://www.lodashjs.com/docs/lodash.throttle/)
 

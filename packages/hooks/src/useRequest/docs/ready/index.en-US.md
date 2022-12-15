@@ -18,9 +18,7 @@ map:
   title=""
   desc="Every time ready changes from false to true, the request will be executed."> </demo>
 
-## API
-
-### Options
+## Options
 
 | Property | Description                  | Type                      | Default |
 | -------- | ---------------------------- | ------------------------- | ------- |

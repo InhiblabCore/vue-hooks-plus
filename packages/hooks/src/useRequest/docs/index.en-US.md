@@ -22,3 +22,18 @@ With a strong ability to manage network requests, Hook has a flying experience <
 - InfiniteScroll
 - Fetchs
 - Plugins
+
+## Default request
+
+By default, the first parameter of `useRequest` is an asynchronous function, which is automatically executed when the component is initialized. At the same time, it automatically manages the status of `loading`, `data`, `error` of the asynchronous function.
+
+```js
+const { data, error, loading } = useRequest(service)
+```
+
+<br />
+
+<demo src="./basic/demo/demo.vue"
+  language="vue"
+  title=""
+  desc="The fetch request is sent by default"> </demo>

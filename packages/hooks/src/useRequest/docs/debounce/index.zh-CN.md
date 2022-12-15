@@ -10,16 +10,12 @@ map:
 
 ## 代码演示
 
-### 基础用法
-
 <demo src="./demo/demo.vue"
   language="vue"
   title=""
   desc="input 框中快速输入文本,频繁触发 run，只会在最后一次触发结束后等待 1000ms 执行"> </demo>
 
-## API
-
-### Options
+## Options
 
 debounce 所有参数用法和效果同 [lodash.debounce](https://www.lodashjs.com/docs/lodash.debounce/)
 

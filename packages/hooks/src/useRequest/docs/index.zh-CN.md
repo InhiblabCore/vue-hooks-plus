@@ -22,3 +22,18 @@ map:
 - 滚动加载和分页加载
 - 并行请求
 - 自定义插件
+
+## 默认请求
+
+默认情况下，`useRequest` 第一个参数是一个异步函数，在组件初始化时，会自动执行该异步函数。同时自动管理该异步函数的 `loading` , `data` , `error` 等状态。
+
+```typescript
+const { data, error, loading } = useRequest(service)
+```
+
+<br />
+
+<demo src="./basic/demo/demo.vue"
+  language="vue"
+  title=""
+  desc="默认发送获取请求"> </demo>
