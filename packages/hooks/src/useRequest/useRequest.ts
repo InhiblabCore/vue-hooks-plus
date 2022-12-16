@@ -11,7 +11,11 @@ import useRequestImplement from './useRequestImplement'
 
 import { Options, Plugin, Service } from './types'
 
-function useRequest<TData, TParams extends any[], PluginsOptions extends Plugin<TData, TParams>[]>(
+function useRequest<
+  TData,
+  TParams extends any[] = any[],
+  PluginsOptions extends Plugin<TData, TParams>[] = Plugin<TData, TParams>[]
+>(
   service: Service<TData, TParams>,
   options?: Options<
     TData,
