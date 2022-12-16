@@ -55,7 +55,7 @@ describe('useRequest/Plugin', () => {
 
   it('useRequest custom plugin should work', async () => {
     await sleep(1000)
-    expect(data?.value.name).toBe('vue-hooks-plus - plugins update')
-    expect(data?.value.age).toBe(20)
+    expect(data.value?.name).toBe('vue-hooks-plus - plugins update')
+    expect(data.value?.age).toBe(20)
   })
 })

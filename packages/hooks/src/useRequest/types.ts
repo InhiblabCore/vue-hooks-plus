@@ -105,8 +105,8 @@ export type Plugin<TData, TParams extends any[], TPlugin = any> = {
 
 export interface Result<TData, TParams extends any[]> {
   loading: Ref<boolean>
-  data?: Ref<TData>
-  error?: Ref<Error>
+  data: Ref<TData | undefined>
+  error: Ref<Error | undefined>
   params: Ref<TParams | []>
   cancel: Fetch<TData, TParams>['cancel']
   refresh: Fetch<TData, TParams>['refresh']
