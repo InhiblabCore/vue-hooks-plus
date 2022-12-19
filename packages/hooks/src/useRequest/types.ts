@@ -91,8 +91,6 @@ export type Options<TData, TParams extends any[], TPlugin> = {
 
   // 只有当 ready 为 true 时，才会发起请求
   ready?: Ref<boolean> | boolean
-
-  [x: string]: any
 }
 
 export type Plugin<TData, TParams extends any[], TPlugin = any> = {

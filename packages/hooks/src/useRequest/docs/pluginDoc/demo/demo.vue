@@ -8,14 +8,13 @@
 
   import { Plugin } from '../../../types'
 
+  type FormatterDataType = { name: string; age: number }
+
   const useFormatterPlugin: Plugin<
-    {
-      name: string
-      age: number
-    },
+    FormatterDataType,
     [],
     {
-      formatter?: (params?: { name: string; age: number }) => any
+      formatter?: (data?: FormatterDataType) => { name: string; age: number }
     }
   > = (fetchInstance, { formatter }) => {
     return {
@@ -39,9 +38,9 @@
   const { data, loading } = useRequest(
     () => getUsername(),
     {
-      formatter: (data: any) => {
+      formatter: (params?: FormatterDataType) => {
         return {
-          name: `${data.name} - plugins update`,
+          name: `${params?.name} - plugins update`,
           age: 20,
         }
       },
