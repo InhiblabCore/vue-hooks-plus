@@ -32,10 +32,6 @@ const localeLinksEN = () => {
   return '/en/'
 }
 
-const hookUrlCN = process.env.NODE_ENV === 'production' ? '/docs/hooks/useRequest/' : ''
-const hookUrlEN =
-  process.env.NODE_ENV === 'production' ? '/docs/hooks/en/useRequest/' : '/en/useRequest/'
-
 export default defineConfig({
   head: [
     [
