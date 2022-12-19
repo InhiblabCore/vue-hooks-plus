@@ -1,5 +1,5 @@
+import useRequest, { clearCache } from './useRequest'
 import useAsyncOrder from './useAsyncOrder'
-import useRequest from './useRequest'
 import useBoolean from './useBoolean'
 import useCookieState from './useCookieState'
 import useCounter from './useCounter'
@@ -47,8 +47,9 @@ import useWinResize from './useWinResize'
 import useWebSocket from './useWebSocket'
 
 export {
-  useAsyncOrder,
   useRequest,
+  clearCache,
+  useAsyncOrder,
   useBoolean,
   useCookieState,
   useCounter,

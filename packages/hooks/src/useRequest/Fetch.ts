@@ -35,6 +35,11 @@ export default class Fetch<TData, TParams extends any[] = any> {
     this.setUpdataData(this.state)
   }
 
+  /**
+   *
+   * @param data Result value `any`
+   * @param key Result key `data`| `params` | `loading`| `error`
+   */
   setData(
     data: any,
     key?: keyof FetchState<TData, TParams> | (keyof FetchState<TData, TParams>)[],

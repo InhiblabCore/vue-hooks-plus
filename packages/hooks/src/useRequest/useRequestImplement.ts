@@ -51,7 +51,6 @@ function useRequestImplement<TData, TParams extends any[]>(
     return new Fetch<TData, TParams>(
       serviceRef,
       fetchOptions,
-      // setUpdate,
       setState,
       Object.assign({}, ...initState),
     )
@@ -82,9 +81,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     cancel: fetchInstance.value.cancel.bind(fetchInstance.value),
     refresh: fetchInstance.value.refresh.bind(fetchInstance.value),
     refreshAsync: fetchInstance.value.refreshAsync.bind(fetchInstance.value),
-    // @ts-ignore
     run: fetchInstance.value.run.bind(fetchInstance.value),
-    // @ts-ignore
     runAsync: fetchInstance.value.runAsync.bind(fetchInstance.value),
     mutate: fetchInstance.value.mutate.bind(fetchInstance.value),
   } as unknown) as Result<TData, TParams>
