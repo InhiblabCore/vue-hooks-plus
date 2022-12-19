@@ -1,19 +1,18 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.4.5",
+	"version": "1.4.6",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
 		"lib",
 		"es",
-		"types",
 		"metadata.json",
 		"package.json",
 		"README.md"
 	],
 	"main": "./lib/index.js",
 	"module": "./es/index.js",
-	"types": "./types/index.d.ts",
+	"types": "./lib/index.d.ts",
 	"unpkg": "dist/index.es.js",
 	"keywords": [
 		"vue-hooks-plus",
