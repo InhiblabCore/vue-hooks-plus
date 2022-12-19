@@ -1,8 +1,7 @@
-import path, { resolve } from 'path'
+import path from 'path'
 import { UserConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import { buildPlugin } from 'vite-plugin-build'
-import { movePlugin } from './plugin'
 
 export const buildConfig: UserConfig = {
   plugins: [
@@ -40,14 +39,8 @@ export const buildConfig: UserConfig = {
 
 export const buildFullTypesConfig: UserConfig = {
   plugins: [
-    movePlugin({
-      from: resolve(__dirname, '..', 'types/index.d.ts'),
-      to: resolve(__dirname, '..', 'dist/types/index.d.ts'),
-    }),
     dts({
       include: ['src/**/*.ts'],
-      insertTypesEntry: true,
-      rollupTypes: true,
       outputDir: path.resolve(__dirname, '..', 'types'),
     }),
   ],
