@@ -115,7 +115,6 @@ importers:
       query-string: ^7.1.1
       screenfull: ^5.0.0
     dependencies:
-      '@types/js-cookie': 3.0.2
       intersection-observer: 0.12.2
       js-cookie: 3.0.1
       lodash: 4.17.21
@@ -123,6 +122,8 @@ importers:
       qs: 6.11.0
       query-string: 7.1.1
       screenfull: 5.2.0
+    devDependencies:
+      '@types/js-cookie': 3.0.2
 
 packages:
 
@@ -860,7 +861,7 @@ packages:
 
   /@types/js-cookie/3.0.2:
     resolution: {integrity: sha512-6+0ekgfusHftJNYpihfkMu8BWdeHs9EOJuGcSofErjstGPfPGEu9yTu4t460lTzzAMl2cM5zngQJqPMHbbnvYA==}
-    dev: false
+    dev: true
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}

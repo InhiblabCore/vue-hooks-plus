@@ -41,11 +41,9 @@
 		"marked": "^4.0.17",
 		"qs": "^6.11.0",
 		"query-string": "^7.1.1",
-		"screenfull": "^5.0.0"
+		"screenfull": "^5.0.0",
+    "@types/js-cookie": "^3.0.1"
 	},
-  "devDependencies": {
-   "@types/js-cookie": "^3.0.1"
-  },
 	"repository": "https://github.com/InhiblabCore/vue-hooks-plus/",
 	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus/",
 	"author": "NelsonYong",
