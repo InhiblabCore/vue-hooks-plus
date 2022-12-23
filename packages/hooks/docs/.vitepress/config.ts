@@ -46,11 +46,13 @@ export default defineConfig({
   base,
   locales: {
     '/': {
+      label: '中文',
       lang: 'zh-CN',
       title: 'VueHook Plus',
       description: 'vue hooks',
     },
     '/en/': {
+      label: 'English',
       lang: 'en-US',
       title: 'VueHook Plus',
       description: 'vue hooks',
@@ -67,12 +69,12 @@ export default defineConfig({
       text: '',
       items: [
         {
-          link: localeLinkCN(),
+          link: '/',
           text: '简体中文',
         },
 
         {
-          link: localeLinksEN(),
+          link: '/en/',
           text: 'English',
         },
       ],
