@@ -16,21 +16,21 @@ const isGithub = process.env.FLOW === 'github'
 
 // const url = process.env.NODE_ENV === 'production' ? '/docs/hooks/logo.svg' : '/logo.svg'
 
-const localeLinkCN = () => {
-  if (process.env.NODE_ENV === 'production') {
-    if (isGithub) return 'https://inhiblabcore.github.io/docs/hooks/'
-    return 'https://inhiblab-core.gitee.io/docs/hooks/'
-  }
-  return '/'
-}
+// const localeLinkCN = () => {
+//   if (process.env.NODE_ENV === 'production') {
+//     if (isGithub) return 'https://inhiblabcore.github.io/docs/hooks/'
+//     return 'https://inhiblab-core.gitee.io/docs/hooks/'
+//   }
+//   return '/'
+// }
 
-const localeLinksEN = () => {
-  if (process.env.NODE_ENV === 'production') {
-    if (isGithub) return 'https://inhiblabcore.github.io/docs/hooks/en/'
-    return 'https://inhiblab-core.gitee.io/docs/hooks/en/'
-  }
-  return '/en/'
-}
+// const localeLinksEN = () => {
+//   if (process.env.NODE_ENV === 'production') {
+//     if (isGithub) return 'https://inhiblabcore.github.io/docs/hooks/en/'
+//     return 'https://inhiblab-core.gitee.io/docs/hooks/en/'
+//   }
+//   return '/en/'
+// }
 
 export default defineConfig({
   head: [
