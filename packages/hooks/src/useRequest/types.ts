@@ -37,11 +37,8 @@ export interface PluginReturn<TData, TParams extends any[]> {
   onMutate?: (data: TData) => void
 }
 
-export type Options<TData, TParams extends any[], TPlugin> = {
-  [K in keyof TPlugin]: TPlugin[K]
-} & {
+export interface BasicOptions<TData, TParams extends any[]> {
   manual?: boolean
-
   onBefore?: (params: TParams) => void
   onSuccess?: (data: TData, params: TParams) => void
   onError?: (e: Error, params: TParams) => void
@@ -93,7 +90,12 @@ export type Options<TData, TParams extends any[], TPlugin> = {
   ready?: Ref<boolean> | boolean
 }
 
-export type Plugin<TData, TParams extends any[], TPlugin = any> = {
+export type Options<TData, TParams extends any[], TPlugin> = {
+  [K in keyof TPlugin]: TPlugin[K]
+} &
+  BasicOptions<TData, TParams>
+
+export interface Plugin<TData, TParams extends any[] = any[], TPlugin = any> {
   (fetchInstance: Fetch<TData, TParams>, options: Options<TData, TParams, TPlugin>): PluginReturn<
     TData,
     TParams

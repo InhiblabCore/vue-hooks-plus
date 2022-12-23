@@ -21,7 +21,7 @@
 	],
 	"scripts": {
 		"initial": "initial-scan .docs",
-		"docs:dev": " vitepress dev .docs --host",
+		"docs:dev": "vhp-vitepress dev .docs --host",
 		"docs:build": "vhp-vitepress build .docs",
     "docs:build-github": "cross-env BASE_URL=/docs/hooks FLOW=github vhp-vitepress build .docs",
     "docs:build-gitee": "cross-env BASE_URL=/docs/hooks FLOW=gitee vhp-vitepress build .docs",

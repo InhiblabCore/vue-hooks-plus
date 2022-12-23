@@ -8,13 +8,20 @@
 
   import { Plugin } from '../../../types'
 
-  type FormatterDataType = { name: string; age: number }
+  interface FormatterDataType {
+    name: string
+    age: number
+  }
+
+  interface Formatter {
+    (data?: FormatterDataType): { name: string; age: number }
+  }
 
   const useFormatterPlugin: Plugin<
     FormatterDataType,
     [],
     {
-      formatter?: (data?: FormatterDataType) => { name: string; age: number }
+      formatter: Formatter
     }
   > = (fetchInstance, { formatter }) => {
     return {
