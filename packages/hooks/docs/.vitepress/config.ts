@@ -4,6 +4,7 @@ import { genTemp } from '@ruabick/vite-plugin-gen-temp'
 import { resolve } from 'path'
 import { svg } from './theme/home/iconBase64'
 import { getRouterConfig } from './router'
+// import { ref } from 'vue'
 
 const base =
   process.env.NODE_ENV === 'production'
@@ -14,23 +15,13 @@ const base =
 
 const isGithub = process.env.FLOW === 'github'
 
-// const url = process.env.NODE_ENV === 'production' ? '/docs/hooks/logo.svg' : '/logo.svg'
+// const version = ref()
 
-// const localeLinkCN = () => {
-//   if (process.env.NODE_ENV === 'production') {
-//     if (isGithub) return 'https://inhiblabcore.github.io/docs/hooks/'
-//     return 'https://inhiblab-core.gitee.io/docs/hooks/'
-//   }
-//   return '/'
-// }
-
-// const localeLinksEN = () => {
-//   if (process.env.NODE_ENV === 'production') {
-//     if (isGithub) return 'https://inhiblabcore.github.io/docs/hooks/en/'
-//     return 'https://inhiblab-core.gitee.io/docs/hooks/en/'
-//   }
-//   return '/en/'
-// }
+// fetch('https://api.github.com/repos/InhiblabCore/vue-hooks-plus/releases/latest')
+//   .then(response => response.json())
+//   .then(data => {
+//     version.value = data?.name
+//   })
 
 export default defineConfig({
   head: [
@@ -98,7 +89,7 @@ export default defineConfig({
                 link: 'https://inhiblabcore.github.io/docs/hooks/',
               },
           {
-            text: '发行版本',
+            text: 'v1.4.6',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
           },
         ],
@@ -121,7 +112,7 @@ export default defineConfig({
                 link: 'https://inhiblabcore.github.io/docs/hooks/',
               },
           {
-            text: 'Releases',
+            text: 'v1.4.6',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
           },
         ],
