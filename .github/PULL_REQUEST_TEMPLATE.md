@@ -54,6 +54,9 @@ Describe changes from the user side, and list all potential break changes or oth
 
 ⚠️ Please check all items below before review. ⚠️
 
+- [ ] Follow our [Code of Conduct](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/CODE_OF_CONDUCT.md)
+- [ ] Read the [Contributing Guidelines](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/CONTRIBUTING.md)
+- [ ] Read the [docs](https://inhiblabcore.github.io/docs/hooks)
 - [ ] Doc is updated/provided or not needed
 - [ ] Demo is updated/provided or not needed
 - [ ] TypeScript definition is updated/provided or not needed
