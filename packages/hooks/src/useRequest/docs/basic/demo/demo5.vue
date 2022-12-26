@@ -1,10 +1,10 @@
 <template>
   <div>name：{{ data }}</div>
-  <div>
+  <div style="margin-top:8px">
     <input v-model="value">
     <vhp-button style="margin-left: 8px;" @click="handleClick">Edit</vhp-button>
   </div>
-  <div>
+  <div style="margin-top:8px">
     <p v-for="msg in step" :key="msg">{{ msg }}</p>
   </div>
 </template>

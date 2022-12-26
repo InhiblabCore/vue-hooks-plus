@@ -4,19 +4,26 @@
   </button>
 </template>
 
-<script lang="ts" setup></script>
+<!-- <script lang="ts" setup></script> -->
 
 <style lang="less">
   .vhp-button {
-    // border: 1px solid rgba(0, 0, 0, 0.5);
-    background-color: rgba(82, 129, 255, 0.15);
-    padding: 4px;
+    border-color: var(--vp-button-brand-border);
+    color: var(--vp-button-brand-text);
+    background-color: var(--vp-button-brand-bg);
+    padding-left: 6px;
+    padding-right: 6px;
     border-radius: 5px;
-    margin-top: 8px;
+    min-width: 60px;
+    height: 36px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.25s, border-color 0.25s, background-color 0.25s;
   }
 
   .vhp-button:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
+    border-color: var(--vp-button-brand-hover-border);
+    // color: var(--vp-button-brand-hover-text);
+    background-color: var(--vp-button-brand-hover-bg);
   }
 </style>
