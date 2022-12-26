@@ -54,6 +54,9 @@
 
 ⚠️ 请自检并全部**勾选全部选项**。⚠️
 
+- [ ] 遵守我们的 [行为准则](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/CODE_OF_CONDUCT.md)
+- [ ] 阅读 [贡献指南](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/CONTRIBUTING.md)
+- [ ] 阅读 [文档](https://inhiblabcore.github.io/docs/hooks)
 - [ ] 文档已补充或无须补充
 - [ ] 代码演示已提供或无须提供
 - [ ] TypeScript 定义已补充或无须补充
