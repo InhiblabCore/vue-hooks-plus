@@ -6,7 +6,7 @@
 		"dist",
 		"lib",
 		"es",
-		"metadata.json",
+		"LICENSE",
 		"package.json",
 		"README.md"
 	],
