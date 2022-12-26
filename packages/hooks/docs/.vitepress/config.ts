@@ -89,7 +89,7 @@ export default defineConfig({
                 link: 'https://inhiblabcore.github.io/docs/hooks/',
               },
           {
-            text: 'v1.4.6',
+            text: '发行版本',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
           },
         ],
@@ -112,7 +112,7 @@ export default defineConfig({
                 link: 'https://inhiblabcore.github.io/docs/hooks/',
               },
           {
-            text: 'v1.4.6',
+            text: 'Releases',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
           },
         ],

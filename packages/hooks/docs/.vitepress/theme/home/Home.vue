@@ -5,12 +5,12 @@
 
   // import Waves from '../Waves/index.vue'
   import Waves from '../Wave.vue'
+  // import Badge from './Badge.vue'
 </script>
 
 <template>
   <div class="home">
     <Icon />
-
     <section id="hero">
       <Waves />
       <h1 class="tagline">
@@ -35,6 +35,7 @@
         </a>
       </p>
     </section>
+    <!-- <Badge /> -->
     <section id="highlights" class="vt-box-container">
       <div class="vt-box">
         <h2>🛸 Vue3 的 Hooks</h2>
