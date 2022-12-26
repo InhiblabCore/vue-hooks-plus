@@ -38,7 +38,6 @@ module.exports = {
         'chore',
         'revert',
         'workflow',
-        'types',
         'release',
         'version',
       ],
