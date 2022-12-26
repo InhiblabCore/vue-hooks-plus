@@ -84,4 +84,4 @@ npm run docs:dev
 
 ## 📄 证书
 
-[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [Yong Git](https://github.com/NelsonYong)
+[MIT License](https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE) © 2022-PRESENT [YongGit](https://github.com/NelsonYong)
