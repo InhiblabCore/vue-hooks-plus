@@ -26,10 +26,12 @@ The usage and effect of all debounce property are the same as [lodash.debounce](
 | debounceTrailing | Execute the request after the delay ends | `boolean`\|`Ref<boolean>` | `true` |
 | debounceMaxWait | The maximum time request is allowed to be delayed before it’s executed | `number`\|`Ref<number>` | - |
 
-## Remark
+::: warning Remark
 
 - `options.debounceLeading` support dynamic changes.
 - `options.debounceTrailing` support dynamic changes.
 - `options.debounceMaxWait` support dynamic changes.
 - `runAsync` will return a `Promise` when it is actually executed. When it is not executed, there will be no return.
 - `cancel` can abort a function waiting to be executed.
+
+:::

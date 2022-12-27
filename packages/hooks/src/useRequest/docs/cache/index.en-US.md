@@ -55,10 +55,12 @@ provides a `clearCache` method, which can clear the cache data of the specified 
 
 By setting `setCache` and `getCache`, you can customize the cache, for example, you can store data in `localStorage, IndexDB`, etc.
 
-Please note:
+::: tip Please note
 
 1. `setCache` and `getCache` need to be used together.
 2. In the custom cache mode, `cacheTime` and `clearCache` will be unused, please implement it yourself according to the actual situation.
+
+:::
 
 <demo src="./demo/demo4.vue"
   language="vue"
@@ -95,7 +97,9 @@ clearCache(cacheKey?: string | string[]);
 1. Support clearing a single cache, or a group of caches
 2. If `cacheKey` is empty, all cached data will be cleared
 
-# Remark
+::: warning Remark
 
 - Only successful request data will be cached
 - Cached data includes `data` and `params`
+
+:::

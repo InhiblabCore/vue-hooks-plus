@@ -79,9 +79,11 @@ interface PluginReturn<TData, TParams extends any[]> {
 }
 ```
 
-### ⚠️ 注意
+:::tip 注意
 
 需要设置 `data` 、`params` 、 `loading` 、 `error` 需要使用实例上的 `setData` 进行变更。
+
+:::
 
 ## 开发一个简单的过滤插件
 

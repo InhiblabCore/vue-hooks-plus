@@ -25,9 +25,11 @@ throttle 所有参数用法和效果同 [lodash.throttle](https://www.lodashjs.c
 | throttleLeading | 在节流开始前执行调用 | `boolean`\|`Ref<boolean>` | `true` |
 | throttleTrailing | 在节流结束后执行调用 | `boolean`\|`Ref<boolean>` | `true` |
 
-## 注意
+:::warning 注意
 
 - `options.throttleWait` 支持动态变化。
 - `options.throttleLeading` 支持动态变化。
 - `options.throttleTrailing` 支持动态变化。
 - `runAsync` 在真正执行时，会返回 `Promise`。在未被执行时，不会有任何返回。
+
+:::

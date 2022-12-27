@@ -30,6 +30,8 @@ Used to simulate and rerender the page
 const update = useUpdate()
 ```
 
-## Remark
+:::warning Remark
 
 By changing the variable, listening to this variable to achieve the simulated effect
+
+:::

@@ -30,6 +30,8 @@ map:
 const update = useUpdate()
 ```
 
-## 注意
+:::warning 注意
 
 通过改变变量，监听这个变量达到模拟的效果
+
+:::

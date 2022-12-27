@@ -55,6 +55,8 @@ const [state, setState] = useLocalStorageState<T>(
 | state    | Local Storage-value | `Ref<any` \| `undefined>` |
 | setState | Set Storage value   | `SetState`                |
 
-## Remark
+:::warning Remark
 
 useLocalStorageState will call `serializer` before write data to localStorage, and call `deserializer` once after read data.
+
+:::
