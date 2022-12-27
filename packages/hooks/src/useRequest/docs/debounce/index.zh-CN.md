@@ -26,10 +26,12 @@ debounce 所有参数用法和效果同 [lodash.debounce](https://www.lodashjs.c
 | debounceTrailing | 在延迟结束后执行调用 | `boolean`\|`Ref<boolean>` | `true` |
 | debounceMaxWait | 允许被延迟的最大值 | `number`\|`Ref<number>` | - |
 
-## 注意
+::: warning 注意
 
 - `options.debounceLeading` 支持动态变化。
 - `options.debounceTrailing` 支持动态变化。
 - `options.debounceMaxWait` 支持动态变化。
 - `runAsync` 在真正执行时，会返回 `Promise`。在未被执行时，不会有任何返回。
 - `cancel` 可以中止正在等待执行的函数。
+
+:::

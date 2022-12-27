@@ -31,9 +31,11 @@ By setting `options.pollingInterval`, enter the polling mode, `useRequest` will 
 | pollingWhenHidden | Whether to continue polling when the page is hidden. If set to false, polling will be temporarily paused when the page is hidden, and resume when the page is visible again. | `boolean` | `true` |
 | pollingErrorRetryCount | Number of polling error retries. If set to -1, an infinite number of times | `number` | `-1` |
 
-# Remark
+:::warning Remark
 
 - `options.pollingInterval` support dynamic changes.
 - `options.pollingWhenHidden` support dynamic changes.
 - If you set `options.manual = true`, the initialization will not start polling, you need start it by `run/runAsync`.
 - The polling logic is to wait for `pollingInterval` time after each request is completed, and then initiate the next request.
+
+:::

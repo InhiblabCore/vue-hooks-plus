@@ -20,6 +20,8 @@
     rgba(59, 206, 128, 0.7) 26%,
     rgba(100, 126, 255, 0.7) 76%
   );
+
+  --vhp-demo-shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 .VPHome {
@@ -42,10 +44,10 @@ input {
 }
 
 .vitepress-demo {
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
   margin-top: 8px;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 4px var(--vhp-demo-shadow-color);
 }
 
 .dark {
@@ -57,6 +59,7 @@ input {
     rgba(100, 126, 255, 0.7) 26%,
     rgba(59, 206, 128, 0.7) 76%
   );
+  --vhp-demo-shadow-color: rgba(188, 189, 190, 0.3);
 }
 
 .vp-doc [class*='language-']:before {

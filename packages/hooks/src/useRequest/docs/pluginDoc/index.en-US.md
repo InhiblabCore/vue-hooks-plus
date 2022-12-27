@@ -79,9 +79,11 @@ interface PluginReturn<TData, TParams extends any[]> {
 }
 ```
 
-### ⚠️ Remark
+:::tip Remark
 
 Need to setup `data`, `params`, `loading`, `error` Change requires use using the `setData` on the instance.
+
+:::
 
 ## Develop a simple filtering plugin
 

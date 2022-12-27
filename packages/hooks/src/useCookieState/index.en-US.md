@@ -38,7 +38,11 @@ const [state, setState]: [State, SetState] = useCookieState(
 );
 ```
 
-Note: If you want to remove this data from the document.cookie, use the `setState()` or `setState (undefined)`.
+:::tip Note
+
+If you want to remove this data from the document.cookie, use the `setState()` or `setState (undefined)`.
+
+:::
 
 ### Params
 

@@ -24,7 +24,9 @@ By setting `options.refreshOnWindowFocus`, the request will be refreshed when th
 | refreshOnWindowFocus | Whether to re-initiate the request when the screen refocus or revisible. | `boolean`\|`Ref<boolean>` | `false` |
 | focusTimespan | Re-request interval, in milliseconds | `number`\| `Ref<number>` | `5000` |
 
-## Remark
+:::warning Remark
 
 - `options.refreshOnWindowFocus`、`options.focusTimespan` support dynamic changes.。
 - Listen for browser events `visibilitychange` and `focus`.
+
+:::

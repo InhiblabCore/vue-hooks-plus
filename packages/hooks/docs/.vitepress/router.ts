@@ -148,7 +148,7 @@ const useRequestRouter = [
         link: '/useRequest/scroll/',
       },
       {
-        text: '🌟 开发插件',
+        text: '插件',
         link: '/useRequest/plugin/',
       },
     ],
@@ -217,7 +217,7 @@ const useRequestRouterEN = [
         link: '/en/useRequest/scroll/',
       },
       {
-        text: '🌟 Plugin',
+        text: 'Plugins',
         link: '/en/useRequest/plugin/',
       },
     ],

@@ -24,10 +24,12 @@ The usage and effects of all throttle property are the same as [lodash.throttle]
 | throttleLeading | Execute the request before throttling starts | `boolean`\|`Ref<boolean>` | `true` |
 | throttleTrailing | Execute the request after throttling ends | `boolean`\|`Ref<boolean>` | `true` |
 
-## Remark
+:::warning Remark
 
 - `options.throttleWait` support dynamic changes.
 - `options.throttleLeading` support dynamic changes.
 - `options.throttleTrailing` support dynamic changes.
 - `runAsync` will return a `Promise` when it is actually executed. When it is not executed, there will be no return.
 - `cancel` can abort a function waiting to be executed.
+
+:::

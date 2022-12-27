@@ -55,10 +55,12 @@ map:
 
 通过配置 `setCache` 和 `getCache`，可以自定义数据缓存，比如可以将数据存储到 `localStorage`、`IndexDB` 等。
 
-请注意：
+::: tip 请注意
 
 1. `setCache` 和 `getCache` 需要配套使用。
 2. 在自定义缓存模式下，`cacheTime` 和 `clearCache` 不会生效，请根据实际情况自行实现。
+
+:::
 
 <demo src="./demo/demo4.vue"
   language="vue"
@@ -95,7 +97,9 @@ clearCache(cacheKey?: string | string[]);
 1. 支持清空单个缓存，或一组缓存
 2. 如果 `cacheKey` 为空，则清空所有缓存数据
 
-## 注意
+::: warning 注意
 
 - 只有成功的请求数据才会缓存
 - 缓存的数据包括 `data` 和 `params`
+
+:::

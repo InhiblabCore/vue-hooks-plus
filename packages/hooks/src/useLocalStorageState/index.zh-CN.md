@@ -55,6 +55,8 @@ const [state, setState] = useLocalStorageState<T>(
 | state    | 本地 Storage 值 | `Ref<any` \| `undefined>` |
 | setState | 设置 Storage 值 | `SetState`                |
 
-## 注意
+:::warning 注意
 
 useLocalStorageState 在往 localStorage 写入数据前，会先调用一次 `serializer`，在读取数据之后，会先调用一次 `deserializer`。
+
+:::

@@ -24,7 +24,9 @@ map:
 | refreshOnWindowFocus | 在屏幕重新获取焦点或重新显示时，重新发起请求 | `boolean`\|`Ref<boolean>` | `false` |
 | focusTimespan | 重新请求间隔，单位为毫秒 | `number`\| `Ref<number>` | `5000` |
 
-## 注意
+:::warning 注意
 
 - `options.refreshOnWindowFocus`、`options.focusTimespan` 支持动态变化。
 - 监听的浏览器事件为 `visibilitychange` 和 `focus`。
+
+:::

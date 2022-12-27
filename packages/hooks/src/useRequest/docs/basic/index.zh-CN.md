@@ -198,4 +198,8 @@ const {
 | onError | service reject 时触发 | `(e: Error, params: TParams) => void` | - |
 | onFinally | service 执行完成时触发 | `(params: TParams, data?: TData, e?: Error) => void` | - |
 
+:::info 🛸 PRO
+
 这是 useRequest 最基础的功能，接下来介绍一些更高级的能力。
+
+:::
