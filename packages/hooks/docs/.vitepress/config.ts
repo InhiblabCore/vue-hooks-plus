@@ -76,23 +76,24 @@ export default defineConfig({
         nav: [
           { text: 'Hooks', link: '/useRequest/' },
           {
-            text: '演练场',
+            text: '演武场',
             link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
           },
           isGithub
             ? {
-                text: 'Gitee 镜像',
+                text: '国内镜像 🇨🇳',
                 link: 'https://inhiblab-core.gitee.io/docs/hooks/',
               }
-            : {
-                text: 'Github 站点',
-                link: 'https://inhiblabcore.github.io/docs/hooks/',
-              },
+            : null,
+          // {
+          //     text: 'Github 站点',
+          //     link: 'https://inhiblabcore.github.io/docs/hooks/',
+          //   },
           {
             text: '发行版本',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
           },
-        ],
+        ].filter(Boolean),
         sidebar: getRouterConfig(),
       },
       '/en/': {
@@ -104,18 +105,15 @@ export default defineConfig({
           },
           isGithub
             ? {
-                text: 'Gitee Site',
+                text: 'Gitee Mirror 🇨🇳',
                 link: 'https://inhiblab-core.gitee.io/docs/hooks/',
               }
-            : {
-                text: 'Github Site',
-                link: 'https://inhiblabcore.github.io/docs/hooks/',
-              },
+            : null,
           {
             text: 'Releases',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
           },
-        ],
+        ].filter(Boolean),
         sidebar: getRouterConfig('/en/'),
       },
     },
