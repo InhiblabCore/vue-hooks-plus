@@ -68,7 +68,7 @@ export interface BasicOptions<TData, TParams extends any[]> {
   debounceWait?: Ref<number> | number
   debounceLeading?: Ref<boolean> | boolean
   debounceTrailing?: Ref<boolean> | boolean
-  debounceMaxWait?: Ref<number>
+  debounceMaxWait?: Ref<number> | number
 
   // 节流
   throttleWait?: Ref<number> | number
