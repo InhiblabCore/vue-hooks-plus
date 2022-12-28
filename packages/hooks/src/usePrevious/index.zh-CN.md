@@ -20,7 +20,7 @@ map:
 <demo src="./demo/demo1.vue"
   language="vue"
   title="自定义 shouldUpdate 函数"
-  desc="只有 shouldUpdate function 返回 true 时，才会记录值的变化。"> </demo>
+  desc="只有 shouldUpdate function 返回 true 时，才会记录值的变化"> </demo>
 
 ## Result
 
