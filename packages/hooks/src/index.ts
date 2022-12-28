@@ -18,6 +18,7 @@ import useFetchs from './useFetchs'
 import useFullscreen from './useFullscreen'
 import useHover from './useHover'
 import usePreview from './usePreview'
+import usePrevious from './usePrevious'
 import useInterval from './useInterval'
 import useInfiniteScroll from './useInfiniteScroll'
 import useInViewport from './useInViewport'
@@ -78,6 +79,7 @@ export {
   useMouse,
   useNetwork,
   usePreview,
+  usePrevious,
   useSessionStorageState,
   useSet,
   useSetState,

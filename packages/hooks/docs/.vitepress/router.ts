@@ -13,6 +13,7 @@ const Router = [
       { text: 'useSessionStorageState', link: '/useSessionStorageState/' },
       { text: 'useMap', link: '/useMap/' },
       { text: 'useSet', link: '/useSet/' },
+      { text: 'usePrevious', link: '/usePrevious/' },
       { text: 'useSetState', link: '/useSetState/' },
     ],
   },
