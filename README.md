@@ -76,6 +76,18 @@ npm run docs:dev
 
 ![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
 
+## 👛 Contributing
+
+Welcome to join us! You can check out the [Contributing Guide](./CONTRIBUTING.md) to learn how to get started.
+
+## 🐝 Contributors
+
+Thanks for all their contributions!
+
+<a href="https://github.com/InhiblabCore/vue-hooks-plus/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=InhiblabCore/vue-hooks-plus" />
+</a>
+
 ## 🌸 Thanks
 
 This project is heavily inspired by the following awesome projects.
