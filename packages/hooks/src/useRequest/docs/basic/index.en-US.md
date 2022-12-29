@@ -174,7 +174,7 @@ const {
 );
 ```
 
-### Result
+## Result
 
 | Property | Description | Type |
 | --- | --- | --- |
@@ -190,7 +190,7 @@ const {
 | mutate | Mutate `data` directly | `(data?: TData / ((oldData?: TData) => (TData / undefined))) => void` |
 | cancel | Ignore the current promise response | `() => void` |
 
-### Options
+## Options
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |

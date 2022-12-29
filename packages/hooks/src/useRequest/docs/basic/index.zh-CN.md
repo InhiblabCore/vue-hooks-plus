@@ -171,7 +171,7 @@ const {
 );
 ```
 
-### Result
+## Result
 
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
@@ -187,7 +187,7 @@ const {
 | mutate | 直接修改 `data` | `(data?: TData / ((oldData?: TData) => (TData / undefined))) => void` |
 | cancel | 取消当前正在进行的请求 | `() => void` |
 
-### Options
+## Options
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

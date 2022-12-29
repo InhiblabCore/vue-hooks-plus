@@ -20,7 +20,7 @@
       <p class="description"> </p>
       <p class="actions" style="position: relative; z-index: 9;">
         <a class="get-started" href="/docs/hooks/guide/">
-          Get Started
+          快速开始
           <svg
             class="icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -96,10 +96,6 @@
       <div class="demo-name">
         Demo.vue
       </div>
-
-      <!-- <div class="language-md !bg-transparent">
-        <pre ref="block" class="text-left whitespace-normal font-mono bg-transparent"></pre>
-      </div> -->
     </DemoEditor>
     <!-- <HomeTeam /> -->
   </div>
@@ -163,7 +159,7 @@
     font-size: 16px;
     display: inline-block;
     background: var(--vhp-getstart-bg);
-    border-radius: 20px;
+    border-radius: 12px;
     padding: 8px 18px;
     font-weight: 500;
     transition: background-color 0.5s, color 0.5s;

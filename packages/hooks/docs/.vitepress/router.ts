@@ -243,6 +243,10 @@ export function getRouterConfig(langPrefix = '/') {
           text: langPrefix === '/' ? '📐 UseRequest规范' : '📐 UseRequest specification',
           link: `${langPrefix}useRequest/guide/`,
         },
+        // {
+        //   text: langPrefix === '/' ? '🧑‍🏫 在线教程' : '🧑‍🏫 Online Teaching',
+        //   link: `${langPrefix}onlineTeaching/`,
+        // },
       ],
     },
     ...getUseRequestRouter(langPrefix),

@@ -1,11 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { applyPlugins } from '@vue-hooks-plus/md-demo-plugins'
-import { genTemp } from '@ruabick/vite-plugin-gen-temp'
+import { genTemp } from '@vue-hooks-plus/vite-plugin-gen-temp'
 import { resolve } from 'path'
 import { svg } from './theme/home/iconBase64'
 import { getRouterConfig } from './router'
-// import { ref } from 'vue'
-
 const base =
   process.env.NODE_ENV === 'production'
     ? process.env?.BASE_URL
@@ -14,8 +12,6 @@ const base =
     : ''
 
 const isGithub = process.env.FLOW === 'github'
-
-// const version = ref()
 
 // fetch('https://api.github.com/repos/InhiblabCore/vue-hooks-plus/releases/latest')
 //   .then(response => response.json())
@@ -74,7 +70,7 @@ export default defineConfig({
     locales: {
       '/': {
         nav: [
-          { text: 'Hooks', link: '/useRequest/' },
+          { text: '⒡ Hooks', link: '/useRequest/' },
           {
             text: '演武场',
             link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
@@ -85,10 +81,6 @@ export default defineConfig({
                 link: 'https://inhiblab-core.gitee.io/docs/hooks/',
               }
             : null,
-          // {
-          //     text: 'Github 站点',
-          //     link: 'https://inhiblabcore.github.io/docs/hooks/',
-          //   },
           {
             text: '发行版本',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
@@ -98,7 +90,7 @@ export default defineConfig({
       },
       '/en/': {
         nav: [
-          { text: 'Hooks', link: '/en/useRequest/' },
+          { text: '⒡ Hooks', link: '/en/useRequest/' },
           {
             text: 'Playground',
             link: 'http://43.138.187.142:9000/vue-hooks-plus/vhp-playground/',
