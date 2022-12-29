@@ -18,6 +18,5 @@ export default function useBoolean(
     setFalse: () => set(false),
     toggle,
   }
-
   return [state, actions];
 }
