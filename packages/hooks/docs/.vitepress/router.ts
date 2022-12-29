@@ -13,6 +13,7 @@ const Router = [
       { text: 'useSessionStorageState', link: '/useSessionStorageState/' },
       { text: 'useMap', link: '/useMap/' },
       { text: 'useSet', link: '/useSet/' },
+      { text: 'usePrevious', link: '/usePrevious/' },
       { text: 'useSetState', link: '/useSetState/' },
     ],
   },
@@ -242,6 +243,10 @@ export function getRouterConfig(langPrefix = '/') {
           text: langPrefix === '/' ? '📐 UseRequest规范' : '📐 UseRequest specification',
           link: `${langPrefix}useRequest/guide/`,
         },
+        // {
+        //   text: langPrefix === '/' ? '🧑‍🏫 在线教程' : '🧑‍🏫 Online Teaching',
+        //   link: `${langPrefix}onlineTeaching/`,
+        // },
       ],
     },
     ...getUseRequestRouter(langPrefix),

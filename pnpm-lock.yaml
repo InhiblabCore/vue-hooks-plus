@@ -6,10 +6,10 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.1.2
       '@commitlint/config-conventional': ^17.1.0
-      '@ruabick/vite-plugin-gen-temp': ^0.2.8
       '@types/fs-extra': ^9.0.13
       '@types/jest': ^29.0.0
       '@types/lodash': ^4.14.178
+      '@types/markdown-it': ^12.2.3
       '@types/marked': ^4.0.3
       '@types/md5': ^2.3.2
       '@types/node': ^17.0.21
@@ -22,6 +22,7 @@ importers:
       '@vitest/coverage-c8': ^0.25.7
       '@vitest/ui': ^0.25.3
       '@vue-hooks-plus/md-demo-plugins': ^1.0.0
+      '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.0
       '@vue-hooks-plus/vitepress': 1.2.3
       '@vue-hooks-plus/vitepress-demo-block': ^1.3.1
       '@vue/test-utils': ^2.1.0
@@ -37,6 +38,7 @@ importers:
       husky: ^8.0.1
       less: ^4.1.3
       lint-staged: ^13.0.3
+      markdown-it: ^13.0.1
       prettier: ^1.19.1
       rimraf: ^3.0.2
       three: 0.147.0
@@ -56,10 +58,10 @@ importers:
     devDependencies:
       '@commitlint/cli': 17.2.0
       '@commitlint/config-conventional': 17.2.0
-      '@ruabick/vite-plugin-gen-temp': 0.2.8_uakuilq6iygkg5ll5cv37w4i7m
       '@types/fs-extra': 9.0.13
       '@types/jest': 29.2.3
       '@types/lodash': 4.14.189
+      '@types/markdown-it': 12.2.3
       '@types/marked': 4.0.7
       '@types/md5': 2.3.2
       '@types/node': 17.0.45
@@ -72,6 +74,7 @@ importers:
       '@vitest/coverage-c8': 0.25.7_n22kjptza252ymqvizy6igyyoa
       '@vitest/ui': 0.25.3
       '@vue-hooks-plus/md-demo-plugins': 1.1.0_less@4.1.3
+      '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.0_uakuilq6iygkg5ll5cv37w4i7m
       '@vue-hooks-plus/vitepress': 1.2.3_less@4.1.3
       '@vue-hooks-plus/vitepress-demo-block': 1.3.1
       '@vue/test-utils': 2.2.2_vue@3.2.45
@@ -87,6 +90,7 @@ importers:
       husky: 8.0.2
       less: 4.1.3
       lint-staged: 13.0.3
+      markdown-it: 13.0.1
       prettier: 1.19.1
       rimraf: 3.0.2
       three: 0.147.0
@@ -687,38 +691,11 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@ruabick/utils/0.2.9_uakuilq6iygkg5ll5cv37w4i7m:
-    resolution: {integrity: sha512-WIjfxBn9FOqn3nNm654J+o/KZgxijResD7u/vepYufCGi4N98TdwoJNRKspiZQ8fZWnckt+vePFaFyeekcYFHQ==}
+  /@ruabick/utils/0.3.1_uakuilq6iygkg5ll5cv37w4i7m:
+    resolution: {integrity: sha512-q0bvv53pxoOuP00rOWvY3OA6sBney4xXc4Xk9fNX7We3g1HtOCRZTyNiEWx4dKENF7QxJVZX15r33aLetYmhTA==}
     dependencies:
       '@vue/compiler-core': 3.2.45
-      vitepress: 1.0.0-alpha.13_uakuilq6iygkg5ll5cv37w4i7m
-    transitivePeerDependencies:
-      - '@algolia/client-search'
-      - '@types/node'
-      - '@types/react'
-      - '@vue/composition-api'
-      - less
-      - react
-      - react-dom
-      - sass
-      - stylus
-      - sugarss
-      - terser
-    dev: true
-
-  /@ruabick/vite-plugin-gen-temp/0.2.8_uakuilq6iygkg5ll5cv37w4i7m:
-    resolution: {integrity: sha512-XUlr8n8WEg7dJpVx8iJWL1jLN854ID4IpV5+7EdrP1gD4jRjDQB/ydwDmF1bHTec34xtnT5goHAF2KL4ZV8pFg==}
-    hasBin: true
-    dependencies:
-      '@ruabick/utils': 0.2.9_uakuilq6iygkg5ll5cv37w4i7m
-      chokidar: 3.5.3
-      colorette: 2.0.19
-      fast-glob: 3.2.12
-      fs-extra: 10.1.0
-      globby: 13.1.2
-      gray-matter: 4.0.3
-      is-plain-object: 5.0.0
-      minimist: 1.2.7
+      vitepress: 1.0.0-alpha.29_uakuilq6iygkg5ll5cv37w4i7m
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/node'
@@ -867,8 +844,19 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
 
+  /@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
+    dev: true
+
   /@types/lodash/4.14.189:
     resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
+    dev: true
+
+  /@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
+    dependencies:
+      '@types/linkify-it': 3.0.2
+      '@types/mdurl': 1.0.2
     dev: true
 
   /@types/marked/4.0.7:
@@ -877,6 +865,10 @@ packages:
 
   /@types/md5/2.3.2:
     resolution: {integrity: sha512-v+JFDu96+UYJ3/UWzB0mEglIS//MZXgRaJ4ubUPwOM0gvLc/kcQ3TWNYwENEK7/EcXGQVrW8h/XqednSjBd/Og==}
+    dev: true
+
+  /@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -1255,6 +1247,33 @@ packages:
       - react-dom
       - sass
       - stylus
+    dev: true
+
+  /@vue-hooks-plus/vite-plugin-gen-temp/2.6.0_uakuilq6iygkg5ll5cv37w4i7m:
+    resolution: {integrity: sha512-e0T4ESu+u37o+YfNDDY525Rf6q3j6n9ICH+5dCHynRtpbLNwOWX63FjS36qqotMpUCvRSNQntrORvS+mSYbfmg==}
+    hasBin: true
+    dependencies:
+      '@ruabick/utils': 0.3.1_uakuilq6iygkg5ll5cv37w4i7m
+      chokidar: 3.5.3
+      colorette: 2.0.19
+      fast-glob: 3.2.12
+      fs-extra: 10.1.0
+      globby: 13.1.2
+      gray-matter: 4.0.3
+      is-plain-object: 5.0.0
+      minimist: 1.2.7
+    transitivePeerDependencies:
+      - '@algolia/client-search'
+      - '@types/node'
+      - '@types/react'
+      - '@vue/composition-api'
+      - less
+      - react
+      - react-dom
+      - sass
+      - stylus
+      - sugarss
+      - terser
     dev: true
 
   /@vue-hooks-plus/vitepress-demo-block/1.3.1:
@@ -5156,8 +5175,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.13_uakuilq6iygkg5ll5cv37w4i7m:
-    resolution: {integrity: sha512-gCbKb+6o0g5wHt2yyqBPk7FcvrB+MfwGtg1JMS5p99GTQR87l3b7symCl8o1ecv7MDXwJ2mPB8ZrYNLnQAJxLQ==}
+  /vitepress/1.0.0-alpha.29_uakuilq6iygkg5ll5cv37w4i7m:
+    resolution: {integrity: sha512-oaRaeMLcN9M3Bxz97fFVF6Gzm3Aqtb0CijTt5TOW0XPzNPuKA0YpFnsmS97gdKmA+VztM6itRJ8K7JJuU0VS3g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0
