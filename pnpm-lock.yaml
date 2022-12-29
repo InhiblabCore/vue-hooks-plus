@@ -22,7 +22,7 @@ importers:
       '@vitest/coverage-c8': ^0.25.7
       '@vitest/ui': ^0.25.3
       '@vue-hooks-plus/md-demo-plugins': ^1.0.0
-      '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.0
+      '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.1
       '@vue-hooks-plus/vitepress': 1.2.3
       '@vue-hooks-plus/vitepress-demo-block': ^1.3.1
       '@vue/test-utils': ^2.1.0
@@ -74,7 +74,7 @@ importers:
       '@vitest/coverage-c8': 0.25.7_n22kjptza252ymqvizy6igyyoa
       '@vitest/ui': 0.25.3
       '@vue-hooks-plus/md-demo-plugins': 1.1.0_less@4.1.3
-      '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.0_uakuilq6iygkg5ll5cv37w4i7m
+      '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.1_uakuilq6iygkg5ll5cv37w4i7m
       '@vue-hooks-plus/vitepress': 1.2.3_less@4.1.3
       '@vue-hooks-plus/vitepress-demo-block': 1.3.1
       '@vue/test-utils': 2.2.2_vue@3.2.45
@@ -1249,8 +1249,8 @@ packages:
       - stylus
     dev: true
 
-  /@vue-hooks-plus/vite-plugin-gen-temp/2.6.0_uakuilq6iygkg5ll5cv37w4i7m:
-    resolution: {integrity: sha512-e0T4ESu+u37o+YfNDDY525Rf6q3j6n9ICH+5dCHynRtpbLNwOWX63FjS36qqotMpUCvRSNQntrORvS+mSYbfmg==}
+  /@vue-hooks-plus/vite-plugin-gen-temp/2.6.1_uakuilq6iygkg5ll5cv37w4i7m:
+    resolution: {integrity: sha512-P3DKqlTlLTOVXLdWvAN46Afo+HSotenj+WNOTDP2aOtmyGOegsXqk0gjcB/rzGifY3LEj0tcLSSZHmyeoGs3RQ==}
     hasBin: true
     dependencies:
       '@ruabick/utils': 0.3.1_uakuilq6iygkg5ll5cv37w4i7m
