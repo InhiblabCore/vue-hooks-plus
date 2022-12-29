@@ -6,7 +6,18 @@
 
 <!-- <script lang="ts" setup></script> -->
 
-<style lang="less">
+<style lang="less" scoped>
+  /* 初始状态 */
+  // button {
+  //   opacity: 0.4;
+  //   transition: 0.3s;
+  // }
+  /* 扩散状态 */
+  // button {
+  //   box-shadow: 0 0 0 6px red;
+  //   opacity: 0;
+  // }
+
   .vhp-button {
     border-color: var(--vp-button-brand-border);
     color: var(--vp-button-brand-text);
@@ -18,12 +29,29 @@
     height: 36px;
     font-weight: 500;
     white-space: nowrap;
-    transition: color 0.25s, border-color 0.25s, background-color 0.25s;
+    transition: color 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.4s,
+      opacity 0.4s;
+    cursor: pointer;
+    transform: scale(1);
   }
 
   .vhp-button:hover {
     border-color: var(--vp-button-brand-hover-border);
-    // color: var(--vp-button-brand-hover-text);
     background-color: var(--vp-button-brand-hover-bg);
+  }
+
+  .vhp-button::after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    box-shadow: 0 0 0 6px var(--vp-c-brand);
+    transition: 0.4s;
+  }
+  .vhp-button:active::after {
+    box-shadow: none;
+    opacity: 1;
+    transition: 0s; /*取消过渡*/
   }
 </style>
