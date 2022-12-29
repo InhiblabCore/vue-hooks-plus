@@ -35,6 +35,7 @@
 		"vue": "^3.2.25"
 	},
 	"dependencies": {
+    "@types/js-cookie": "^3.0.1",
 		"intersection-observer": "^0.12.2",
 		"js-cookie": "^3.0.1",
 		"lodash": "^4.17.21",
@@ -43,9 +44,6 @@
 		"query-string": "^7.1.1",
 		"screenfull": "^5.0.0"
 	},
-  "devDependencies": {
-   "@types/js-cookie": "^3.0.1"
-  },
 	"repository": "https://github.com/InhiblabCore/vue-hooks-plus/",
 	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus/",
 	"author": "NelsonYong",
