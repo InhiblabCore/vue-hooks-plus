@@ -23,20 +23,20 @@ const [state, { toggle, set, setTrue, setFalse }] = useBoolean(
 );
 ```
 
-### Params
+## Params
 
 | 参数         | 说明                     | 类型      | 默认值  |
 | ------------ | ------------------------ | --------- | ------- |
 | defaultValue | 可选项，传入默认的状态值 | `boolean` | `false` |
 
-### Result
+## Result
 
 | 参数    | 说明     | 类型           |
 | ------- | -------- | -------------- |
 | state   | 状态值   | `Ref<boolean>` |
 | actions | 操作集合 | `Actions`      |
 
-### Actions
+## Actions
 
 | 参数     | 说明         | 类型                       |
 | -------- | ------------ | -------------------------- |

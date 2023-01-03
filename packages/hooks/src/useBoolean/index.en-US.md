@@ -23,20 +23,20 @@ defaultValue? : boolean,
 );
 ```
 
-### Params
+## Params
 
 | Property     | Description                               | Type      | Default |
 | ------------ | ----------------------------------------- | --------- | ------- |
 | defaultValue | The default value of the state. Optional. | `boolean` | `false` |
 
-### Result
+## Result
 
 | Property | Description                            | Type           |
 | -------- | -------------------------------------- | -------------- |
 | state    | Current value                          | `Ref<boolean>` |
 | actions  | A set of methods to update state value | `Actions`      |
 
-### Actions
+## Actions
 
 | Property | Description          | Type                       |
 | -------- | -------------------- | -------------------------- |
