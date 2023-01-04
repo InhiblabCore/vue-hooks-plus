@@ -15,7 +15,7 @@
     () => {
       valueRef.value += 1
     },
-    undefined,
+    1000,
     {
       immediate: false,
     },
