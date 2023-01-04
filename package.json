@@ -73,8 +73,8 @@
 			"eslint --fix"
 		]
 	},
-	"repository": "https://github.com/InhiblabCore/vue-hooks-plus/",
-	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus/",
+	"repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"author": "NelsonYong",
 	"license": "MIT",
 	"keywords": [
