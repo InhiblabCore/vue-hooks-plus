@@ -1,28 +1,24 @@
-import { watchEffect, ref, Ref, isRef } from 'vue'
+import { watchEffect, Ref, unref } from 'vue'
 
 function useTimeout(
   fn: () => void,
-  delay: Ref<number | undefined> | number | undefined,
+  delay?: Ref<number | undefined> | number,
   options?: {
     immediate?: boolean
   },
 ) {
   const immediate = options?.immediate
-
-  const fnRef = ref(fn)
+  if (immediate) {
+    fn()
+  }
 
   watchEffect(onInvalidate => {
-    if (isRef(delay)) {
-      if (typeof delay.value !== 'number' || delay.value < 0) return
-    } else {
-      if (typeof delay !== 'number' || delay < 0) return
+    if (unref(delay)) {
+      if (typeof unref(delay) !== 'number' || unref(delay)! < 0) return
     }
-    if (immediate) {
-      fnRef.value()
-    }
-    const _deply = isRef(delay) ? delay.value : delay
+    const _deply = unref(delay)
     const timer = setTimeout(() => {
-      fnRef.value()
+      fn()
     }, _deply)
     onInvalidate(() => {
       clearInterval(timer)
