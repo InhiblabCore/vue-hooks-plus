@@ -10,13 +10,14 @@
   import { useTimeout } from 'vue-hooks-plus'
 
   const valueRef = ref(0)
+
   useTimeout(
     () => {
       valueRef.value += 1
     },
-    2000,
+    undefined,
     {
-      immediate: true,
+      immediate: false,
     },
   )
 </script>

@@ -33,6 +33,7 @@ useTimeout(
 | --- | --- | --- |
 | fn | The function to be executed after `delay` milliseconds. | `() => void` |
 | delay | The number of milliseconds to wait before executing the function. The timer will be cancelled if delay is `Ref<number` \| `undefined >`\|`number` \| `undefined` |
+| immediate | Whether the function should be executed immediately on first execution | `boolean` |
 
 ## Result
 
