@@ -20,7 +20,10 @@ A hook that handles the `setTimeout` timer function.
 ```typescript
 useTimeout(
   fn: () => void,
-  delay?: number | null
+  delay?: Ref<number | undefined> | number,
+  options?:{
+    immediate?: boolean
+  }
 ): fn: () => void;
 ```
 
@@ -29,7 +32,8 @@ useTimeout(
 | Property | Description | Type |
 | --- | --- | --- |
 | fn | The function to be executed after `delay` milliseconds. | `() => void` |
-| delay | The number of milliseconds to wait before executing the function. The timer will be cancelled if delay is `undefined`. | `number` \| `undefined` |
+| delay | The number of milliseconds to wait before executing the function. The timer will be cancelled if delay is `Ref<number` \| `undefined >`\|`number` \| `undefined` |
+| immediate | Whether the function should be executed immediately on first execution | `boolean` |
 
 ## Result
 

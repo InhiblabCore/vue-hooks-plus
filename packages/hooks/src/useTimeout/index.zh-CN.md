@@ -20,7 +20,10 @@ map:
 ```typescript
 useTimeout(
   fn: () => void,
-  delay?: number | null
+  delay?: Ref<number | undefined> | number,
+  options?:{
+    immediate?: boolean
+  }
 ): fn: () => void;
 ```
 
@@ -29,7 +32,8 @@ useTimeout(
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
 | fn | 待执行函数 | `() => void` |
-| delay | 定时时间（单位为毫秒）,支持动态变化，，当取值为 `undefined` 时会停止计时器 | `number` \| `undefined` |
+| delay | 定时时间（单位为毫秒）,支持动态变化，，当取值为 `undefined` 时会停止计时器 | `Ref<number` \| `undefined >`\|`number` \| `undefined` |
+| immediate | 是否在首次立即执行 | `boolean` |
 
 ## Result
 
