@@ -1,0 +1,25 @@
+{
+  "name": "@vue-hooks-plus/use-immer",
+  "version": "1.0.0",
+  "description": "Vue use-immer hooks library",
+	"files": [
+		"dist",
+		"LICENSE",
+		"package.json",
+		"README.md"
+	],
+  "main": "./dist/useImmer.cjs.js",
+	"module": "./dist/useImmer.es.js",
+  "types":"./dist/types/index.d.ts" ,
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [],
+  "dependencies": {
+    "immer": "^9.0.17"
+  },
+  "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"author": "NelsonYong",
+	"license": "MIT"
+}

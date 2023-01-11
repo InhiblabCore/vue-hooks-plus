@@ -3,6 +3,7 @@ const Router = [
     text: 'State',
     items: [
       { text: 'useBoolean', link: '/useBoolean/' },
+      { text: 'useImmer', link: '/useImmer/' },
       { text: 'useUrlState', link: '/useUrlState/' },
       { text: 'useFormatResult', link: '/useFormatResult/' },
       { text: 'useDebounce', link: '/useDebounce/' },
