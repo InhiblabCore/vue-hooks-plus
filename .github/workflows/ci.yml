@@ -21,6 +21,10 @@ jobs:
       - name: Test
         run: |
           pnpm run test
+      - name: use-immer Build
+        run: |
+          cd packages/use-immer
+          pnpm build
       - name: Docs-Build
         run: |
           cd packages/hooks
