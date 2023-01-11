@@ -21,9 +21,13 @@ jobs:
       - name: Test
         run: |
           pnpm run test
-      - name: use-immer Build
+      - name: Build use-immer
         run: |
-          cd packages/use-immer
+          cd packages/use-immer 
+          pnpm build
+      - name: Build use-worker
+        run: |
+          cd packages/use-worker 
           pnpm build
       - name: Docs-Build
         run: |

@@ -29,6 +29,7 @@ const Router = [
       { text: 'useUpdate', link: '/useUpdate/' },
       { text: 'useInterval', link: '/useInterval/' },
       { text: 'useTimeout', link: '/useTimeout/' },
+      { text: 'useWorker', link: '/useWorker/' },
     ],
   },
   {
