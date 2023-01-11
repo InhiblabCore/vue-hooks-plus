@@ -93,6 +93,7 @@ Thanks for all their contributions!
 This project is heavily inspired by the following awesome projects.
 
 - [ahooks](https://ahooks.js.org/)
+- [@koale/useworker](https://github.com/alewin/useWorker)
 
 ## 📄 License
 
