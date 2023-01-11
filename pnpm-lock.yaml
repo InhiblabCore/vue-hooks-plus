@@ -22,6 +22,7 @@ importers:
       '@vitest/ui': ^0.25.3
       '@vue-hooks-plus/md-demo-plugins': ^1.0.0
       '@vue-hooks-plus/use-immer': workspace:^1.0.0
+      '@vue-hooks-plus/use-worker': workspace:^1.0.0
       '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.2
       '@vue-hooks-plus/vitepress': 1.2.3
       '@vue-hooks-plus/vitepress-demo-block': ^1.3.1
@@ -73,6 +74,7 @@ importers:
       '@vitest/ui': 0.25.3
       '@vue-hooks-plus/md-demo-plugins': 1.1.0_less@4.1.3
       '@vue-hooks-plus/use-immer': link:packages/use-immer
+      '@vue-hooks-plus/use-worker': link:packages/use-worker
       '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.2_uakuilq6iygkg5ll5cv37w4i7m
       '@vue-hooks-plus/vitepress': 1.2.3_less@4.1.3
       '@vue-hooks-plus/vitepress-demo-block': 1.3.1
@@ -131,6 +133,12 @@ importers:
       immer: ^9.0.17
     dependencies:
       immer: 9.0.17
+
+  packages/use-worker:
+    specifiers:
+      lodash: ^4.17.21
+    dependencies:
+      lodash: 4.17.21
 
 packages:
 

@@ -1,0 +1,28 @@
+{
+  "name": "@vue-hooks-plus/use-worker",
+  "version": "1.0.0",
+  "description": "",
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./dist/useWorker.cjs.js",
+  "module": "./dist/useWorker.es.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [
+    "vue3",
+    "web worker"
+  ],
+  "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+  "homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+  "author": "NelsonYong",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
