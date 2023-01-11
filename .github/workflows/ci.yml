@@ -21,6 +21,16 @@ jobs:
       - name: Test
         run: |
           pnpm run test
+      - name: Build use-worker
+        run: |
+          cd packages/use-worker 
+          pnpm build
+      - name: Docs-Build
+        run: |
+          cd packages/hooks
+          pnpm install --frozen-lockfile
+          pnpm run initial
+          pnpm run docs:build
       - name: Build
         run: |
           cd packages/hooks
