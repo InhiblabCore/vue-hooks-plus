@@ -1,4 +1,4 @@
-name: Node CI
+name: Node Docs CI
 
 on: [push, pull_request]
 
@@ -18,16 +18,19 @@ jobs:
       - name: Install
         run: |
           pnpm install --frozen-lockfile
-      - name: Test
+      - name: Build use-immer
         run: |
-          pnpm run test
-      - name: Build
+          cd packages/use-immer
+          pnpm build
+      - name: Build use-worker
+        run: |
+          cd packages/use-worker 
+          pnpm build
+      - name: Docs-Build
         run: |
           cd packages/hooks
-          pnpm run build
-      - name: Build Full Types
-        run: |
-          cd packages/hooks
-          pnpm run build:types
+          pnpm install --frozen-lockfile
+          pnpm run initial
+          pnpm run docs:build
         env:
           CI: true
