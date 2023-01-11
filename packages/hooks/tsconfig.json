@@ -9,7 +9,9 @@
     "paths": {
       "@/*": ["src/*"],
       "vue-hooks-plus": ["src/index.ts"],
-      "test-utils/*": ["test-utils/*"]
+      "test-utils/*": ["test-utils/*"],
+      "@vue-hooks-plus/use-immer": ["../packages/use-immer/src/index.ts"],
+      "@vue-hooks-plus/use-worker": ["../packages/use-worker/src/index.ts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/demo/*.vue"],
