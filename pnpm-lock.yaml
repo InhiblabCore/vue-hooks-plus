@@ -9,7 +9,6 @@ importers:
       '@types/fs-extra': ^9.0.13
       '@types/jest': ^29.0.0
       '@types/lodash': ^4.14.178
-      '@types/markdown-it': ^12.2.3
       '@types/marked': ^4.0.3
       '@types/md5': ^2.3.2
       '@types/node': ^17.0.21
@@ -22,6 +21,7 @@ importers:
       '@vitest/coverage-c8': ^0.25.7
       '@vitest/ui': ^0.25.3
       '@vue-hooks-plus/md-demo-plugins': ^1.0.0
+      '@vue-hooks-plus/use-immer': workspace:^1.0.0
       '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.2
       '@vue-hooks-plus/vitepress': 1.2.3
       '@vue-hooks-plus/vitepress-demo-block': ^1.3.1
@@ -38,7 +38,6 @@ importers:
       husky: ^8.0.1
       less: ^4.1.3
       lint-staged: ^13.0.3
-      markdown-it: ^13.0.1
       prettier: ^1.19.1
       rimraf: ^3.0.2
       three: 0.147.0
@@ -61,7 +60,6 @@ importers:
       '@types/fs-extra': 9.0.13
       '@types/jest': 29.2.3
       '@types/lodash': 4.14.189
-      '@types/markdown-it': 12.2.3
       '@types/marked': 4.0.7
       '@types/md5': 2.3.2
       '@types/node': 17.0.45
@@ -74,6 +72,7 @@ importers:
       '@vitest/coverage-c8': 0.25.7_n22kjptza252ymqvizy6igyyoa
       '@vitest/ui': 0.25.3
       '@vue-hooks-plus/md-demo-plugins': 1.1.0_less@4.1.3
+      '@vue-hooks-plus/use-immer': link:packages/use-immer
       '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.2_uakuilq6iygkg5ll5cv37w4i7m
       '@vue-hooks-plus/vitepress': 1.2.3_less@4.1.3
       '@vue-hooks-plus/vitepress-demo-block': 1.3.1
@@ -90,7 +89,6 @@ importers:
       husky: 8.0.2
       less: 4.1.3
       lint-staged: 13.0.3
-      markdown-it: 13.0.1
       prettier: 1.19.1
       rimraf: 3.0.2
       three: 0.147.0
@@ -127,6 +125,12 @@ importers:
       qs: 6.11.0
       query-string: 7.1.1
       screenfull: 5.2.0
+
+  packages/use-immer:
+    specifiers:
+      immer: ^9.0.17
+    dependencies:
+      immer: 9.0.17
 
 packages:
 
@@ -843,19 +847,8 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
 
-  /@types/linkify-it/3.0.2:
-    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
-    dev: true
-
   /@types/lodash/4.14.189:
     resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
-    dev: true
-
-  /@types/markdown-it/12.2.3:
-    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
-    dependencies:
-      '@types/linkify-it': 3.0.2
-      '@types/mdurl': 1.0.2
     dev: true
 
   /@types/marked/4.0.7:
@@ -864,10 +857,6 @@ packages:
 
   /@types/md5/2.3.2:
     resolution: {integrity: sha512-v+JFDu96+UYJ3/UWzB0mEglIS//MZXgRaJ4ubUPwOM0gvLc/kcQ3TWNYwENEK7/EcXGQVrW8h/XqednSjBd/Og==}
-    dev: true
-
-  /@types/mdurl/1.0.2:
-    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -3233,6 +3222,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /immer/9.0.17:
+    resolution: {integrity: sha512-+hBruaLSQvkPfxRiTLK/mi4vLH+/VQS6z2KJahdoxlleFOI8ARqzOF17uy12eFDlqWmPoygwc5evgwcp+dlHhg==}
+    dev: false
 
   /import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
