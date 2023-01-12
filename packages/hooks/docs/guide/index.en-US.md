@@ -1,3 +1,8 @@
+---
+source:
+  show: false
+---
+
 <script setup>
 import Badge from '@theme/home/Badge.vue'
 import Icon from '@theme/home/Icon.vue'

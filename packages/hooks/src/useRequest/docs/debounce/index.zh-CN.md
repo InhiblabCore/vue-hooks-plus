@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/debounce/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useDebouncePlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/debounce/demo/demo.vue
 ---
 
 # 防抖

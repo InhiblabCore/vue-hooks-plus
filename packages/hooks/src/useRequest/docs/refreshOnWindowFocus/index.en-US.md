@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/refreshOnWindowFocus/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useRefreshOnWindowFocusPlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/refreshOnWindowFocus/demo/demo.vue
 ---
 
 # RefreshOnWindowFocus

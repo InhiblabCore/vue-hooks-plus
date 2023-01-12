@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/guide/
+source:
+  showSource: false
+  showDemo: false
 ---
 
 # 📐 useRequest 规范

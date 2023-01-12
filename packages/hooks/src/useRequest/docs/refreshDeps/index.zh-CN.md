@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/refreshDeps/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useAutoRunPlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/refreshDeps/demo/demo.vue
 ---
 
 # 依赖刷新

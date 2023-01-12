@@ -2,6 +2,8 @@
 map:
   # 映射到docs的路径
   path: /useWorker
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/use-worker/src/index.ts
 ---
 
 # useWorker

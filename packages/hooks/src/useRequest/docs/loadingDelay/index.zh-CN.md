@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/loadingDelay/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useLoadingDelayPlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/loadingDelay/demo/demo.vue
 ---
 
 # Loading Delay

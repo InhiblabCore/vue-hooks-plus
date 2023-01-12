@@ -1,6 +1,8 @@
 ---
 layout: home
 sidebar: false
+source:
+  show: false
 ---
 
 <script setup>

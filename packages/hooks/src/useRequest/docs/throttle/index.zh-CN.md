@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/throttle/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useThrottlePlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/throttle/demo/demo.vue
 ---
 
 # 节流

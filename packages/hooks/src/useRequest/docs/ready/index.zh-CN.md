@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/ready/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useAutoRunPlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/ready/demo/demo.vue
 ---
 
 # Ready

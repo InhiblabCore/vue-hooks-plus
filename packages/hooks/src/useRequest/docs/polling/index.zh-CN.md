@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/polling/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/usePollingPlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/polling/demo/demo.vue
 ---
 
 # 轮询
