@@ -2,6 +2,8 @@
 map:
   # 映射到docs的路径
   path: /useRequest/scroll/
+source:
+  show: false
 ---
 
 # Look 👇 useInfiniteScroll

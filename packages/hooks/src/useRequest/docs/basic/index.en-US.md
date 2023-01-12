@@ -2,6 +2,9 @@
 map:
   # Path mapped to docs
   path: /useRequest/basic/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/useRequest.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/basic/demo
 ---
 
 # useRequest Basic usage

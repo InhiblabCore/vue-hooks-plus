@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/plugin/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/Fetch.ts#L59
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/pluginDoc/demo/demo.vue
 ---
 
 # 插件设计规范

@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/
+source:
+  showSource: false
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/basic/demo/demo.vue
 ---
 
 # Quick Start

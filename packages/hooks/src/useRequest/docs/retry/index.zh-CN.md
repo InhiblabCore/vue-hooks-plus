@@ -2,6 +2,9 @@
 map:
   # 映射到docs的路径
   path: /useRequest/retry/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useRetryPlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/retry/demo/demo.vue
 ---
 
 # 错误重试

@@ -2,6 +2,9 @@
 map:
   # Path mapped to docs
   path: /useRequest/debounce/
+source:
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/plugins/useDebouncePlugin.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/debounce/demo/demo.vue
 ---
 
 # Debounce
