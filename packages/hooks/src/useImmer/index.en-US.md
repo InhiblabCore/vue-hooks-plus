@@ -26,3 +26,16 @@ npm i @vue-hooks-plus/use-immer
   language="vue"
   title="basic Usage"
   desc=""> </demo>
+
+## Params
+
+| Property | Description | Type            | Default |
+| -------- | ----------- | --------------- | ------- |
+| state    | ShallowRef  | `ShallowRef<S>` | -       |
+| updater  | -           | `Updater<S>`    | -       |
+
+## Options
+
+| 参数         | 说明 | 类型         | 默认值 |
+| ------------ | ---- | ------------ | ------ |
+| initialValue | -    | `() => void` | `any`  |

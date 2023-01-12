@@ -145,7 +145,7 @@ export const useWorker = <T extends (...fnArgs: any[]) => any>(
     if (isRunning.value) {
       /* eslint-disable-next-line no-console */
       console.error(
-        '[useWorker] You can only run one instance of the worker at a time, if you want to run more than one in parallel, create another instance with the hook useWorker(). Read more: https://github.com/alewin/useWorker',
+        '[useWorker] You can only run one instance of the worker at a time, if you want to run more than one in parallel, create another instance with the hook useWorker().',
       )
       return Promise.reject()
     }

@@ -28,3 +28,22 @@ npm i @vue-hooks-plus/use-immer
   language="vue"
   title="基本用法"
   desc=""> </demo>
+
+## API
+
+```typescript
+const [state, updater] = useImmer(initialValue)
+```
+
+## Params
+
+| 参数    | 说明       | 类型            | 默认值 |
+| ------- | ---------- | --------------- | ------ |
+| state   | 响应式对象 | `ShallowRef<S>` | -      |
+| updater | 改变值     | `Updater<S>`    | -      |
+
+## Options
+
+| Property     | Description  | Type         | Default |
+| ------------ | ------------ | ------------ | ------- |
+| initialValue | hover 时触发 | `() => void` | `any`   |
