@@ -64,13 +64,9 @@ import useRequest from 'vue-hooks-plus/es/useRequest'
 - [English Documentations](https://inhiblabcore.github.io/docs/hooks/en)
 - [中文文档](https://inhiblabcore.github.io/docs/hooks)
 
-## 🕹️ Dev the document
+## 🕹️ Document Effects
 
-```
-<!-- need run initial -->
-
-npm run docs:dev
-```
+Start documentation via [Dev Document Guide](./DEV_DOCUMENT.md).
 
 ## 🪴 Project Activity
 
