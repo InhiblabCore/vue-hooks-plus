@@ -54,8 +54,11 @@ It will be exposed to global as `VueHooks_Plus`
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
+```
 
-// or Introduced on demand
+Introduced on demand
+
+```typescript
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
