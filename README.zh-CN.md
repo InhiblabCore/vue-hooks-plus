@@ -54,8 +54,11 @@ npm i vue-hooks-plus
 
 ```typescript
 import { useRequest } from 'vue-hooks-plus'
+```
 
-// or 按需引入
+按需加载
+
+```typescript
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
