@@ -64,13 +64,9 @@ import useRequest from 'vue-hooks-plus/es/useRequest'
 - [English Documentations](https://inhiblab-core.gitee.io/docs/hooks/en)
 - [中文文档](https://inhiblab-core.gitee.io/docs/hooks)
 
-## 🕹️ 调试文档
+## 🕹️ 文档效果
 
-```
-<!-- need run initial -->
-
-npm run docs:dev
-```
+通过 [Dev Document Guide](./DEV_DOCUMENT.md) 启动文档。
 
 # 🪴 项目活动
 
