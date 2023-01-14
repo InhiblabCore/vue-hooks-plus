@@ -1,12 +1,13 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.5.1",
+	"version": "1.5.2",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
 		"lib",
 		"es",
 		"LICENSE",
+    "meta-data.json",
 		"package.json",
 		"README.md"
 	],
@@ -20,6 +21,7 @@
 		"typeScript"
 	],
 	"scripts": {
+    "bootstrap": "tsx scripts/bootstrap.ts",
 		"initial": "initial-scan .docs",
 		"docs:dev": "vhp-vitepress dev .docs --host",
 		"docs:build": "vhp-vitepress build .docs",

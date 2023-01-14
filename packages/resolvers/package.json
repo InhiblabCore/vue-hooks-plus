@@ -1,0 +1,46 @@
+{
+  "name": "@vue-hooks-plus/resolvers",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsx scripts/build.ts"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "dist"
+  ],
+ "keywords": [],
+ "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"author": "NelsonYong",
+	"license": "MIT",
+  "devDependencies": {
+    "unplugin-auto-import": "^0.12.1",
+    "@types/node": "^18.7.23",
+    "execa": "^6.1.0",
+    "kolorist": "^1.6.0",
+    "tsup": "^6.2.3"
+  },
+  "dependencies": {
+    "local-pkg": "^0.4.2"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "vue"
+      ]
+    }
+  }
+}
