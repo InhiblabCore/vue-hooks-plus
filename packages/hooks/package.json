@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.5.1",
+	"version": "1.5.2",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
