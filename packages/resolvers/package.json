@@ -21,9 +21,11 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
-  "author": "YongGit",
-  "license": "ISC",
+ "keywords": [],
+ "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"author": "NelsonYong",
+	"license": "MIT",
   "devDependencies": {
     "unplugin-auto-import": "^0.12.1",
     "@types/node": "^18.7.23",
