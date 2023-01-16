@@ -4,7 +4,14 @@ import { readFileSync } from 'node:fs'
 
 let hooks: string[] | undefined
 
-export type VueHooksPlusResolverOptions = Record<string, any>
+export type VueHooksPlusResolverOptions = {
+  /**
+   * prefix for name of components
+   *
+   * @default ''
+   */
+  prefix?: string
+}
 
 function queryMetaData() {
   try {
@@ -23,15 +30,15 @@ function queryMetaData() {
   }
 }
 
-function resolveHooks(name: string, _options: VueHooksPlusResolverOptions) {
+function resolveHooks(name: string, options: VueHooksPlusResolverOptions) {
   if (!hooks) return
 
+  const { prefix } = options
+  if (prefix) {
+    if (!name.startsWith(prefix)) return
+    name = name.substring(prefix.length)
+  }
   if (!hooks.includes(name)) return
-
-  console.log({
-    name,
-    from: 'vue-hooks-plus',
-  })
 
   return {
     name,
