@@ -5,13 +5,11 @@ source:
 
 <script setup>
 import Badge from '@theme/home/Badge.vue'
-import Icon from '@theme/home/Icon.vue'
 </script>
 
-<Icon />
-<h1 style="text-align:center">VueHooks Plus</h1>
-<br />
-<Badge />
+# VueHooks Plus
+
+通过该章节，你将了解到如何快速开始使用 VueHooks Plus。
 
 ## ✨ 特性
 
@@ -25,6 +23,10 @@ import Icon from '@theme/home/Icon.vue'
 - 🪄 支持按需加载，减少打包体积
 - 🤺 演练场，大有用武之地
 - 🔐 测试完善，安全可靠
+
+## 📝 最新版本
+
+<Badge />
 
 ## 📦 安装
 
@@ -46,7 +48,36 @@ import { useRequest } from 'vue-hooks-plus'
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
+### 自动引入
+
+目前只有 `unplugin-auto-import/vite` 下的 `resolver`。
+
+#### Vite
+
+```bash
+
+npm i @vue-hooks-plus/resolvers
+
+```
+
+##### 使用
+
+```typescript
+import AutoImport from 'unplugin-auto-import/vite'
+import { VueHooksPlusResolver } from '@vue-hooks-plus/resolvers'
+
+export const AutoImportDeps = () =>
+  AutoImport({
+    imports: ['vue', 'vue-router'],
+    include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+    dts: 'src/auto-imports.d.ts',
+    resolvers: [VueHooksPlusResolver()],
+  })
+```
+
 <br />
+
+## 🧩 兼容
 
 ::: warning 不兼容 vue2 版本
 
