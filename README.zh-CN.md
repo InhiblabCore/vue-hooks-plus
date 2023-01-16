@@ -62,6 +62,48 @@ import { useRequest } from 'vue-hooks-plus'
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
+自动引入
+
+<details>
+<summary>Vite</summary><br>
+
+```ts
+import AutoImport from 'unplugin-auto-import/vite'
+import { VueHooksPlusResolver } from '@vue-hooks-plus/resolvers'
+
+export const AutoImportDeps = () =>
+  AutoImport({
+    imports: ['vue', 'vue-router'],
+    include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+    dts: 'src/auto-imports.d.ts',
+    resolvers: [VueHooksPlusResolver()],
+  })
+```
+
+<br></details>
+
+<details>
+<summary>Webpack</summary><br>
+
+```ts
+const { VueHooksPlusResolver } = require('@vue-hooks-plus/resolvers')
+module.exports = {
+  /* ... */
+  plugins: [
+    require('unplugin-auto-import/webpack')({
+      imports: ['vue', 'vue-router'],
+      include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: 'src/auto-imports.d.ts',
+      resolvers: [VueHooksPlusResolver()],
+    }),
+  ],
+}
+```
+
+<br></details>
+
+其他支持的工具, 更多请看 [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
+
 ### 国际化文档
 
 - [English Documentations](https://inhiblab-core.gitee.io/docs/hooks/en)
