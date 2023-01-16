@@ -1,1 +1,1 @@
-export * from './unplugin-auto-import'
+export * from './unplugin-auto-import-resolver'
