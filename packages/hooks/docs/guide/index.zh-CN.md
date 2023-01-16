@@ -7,7 +7,7 @@ source:
 import Badge from '@theme/home/Badge.vue'
 </script>
 
-# VueHooks Plus
+<Badge />
 
 通过该章节，你将了解到如何快速开始使用 VueHooks Plus。
 
@@ -23,10 +23,6 @@ import Badge from '@theme/home/Badge.vue'
 - 🪄 支持按需加载，减少打包体积
 - 🤺 演练场，大有用武之地
 - 🔐 测试完善，安全可靠
-
-## 📝 最新版本
-
-<Badge />
 
 ## 📦 安装
 
@@ -50,17 +46,15 @@ import useRequest from 'vue-hooks-plus/es/useRequest'
 
 ### 自动引入
 
-目前只有 `unplugin-auto-import/vite` 下的 `resolver`。
-
-#### Vite
+使用 `unplugin-auto-import` 的 `resolver`
 
 ```bash
 
-npm i @vue-hooks-plus/resolvers
+npm i -D @vue-hooks-plus/resolvers
 
 ```
 
-##### 使用
+::: details Vite
 
 ```typescript
 import AutoImport from 'unplugin-auto-import/vite'
@@ -74,6 +68,29 @@ export const AutoImportDeps = () =>
     resolvers: [VueHooksPlusResolver()],
   })
 ```
+
+:::
+
+::: details Webpack
+
+```typescript
+const { VueHooksPlusResolver } = require('@vue-hooks-plus/resolvers')
+module.exports = {
+  /* ... */
+  plugins: [
+    require('unplugin-auto-import/webpack')({
+      imports: ['vue', 'vue-router'],
+      include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: 'src/auto-imports.d.ts',
+      resolvers: [VueHooksPlusResolver()],
+    }),
+  ],
+}
+```
+
+:::
+
+其他支持的工具, 更多请看 [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
 
 <br />
 
