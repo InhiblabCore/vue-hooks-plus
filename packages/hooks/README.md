@@ -62,6 +62,48 @@ Introduced on demand
 import useRequest from 'vue-hooks-plus/es/useRequest'
 ```
 
+Auto Import
+
+<details>
+<summary>Vite</summary><br>
+
+```ts
+import AutoImport from 'unplugin-auto-import/vite'
+import { VueHooksPlusResolver } from '@vue-hooks-plus/resolvers'
+
+export const AutoImportDeps = () =>
+  AutoImport({
+    imports: ['vue', 'vue-router'],
+    include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+    dts: 'src/auto-imports.d.ts',
+    resolvers: [VueHooksPlusResolver()],
+  })
+```
+
+<br></details>
+
+<details>
+<summary>Webpack</summary><br>
+
+```ts
+const { VueHooksPlusResolver } = require('@vue-hooks-plus/resolvers')
+module.exports = {
+  /* ... */
+  plugins: [
+    require('unplugin-auto-import/webpack')({
+      imports: ['vue', 'vue-router'],
+      include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: 'src/auto-imports.d.ts',
+      resolvers: [VueHooksPlusResolver()],
+    }),
+  ],
+}
+```
+
+<br></details>
+
+For other supported tools, please see [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
+
 ### Globalization Documentations
 
 - [English Documentations](https://inhiblabcore.github.io/docs/hooks/en)
