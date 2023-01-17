@@ -156,7 +156,7 @@ const {
   loading: Ref<boolean>,
   data?: Ref<TData>,
   error?: Ref<Error>,
-  params: Ref<TParams || []>,
+  params: Ref<TParams | []>,
   run: (...params: TParams) => void,
   runAsync: (...params: TParams) => Promise<TData>,
   refresh: () => void,
