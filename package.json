@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "private": true,
 	"scripts": {
-    "docs:dev":"cd packages/hooks &&  npm run initial && npm run docs:dev",
-    "docs:build":"cd packages/hooks &&  npm run initial && npm run docs:build",
-    "docs:build-github":"cd packages/hooks &&  npm run initial && npm run docs:build-github",
-    "docs:build-gitee":"cd packages/hooks &&  npm run initial && npm run docs:build-gitee",
+    "bootstrap": "tsx scripts/bootstrap.ts",
+    "docs:dev":"tsx scripts/docs.ts dev",
+    "docs:build":"tsx scripts/docs.ts build",
+    "docs:build-github":"tsx scripts/gitPage.ts github",
+    "docs:build-gitee":"tsx scripts/gitPage.ts gitee",
     "clean": " rimraf dist lib es",
-		"build": "cd packages/hooks && npm run clean  && vue-tsc --noEmit && vite build",
-		"build:types": "cd packages/hooks && vue-tsc --noEmit && vite build --mode fullTypes",
+		"build": "tsx scripts/build.ts",
     "test": "vitest",
 		"test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
-		"prepare": "husky install"
+		"prepare": "husky install",
+    "build:types": "cd packages/hooks && vue-tsc --noEmit && vite build --mode fullTypes"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.1.2",

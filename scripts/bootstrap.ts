@@ -1,7 +1,7 @@
 import { writeFile } from 'fs-extra'
 import { resolve } from 'node:path'
 import prettier from 'prettier'
-import { hooks, logger, prettierConfig, rootDir } from './utils'
+import { hooks, hooksRootDir, logger, prettierConfig } from './utilts'
 
 async function main() {
   const ignores = ['createUseStorageState', 'utils']
@@ -14,7 +14,7 @@ async function main() {
     }
   `
 
-  const metaDataPath = resolve(rootDir, 'meta-data.json')
+  const metaDataPath = resolve(hooksRootDir, 'meta-data.json')
   await writeFile(
     metaDataPath,
     prettier.format(metaData, { ...prettierConfig, parser: 'json' }),

@@ -21,7 +21,6 @@
 		"typeScript"
 	],
 	"scripts": {
-    "bootstrap": "tsx scripts/bootstrap.ts",
 		"initial": "initial-scan .docs",
 		"docs:dev": "vhp-vitepress dev .docs --host",
 		"docs:build": "vhp-vitepress build .docs",
