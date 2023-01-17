@@ -184,7 +184,7 @@ const {
 | data | Data returned by service | `Ref<TData>` \| `undefined` |
 | error | Exception thrown by service | `Ref<Error>` \| `undefined` |
 | loading | Is the service being executed | `Ref<boolean>` |
-| params | An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]` | `Ref<TParams>` \| `[]` |
+| params | An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]` | `Ref<TParams | []>` |
 | formatResult | Format the request results, which recommend to use `useFormatResult` | `(response: TData) => any` |  |
 | run | <ul><li> Manually trigger the execution of the service, and the parameters will be passed to the service</li><li>Automatic handling of exceptions, feedback through `onError`</li></ul> | `(...params: TParams) => void` |
 | runAsync | The usage is the same as `run`, but it returns a Promise, so you need to handle the exception yourself. | `(...params: TParams) => Promise<TData>` |
