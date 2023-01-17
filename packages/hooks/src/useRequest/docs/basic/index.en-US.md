@@ -168,7 +168,7 @@ const {
   {
     manual?: boolean,
     defaultParams?: TParams,
-    formatResult?:(response:TData)=>any,
+    formatResult?:(response:TData)=>unknown,
     onBefore?: (params: TParams) => void,
     onSuccess?: (data: TData, params: TParams) => void,
     onError?: (e: Error, params: TParams) => void,
