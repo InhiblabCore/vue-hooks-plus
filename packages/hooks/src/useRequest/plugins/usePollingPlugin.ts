@@ -3,7 +3,7 @@ import type { Plugin, Interval } from "../types";
 import isDocumentVisible from "../utils/isDocumentVisible";
 import subscribeReVisible from "../utils/subscribeReVisible";
 
-const usePollingPlugin: Plugin<any, any[]> = (
+const usePollingPlugin: Plugin<unknown, unknown[]> = (
   fetchInstance,
   { pollingInterval, pollingWhenHidden = true, pollingErrorRetryCount = -1 }
 ) => {

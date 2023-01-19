@@ -2,7 +2,7 @@ import { isRef, unref, ref, watch } from 'vue'
 import { FetchState, Plugin } from '../types'
 
 // support refreshDeps & ready
-const useAutoRunPlugin: Plugin<any, any[]> = (
+const useAutoRunPlugin: Plugin<unknown, unknown[]> = (
   fetchInstance,
   { manual, ready = true, defaultParams = [], refreshDeps = [], refreshDepsAction },
 ) => {

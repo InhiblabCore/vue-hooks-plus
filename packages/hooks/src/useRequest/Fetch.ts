@@ -1,7 +1,7 @@
 import { Ref } from 'vue'
 import { FetchState, Options, PluginReturn, Service } from './types'
 
-export default class Fetch<TData, TParams extends any[] = any> {
+export default class Fetch<TData, TParams extends unknown[] = any> {
   pluginImpls: PluginReturn<TData, TParams>[] | undefined
 
   count = 0

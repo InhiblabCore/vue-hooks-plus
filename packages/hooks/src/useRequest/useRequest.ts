@@ -13,7 +13,7 @@ import { Options, Plugin, Service } from './types'
 
 function useRequest<
   TData,
-  TParams extends any[] = any[],
+  TParams extends unknown[] = unknown[],
   PluginsOptions extends Plugin<TData, TParams>[] = Plugin<TData, TParams>[]
 >(
   service: Service<TData, TParams>,

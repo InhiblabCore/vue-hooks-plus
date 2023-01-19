@@ -33,4 +33,16 @@ pnpm docs:dev
 
 ```
 
+or
+
+at `root` dir run
+
+```bash
+
+pnpm docs:dev
+
+```
+
+will implement script to finished `scripts/docs.ts`
+
 If the page startup is blank, you need to refresh the page.
