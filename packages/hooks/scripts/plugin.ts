@@ -1,5 +1,6 @@
+import { cyan } from 'kolorist'
 import { Logger, Plugin } from 'vite'
-import { cyan, move } from './utils'
+import { move } from './utils'
 
 export function movePlugin({ from, to }: { from: string; to: string }): Plugin {
   let logger: Logger

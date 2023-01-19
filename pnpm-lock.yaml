@@ -32,6 +32,7 @@ importers:
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       eslint-plugin-vue: ^9.6.0
+      execa: ^6.1.0
       fast-glob: ^3.2.12
       fs-extra: ^10.1.0
       gh-pages: ^4.0.0
@@ -86,6 +87,7 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@8.27.0
       eslint-plugin-prettier: 4.2.1_5p4jf2e57be2o7kcxxqvoih6k4
       eslint-plugin-vue: 9.7.0_eslint@8.27.0
+      execa: 6.1.0
       fast-glob: 3.2.12
       fs-extra: 10.1.0
       gh-pages: 4.0.0
