@@ -10,3 +10,4 @@ export function move(originalUrl: string, targetUrl: string, log: Logger) {
     log.info(`\n${cyan(logPrefix)} File successfully moved!!`)
   })
 }
+export { cyan }
