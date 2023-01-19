@@ -3,7 +3,7 @@ import { DebouncedFunc, ThrottleSettings } from 'lodash'
 import throttle from 'lodash/throttle'
 import { Plugin } from '../types'
 
-const useThrottlePlugin: Plugin<any, any[]> = (
+const useThrottlePlugin: Plugin<unknown, unknown[]> = (
   fetchInstance,
   { throttleWait, throttleLeading, throttleTrailing },
 ) => {

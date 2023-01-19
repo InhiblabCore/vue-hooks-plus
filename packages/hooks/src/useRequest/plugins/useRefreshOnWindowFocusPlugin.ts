@@ -3,7 +3,7 @@ import type { Plugin } from "../types";
 import limit from "../utils/limit";
 import subscribeFocus from "../utils/subscribeFocus";
 
-const useRefreshOnWindowFocusPlugin: Plugin<any, any[]> = (
+const useRefreshOnWindowFocusPlugin: Plugin<unknown, unknown[]> = (
   fetchInstance,
   { refreshOnWindowFocus, focusTimespan = 5000 }
 ) => {

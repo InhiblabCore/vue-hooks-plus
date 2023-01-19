@@ -2,18 +2,18 @@ import { Ref, WatchSource } from 'vue'
 import { CachedData } from './utils/cache'
 import Fetch from './Fetch'
 
-export type Service<TData, TParams extends any[]> = (...args: TParams) => Promise<TData>
+export type Service<TData, TParams extends unknown[]> = (...args: TParams) => Promise<TData>
 
 export type Subscribe = () => void
 
-export interface FetchState<TData, TParams extends any[]> {
+export interface FetchState<TData, TParams extends unknown[]> {
   loading: boolean
   params?: TParams
   data?: TData
   error?: Error | unknown
 }
 
-export interface PluginReturn<TData, TParams extends any[]> {
+export interface PluginReturn<TData, TParams extends unknown[]> {
   onBefore?: (
     params: TParams,
   ) =>
@@ -37,7 +37,7 @@ export interface PluginReturn<TData, TParams extends any[]> {
   onMutate?: (data: TData) => void
 }
 
-export interface BasicOptions<TData, TParams extends any[]> {
+export interface BasicOptions<TData, TParams extends unknown[]> {
   manual?: boolean
   onBefore?: (params: TParams) => void
   onSuccess?: (data: TData, params: TParams) => void
@@ -46,56 +46,80 @@ export interface BasicOptions<TData, TParams extends any[]> {
 
   defaultParams?: TParams
 
-  // 依赖更新
-  refreshDeps?: WatchSource[] | any
+  /**
+   * refreshDeps
+   */
+  refreshDeps?: WatchSource[]
   refreshDepsAction?: () => void
 
-  // loading延迟
+  /**
+   * loadingDelay
+   */
   loadingDelay?: number | Ref<number>
 
-  // 格式化数据
-  formatResult?: (data?: TData) => any
+  /**
+   * formatResult
+   * @param data TData
+   * @returns unknown need cover TData
+   */
+  formatResult?: (data?: TData) => unknown
 
-  // 轮询
+  /**
+   * polling
+   */
   pollingInterval?: Ref<number> | number
   pollingWhenHidden?: boolean
 
-  // 屏幕聚焦重新请求
+  /**
+   * refreshOnWindowFocus
+   */
   refreshOnWindowFocus?: Ref<boolean> | boolean
   focusTimespan?: Ref<number> | number
 
-  // 防抖
+  /**
+   * debounce
+   */
   debounceWait?: Ref<number> | number
   debounceLeading?: Ref<boolean> | boolean
   debounceTrailing?: Ref<boolean> | boolean
   debounceMaxWait?: Ref<number> | number
 
-  // 节流
+  /**
+   * throttle
+   */
   throttleWait?: Ref<number> | number
   throttleLeading?: Ref<boolean> | boolean
   throttleTrailing?: Ref<boolean> | boolean
 
-  // 请求缓存
+  /**
+   * cache
+   */
   cacheKey?: string
   cacheTime?: number
   staleTime?: number
   setCache?: (data: CachedData<TData, TParams>) => void
   getCache?: (params: TParams) => CachedData<TData, TParams> | undefined
 
-  // 错误重试
+  /**
+   * retry
+   */
   retryCount?: number
   retryInterval?: number
 
-  // 只有当 ready 为 true 时，才会发起请求
+  /**
+   * ready
+   */
   ready?: Ref<boolean> | boolean
 }
 
-export type Options<TData, TParams extends any[], TPlugin> = {
-  [K in keyof TPlugin]: TPlugin[K]
+export type Options<TData, TParams extends unknown[], TPlugin> = {
+  [K in keyof BasicOptions<TData, TParams>]: BasicOptions<TData, TParams>[K]
 } &
-  BasicOptions<TData, TParams>
+  {
+    [K in keyof TPlugin]: TPlugin[K]
+  }
 
-export interface Plugin<TData, TParams extends any[] = any[], TPlugin = any> {
+export interface Plugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
   (fetchInstance: Fetch<TData, TParams>, options: Options<TData, TParams, TPlugin>): PluginReturn<
     TData,
     TParams
@@ -103,7 +127,7 @@ export interface Plugin<TData, TParams extends any[] = any[], TPlugin = any> {
   onInit?: (options: Options<TData, TParams, TPlugin>) => Partial<FetchState<TData, TParams>>
 }
 
-export interface Result<TData, TParams extends any[]> {
+export interface Result<TData, TParams extends unknown[]> {
   loading: Ref<boolean>
   data: Ref<TData | undefined>
   error: Ref<Error | undefined>
