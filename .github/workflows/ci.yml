@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install pnpm
-     - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2
         with:
           version: 7.9.5
       - name: Set node
