@@ -109,27 +109,29 @@ module.exports = {
 - [English Documentations](https://inhiblab-core.gitee.io/docs/hooks/en)
 - [中文文档](https://inhiblab-core.gitee.io/docs/hooks)
 
-## 🕹️ 文档效果
+### 例子
 
-通过 [Dev Document Guide](./DEV_DOCUMENT.md) 启动文档。
+- [Nuxt3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/nuxt3)
+- [Vite + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
+- [Webpack + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
 
-# 🪴 项目活动
+## 🪴 项目活动
 
 ![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
 
-## 👛 贡献
+### 贡献
 
 欢迎你的加入！你可以查阅 [贡献指南](./CONTRIBUTING.md) 了解如何开始。
 
-## 🐝 贡献者
+### 贡献者
 
-感谢他们的所做的一切贡献！
+感谢他们的所做的一切贡献 🐝 ！
 
 <a href="https://github.com/InhiblabCore/vue-hooks-plus/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=InhiblabCore/vue-hooks-plus" />
 </a>
 
-# 🌸 感谢
+## 🌸 感谢
 
 这个项目的灵感主要来自于以下这些很棒的项目。
 
