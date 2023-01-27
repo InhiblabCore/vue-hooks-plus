@@ -109,7 +109,13 @@ For other supported tools, please see [unplugin-auto-import](https://github.com/
 - [English Documentations](https://inhiblabcore.github.io/docs/hooks/en)
 - [中文文档](https://inhiblabcore.github.io/docs/hooks)
 
-## 🕹️ Document Effects
+### Example
+
+- [Nuxt3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/nuxt3)
+- [Vite + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
+- [Webpack + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
+
+### Document Effects
 
 Start documentation via [Dev Document Guide](./DEV_DOCUMENT.md).
 

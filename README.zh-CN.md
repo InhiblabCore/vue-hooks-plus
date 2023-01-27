@@ -109,7 +109,13 @@ module.exports = {
 - [English Documentations](https://inhiblab-core.gitee.io/docs/hooks/en)
 - [中文文档](https://inhiblab-core.gitee.io/docs/hooks)
 
-## 🕹️ 文档效果
+### 例子
+
+- [Nuxt3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/nuxt3)
+- [Vite + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
+- [Webpack + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
+
+### 文档效果
 
 通过 [Dev Document Guide](./DEV_DOCUMENT.md) 启动文档。
 
