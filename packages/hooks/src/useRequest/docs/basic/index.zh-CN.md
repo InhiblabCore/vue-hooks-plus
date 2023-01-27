@@ -182,6 +182,7 @@ const {
 | error | service 抛出的异常 | `Ref<Error>` \| `undefined` |
 | loading | service 是否正在执行 | `Ref<boolean>` |
 | params | 当次执行的 service 的参数数组。比如你触发了 `run(1, 2, 3)`，则 params 等于 `[1, 2, 3]` | `Ref<TParams | []>` |
+| initialData | 初始化的数据 | `TData` \| `undefined` |
 | formatResult | 格式化请求结果，建议使用 `useFormatResult` | `(response: TData) => any` |  |
 | run | <ul><li> 手动触发 service 执行，参数会传递给 service</li><li>异常自动处理，通过 `onError` 反馈</li></ul> | `(...params: TParams) => void` |
 | runAsync | 与 `run` 用法一致，但返回的是 Promise，需要自行处理异常。 | `(...params: TParams) => Promise<TData>` |

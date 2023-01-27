@@ -71,7 +71,6 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       'onBefore',
       params,
     )
-
     // 是否停止请求
     if (stopNow) {
       return new Promise(() => {})

@@ -1,5 +1,6 @@
 <template>
   <div>name：{{ loading ? 'loading' : data }}</div>
+  {{ data }}
 </template>
 
 <script lang="ts" setup>
