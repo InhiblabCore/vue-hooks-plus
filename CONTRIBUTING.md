@@ -36,7 +36,7 @@ you can Run `pnpm test` or `pnpm test:ui` in VueHooks Plus's root folder.
 
 ## Running document
 
-Start documentation via [Dev Document Guide](../DEV_DOCUMENT.md).
+Start documentation via [Dev Document Guide](./DEV_DOCUMENT.md).
 
 1. Run `pnpm docs:dev` in VueHooks Plus's root folder or Run `pnpm initial` and `pnpm docs:dev` `packages/hooks` folder.
 

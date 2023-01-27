@@ -125,7 +125,7 @@ module.exports = {
 
 ### 贡献者
 
-感谢他们的所做的一切贡献！
+感谢他们的所做的一切贡献 🐝 ！
 
 <a href="https://github.com/InhiblabCore/vue-hooks-plus/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=InhiblabCore/vue-hooks-plus" />

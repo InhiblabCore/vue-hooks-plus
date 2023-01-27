@@ -125,7 +125,7 @@ Welcome to join us! You can check out the [Contributing Guide](./CONTRIBUTING.md
 
 ### Contributors
 
-Thanks for all their contributions!
+Thanks for all their contributions 🐝 !
 
 <a href="https://github.com/InhiblabCore/vue-hooks-plus/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=InhiblabCore/vue-hooks-plus" />
