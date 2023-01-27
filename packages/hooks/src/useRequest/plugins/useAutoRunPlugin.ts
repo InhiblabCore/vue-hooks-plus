@@ -44,7 +44,7 @@ const useAutoRunPlugin: Plugin<unknown, unknown[]> = (
   }
 }
 
-useAutoRunPlugin.onInit = ({ ready = true, manual }) => {
+useAutoRunPlugin.onInit = ({ initialData, ready = true, manual }) => {
   return {
     loading: (!manual && unref(ready)) as FetchState<any, any[]>['loading'],
   }

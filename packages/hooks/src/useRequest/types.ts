@@ -38,6 +38,7 @@ export interface PluginReturn<TData, TParams extends unknown[]> {
 }
 
 export interface BasicOptions<TData, TParams extends unknown[]> {
+  initialData?: TData
   manual?: boolean
   onBefore?: (params: TParams) => void
   onSuccess?: (data: TData, params: TParams) => void
