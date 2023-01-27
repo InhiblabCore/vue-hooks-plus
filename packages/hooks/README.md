@@ -115,19 +115,15 @@ For other supported tools, please see [unplugin-auto-import](https://github.com/
 - [Vite + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
 - [Webpack + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
 
-### Document Effects
-
-Start documentation via [Dev Document Guide](./DEV_DOCUMENT.md).
-
 ## 🪴 Project Activity
 
 ![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
 
-## 👛 Contributing
+### Contributing
 
 Welcome to join us! You can check out the [Contributing Guide](./CONTRIBUTING.md) to learn how to get started.
 
-## 🐝 Contributors
+### Contributors
 
 Thanks for all their contributions!
 
