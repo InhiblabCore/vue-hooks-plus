@@ -1,26 +1,22 @@
-import { isRef, unref, ref, watch } from 'vue'
+import { unref, ref, watch, watchEffect } from 'vue'
 import { FetchState, Plugin } from '../types'
 
 // support refreshDeps & ready
 const useAutoRunPlugin: Plugin<unknown, unknown[]> = (
   fetchInstance,
-  { manual, ready = true, defaultParams = [], refreshDeps = [], refreshDepsAction },
+  { manual, ready = true, refreshDeps = [], refreshDepsAction },
 ) => {
   const hasAutoRun = ref(false)
-  hasAutoRun.value = false
 
-  watch(isRef(ready) ? ready : [], r => {
-    if (!manual && r) {
-      hasAutoRun.value = true
-      fetchInstance.run(...defaultParams)
-    }
+  watchEffect(() => {
+    if (!manual) hasAutoRun.value = unref(ready)
   })
 
   watch(
-    refreshDeps,
-    () => {
-      if (hasAutoRun.value) return
-      if (!manual) {
+    [hasAutoRun, ...refreshDeps],
+    ([autoRun]) => {
+      if (!autoRun) return
+      if (!manual && autoRun) {
         if (refreshDepsAction) {
           refreshDepsAction()
         } else {
@@ -30,6 +26,7 @@ const useAutoRunPlugin: Plugin<unknown, unknown[]> = (
     },
     {
       deep: true,
+      immediate: false,
     },
   )
 
