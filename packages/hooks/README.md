@@ -112,9 +112,9 @@ For other supported tools, please see [unplugin-auto-import](https://github.com/
 ### Example
 
 - [Vue Admin Novel](https://github.com/NelsonYong/vue-admin-novel)
-- [Nuxt3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/nuxt3)
-- [Vite + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
-- [Webpack + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
+- [Nuxt 3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/nuxt3)
+- [Vite + Vue 3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
+- [Webpack + Vue 3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
 
 ## 🪴 Project Activity
 
