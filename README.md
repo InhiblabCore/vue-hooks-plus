@@ -111,6 +111,7 @@ For other supported tools, please see [unplugin-auto-import](https://github.com/
 
 ### Example
 
+- [Vue Admin Novel](https://vue-admin-novel.vercel.app)
 - [Nuxt3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/nuxt3)
 - [Vite + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
 - [Webpack + Vue3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
