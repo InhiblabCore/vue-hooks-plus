@@ -16,7 +16,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
   constructor(
     public serviceRef: Ref<Service<TData, TParams>>,
     public options: Options<TData, TParams, any>,
-    public setUpdataData: (s: any, key?: keyof FetchState<TData, TParams>) => void,
+    public setUpdateData: (s: any, key?: keyof FetchState<TData, TParams>) => void,
     public initState: Partial<FetchState<TData, TParams>> = {},
   ) {
     this.state = {
@@ -32,7 +32,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       ...this.state,
       ...s,
     }
-    this.setUpdataData(this.state)
+    this.setUpdateData(this.state)
   }
 
   /**
@@ -47,11 +47,11 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     if (key instanceof Array) {
       key.forEach(k => {
         this.state[k as keyof FetchState<TData, TParams>] = data
-        this.setUpdataData(data, k)
+        this.setUpdateData(data, k)
       })
     } else {
       this.state[key as keyof FetchState<TData, TParams>] = data
-      this.setUpdataData(data, key)
+      this.setUpdateData(data, key)
     }
   }
 
@@ -184,7 +184,6 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     }
 
     this.runPluginHandler('onMutate', targetData)
-
     this.setState({
       data: targetData,
     })
