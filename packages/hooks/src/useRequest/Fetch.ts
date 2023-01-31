@@ -184,7 +184,6 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     }
 
     this.runPluginHandler('onMutate', targetData)
-
     this.setState({
       data: targetData,
     })
