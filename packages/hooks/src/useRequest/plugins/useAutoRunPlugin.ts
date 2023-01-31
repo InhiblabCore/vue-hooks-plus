@@ -12,23 +12,34 @@ const useAutoRunPlugin: Plugin<unknown, unknown[]> = (
     if (!manual) hasAutoRun.value = unref(ready)
   })
 
-  watch(
-    [hasAutoRun, ...refreshDeps],
-    ([autoRun]) => {
-      if (!autoRun) return
-      if (!manual && autoRun) {
+  if (refreshDeps instanceof Array)
+    watch(
+      [hasAutoRun, ...refreshDeps],
+      ([autoRun]) => {
+        if (!autoRun) return
+        if (!manual && autoRun) {
+          if (refreshDepsAction) {
+            refreshDepsAction()
+          } else {
+            fetchInstance.refresh()
+          }
+        }
+      },
+      {
+        deep: true,
+        immediate: false,
+      },
+    )
+  else
+    watch(hasAutoRun, h => {
+      if (!manual && h) {
         if (refreshDepsAction) {
           refreshDepsAction()
         } else {
           fetchInstance.refresh()
         }
       }
-    },
-    {
-      deep: true,
-      immediate: false,
-    },
-  )
+    })
 
   return {
     onBefore: () => {

@@ -1,4 +1,4 @@
-import { Ref } from 'vue'
+import { Ref, unref, watchEffect } from 'vue'
 import { FetchState, Options, PluginReturn, Service } from './types'
 
 export default class Fetch<TData, TParams extends unknown[] = any> {
@@ -64,6 +64,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
   }
 
   // 异步请求
+  // @ts-ignore
   async runAsync(...params: TParams): Promise<TData> {
     this.count += 1
     const currentCount = this.count
@@ -94,37 +95,51 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       // replace service 开始请求，如果含有onRequest事件名
       let { servicePromise } = this.runPluginHandler('onRequest', this.serviceRef.value, params)
 
+      const requestReturn = (res: any) => {
+        // 取消了请求，count将与currentCount不一致，将发送空请求
+        if (currentCount !== this.count) {
+          return new Promise(() => {})
+        }
+        // 格式化数据
+        const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
+
+        this.setState({
+          data: formattedResult,
+          error: undefined,
+          loading: false,
+        })
+        // 请求成功
+        this.options.onSuccess?.(formattedResult, params)
+
+        this.runPluginHandler('onSuccess', formattedResult, params)
+
+        // 无论请求成功还是失败都执行
+        this.options.onFinally?.(params, formattedResult, undefined)
+
+        if (currentCount === this.count) {
+          this.runPluginHandler('onFinally', params, formattedResult, undefined)
+        }
+
+        return formattedResult
+      }
+
       if (!servicePromise) {
-        servicePromise = this.serviceRef.value(...params)
+        /** 自动依赖收集 */
+        if (!this.options.manual && this.options.refreshDeps === true) {
+          watchEffect(async () => {
+            if (unref(this.options.ready)) {
+              this.setData(true, 'loading')
+              servicePromise = this.serviceRef.value(...params)
+              const res = await servicePromise
+              return requestReturn(res)
+            }
+          })
+        } else {
+          servicePromise = this.serviceRef.value(...params)
+        }
       }
-
       const res = await servicePromise
-
-      // 取消了请求，count将与currentCount不一致，将发送空请求
-      if (currentCount !== this.count) {
-        return new Promise(() => {})
-      }
-      // 格式化数据
-      const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
-
-      this.setState({
-        data: formattedResult,
-        error: undefined,
-        loading: false,
-      })
-      // 请求成功
-      this.options.onSuccess?.(formattedResult, params)
-
-      this.runPluginHandler('onSuccess', formattedResult, params)
-
-      // 无论请求成功还是失败都执行
-      this.options.onFinally?.(params, formattedResult, undefined)
-
-      if (currentCount === this.count) {
-        this.runPluginHandler('onFinally', params, formattedResult, undefined)
-      }
-
-      return formattedResult
+      return requestReturn(res)
     } catch (error) {
       if (currentCount !== this.count) {
         return new Promise(() => {})
