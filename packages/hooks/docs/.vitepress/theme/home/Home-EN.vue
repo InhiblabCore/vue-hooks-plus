@@ -78,7 +78,7 @@
         </p>
       </div>
       <div class="vt-box">
-        <h2>🪄 On-demand load</h2>
+        <h2>🧩 On-demand load</h2>
         <p>
           Take what you want, the package is smaller.
         </p>
