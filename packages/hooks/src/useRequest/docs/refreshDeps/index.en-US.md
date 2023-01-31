@@ -18,7 +18,7 @@ source:
   title=""
   desc="In the example code above, useRequest will execution when it is initialized and Id & store ID changes."> </demo>
 
-## Automatically collect dependencies `>=v1.5.6-beta0.1`
+## Automatically collect dependencies `>=v1.6.0-alpha.1`
 
 <demo src="./demo/demo1.vue"
   language="vue"

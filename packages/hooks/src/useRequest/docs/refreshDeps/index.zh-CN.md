@@ -18,7 +18,7 @@ source:
   title=""
   desc="每次参数依赖发生，都会携带参数重新发起请求"> </demo>
 
-## 自动收集依赖 `>=v1.5.6-beta0.1`
+## 自动收集依赖 `>=v1.6.0-alpha.1`
 
 <demo src="./demo/demo1.vue"
   language="vue"
