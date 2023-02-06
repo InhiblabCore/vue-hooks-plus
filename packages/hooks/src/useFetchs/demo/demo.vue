@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { computed } from 'vue'
+  import { computed, watchEffect } from 'vue'
   import { useFetchs } from 'vue-hooks-plus'
 
   async function getUsername(params: { desc: string }): Promise<string> {
@@ -34,8 +34,10 @@
     },
   )
 
-  arr.forEach(item => {
-    fetchRun({ desc: item })
+  watchEffect(() => {
+    arr.forEach(item => {
+      fetchRun({ desc: item })
+    })
   })
 
   const datas = computed(() =>
