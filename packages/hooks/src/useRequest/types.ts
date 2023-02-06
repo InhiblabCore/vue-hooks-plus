@@ -50,7 +50,7 @@ export interface BasicOptions<TData, TParams extends unknown[]> {
   /**
    * refreshDeps
    */
-  refreshDeps?: WatchSource[]
+  refreshDeps?: WatchSource[] | boolean
   refreshDepsAction?: () => void
 
   /**
