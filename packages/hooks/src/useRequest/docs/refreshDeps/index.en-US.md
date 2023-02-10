@@ -9,9 +9,17 @@ source:
 
 # RefreshDeps
 
-`useRequest` provides an `options.refreshDeps`, which will trigger the request refresh when its value changes.
+`useRequest` provides an `options.refreshDeps` .
+
+:::tip remark
+
+Only the automatic mode mode, that is, `manual` is `true`, depends on the new configuration of swiping the card to have an effect. Manual mode requires users to manage requests themselves.
+
+:::
 
 ## Manual collection of dependencies
+
+When `refreshDeps` passes in an array of responsive objects, when its value changes, the request will be retriggered.
 
 <demo src="./demo/demo.vue"
   language="vue"
@@ -19,6 +27,8 @@ source:
   desc="In the example code above, useRequest will execution when it is initialized and Id & store ID changes."> </demo>
 
 ## Automatically collect dependencies `>=v1.6.0-alpha.1`
+
+When `refreshDeps` is passed in `true`, `useRequest` will automatically collect the response object parameters in the function parameters, as long as the response object in the parameters changes, it will carry the latest value to re-initiate the request.
 
 <demo src="./demo/demo1.vue"
   language="vue"
