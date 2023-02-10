@@ -10,4 +10,4 @@ liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
 lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
-custom: ['https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/26b2e48c85ff46bf9036fab87f7cb3e8~tplv-k3u1fbpfcp-watermark.image','https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/79b3a5638ce34095b56cf1b0ea1f47e8~tplv-k3u1fbpfcp-watermark.image']
+custom: ['https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/wx.JPG','https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/zfb.JPG']
