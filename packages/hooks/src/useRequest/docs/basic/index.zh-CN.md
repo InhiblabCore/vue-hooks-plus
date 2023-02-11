@@ -182,7 +182,6 @@ const {
 | error | service 抛出的异常 | `Ref<Error>` \| `undefined` |
 | loading | service 是否正在执行 | `Ref<boolean>` |
 | params | 当次执行的 service 的参数数组。比如你触发了 `run(1, 2, 3)`，则 params 等于 `[1, 2, 3]` | `Ref<TParams | []>` |
-| initialData | 初始化的数据 | `TData` \| `undefined` |
 | run | <ul><li> 手动触发 service 执行，参数会传递给 service</li><li>异常自动处理，通过 `onError` 反馈</li></ul> | `(...params: TParams) => void` |
 | runAsync | 与 `run` 用法一致，但返回的是 Promise，需要自行处理异常。 | `(...params: TParams) => Promise<TData>` |
 | refresh | 使用上一次的 params，重新调用 `run` | `() => void` |
@@ -194,6 +193,7 @@ const {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| initialData | 初始化的数据 | `TData` \| `undefined` |
 | manual | <ul><li> 默认 `false`。 即在初始化时自动执行 service。</li><li>如果设置为 `true`，则需要手动调用 `run` 或 `runAsync` 触发执行。 </li></ul> | `boolean` | `false` |
 | defaultParams | 首次默认执行时，传递给 service 的参数 | `TParams` | - |
 | formatResult | 格式化请求结果，建议使用 `useFormatResult` | `(response: TData) => any` | - |

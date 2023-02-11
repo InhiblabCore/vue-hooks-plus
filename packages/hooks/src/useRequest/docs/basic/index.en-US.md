@@ -185,7 +185,6 @@ const {
 | error | Exception thrown by service | `Ref<Error>` \| `undefined` |
 | loading | Is the service being executed | `Ref<boolean>` |
 | params | An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]` | `Ref<TParams | []>` |
-| initialData | Init data | `TData` \| `undefined` |
 | run | <ul><li> Manually trigger the execution of the service, and the parameters will be passed to the service</li><li>Automatic handling of exceptions, feedback through `onError`</li></ul> | `(...params: TParams) => void` |
 | runAsync | The usage is the same as `run`, but it returns a Promise, so you need to handle the exception yourself. | `(...params: TParams) => Promise<TData>` |
 | refresh | Use the last params, call `run` again | `() => void` |
@@ -197,6 +196,7 @@ const {
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
+| initialData | Init data | `TData` \| `undefined` |
 | manual | <ul><li> The default is `false`. That is, the service is automatically executed during initialization.</li><li>If set to `true`, you need to manually call `run` or `runAsync` to trigger execution. </li></ul> | `boolean` | `false` |
 | defaultParams | The parameters passed to the service at the first default execution | `TParams` | - |
 | formatResult | Format the request results, which recommend to use `useFormatResult` | `(response: TData) => any` | - |
