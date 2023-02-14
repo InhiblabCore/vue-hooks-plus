@@ -1,15 +1,35 @@
 import { useTimeout } from '../index'
 
 export type Resolve = (value: any) => void
-export type interruptibleRejectType = (error: any) => void
+export type InterruptibleRejectType = (error: any) => void
 
 export type AsyncOrder = {
-  task: ((resolve?: Resolve, reject?: interruptibleRejectType, index?: number) => void)[]
+  task: ((resolve?: Resolve, reject?: InterruptibleRejectType, index?: number) => void)[]
   option?: {
+    /**
+     *  Delay execution
+     */
     delay?: number
+
+    /**
+     * Preparation phase callback
+     * @returns void
+     */
     onReady?: () => void
-    onSuccess?: (result: any) => void
-    onError?: (err: any) => void
+
+    /**
+     * Successful callback
+     * @param result any
+     * @returns void
+     */
+    onSuccess?: (result: unknown) => void
+
+    /**
+     * Error callback
+     * @param err unknown
+     * @returns void
+     */
+    onError?: (err: unknown) => void
   }
 }
 
@@ -23,7 +43,7 @@ export default function useAsyncOrder({ task, option }: AsyncOrder) {
     onError?.(reason)
   }
 
-  const interruptibleReject = (resolve: Resolve): interruptibleRejectType => {
+  const interruptibleReject = (resolve: Resolve): InterruptibleRejectType => {
     return (error: any) => {
       interruptibleError(error)
       resolve?.({ error })

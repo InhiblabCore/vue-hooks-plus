@@ -23,14 +23,14 @@ map:
 useAsyncOrder({
   task: ((
 		resolve?: Resolve,
-		reject?: interruptibleRejectType,
+		reject?: InterruptibleRejectType,
 		index?: number
 	) => void)[]
 	option?: {
 		delay?: number
 		onReady?: () => void
-		onSuccess?: (result: any) => void
-		onError?: (err: any) => void
+		onSuccess?: (result: unknown) => void
+		onError?: (err: unknown) => void
 	}})
 ```
 
@@ -38,14 +38,14 @@ useAsyncOrder({
 
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
-| task | 异步任务顺序队列 | `((resolve?: Resolve,reject?: interruptibleRejectType,index?: number) => void)[]` |
+| task | 异步任务顺序队列 | `((resolve?: Resolve,reject?: InterruptibleRejectType,index?: number) => void)[]` |
 | option | 配置项 | - |
 
 ## Option
 
-| 参数      | 说明         | 类型                    |
-| --------- | ------------ | ----------------------- |
-| delay     | 延迟执行     | `number`                |
-| onReady   | 准备阶段回调 | `void`                  |
-| onSuccess | 成功回调     | `(result: any) => void` |
-| onError   | 错误回调     | `(err: any) => void`    |
+| 参数      | 说明         | 类型                        |
+| --------- | ------------ | --------------------------- |
+| delay     | 延迟执行     | `number`                    |
+| onReady   | 准备阶段回调 | `void`                      |
+| onSuccess | 成功回调     | `(result: unknown) => void` |
+| onError   | 错误回调     | `(err: unknown) => void`    |
