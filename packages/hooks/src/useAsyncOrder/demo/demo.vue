@@ -66,7 +66,7 @@
         error.value += 1
       },
       onSuccess: res => {
-        list.value.push(res)
+        list.value.push(res as string)
       },
     },
   })

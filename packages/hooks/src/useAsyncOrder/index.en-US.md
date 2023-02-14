@@ -21,14 +21,14 @@ Hook to manage the execution order of asynchronous tasks
 useAsyncOrder({
   task: ((
 		resolve?: Resolve,
-		reject?: interruptibleRejectType,
+		reject?: InterruptibleRejectType,
 		index?: number
 	) => void)[]
 	option?: {
 		delay?: number
 		onReady?: () => void
-		onSuccess?: (result: any) => void
-		onError?: (err: any) => void
+		onSuccess?: (result: unknown) => void
+		onError?: (err: unknown) => void
 	}})
 ```
 
@@ -36,14 +36,14 @@ useAsyncOrder({
 
 | Property | Description | Type |
 | --- | --- | --- |
-| task | aynchronous task order queue | `((resolve?: Resolve,reject?: interruptibleRejectType,index?: number) => void)[]` |
+| task | aynchronous task order queue | `((resolve?: Resolve,reject?: InterruptibleRejectType,index?: number) => void)[]` |
 | option | option | - |
 
 ## Option
 
-| Property  | Description                | Type                    |
-| --------- | -------------------------- | ----------------------- |
-| delay     | delay execution            | `number`                |
-| onReady   | Preparation phase callback | `void`                  |
-| onSuccess | successful callback        | `(result: any) => void` |
-| onError   | error callback             | `(err: any) => void`    |
+| Property  | Description                | Type                        |
+| --------- | -------------------------- | --------------------------- |
+| delay     | Delay execution            | `number`                    |
+| onReady   | Preparation phase callback | `void`                      |
+| onSuccess | Successful callback        | `(result: unknown) => void` |
+| onError   | Error callback             | `(err: unknown) => void`    |

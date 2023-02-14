@@ -1,9 +1,9 @@
 import { sleep } from 'test-utils/sleep'
 import { ref } from 'vue'
-import useAsyncOrder from '..'
+import useAsyncOrder from '../index'
 
 function getUsername(): Promise<string> {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve('第一个数据')
     }, 200)
@@ -11,7 +11,7 @@ function getUsername(): Promise<string> {
 }
 
 function getUsername2(): Promise<string> {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve('第二个数据')
     }, 300)
@@ -19,7 +19,7 @@ function getUsername2(): Promise<string> {
 }
 
 function getUsername3(): Promise<string> {
-  return new Promise((resolve, reject) => {
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve('第三个数据')
     }, 200)
@@ -54,11 +54,11 @@ describe('useAsyncOrder', async () => {
         },
       ],
       option: {
-        onError: err => {
+        onError: () => {
           error.value += 1
         },
         onSuccess: res => {
-          list.value.push(res)
+          list.value.push(res as string)
         },
       },
     })
