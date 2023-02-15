@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.6.0-alpha.4",
+	"version": "1.6.0-alpha.5",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
@@ -11,6 +11,19 @@
 		"package.json",
 		"README.md"
 	],
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.js",
+      "import": "./es/index.js"
+    },
+    "./*": "./*",
+    "./metadata": {
+      "types": "./metadata.d.ts",
+      "require": "./metadata.cjs",
+      "import": "./metadata.mjs"
+    }
+  },
 	"main": "./lib/index.js",
 	"module": "./es/index.js",
 	"types": "./lib/index.d.ts",
@@ -31,9 +44,6 @@
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
 		"build:types": "vue-tsc --noEmit && vite build --mode fullTypes",
 		"type": "tsc -d"
-	},
-	"peerDependencies": {
-		"vue": "^3.2.25"
 	},
 	"dependencies": {
 		"@types/js-cookie": "^3.0.1",
