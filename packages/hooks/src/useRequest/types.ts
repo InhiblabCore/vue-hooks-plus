@@ -242,7 +242,7 @@ export interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], 
   ) => Partial<UseRequestFetchState<TData, TParams>>
 }
 
-export interface Result<TData, TParams extends unknown[]> {
+export interface useRequestResult<TData, TParams extends unknown[]> {
   /**
    * Is the service being executed.
    */

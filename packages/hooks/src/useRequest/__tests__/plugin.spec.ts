@@ -1,7 +1,7 @@
 import { sleep } from 'test-utils/sleep'
 import renderHook from 'test-utils/renderHook'
 
-import { Plugin } from '../types'
+import { UseRequestPlugin } from '../types'
 import useRequest from '../useRequest'
 
 function getUsername(): Promise<{ name: string; age: number }> {
@@ -15,7 +15,7 @@ function getUsername(): Promise<{ name: string; age: number }> {
   })
 }
 
-const useFormatterPlugin: Plugin<
+const useFormatterPlugin: UseRequestPlugin<
   {
     name: string
     age: number

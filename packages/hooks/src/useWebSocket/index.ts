@@ -20,7 +20,7 @@ export interface UseWebSocketOptions {
   protocols?: string | string[]
 }
 
-export interface Result {
+export interface UseWebSocketResult {
   latestMessage?: Ref<WebSocketEventMap['message']>
   sendMessage?: WebSocket['send']
   disconnect?: () => void
@@ -37,7 +37,7 @@ export interface Result {
 export default function useWebSocket(
   socketUrl: Ref<string> | string,
   options: UseWebSocketOptions = {},
-): Result {
+): UseWebSocketResult {
   const {
     reconnectLimit = 3,
     reconnectInterval = 3 * 1000,
@@ -163,7 +163,7 @@ export default function useWebSocket(
   })
 
   return {
-    latestMessage: latestMessage as Result['latestMessage'],
+    latestMessage: latestMessage as UseWebSocketResult['latestMessage'],
     sendMessage,
     connect,
     disconnect,

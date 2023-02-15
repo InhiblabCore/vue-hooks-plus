@@ -1,7 +1,7 @@
 import { ref, reactive, toRefs, onMounted, onUnmounted, unref } from 'vue'
 
 import Fetch from './Fetch'
-import { UseRequestOptions, UseRequestPlugin, Result, UseRequestService } from './types'
+import { UseRequestOptions, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
 
 function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
@@ -81,7 +81,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     run: fetchInstance.run.bind(fetchInstance),
     runAsync: fetchInstance.runAsync.bind(fetchInstance),
     mutate: fetchInstance.mutate.bind(fetchInstance),
-  } as unknown) as Result<TData, TParams>
+  } as unknown) as useRequestResult<TData, TParams>
 }
 
 export default useRequestImplement
