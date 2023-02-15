@@ -21,7 +21,10 @@ Advocate for a plugin initiated with `use`, named after `Plugin` ending, `useXxx
 ## Convened Typescript type definition
 
 ```typescript
-const useXxxxPlugin: Plugin<TData, TParams, PluginOption> = Fn(fetchInstance, options)
+const useXxxxPlugin: UseRequestPlugin<TData, TParams, UseRequestPluginOption> = Fn(
+  fetchInstance,
+  options,
+)
 ```
 
 `useRequest` will export a plugin type as a modification, the generic corresponds to `useRequest`'s `data`, `params`, `PluginOption`
@@ -31,21 +34,21 @@ const useXxxxPlugin: Plugin<TData, TParams, PluginOption> = Fn(fetchInstance, op
 Corresponding to the 👆 's `Fn` function, the function's first parameter is the `fetchInstance` instance, and you can use all the methods carried on this instance.
 
 ```typescript
-cancel: Fetch < TData, TParams > ['cancel']
-refresh: Fetch < TData, TParams > ['refresh']
-refreshAsync: Fetch < TData, TParams > ['refreshAsync']
-run: Fetch < TData, TParams > ['run']
-runAsync: Fetch < TData, TParams > ['runAsync']
-mutate: Fetch < TData, TParams > ['mutate']
+cancel: UseRequestFetch < TData, TParams > ['cancel']
+refresh: UseRequestFetch < TData, TParams > ['refresh']
+refreshAsync: UseRequestFetch < TData, TParams > ['refreshAsync']
+run: UseRequestFetch < TData, TParams > ['run']
+runAsync: UseRequestFetch < TData, TParams > ['runAsync']
+mutate: UseRequestFetch < TData, TParams > ['mutate']
 ```
 
 Corresponding to the 👆 `Fn` function, the function the second parameter is the `options` configuration, and you can use all the configuration items carried by the `useRequest`, including those defined by your plugin.
 
 ```typescript
 
-  type Options
+  type UseRequestOptions
   &
-  type PlginOptions
+  type UseRequestPlginOptions
 
 ```
 
@@ -54,18 +57,18 @@ Corresponding to the 👆 `Fn` function, the function the second parameter is th
 As a function of this, it is required to return the plugin running results in the plugin cycle, such as executing a segment of logic in `onSuccess` and a segment of error processing in `onError`.
 
 ```typescript
-interface PluginReturn<TData, TParams extends any[]> {
+interface UseRequestPluginReturn<TData, TParams extends any[]> {
   onBefore?: (
     params: TParams,
   ) =>
     | ({
         stopNow?: boolean
         returnNow?: boolean
-      } & Partial<FetchState<TData, TParams>>)
+      } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
-    service: Service<TData, TParams>,
+    service: UseRequestService<TData, TParams>,
     params: TParams,
   ) => {
     servicePromise?: Promise<TData>
@@ -95,7 +98,7 @@ Need to setup `data`, `params`, `loading`, `error` Change requires use using the
 Return the results after the request data has processed the data, call `setData` to reset the value.
 
 ```typescript
-const useFormatterPlugin: Plugin<
+const useFormatterPlugin: UseRequestPlugin<
   {
     name: string
     age: number
@@ -128,6 +131,6 @@ const { data } = useRequest(
 
 ## Options
 
-| Property | Description   | Type                                      | Default |
-| -------- | ------------- | ----------------------------------------- | ------- |
-| Plugin   | Custom plugin | `(fetchInstance, option) => PluginReturn` | -       |
+| Property | Description   | Type                                                | Default |
+| -------- | ------------- | --------------------------------------------------- | ------- |
+| Plugin   | Custom plugin | `(fetchInstance, option) => UseRequestPluginReturn` | -       |
