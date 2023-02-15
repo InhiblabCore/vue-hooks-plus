@@ -1,10 +1,10 @@
 import { ref, Ref, unref, UnwrapRef, readonly, DeepReadonly, UnwrapNestedRefs } from 'vue'
 import merge from 'lodash/merge'
 
-type StateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>)
+type UseSetStateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>)
 
 function useSetState<S extends Record<string, any>>(
-  initialState: StateType<S>,
+  initialState: UseSetStateType<S>,
 ): [
   DeepReadonly<UnwrapNestedRefs<[S] extends [Ref<any>] ? S : Ref<UnwrapRef<S>>>>,
   (patch: Record<string, any>) => void,

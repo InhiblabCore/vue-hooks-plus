@@ -1,7 +1,7 @@
 import { ref } from "vue";
-import type { Plugin, Timeout } from "../types";
+import type { UseRequestPlugin, Timeout } from "../types";
 
-const useRetryPlugin: Plugin<unknown, unknown[]> = (
+const useRetryPlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { retryInterval, retryCount }
 ) => {

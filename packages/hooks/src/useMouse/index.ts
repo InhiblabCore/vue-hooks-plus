@@ -3,7 +3,7 @@ import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 import { ref } from 'vue'
 
-export interface CursorState {
+export interface UseMouseCursorState {
   screenX: number
   screenY: number
   clientX: number
@@ -18,7 +18,7 @@ export interface CursorState {
   elementPosY: number
 }
 
-const initState: CursorState = {
+const initState: UseMouseCursorState = {
   screenX: NaN,
   screenY: NaN,
   clientX: NaN,

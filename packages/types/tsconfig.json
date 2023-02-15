@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist", //输出文件
+    "lib": ["esnext", "dom"]
+    // "baseUrl": "../hooks",
+    // "rootDir": "../hooks"
+  },
+  "include": ["../hooks/src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "lib", "es", "example", "test-utils/*"]
+}

@@ -1,30 +1,32 @@
 import { Ref, WatchSource } from 'vue'
 import { CachedData } from './utils/cache'
-import Fetch from './Fetch'
+import UseRequestFetch from './Fetch'
 
-export type Service<TData, TParams extends unknown[]> = (...args: TParams) => Promise<TData>
+export type UseRequestService<TData, TParams extends unknown[]> = (
+  ...args: TParams
+) => Promise<TData>
 
-export type Subscribe = () => void
+export type UseRequestSubscribe = () => void
 
-export interface FetchState<TData, TParams extends unknown[]> {
+export interface UseRequestFetchState<TData, TParams extends unknown[]> {
   loading: boolean
   params?: TParams
   data?: TData
   error?: Error | unknown
 }
 
-export interface PluginReturn<TData, TParams extends unknown[]> {
+export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
   onBefore?: (
     params: TParams,
   ) =>
     | ({
         stopNow?: boolean
         returnNow?: boolean
-      } & Partial<FetchState<TData, TParams>>)
+      } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
-    service: Service<TData, TParams>,
+    service: UseRequestService<TData, TParams>,
     params: TParams,
   ) => {
     servicePromise?: Promise<TData>
@@ -37,7 +39,7 @@ export interface PluginReturn<TData, TParams extends unknown[]> {
   onMutate?: (data: TData) => void
 }
 
-export interface BasicOptions<TData, TParams extends unknown[]> {
+export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
   /**
    * Init data.
    */
@@ -223,22 +225,24 @@ export interface BasicOptions<TData, TParams extends unknown[]> {
   retryInterval?: number
 }
 
-export type Options<TData, TParams extends unknown[], TPlugin> = {
-  [K in keyof BasicOptions<TData, TParams>]: BasicOptions<TData, TParams>[K]
+export type UseRequestOptions<TData, TParams extends unknown[], TPlugin> = {
+  [K in keyof UseRequestBasicOptions<TData, TParams>]: UseRequestBasicOptions<TData, TParams>[K]
 } &
   {
     [K in keyof TPlugin]: TPlugin[K]
   }
 
-export interface Plugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
-  (fetchInstance: Fetch<TData, TParams>, options: Options<TData, TParams, TPlugin>): PluginReturn<
-    TData,
-    TParams
-  >
-  onInit?: (options: Options<TData, TParams, TPlugin>) => Partial<FetchState<TData, TParams>>
+export interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
+  (
+    fetchInstance: UseRequestFetch<TData, TParams>,
+    options: UseRequestOptions<TData, TParams, TPlugin>,
+  ): UseRequestPluginReturn<TData, TParams>
+  onInit?: (
+    options: UseRequestOptions<TData, TParams, TPlugin>,
+  ) => Partial<UseRequestFetchState<TData, TParams>>
 }
 
-export interface Result<TData, TParams extends unknown[]> {
+export interface useRequestResult<TData, TParams extends unknown[]> {
   /**
    * Is the service being executed.
    */
@@ -262,32 +266,32 @@ export interface Result<TData, TParams extends unknown[]> {
   /**
    * Ignore the current promise response.
    */
-  cancel: Fetch<TData, TParams>['cancel']
+  cancel: UseRequestFetch<TData, TParams>['cancel']
 
   /**
    * Use the last params, call `run` again.
    */
-  refresh: Fetch<TData, TParams>['refresh']
+  refresh: UseRequestFetch<TData, TParams>['refresh']
 
   /**
    * Use the last params, call `runAsync` again.
    */
-  refreshAsync: Fetch<TData, TParams>['refreshAsync']
+  refreshAsync: UseRequestFetch<TData, TParams>['refreshAsync']
 
   /**
    * Manually trigger the execution of the service, and the parameters will be passed to the service.
    */
-  run: Fetch<TData, TParams>['run']
+  run: UseRequestFetch<TData, TParams>['run']
 
   /**
    * Automatic handling of exceptions, feedback through `onError`
    */
-  runAsync: Fetch<TData, TParams>['runAsync']
+  runAsync: UseRequestFetch<TData, TParams>['runAsync']
 
   /**
    * Mutate `data` directly
    */
-  mutate: Fetch<TData, TParams>['mutate']
+  mutate: UseRequestFetch<TData, TParams>['mutate']
 }
 
 export type Timeout = ReturnType<typeof setTimeout>

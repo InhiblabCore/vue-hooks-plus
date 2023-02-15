@@ -1,36 +1,35 @@
+import { ref, Ref } from 'vue'
+import { BasicTarget } from '../utils/domTarget'
+import { getTargetElement } from '../utils/domTarget'
+import useEffectWithTarget from '../utils/useEffectWithTarget'
 
-import { ref,Ref } from 'vue';
-import type { BasicTarget } from '../utils/domTarget';
-import { getTargetElement } from '../utils/domTarget';
-import useEffectWithTarget from '../utils/useEffectWithTarget';
+type Position = { left: number; top: number }
 
-type Position = { left: number; top: number };
-
-export type Target = BasicTarget<Element | Document>;
-export type ScrollListenController = (val: Position) => boolean;
+export type UseScrollTarget = BasicTarget<Element | Document>
+export type UseScrollListenController = (val: Position) => boolean
 
 function useScroll(
-  target?: Target,
-  shouldUpdate: ScrollListenController = () => true,
-):  Ref<Position | undefined> {
-  const position= ref<Position>();
+  target?: UseScrollTarget,
+  shouldUpdate: UseScrollListenController = () => true,
+): Ref<Position | undefined> {
+  const position = ref<Position>()
 
-  const shouldUpdateRef = ref(shouldUpdate);
+  const shouldUpdateRef = ref(shouldUpdate)
 
   useEffectWithTarget(
     () => {
-      const el = getTargetElement(target, document);
+      const el = getTargetElement(target, document)
       if (!el) {
-        return;
+        return
       }
       const updatePosition = () => {
-        let newPosition: Position;
+        let newPosition: Position
         if (el === document) {
           if (document.scrollingElement) {
             newPosition = {
               left: document.scrollingElement.scrollLeft,
               top: document.scrollingElement.scrollTop,
-            };
+            }
           } else {
             newPosition = {
               left: Math.max(
@@ -43,31 +42,31 @@ function useScroll(
                 document.documentElement.scrollLeft,
                 document.body.scrollLeft,
               ),
-            };
+            }
           }
         } else {
           newPosition = {
             left: (el as Element).scrollLeft,
             top: (el as Element).scrollTop,
-          };
+          }
         }
         if (shouldUpdateRef.value(newPosition)) {
-          position.value=newPosition
+          position.value = newPosition
         }
-      };
+      }
 
-      updatePosition();
+      updatePosition()
 
-      el.addEventListener('scroll', updatePosition);
+      el.addEventListener('scroll', updatePosition)
       return () => {
-        el.removeEventListener('scroll', updatePosition);
-      };
+        el.removeEventListener('scroll', updatePosition)
+      }
     },
     [],
     target,
-  );
+  )
 
-  return position;
+  return position
 }
 
-export default useScroll;
+export default useScroll

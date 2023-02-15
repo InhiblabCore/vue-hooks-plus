@@ -2,18 +2,18 @@ import { computed, Ref, watch, ref, reactive } from 'vue'
 import useSize from '../useSize'
 import { getTargetElement } from '../utils/domTarget'
 
-type TargetValue<T> = T | undefined | null
+export type UseVirtualListTargetValue<T> = T | undefined | null
 
 // TODO 准备重构
-export interface Options<T> {
-  wrapperTarget: Ref<TargetValue<HTMLElement>>
+export interface UseVirtualListOptions<T> {
+  wrapperTarget: Ref<UseVirtualListTargetValue<HTMLElement>>
   itemHeight: number | ((index: number, data: T) => number)
   overscan?: number
 }
 
-const useVirtualList = <T = any>(list: Ref<T[]>, options: Options<T>) => {
+const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<T>) => {
   // 外部容器ref实例
-  const containerTarget = ref<TargetValue<HTMLElement>>()
+  const containerTarget = ref<UseVirtualListTargetValue<HTMLElement>>()
 
   // 列表容器ref实例
   const { wrapperTarget, itemHeight, overscan = 5 } = options

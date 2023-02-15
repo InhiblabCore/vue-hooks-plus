@@ -37,7 +37,7 @@ useInterval(
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| immediate | Whether the function should be executed immediately on first execution | `boolean` | `false` |
+| immediate | Whether the function should be executed immediately on first execution. | `boolean` | `false` |
 
 ## Result
 

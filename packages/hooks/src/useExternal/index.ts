@@ -1,21 +1,32 @@
 import { Ref } from 'vue'
 import { watchEffect, ref, unref, computed } from 'vue'
 
-export interface Options {
+export interface UseExternalOptions {
+  /**
+   * The type of extarnal resources which need to load, support `js`/`css`, if no type, it will deduced according to path
+   */
   type?: 'js' | 'css'
+
+  /**
+   * Attributes supported by `script`
+   */
   js?: Partial<HTMLScriptElement>
+
+  /**
+   * Attributes supported by `link`
+   */
   css?: Partial<HTMLStyleElement>
 }
 // remove external when no used
 const EXTERNAL_USED_COUNT: Record<string, number> = {}
 
-export type Status = 'unset' | 'loading' | 'ready' | 'error'
+export type UseExternalStatus = 'unset' | 'loading' | 'ready' | 'error'
 
-interface loadResult {
+interface UseExternalLoadResult {
   ref: Element
-  status: Status
+  status: UseExternalStatus
 }
-const loadScript = (path: string, props = {}): loadResult => {
+const loadScript = (path: string, props = {}): UseExternalLoadResult => {
   const script = document.querySelector(`script[src="${path}"]`)
 
   if (!script) {
@@ -37,11 +48,11 @@ const loadScript = (path: string, props = {}): loadResult => {
   }
   return {
     ref: script,
-    status: (script.getAttribute('data-status') as Status) || 'ready',
+    status: (script.getAttribute('data-status') as UseExternalStatus) || 'ready',
   }
 }
 
-const loadCss = (path: string, props = {}): loadResult => {
+const loadCss = (path: string, props = {}): UseExternalLoadResult => {
   const css = document.querySelector(`link[href="${path}"]`)
   if (!css) {
     const newCss = document.createElement('link')
@@ -70,12 +81,15 @@ const loadCss = (path: string, props = {}): loadResult => {
 
   return {
     ref: css,
-    status: (css.getAttribute('data-status') as Status) || 'ready',
+    status: (css.getAttribute('data-status') as UseExternalStatus) || 'ready',
   }
 }
 
-export default function useExternal(path?: string | Ref<string>, options?: Options): Ref<Status> {
-  const status = ref<Status>(path ? 'loading' : 'unset')
+export default function useExternal(
+  path?: string | Ref<string>,
+  options?: UseExternalOptions,
+): Ref<UseExternalStatus> {
+  const status = ref<UseExternalStatus>(path ? 'loading' : 'unset')
   const hookRef = ref<Element>()
   const path_ = computed(() => unref(path))
   watchEffect(onInvalidate => {

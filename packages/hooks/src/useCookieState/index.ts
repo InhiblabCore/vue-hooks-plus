@@ -2,13 +2,13 @@ import Cookies from 'js-cookie'
 import { ref } from 'vue'
 import { isFunction } from '../utils/isFunction'
 
-export type State = string | undefined
+export type UseCookieStateType = string | undefined
 
-export interface Options extends Cookies.CookieAttributes {
-  defaultValue?: State | (() => State)
+export interface UseCookieStateOptions extends Cookies.CookieAttributes {
+  defaultValue?: UseCookieStateType | (() => UseCookieStateType)
 }
 
-function useCookieState(cookieKey: string, options: Options = {}) {
+function useCookieState(cookieKey: string, options: UseCookieStateOptions = {}) {
   const defaultValue = () => {
     const cookieValue = Cookies.get(cookieKey)
 
@@ -22,7 +22,7 @@ function useCookieState(cookieKey: string, options: Options = {}) {
   const state = ref(defaultValue())
 
   const updateState = (
-    newValue: State | ((prevState: State) => State),
+    newValue: UseCookieStateType | ((prevState: UseCookieStateType) => UseCookieStateType),
     newOptions: Cookies.CookieAttributes = {},
   ) => {
     // eslint-disable-next-line no-unused-vars

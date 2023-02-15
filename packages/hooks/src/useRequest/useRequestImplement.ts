@@ -1,12 +1,12 @@
 import { ref, reactive, toRefs, onMounted, onUnmounted, unref } from 'vue'
 
 import Fetch from './Fetch'
-import { Options, Plugin, Result, Service } from './types'
+import { UseRequestOptions, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
 
 function useRequestImplement<TData, TParams extends any[]>(
-  service: Service<TData, TParams>,
-  options: Options<TData, TParams, any> = {},
-  plugins: Plugin<TData, TParams>[] = [],
+  service: UseRequestService<TData, TParams>,
+  options: UseRequestOptions<TData, TParams, any> = {},
+  plugins: UseRequestPlugin<TData, TParams>[] = [],
 ) {
   // 读取配置
   const { initialData = undefined, manual = false, ready = true, ...rest } = options
@@ -81,7 +81,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     run: fetchInstance.run.bind(fetchInstance),
     runAsync: fetchInstance.runAsync.bind(fetchInstance),
     mutate: fetchInstance.mutate.bind(fetchInstance),
-  } as unknown) as Result<TData, TParams>
+  } as unknown) as useRequestResult<TData, TParams>
 }
 
 export default useRequestImplement

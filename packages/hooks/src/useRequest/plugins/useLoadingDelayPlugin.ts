@@ -1,7 +1,7 @@
 import { unref, ref } from "vue";
-import type { Plugin, Timeout } from "../types";
+import type { UseRequestPlugin, Timeout } from "../types";
 
-const useLoadingDelayPlugin: Plugin<unknown, unknown[]> = (
+const useLoadingDelayPlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { loadingDelay }
 ) => {

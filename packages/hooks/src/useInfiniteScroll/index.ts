@@ -4,11 +4,11 @@ import { useBoolean, useEventListener, useRequest } from "../index";
 import { getTargetElement } from "../utils/domTarget";
 
 import { getClientHeight, getScrollHeight, getScrollTop } from "../utils/rect";
-import type { Data, InfiniteScrollOptions, Service } from "./types";
+import type { UseInfiniteData, UseInfiniteScrollOptions, UseInfiniteService } from "./types";
 
-const useInfiniteScroll = <TData extends Data>(
-  service: Service<TData>,
-  options: InfiniteScrollOptions<TData> = {}
+const useInfiniteScroll = <TData extends UseInfiniteData>(
+  service: UseInfiniteService<TData>,
+  options: UseInfiniteScrollOptions<TData> = {}
 ) => {
   const {
     target,

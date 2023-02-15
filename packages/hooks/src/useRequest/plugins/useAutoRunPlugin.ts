@@ -1,8 +1,8 @@
 import { unref, ref, watch, watchEffect } from 'vue'
-import { FetchState, Plugin } from '../types'
+import { UseRequestFetchState, UseRequestPlugin } from '../types'
 
 // support refreshDeps & ready
-const useAutoRunPlugin: Plugin<unknown, unknown[]> = (
+const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { manual, ready = true, refreshDeps = [], refreshDepsAction },
 ) => {
@@ -54,7 +54,7 @@ const useAutoRunPlugin: Plugin<unknown, unknown[]> = (
 
 useAutoRunPlugin.onInit = ({ initialData, ready = true, manual }) => {
   return {
-    loading: (!manual && unref(ready)) as FetchState<any, any[]>['loading'],
+    loading: (!manual && unref(ready)) as UseRequestFetchState<any, any[]>['loading'],
   }
 }
 

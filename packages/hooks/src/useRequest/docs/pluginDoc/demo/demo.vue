@@ -6,7 +6,7 @@
 <script lang="ts" setup>
   import { useRequest } from 'vue-hooks-plus'
 
-  import { Plugin } from '../../../types'
+  import { UseRequestPlugin } from '../../../types'
 
   interface FormatterDataType {
     name: string
@@ -17,7 +17,7 @@
     (data?: FormatterDataType): { name: string; age: number }
   }
 
-  const useFormatterPlugin: Plugin<
+  const useFormatterPlugin: UseRequestPlugin<
     FormatterDataType,
     [],
     {

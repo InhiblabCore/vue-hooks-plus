@@ -8,7 +8,7 @@ export enum ReadyState {
   Closed = 3,
 }
 
-export interface Options {
+export interface UseWebSocketOptions {
   reconnectLimit?: number
   reconnectInterval?: number
   manual?: Ref<boolean> | boolean
@@ -20,7 +20,7 @@ export interface Options {
   protocols?: string | string[]
 }
 
-export interface Result {
+export interface UseWebSocketResult {
   latestMessage?: Ref<WebSocketEventMap['message']>
   sendMessage?: WebSocket['send']
   disconnect?: () => void
@@ -36,8 +36,8 @@ export interface Result {
  */
 export default function useWebSocket(
   socketUrl: Ref<string> | string,
-  options: Options = {},
-): Result {
+  options: UseWebSocketOptions = {},
+): UseWebSocketResult {
   const {
     reconnectLimit = 3,
     reconnectInterval = 3 * 1000,
@@ -163,7 +163,7 @@ export default function useWebSocket(
   })
 
   return {
-    latestMessage: latestMessage as Result['latestMessage'],
+    latestMessage: latestMessage as UseWebSocketResult['latestMessage'],
     sendMessage,
     connect,
     disconnect,

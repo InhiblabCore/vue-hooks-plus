@@ -40,6 +40,7 @@ const [
 | setAll | 生成一个新的 Map 对象 | `(newMap: Iterable<[any, any]>) => void` |
 | remove | 移除元素              | `(key: any) => void`                     |
 | reset  | 重置为默认值          | `() => void`                             |
+| clear  | 清空 Map 对象         | `() => void`                             |
 
 ## Params
 

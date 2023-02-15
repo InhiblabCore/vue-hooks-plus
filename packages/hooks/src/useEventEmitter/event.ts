@@ -16,6 +16,11 @@ class EventEmitter<T> {
     this.clear()
   }
 
+  /**
+   * Subscribe to the event
+   * @param event string
+   * @param listener Subscription<T>
+   */
   useSubscription = (event: string, listener?: Subscription<T>) => {
     const callbackRef = ref<Subscription<T>>()
     watchEffect(onInvalidate => {
@@ -37,6 +42,11 @@ class EventEmitter<T> {
     })
   }
 
+  /**
+   * Send an event notification
+   * @param event string | number
+   * @param args T extends any[] ? any[] : any
+   */
   emit = (event: string | number, ...args: T extends any[] ? any[] : any) => {
     if (typeof event === 'string' || typeof event === 'number') {
       const subscriptionValuesCallback = this.subscriptions.get(event)

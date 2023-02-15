@@ -1,12 +1,17 @@
 import { Ref, unref, watchEffect } from 'vue'
-import { FetchState, Options, PluginReturn, Service } from './types'
+import {
+  UseRequestFetchState,
+  UseRequestOptions,
+  UseRequestPluginReturn,
+  UseRequestService,
+} from './types'
 
 export default class Fetch<TData, TParams extends unknown[] = any> {
-  pluginImpls: PluginReturn<TData, TParams>[] | undefined
+  pluginImpls: UseRequestPluginReturn<TData, TParams>[] | undefined
 
   count = 0
 
-  state: FetchState<TData, TParams> = {
+  state: UseRequestFetchState<TData, TParams> = {
     loading: false,
     params: undefined,
     data: undefined,
@@ -14,10 +19,10 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
   }
 
   constructor(
-    public serviceRef: Ref<Service<TData, TParams>>,
-    public options: Options<TData, TParams, any>,
-    public setUpdateData: (s: any, key?: keyof FetchState<TData, TParams>) => void,
-    public initState: Partial<FetchState<TData, TParams>> = {},
+    public serviceRef: Ref<UseRequestService<TData, TParams>>,
+    public options: UseRequestOptions<TData, TParams, any>,
+    public setUpdateData: (s: any, key?: keyof UseRequestFetchState<TData, TParams>) => void,
+    public initState: Partial<UseRequestFetchState<TData, TParams>> = {},
   ) {
     this.state = {
       ...this.state,
@@ -27,7 +32,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
   }
 
   // 设置state
-  setState(s: Partial<FetchState<TData, TParams>> = {}) {
+  setState(s: Partial<UseRequestFetchState<TData, TParams>> = {}) {
     this.state = {
       ...this.state,
       ...s,
@@ -42,21 +47,23 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
    */
   setData(
     data: any,
-    key?: keyof FetchState<TData, TParams> | (keyof FetchState<TData, TParams>)[],
+    key?:
+      | keyof UseRequestFetchState<TData, TParams>
+      | (keyof UseRequestFetchState<TData, TParams>)[],
   ) {
     if (key instanceof Array) {
       key.forEach(k => {
-        this.state[k as keyof FetchState<TData, TParams>] = data
+        this.state[k as keyof UseRequestFetchState<TData, TParams>] = data
         this.setUpdateData(data, k)
       })
     } else {
-      this.state[key as keyof FetchState<TData, TParams>] = data
+      this.state[key as keyof UseRequestFetchState<TData, TParams>] = data
       this.setUpdateData(data, key)
     }
   }
 
   // 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
-  runPluginHandler(event: keyof PluginReturn<TData, TParams>, ...rest: any[]) {
+  runPluginHandler(event: keyof UseRequestPluginReturn<TData, TParams>, ...rest: any[]) {
     // @ts-ignore
     const r = (this.pluginImpls?.map(i => i[event]?.(...rest)) ?? [])?.filter(Boolean)
     // @ts-ignore
