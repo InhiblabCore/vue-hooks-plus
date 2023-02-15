@@ -1,4 +1,4 @@
-import { computed, ref, WatchSource } from 'vue-demi'
+import { computed, ref, WatchSource } from 'vue'
 import { isEqual } from 'lodash'
 
 export type EffectCallback = () => void

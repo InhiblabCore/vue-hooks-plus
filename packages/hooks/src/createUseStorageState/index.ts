@@ -1,5 +1,5 @@
 /* eslint-disable no-empty */
-import { unref, ref, Ref, UnwrapRef, watchEffect } from 'vue-demi'
+import { unref, ref, Ref, UnwrapRef, watchEffect } from 'vue'
 
 export interface IFuncUpdater<T> {
   (previousState?: T): T

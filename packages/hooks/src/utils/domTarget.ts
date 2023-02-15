@@ -1,5 +1,5 @@
-import { isRef } from 'vue-demi';
-import type { Ref } from 'vue-demi';
+import { isRef } from 'vue';
+import type { Ref } from 'vue';
 import isBrowser from './isBrowser';
 
 type TargetValue<T> = T | undefined | null;

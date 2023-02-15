@@ -1,4 +1,4 @@
-import { Ref } from 'vue-demi'
+import { Ref } from 'vue'
 import { useBoolean } from '../index'
 import useEventListener from '../useEventListener'
 import { BasicTarget } from '../utils/domTarget'

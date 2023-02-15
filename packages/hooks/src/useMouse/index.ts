@@ -1,7 +1,7 @@
 import useEventListener from '../useEventListener'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
-import { ref } from 'vue-demi'
+import { ref } from 'vue'
 
 export interface UseMouseCursorState {
   screenX: number

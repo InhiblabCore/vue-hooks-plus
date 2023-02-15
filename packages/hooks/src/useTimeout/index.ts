@@ -1,4 +1,4 @@
-import { watchEffect, Ref, unref } from 'vue-demi'
+import { watchEffect, Ref, unref } from 'vue'
 
 function useTimeout(
   fn: () => void,

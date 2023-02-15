@@ -1,4 +1,4 @@
-import { watchEffect, computed, ref } from 'vue-demi'
+import { watchEffect, computed, ref } from 'vue'
 import { EventEmitter, eventEmitterOverall } from './event'
 
 export type UseEventEmitterType<T = void> = EventEmitter<T> | typeof eventEmitterOverall

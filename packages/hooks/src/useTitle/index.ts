@@ -1,4 +1,4 @@
-import { ref, Ref, onUnmounted, onMounted, watch, isRef, unref } from 'vue-demi'
+import { ref, Ref, onUnmounted, onMounted, watch, isRef, unref } from 'vue'
 
 import isBrowser from '../utils/isBrowser'
 

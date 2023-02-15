@@ -1,4 +1,4 @@
-import { Ref, ref, watch } from 'vue-demi'
+import { Ref, ref, watch } from 'vue'
 import useThrottleFn from '../useThrottleFn'
 
 export interface UseThrottleOptions {

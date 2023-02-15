@@ -1,4 +1,4 @@
-import { watchEffect, computed, Ref, unref } from 'vue-demi'
+import { watchEffect, computed, Ref, unref } from 'vue'
 
 const UseFaviconImgTypeMap = {
   SVG: 'image/svg+xml',

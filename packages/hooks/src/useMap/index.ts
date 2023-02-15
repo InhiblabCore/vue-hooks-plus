@@ -1,4 +1,4 @@
-import { ref, Ref, markRaw } from 'vue-demi'
+import { ref, Ref, markRaw } from 'vue'
 
 type UseMapValue<K, T> = Iterable<readonly [K, T]>
 

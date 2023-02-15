@@ -53,8 +53,10 @@
 		"marked": "^4.0.17",
 		"qs": "^6.11.0",
 		"query-string": "^7.1.1",
-		"screenfull": "^5.0.0",
-		"vue-demi": "^0.13.11"
+		"screenfull": "^5.0.0"
+	},
+  "peerDependencies": {
+		"vue": "^3.2.25"
 	},
 	"repository": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",

@@ -1,4 +1,4 @@
-import { createApp, defineComponent, ref, UnwrapRef, watch, watchEffect } from 'vue-demi'
+import { createApp, defineComponent, ref, UnwrapRef, watch, watchEffect } from 'vue'
 import { UseRequestService, UseRequestOptions } from '../useRequest/types'
 import useRequest from '../useRequest'
 

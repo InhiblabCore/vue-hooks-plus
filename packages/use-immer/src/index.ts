@@ -1,5 +1,5 @@
 import produce, { Draft, freeze } from 'immer'
-import { ShallowRef, shallowRef } from 'vue-demi'
+import { ShallowRef, shallowRef } from 'vue'
 
 export type DraftFunction<S> = (draft: Draft<S>) => void
 export type Updater<S> = (arg: S | DraftFunction<S>) => void

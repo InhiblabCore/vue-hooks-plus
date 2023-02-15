@@ -126,7 +126,6 @@ importers:
       qs: ^6.11.0
       query-string: ^7.1.1
       screenfull: ^5.0.0
-      vue-demi: ^0.13.11
     dependencies:
       '@types/js-cookie': 3.0.2
       intersection-observer: 0.12.2
@@ -136,7 +135,6 @@ importers:
       qs: 6.11.0
       query-string: 7.1.3
       screenfull: 5.2.0
-      vue-demi: 0.13.11
 
   packages/resolvers:
     specifiers:
@@ -5547,19 +5545,6 @@ packages:
   /vscode-textmate/6.0.0:
     resolution: {integrity: sha512-gu73tuZfJgu+mvCSy4UZwd2JXykjK9zAZsfmDeut5dx/1a7FeTk0XwJsSuqQn+cuMCGVbIBfl+s53X4T19DnzQ==}
     dev: true
-
-  /vue-demi/0.13.11:
-    resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}
-    engines: {node: '>=12'}
-    hasBin: true
-    requiresBuild: true
-    peerDependencies:
-      '@vue/composition-api': ^1.0.0-rc.1
-      vue: ^3.0.0-0 || ^2.6.0
-    peerDependenciesMeta:
-      '@vue/composition-api':
-        optional: true
-    dev: false
 
   /vue-demi/0.13.11_vue@3.2.45:
     resolution: {integrity: sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==}

@@ -1,5 +1,5 @@
-import { Ref } from 'vue-demi'
-import { watchEffect, ref, unref, computed } from 'vue-demi'
+import { Ref } from 'vue'
+import { watchEffect, ref, unref, computed } from 'vue'
 
 export interface UseExternalOptions {
   /**

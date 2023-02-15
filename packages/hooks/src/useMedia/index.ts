@@ -1,4 +1,4 @@
-import { watchEffect, ref } from 'vue-demi'
+import { watchEffect, ref } from 'vue'
 
 export default function useMedia(
   /**
