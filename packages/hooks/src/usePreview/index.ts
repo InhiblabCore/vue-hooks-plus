@@ -1,5 +1,5 @@
 import { marked } from 'marked'
-import { Ref, computed, unref, ref, watchEffect, createApp, VueElement } from 'vue-demi'
+import { Ref, computed, unref, ref, watchEffect, createApp, VueElement } from 'vue'
 
 export default function usePreview(
   md: Parameters<typeof createApp> | Ref<string> | string | VueElement,

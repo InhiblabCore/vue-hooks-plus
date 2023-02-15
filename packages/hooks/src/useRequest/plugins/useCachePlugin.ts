@@ -1,4 +1,4 @@
-import { ref, watchEffect, onUnmounted } from 'vue-demi'
+import { ref, watchEffect, onUnmounted } from 'vue'
 import { UseRequestPlugin } from '../types'
 import * as cache from '../utils/cache'
 import { CachedData } from '../utils/cache'

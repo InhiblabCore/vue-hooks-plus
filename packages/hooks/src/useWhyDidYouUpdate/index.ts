@@ -1,4 +1,4 @@
-import { computed, watch } from 'vue-demi'
+import { computed, watch } from 'vue'
 
 export type IProps = Record<string, any>
 

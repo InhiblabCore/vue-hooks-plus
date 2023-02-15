@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { watchEffect, ref } from 'vue-demi'
+import { watchEffect, ref } from 'vue'
 
 export interface UseNetworkState {
   since?: Date

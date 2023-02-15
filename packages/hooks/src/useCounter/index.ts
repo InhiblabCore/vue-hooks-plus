@@ -1,4 +1,4 @@
-import { Ref, ref } from 'vue-demi'
+import { Ref, ref } from 'vue'
 import { isNumber } from '../utils'
 
 export interface UseCounterOptions {

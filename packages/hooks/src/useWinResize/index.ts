@@ -1,4 +1,4 @@
-import { onMounted, onBeforeUnmount, nextTick } from 'vue-demi'
+import { onMounted, onBeforeUnmount, nextTick } from 'vue'
 
 export default function useWinResize(Action = () => {}) {
   const fn = () => {

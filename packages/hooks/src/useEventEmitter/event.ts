@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { ref, watchEffect } from 'vue-demi'
+import { ref, watchEffect } from 'vue'
 
 type SubscriptionParams<T = any> = {
   params: T

@@ -1,4 +1,4 @@
-import { Ref, watch } from 'vue-demi'
+import { Ref, watch } from 'vue'
 
 export type UseTrackedEffect = (
   changes?: number[],

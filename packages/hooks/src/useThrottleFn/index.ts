@@ -1,5 +1,5 @@
 import throttle from 'lodash/throttle'
-import { onUnmounted, ref, computed } from 'vue-demi'
+import { onUnmounted, ref, computed } from 'vue'
 import { UseThrottleOptions } from '../useThrottle'
 
 type noop = (...args: any) => any

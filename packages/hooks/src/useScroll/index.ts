@@ -1,4 +1,4 @@
-import { ref, Ref } from 'vue-demi'
+import { ref, Ref } from 'vue'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 import useEffectWithTarget from '../utils/useEffectWithTarget'

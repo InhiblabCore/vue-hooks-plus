@@ -1,4 +1,4 @@
-import { ref } from 'vue-demi'
+import { ref } from 'vue'
 
 export default function useUpdate() {
   const update = ref({})
