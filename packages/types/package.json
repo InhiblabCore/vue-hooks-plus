@@ -1,0 +1,25 @@
+{
+  "name": "@vue-hooks-plus/types",
+  "version": "1.6.0-alpha.3",
+  "description": "",
+  "files": [
+    "types",
+    "package.json",
+    "README.md"
+  ],
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [
+    "vue3",
+    "web worker"
+  ],
+  "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+  "homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+  "author": "NelsonYong",
+  "license": "MIT",
+  "dependencies": {
+   	"js-cookie": "^3.0.1"
+  }
+}
