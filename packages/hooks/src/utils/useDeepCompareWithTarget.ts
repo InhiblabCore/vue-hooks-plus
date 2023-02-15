@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 import isEqual from 'lodash/isEqual'
 import { EffectCallback } from './createEffectWithTarget'
 import { DependencyList } from './depsAreSame'

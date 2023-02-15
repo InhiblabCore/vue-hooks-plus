@@ -1,4 +1,4 @@
-import { ComputedRef, Ref, ref, watchEffect } from 'vue'
+import { ComputedRef, Ref, ref, watchEffect } from 'vue-demi'
 
 export type UsePreviousShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean
 const defaultShouldUpdate = <T>(a?: T, b?: T) => !Object.is(a, b)

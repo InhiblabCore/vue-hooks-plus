@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { watch, ref, Ref, onUnmounted, unref } from 'vue'
+import { watch, ref, Ref, onUnmounted, unref } from 'vue-demi'
 
 export enum ReadyState {
   Connecting = 0,

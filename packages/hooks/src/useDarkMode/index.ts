@@ -1,4 +1,4 @@
-import { watchEffect, computed, ComputedRef } from 'vue'
+import { watchEffect, computed, ComputedRef } from 'vue-demi'
 import useLocalStorageState from '../useLocalStorageState'
 
 import useMedia from '../useMedia'

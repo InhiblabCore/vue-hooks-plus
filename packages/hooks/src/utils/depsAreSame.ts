@@ -1,4 +1,4 @@
-import { WatchSource } from 'vue'
+import { WatchSource } from 'vue-demi'
 
 export type DependencyList = WatchSource | any[] | any
 

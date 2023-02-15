@@ -1,4 +1,4 @@
-import { computed, Ref, ref, UnwrapRef } from 'vue'
+import { computed, Ref, ref, UnwrapRef } from 'vue-demi'
 
 export interface UseToggleActions<T> {
   setLeft: () => void

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { computed, ref, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue-demi'
 import useDeepCompareEffect from './hook/useDeepCompareWithTarget'
 import createWorkerBlobUrl from './lib/createWorkerBlobUrl'
 import WORKER_STATUS from './lib/status'

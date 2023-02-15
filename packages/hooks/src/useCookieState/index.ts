@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 import { isFunction } from '../utils/isFunction'
 
 export type UseCookieStateType = string | undefined

@@ -1,4 +1,4 @@
-import { onMounted, reactive, toRefs, Ref } from 'vue'
+import { onMounted, reactive, toRefs, Ref } from 'vue-demi'
 import useWinResize from '../useWinResize'
 
 import { BasicTarget, getTargetElement } from '../utils/domTarget'

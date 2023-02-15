@@ -1,4 +1,4 @@
-import { onMounted, onBeforeUnmount, nextTick } from 'vue';
+import { onMounted, onBeforeUnmount, nextTick } from 'vue-demi'
 
 export default function useWinResize(Action = () => {}) {
   const fn = () => {
@@ -6,14 +6,14 @@ export default function useWinResize(Action = () => {}) {
      * 延迟更新重绘等操作
      */
     nextTick(() => {
-      Action();
-    });
-  };
+      Action()
+    })
+  }
   onMounted(() => {
-    window.addEventListener('resize', fn, false);
-  });
+    window.addEventListener('resize', fn, false)
+  })
   onBeforeUnmount(() => {
-    window.removeEventListener('resize', fn);
-  });
-  return null;
+    window.removeEventListener('resize', fn)
+  })
+  return null
 }

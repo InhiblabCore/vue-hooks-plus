@@ -7,7 +7,7 @@
 		"lib",
 		"es",
 		"LICENSE",
-    "meta-data.json",
+		"meta-data.json",
 		"package.json",
 		"README.md"
 	],
@@ -24,8 +24,8 @@
 		"initial": "initial-scan .docs",
 		"docs:dev": "vhp-vitepress dev .docs --host",
 		"docs:build": "vhp-vitepress build .docs",
-    "docs:build-github": "cross-env BASE_URL=/docs/hooks FLOW=github vhp-vitepress build .docs",
-    "docs:build-gitee": "cross-env BASE_URL=/docs/hooks FLOW=gitee vhp-vitepress build .docs",
+		"docs:build-github": "cross-env BASE_URL=/docs/hooks FLOW=github vhp-vitepress build .docs",
+		"docs:build-gitee": "cross-env BASE_URL=/docs/hooks FLOW=gitee vhp-vitepress build .docs",
 		"docs:serve": "vitepress serve .docs --host",
 		"clean": "rimraf dist lib es types",
 		"build": "npm run clean  && vue-tsc --noEmit && vite build",
@@ -36,14 +36,15 @@
 		"vue": "^3.2.25"
 	},
 	"dependencies": {
-    "@types/js-cookie": "^3.0.1",
+		"@types/js-cookie": "^3.0.1",
 		"intersection-observer": "^0.12.2",
 		"js-cookie": "^3.0.1",
 		"lodash": "^4.17.21",
 		"marked": "^4.0.17",
 		"qs": "^6.11.0",
 		"query-string": "^7.1.1",
-		"screenfull": "^5.0.0"
+		"screenfull": "^5.0.0",
+		"vue-demi": "^0.13.11"
 	},
 	"repository": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",

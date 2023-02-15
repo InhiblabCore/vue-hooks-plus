@@ -1,4 +1,4 @@
-import { Ref, unref, watchEffect } from 'vue'
+import { Ref, unref, watchEffect } from 'vue-demi'
 import {
   UseRequestFetchState,
   UseRequestOptions,

@@ -1,4 +1,4 @@
-import { ref, reactive, toRefs, onMounted, onUnmounted, unref } from 'vue'
+import { ref, reactive, toRefs, onMounted, onUnmounted, unref } from 'vue-demi'
 
 import Fetch from './Fetch'
 import { UseRequestOptions, UseRequestPlugin, useRequestResult, UseRequestService } from './types'

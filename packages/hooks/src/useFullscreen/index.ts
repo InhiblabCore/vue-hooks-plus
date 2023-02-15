@@ -1,5 +1,5 @@
 import screenfull from 'screenfull'
-import { onUnmounted, ref } from 'vue'
+import { onUnmounted, ref } from 'vue-demi'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 

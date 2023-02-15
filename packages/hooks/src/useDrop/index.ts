@@ -1,7 +1,7 @@
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 import useEffectWithTarget from '../utils/useEffectWithTarget'
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 
 export interface UseDropOptions {
   /**

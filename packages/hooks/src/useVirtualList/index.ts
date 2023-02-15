@@ -1,4 +1,4 @@
-import { computed, Ref, watch, ref, reactive } from 'vue'
+import { computed, Ref, watch, ref, reactive } from 'vue-demi'
 import useSize from '../useSize'
 import { getTargetElement } from '../utils/domTarget'
 

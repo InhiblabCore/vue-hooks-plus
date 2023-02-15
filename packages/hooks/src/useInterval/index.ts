@@ -1,4 +1,4 @@
-import { watchEffect, ref, Ref, isRef, unref } from 'vue'
+import { watchEffect, ref, Ref, isRef, unref } from 'vue-demi'
 
 function useInterval(
   /**

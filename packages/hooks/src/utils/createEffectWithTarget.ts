@@ -1,4 +1,4 @@
-import { onUnmounted, ref, watchEffect, WatchSource } from 'vue'
+import { onUnmounted, ref, watchEffect, WatchSource } from 'vue-demi'
 import depsAreSame, { DependencyList } from './depsAreSame'
 import { BasicTarget } from './domTarget'
 import { getTargetElement } from './domTarget'

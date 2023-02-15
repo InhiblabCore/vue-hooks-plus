@@ -1,4 +1,4 @@
-import { Ref, WatchSource } from 'vue'
+import { Ref, WatchSource } from 'vue-demi'
 import { CachedData } from './utils/cache'
 import UseRequestFetch from './Fetch'
 

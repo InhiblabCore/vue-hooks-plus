@@ -1,5 +1,5 @@
 import qs from 'qs'
-import { Ref, ref, watch } from 'vue'
+import { Ref, ref, watch } from 'vue-demi'
 import { useLocalStorageState } from '../index'
 import { isFunction } from '../utils'
 

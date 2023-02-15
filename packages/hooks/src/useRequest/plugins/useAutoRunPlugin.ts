@@ -1,4 +1,4 @@
-import { unref, ref, watch, watchEffect } from 'vue'
+import { unref, ref, watch, watchEffect } from 'vue-demi'
 import { UseRequestFetchState, UseRequestPlugin } from '../types'
 
 // support refreshDeps & ready

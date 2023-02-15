@@ -1,4 +1,4 @@
-import { computed, Ref, ComputedRef, unref } from 'vue'
+import { computed, Ref, ComputedRef, unref } from 'vue-demi'
 
 function useFormatResult<TData, FData>(
   data: TData | Ref<TData>,

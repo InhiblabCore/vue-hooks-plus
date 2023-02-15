@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref } from 'vue-demi'
 import { isFunction, isNumber, isString } from 'lodash'
 import { BasicTarget, getTargetElement } from '../utils/domTarget'
 import useDeepCompareEffectWithTarget from '../utils/useDeepCompareWithTarget'

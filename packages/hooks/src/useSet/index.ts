@@ -1,4 +1,4 @@
-import { ref, Ref, markRaw } from 'vue'
+import { ref, Ref, markRaw } from 'vue-demi'
 
 interface UseSetActions<T> {
   add: (value: T) => void
