@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { watchEffect, ref } from 'vue'
 
-export interface NetworkState {
+export interface UseNetworkState {
   since?: Date
   online?: boolean
   rtt?: number
@@ -24,7 +24,7 @@ function getConnection() {
   return nav.connection || nav.mozConnection || nav.webkitConnection
 }
 
-function getConnectionProperty(): NetworkState {
+function getConnectionProperty(): UseNetworkState {
   const c = getConnection()
   if (!c) return {}
   return {
@@ -37,7 +37,7 @@ function getConnectionProperty(): NetworkState {
   }
 }
 
-function useNetwork(): NetworkState {
+function useNetwork(): UseNetworkState {
   const state = ref({
     since: undefined,
     online: navigator?.onLine,

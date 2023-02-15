@@ -1,9 +1,9 @@
 import { ref, watchEffect, onUnmounted, unref } from "vue";
-import type { Plugin } from "../types";
+import type { UseRequestPlugin } from "../types";
 import limit from "../utils/limit";
 import subscribeFocus from "../utils/subscribeFocus";
 
-const useRefreshOnWindowFocusPlugin: Plugin<unknown, unknown[]> = (
+const useRefreshOnWindowFocusPlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { refreshOnWindowFocus, focusTimespan = 5000 }
 ) => {

@@ -1,5 +1,5 @@
 import { createApp, defineComponent, ref, UnwrapRef, watch, watchEffect } from 'vue'
-import { Service, Options } from '../useRequest/types'
+import { UseRequestService, UseRequestOptions } from '../useRequest/types'
 import useRequest from '../useRequest'
 
 // vue instance
@@ -34,8 +34,8 @@ function keyIsStringOrNumber(value: unknown): value is string | number {
 }
 
 function useFetchs<TData, TParams>(
-  service: Service<TData, ParamsType<TParams>>,
-  options: Options<TData, ParamsType<TParams>, any> & {
+  service: UseRequestService<TData, ParamsType<TParams>>,
+  options: UseRequestOptions<TData, ParamsType<TParams>, any> & {
     manual: true
   },
   self: {

@@ -1,51 +1,61 @@
-import 'intersection-observer';
-import { ref } from 'vue';
-import type { BasicTarget } from '../utils/domTarget';
-import { getTargetElement } from '../utils/domTarget';
-import useEffectWithTarget from '../utils/useEffectWithTarget';
+import 'intersection-observer'
+import { ref } from 'vue'
+import { BasicTarget } from '../utils/domTarget'
+import { getTargetElement } from '../utils/domTarget'
+import useEffectWithTarget from '../utils/useEffectWithTarget'
 
-export interface Options {
-  rootMargin?: string;
-  threshold?: number | number[];
-  root?: BasicTarget<Element>;
+export interface UseInViewportOptions {
+  /**
+   * Margin around the root
+   */
+  rootMargin?: string
+
+  /**
+   * Either a single number or an array of numbers which indicate at what percentage of the target's visibility the ratio should be executed
+   */
+  threshold?: number | number[]
+
+  /**
+   * The element that is used as the viewport for checking visibility of the target. Must be the ancestor of the target. Defaults to the browser viewport if not specified or if null.
+   */
+  root?: BasicTarget<Element>
 }
 
-function useInViewport(target: BasicTarget, options?: Options) {
-  const state = ref<boolean>();
-  const ratio = ref<number>();
+function useInViewport(target: BasicTarget, options?: UseInViewportOptions) {
+  const state = ref<boolean>()
+  const ratio = ref<number>()
 
   useEffectWithTarget(
     () => {
-      const el = getTargetElement(target);
+      const el = getTargetElement(target)
       if (!el) {
-        return;
+        return
       }
 
       const observer = new IntersectionObserver(
-        (entries) => {
+        entries => {
           for (const entry of entries) {
             state.value = entry.isIntersecting
             ratio.value = entry.intersectionRatio
-            
           }
         },
         {
           ...options,
           root: getTargetElement(options?.root),
         },
-      );
+      )
 
-      observer.observe(el);
+      observer.observe(el)
 
       return () => {
-        observer.disconnect();
-      };
+        observer.disconnect()
+      }
     },
     [],
     target,
-  );
+  )
 
-  return [state, ratio] as const;
+  return [state, ratio] as const
 }
 
-export default useInViewport;
+export default useInViewport

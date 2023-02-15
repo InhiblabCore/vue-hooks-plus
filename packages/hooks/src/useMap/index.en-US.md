@@ -40,6 +40,7 @@ const [
 | setAll   | Set a new Map    | `(newMap: Iterable<[any, any]>) => void` |
 | remove   | Remove key       | `(key: any) => void`                     |
 | reset    | Reset to default | `() => void`                             |
+| clear    | clear Map        | `() => void`                             |
 
 ## Params
 

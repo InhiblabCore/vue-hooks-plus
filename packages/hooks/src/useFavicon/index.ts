@@ -1,13 +1,13 @@
 import { watchEffect, computed, Ref, unref } from 'vue'
 
-const ImgTypeMap = {
+const UseFaviconImgTypeMap = {
   SVG: 'image/svg+xml',
   ICO: 'image/x-icon',
   GIF: 'image/gif',
   PNG: 'image/png',
 }
 
-type ImgTypes = keyof typeof ImgTypeMap
+type UseFaviconImgTypes = keyof typeof UseFaviconImgTypeMap
 
 export default function useFavicon(href?: string | Ref<string | undefined>) {
   const _href = computed(() => unref(href))
@@ -15,12 +15,12 @@ export default function useFavicon(href?: string | Ref<string | undefined>) {
     if (!_href.value) return
 
     const cutUrl = _href.value?.split('.')
-    const imgSuffix = cutUrl[cutUrl.length - 1].toLocaleUpperCase() as ImgTypes
+    const imgSuffix = cutUrl[cutUrl.length - 1].toLocaleUpperCase() as UseFaviconImgTypes
 
     const link: HTMLLinkElement =
       document.querySelector("link[rel*='icon']") || document.createElement('link')
 
-    link.type = ImgTypeMap[imgSuffix]
+    link.type = UseFaviconImgTypeMap[imgSuffix]
     link.href = _href.value
     link.rel = 'shortcut icon'
 

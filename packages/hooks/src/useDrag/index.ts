@@ -3,13 +3,24 @@ import type { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 import useEffectWithTarget from '../utils/useEffectWithTarget'
 
-export interface Options {
+export interface UseDragOptions {
 	draggable?: boolean
+  /**
+   *  On drag start callback
+   * @param event DragEvent
+   * @returns void
+   */
 	onDragStart?: (event: DragEvent) => void
+
+  /**
+   *  On drag end callback
+   * @param event DragEvent
+   * @returns void
+   */
 	onDragEnd?: (event: DragEvent) => void
 }
 
-const useDrag = <T>(data: T, target: BasicTarget, options: Options = {}) => {
+const useDrag = <T>(data: T, target: BasicTarget, options: UseDragOptions = {}) => {
 	const optionsRef = ref(options)
 
 	useEffectWithTarget(

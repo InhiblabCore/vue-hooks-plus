@@ -1,11 +1,11 @@
 import { ComputedRef, Ref, ref, watchEffect } from 'vue'
 
-export type ShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean
+export type UsePreviousShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean
 const defaultShouldUpdate = <T>(a?: T, b?: T) => !Object.is(a, b)
 
 function usePrevious<T>(
   state: Ref<T> | ComputedRef<T>,
-  shouldUpdate: ShouldUpdateFunc<T> = defaultShouldUpdate,
+  shouldUpdate: UsePreviousShouldUpdateFunc<T> = defaultShouldUpdate,
 ) {
   const prevRef = ref<T>()
   const curRef = ref<T>()

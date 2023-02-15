@@ -1,9 +1,9 @@
 import { unref, ref, watchEffect } from "vue";
-import type { Plugin, Interval } from "../types";
+import type { UseRequestPlugin, Interval } from "../types";
 import isDocumentVisible from "../utils/isDocumentVisible";
 import subscribeReVisible from "../utils/subscribeReVisible";
 
-const usePollingPlugin: Plugin<unknown, unknown[]> = (
+const usePollingPlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { pollingInterval, pollingWhenHidden = true, pollingErrorRetryCount = -1 }
 ) => {

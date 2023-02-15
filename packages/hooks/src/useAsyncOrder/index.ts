@@ -3,7 +3,7 @@ import { useTimeout } from '../index'
 export type Resolve = (value: any) => void
 export type InterruptibleRejectType = (error: any) => void
 
-export type AsyncOrder = {
+export type UseAsyncOrderType = {
   task: ((resolve?: Resolve, reject?: InterruptibleRejectType, index?: number) => void)[]
   option?: {
     /**
@@ -33,7 +33,7 @@ export type AsyncOrder = {
   }
 }
 
-export default function useAsyncOrder({ task, option }: AsyncOrder) {
+export default function useAsyncOrder({ task, option }: UseAsyncOrderType) {
   const { delay = 0, onError, onReady, onSuccess } = option ?? {}
 
   if (!(task instanceof Array)) {

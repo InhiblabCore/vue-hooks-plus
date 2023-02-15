@@ -1,38 +1,58 @@
-import { ref, Ref, markRaw } from "vue";
+import { ref, Ref, markRaw } from 'vue'
 
-interface Actions<T> {
-  add: (value: T) => void;
-  remove: (value: T) => void;
-  has: (value: T) => boolean;
-  clear: () => void;
-  reset: () => void;
+interface UseSetActions<T> {
+  add: (value: T) => void
+  remove: (value: T) => void
+  has: (value: T) => boolean
+  clear: () => void
+  reset: () => void
 }
 
-function useSet<T = any>(
-  initialValue?: T[]
-): [state: Ref<Set<any>>, actions: Actions<T>];
+function useSet<T = any>(initialValue?: T[]): [Ref<Set<any>>, UseSetActions<T>]
 
 function useSet<T = any>(initialValue?: T[]) {
-   const getInitValue = () => {
-    return initialValue === undefined ? new Set<T>() : new Set(initialValue);
-  };
-  const state = ref(getInitValue());
+  const getInitValue = () => {
+    return initialValue === undefined ? new Set<T>() : new Set(initialValue)
+  }
+  const state = ref(getInitValue())
 
-  const actions: Actions<T> = {
+  const actions: UseSetActions<T> = {
+    /**
+     *  Add item
+     * @param value T
+     */
     add: (value: T) => {
-      state.value.add(value);
+      state.value.add(value)
     },
-    remove: (value: T) => {
-      state.value.delete(value);
-    },
-    has: (value: T) => state.value.has(value),
-    clear: () => state.value.clear(),
-    reset: () => {
-      state.value = getInitValue();
-    },
-  };
 
-  return [state, markRaw(actions)];
+    /**
+     *  Remove item
+     * @param value T
+     */
+    remove: (value: T) => {
+      state.value.delete(value)
+    },
+
+    /**
+     * Set has
+     * @param value T
+     */
+    has: (value: T) => state.value.has(value),
+
+    /**
+     * Clear Set
+     */
+    clear: () => state.value.clear(),
+
+    /**
+     * Reset to default
+     */
+    reset: () => {
+      state.value = getInitValue()
+    },
+  }
+
+  return [state, markRaw(actions)]
 }
 
-export default useSet;
+export default useSet

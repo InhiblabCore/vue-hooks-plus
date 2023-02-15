@@ -9,18 +9,22 @@ import useThrottlePlugin from './plugins/useThrottlePlugin'
 
 import useRequestImplement from './useRequestImplement'
 
-import { Options, Plugin, Service } from './types'
+import { UseRequestOptions, UseRequestPlugin, UseRequestService } from './types'
 
 function useRequest<
   TData,
   TParams extends unknown[] = unknown[],
-  PluginsOptions extends Plugin<TData, TParams>[] = Plugin<TData, TParams>[]
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
 >(
-  service: Service<TData, TParams>,
-  options?: Options<
+  service: UseRequestService<TData, TParams>,
+  options?: UseRequestOptions<
     TData,
     TParams,
-    PluginsOptions extends (infer P)[] ? (P extends Plugin<TData, TParams, infer R> ? R : any) : any
+    PluginsOptions extends (infer P)[]
+      ? P extends UseRequestPlugin<TData, TParams, infer R>
+        ? R
+        : any
+      : any
   >,
   plugins?: PluginsOptions,
 ) {
@@ -34,7 +38,7 @@ function useRequest<
     useAutoRunPlugin,
     useCachePlugin,
     useRetryPlugin,
-  ] as Plugin<TData, TParams>[])
+  ] as UseRequestPlugin<TData, TParams>[])
 }
 
 export default useRequest

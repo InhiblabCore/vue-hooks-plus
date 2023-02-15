@@ -1,21 +1,50 @@
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
 import { isNumber } from '../utils'
 
-export interface Options {
+export interface UseCounterOptions {
+  /**
+   *  Min count
+   */
   min?: number
+
+  /**
+   *  Max count
+   */
   max?: number
 }
 
-export interface Actions {
+export interface UseCounterActions {
+  /**
+   * Increment, default delta is 1
+   * @param delta number
+   * @returns void
+   */
   inc: (delta?: number) => void
+
+  /**
+   * Decrement, default delta is 1
+   * @param delta number
+   * @returns void
+   */
   dec: (delta?: number) => void
+
+  /**
+   * Set current value
+   * @param value number | ((c: number) => number)
+   * @returns void
+   */
   set: (value: number | ((c: number) => number)) => void
+
+  /**
+   * Reset current value to initial value
+   * @returns void
+   */
   reset: () => void
 }
 
 export type ValueParam = number | ((c: number) => number)
 
-function getTargetValue(val: number, options: Options = {}) {
+function getTargetValue(val: number, options: UseCounterOptions = {}) {
   const { min, max } = options
   let target = val
   if (isNumber(max)) {
@@ -27,7 +56,10 @@ function getTargetValue(val: number, options: Options = {}) {
   return target
 }
 
-function useCounter(initialValue = 0, options: Options = {}) {
+function useCounter(
+  initialValue = 0,
+  options: UseCounterOptions = {},
+): [Ref<number>, UseCounterActions] {
   const { min, max } = options
 
   const current = ref(
@@ -70,7 +102,7 @@ function useCounter(initialValue = 0, options: Options = {}) {
       set,
       reset,
     },
-  ] as const
+  ]
 }
 
 export default useCounter

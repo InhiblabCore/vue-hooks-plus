@@ -2,15 +2,15 @@ import { ref, Ref, onUnmounted, onMounted, watch, isRef, unref } from 'vue'
 
 import isBrowser from '../utils/isBrowser'
 
-export interface Options {
+export interface UseTitleOptions {
   restoreOnUnmount?: boolean
 }
 
-const DEFAULT_OPTIONS: Options = {
+const DEFAULT_OPTIONS: UseTitleOptions = {
   restoreOnUnmount: false,
 }
 
-function useTitle(title: Ref<string> | string, options: Options = DEFAULT_OPTIONS) {
+function useTitle(title: Ref<string> | string, options: UseTitleOptions = DEFAULT_OPTIONS) {
   const titleRef = ref(isBrowser ? document.title : '')
   if (isRef(title)) {
     watch(title, () => {

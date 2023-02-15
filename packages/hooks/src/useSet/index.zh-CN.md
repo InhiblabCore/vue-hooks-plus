@@ -23,19 +23,23 @@ const [
   {
     add,
     remove,
-    reset
+    reset,
+    has,
+    clear
   }
 ] = useSet(initialValue?: Iterable<K>);
 ```
 
 ## Result
 
-| 参数   | 说明         | 类型                 |
-| ------ | ------------ | -------------------- |
-| set    | Set 对象     | `Ref<Set>`           |
-| add    | 添加元素     | `(key: any) => void` |
-| remove | 移除元素     | `(key: any) => void` |
-| reset  | 重置为默认值 | `() => void`         |
+| 参数   | 说明         | 类型               |
+| ------ | ------------ | ------------------ |
+| set    | Set 对象     | `Ref<Set>`         |
+| add    | 添加元素     | `(key: T) => void` |
+| remove | 移除元素     | `(key: T) => void` |
+| reset  | 重置为默认值 | `() => void`       |
+| clear  | 清除 Set     | `() => void`       |
+| has    | Set has      | `(key: T) => void` |
 
 ## Params
 

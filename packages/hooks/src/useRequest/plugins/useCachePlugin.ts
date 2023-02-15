@@ -1,11 +1,11 @@
 import { ref, watchEffect, onUnmounted } from 'vue'
-import { Plugin } from '../types'
+import { UseRequestPlugin } from '../types'
 import * as cache from '../utils/cache'
 import { CachedData } from '../utils/cache'
 import * as cachePromise from '../utils/cachePromise'
 import * as cacheSubscribe from '../utils/cacheSubscribe'
 
-const useCachePlugin: Plugin<unknown, unknown[]> = (
+const useCachePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   {
     cacheKey,

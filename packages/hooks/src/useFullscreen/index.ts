@@ -1,78 +1,93 @@
-import screenfull from 'screenfull';
-import { onUnmounted,ref} from 'vue';
-import type { BasicTarget } from '../utils/domTarget';
-import { getTargetElement } from '../utils/domTarget';
+import screenfull from 'screenfull'
+import { onUnmounted, ref } from 'vue'
+import { BasicTarget } from '../utils/domTarget'
+import { getTargetElement } from '../utils/domTarget'
 
-export interface Options {
-  onExit?: () => void;
-  onEnter?: () => void;
+export interface UseFullscreenOptions {
+  /**
+   * Exit full screen trigger
+   * @returns void
+   */
+  onExit?: () => void
+
+  /**
+   * Enter full screen trigger
+   * @returns void
+   */
+  onEnter?: () => void
 }
 
-const useFullscreen = (target: BasicTarget, options?: Options) => {
-  const { onExit, onEnter } = options || {};
+const useFullscreen = (
+  /**
+   * DOM element or ref
+   */
+  target: BasicTarget,
+  options?: UseFullscreenOptions,
+) => {
+  const { onExit, onEnter } = options || {}
 
-  const onExitRef = ref(onExit);
-  const onEnterRef = ref(onEnter);
+  const onExitRef = ref(onExit)
+  const onEnterRef = ref(onEnter)
 
   const state = ref(false)
-  const setState =  (val:boolean)=>{
+  const setState = (val: boolean) => {
     state.value = val
   }
 
   const onChange = () => {
     if (screenfull.isEnabled) {
-      const el = getTargetElement(target);
+      const el = getTargetElement(target)
 
       if (!screenfull.element) {
-        onExitRef.value?.();
-        setState(false);
-        screenfull.off('change', onChange);
+        onExitRef.value?.()
+        setState(false)
+        screenfull.off('change', onChange)
       } else {
-        const isFullscreen = screenfull.element === el;
+        const isFullscreen = screenfull.element === el
         if (isFullscreen) {
-          onEnterRef.value?.();
+          onEnterRef.value?.()
         } else {
-          onExitRef.value?.();
+          onExitRef.value?.()
         }
-        setState(isFullscreen);
+        setState(isFullscreen)
       }
     }
-  };
+  }
 
   const enterFullscreen = () => {
-    const el = getTargetElement(target);
+    const el = getTargetElement(target)
     if (!el) {
-      return;
+      return
     }
 
     if (screenfull.isEnabled) {
       try {
-        screenfull.request(el);
-        screenfull.on('change', onChange);
+        screenfull.request(el)
+        screenfull.on('change', onChange)
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     }
-  };
+  }
 
   const exitFullscreen = () => {
-    const el = getTargetElement(target);
+    const el = getTargetElement(target)
     if (screenfull.isEnabled && screenfull.element === el) {
-      screenfull.exit();
+      screenfull.exit()
     }
-  };
+  }
 
   const toggleFullscreen = () => {
     if (state.value) {
-      exitFullscreen();
+      exitFullscreen()
     } else {
-      enterFullscreen();
+      enterFullscreen()
     }
-  };
+  }
 
   onUnmounted(() => {
     if (screenfull.isEnabled) {
-      screenfull.off('change', onChange);
+      screenfull.off('change', onChange)
     }
   })
 
@@ -84,7 +99,7 @@ const useFullscreen = (target: BasicTarget, options?: Options) => {
       toggleFullscreen: toggleFullscreen,
       isEnabled: screenfull.isEnabled,
     },
-  ] as const;
-};
+  ] as const
+}
 
-export default useFullscreen;
+export default useFullscreen

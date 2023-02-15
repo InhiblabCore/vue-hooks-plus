@@ -3,17 +3,31 @@ import { isFunction, isNumber, isString } from 'lodash'
 import { BasicTarget, getTargetElement } from '../utils/domTarget'
 import useDeepCompareEffectWithTarget from '../utils/useDeepCompareWithTarget'
 
-export type KeyPredicate = (event: KeyboardEvent) => boolean
-export type keyType = number | string
-export type KeyFilter = keyType | keyType[] | ((event: KeyboardEvent) => boolean)
-export type EventHandler = (event: KeyboardEvent) => void
-export type KeyEvent = 'keydown' | 'keyup'
+export type UseKeyPressKeyPredicate = (event: KeyboardEvent) => boolean
+export type UseKeyPressKeyType = number | string
+export type UseKeyPressKeyFilter =
+  | UseKeyPressKeyType
+  | UseKeyPressKeyType[]
+  | ((event: KeyboardEvent) => boolean)
+export type UseKeyPressEventHandler = (event: KeyboardEvent) => void
+export type UseKeyPressKeyEvent = 'keydown' | 'keyup'
 
-export type Target = BasicTarget<HTMLElement | Document | Window>
+export type UseKeyPressTarget = BasicTarget<HTMLElement | Document | Window>
 
-export type Options = {
-  events?: KeyEvent[]
-  target?: Target
+export type UseKeyPressOptions = {
+  /**
+   * Trigger Events
+   */
+  events?: UseKeyPressKeyEvent[]
+
+  /**
+   * DOM element or ref
+   */
+  target?: UseKeyPressTarget
+
+  /**
+   * Exact match. If set true, the event will only be trigger when the keys match exactly. For example, pressing [shif + c] will not trigger [c]
+   */
   exactMatch?: boolean
 }
 
@@ -147,9 +161,7 @@ function countKeyByEvent(event: KeyboardEvent) {
  * @param [keyFilter: any] 当前键
  * @returns Boolean
  */
-function genFilterKey(event: KeyboardEvent, keyFilter: keyType, exactMatch: boolean) {
-  console.log(event)
-
+function genFilterKey(event: KeyboardEvent, keyFilter: UseKeyPressKeyType, exactMatch: boolean) {
   // 浏览器自动补全 input 的时候，会触发 keyDown、keyUp 事件，但此时 event.key 等为空
   if (!event.key) {
     return false
@@ -192,7 +204,10 @@ function genFilterKey(event: KeyboardEvent, keyFilter: keyType, exactMatch: bool
  * @param [keyFilter: any] 当前键
  * @returns () => Boolean
  */
-function genKeyFormatter(keyFilter: KeyFilter, exactMatch: boolean): KeyPredicate {
+function genKeyFormatter(
+  keyFilter: UseKeyPressKeyFilter,
+  exactMatch: boolean,
+): UseKeyPressKeyPredicate {
   if (isFunction(keyFilter)) {
     return keyFilter
   }
@@ -205,9 +220,13 @@ function genKeyFormatter(keyFilter: KeyFilter, exactMatch: boolean): KeyPredicat
   return keyFilter ? () => true : () => false
 }
 
-const defaultEvents: KeyEvent[] = ['keydown']
+const defaultEvents: UseKeyPressKeyEvent[] = ['keydown']
 
-function useKeyPress(keyFilter: KeyFilter, eventHandler: EventHandler, option?: Options) {
+function useKeyPress(
+  keyFilter: UseKeyPressKeyFilter,
+  eventHandler: UseKeyPressEventHandler,
+  option?: UseKeyPressOptions,
+) {
   const { events = defaultEvents, target, exactMatch = false } = option || {}
   const eventHandlerRef = ref(eventHandler)
   const keyFilterRef = ref(keyFilter)
@@ -220,7 +239,7 @@ function useKeyPress(keyFilter: KeyFilter, eventHandler: EventHandler, option?: 
       }
 
       const callbackHandler = (event: KeyboardEvent) => {
-        const genGuard: KeyPredicate = genKeyFormatter(keyFilterRef.value, exactMatch)
+        const genGuard: UseKeyPressKeyPredicate = genKeyFormatter(keyFilterRef.value, exactMatch)
         if (genGuard(event)) {
           return eventHandlerRef.value?.(event)
         }

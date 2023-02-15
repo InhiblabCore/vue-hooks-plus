@@ -1,25 +1,66 @@
 import { ref, Ref, markRaw } from 'vue'
 
-type MapValue<K, T> = Iterable<readonly [K, T]>
+type UseMapValue<K, T> = Iterable<readonly [K, T]>
 
-type Actions<K, T> = {
+type UseMapActions<K, T> = {
+  /**
+   * Add item
+   * @param key K
+   * @param value T
+   * @returns void
+   */
   set: (key: K, value: T) => void
+
+  /**
+   * Get item
+   * @param key K
+   * @param value T
+   * @returns undefined
+   */
   get: (key: K) => T | undefined
+
+  /**
+   *  Remove key
+   * @param key K
+   * @returns void
+   */
   remove: (key: K) => void
+
+  /**
+   * Add item
+   * @param key K
+   * @returns boolean
+   */
   has: (key: K) => boolean
+
+  /**
+   * clear
+   * @returns void
+   */
   clear: () => void
-  setAll: (newMap: MapValue<K, T>) => void
+
+  /**
+   *  Set a new Map
+   * @param newMap UseMapValue<K, T>
+   * @returns void
+   */
+  setAll: (newMap: UseMapValue<K, T>) => void
+
+  /**
+   * Reset to default
+   * @returns void
+   */
   reset: () => void
 }
 
-function useMap<K, T>(initialValue?: MapValue<K, T>): [Ref<Map<K, T>>, Actions<K, T>] {
+function useMap<K, T>(initialValue?: UseMapValue<K, T>): [Ref<Map<K, T>>, UseMapActions<K, T>] {
   const getInitValue = () => {
     return initialValue ? new Map(initialValue) : new Map()
   }
 
   const state = ref(getInitValue()) as Ref<Map<K, T>>
 
-  const actions: Actions<K, T> = {
+  const actions: UseMapActions<K, T> = {
     set: (key, value) => {
       state.value.set(key, value)
     },

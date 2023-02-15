@@ -1,9 +1,9 @@
 import { computed, unref, watchEffect } from 'vue'
 import { DebouncedFunc, ThrottleSettings } from 'lodash'
 import throttle from 'lodash/throttle'
-import { Plugin } from '../types'
+import { UseRequestPlugin } from '../types'
 
-const useThrottlePlugin: Plugin<unknown, unknown[]> = (
+const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { throttleWait, throttleLeading, throttleTrailing },
 ) => {

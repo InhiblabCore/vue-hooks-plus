@@ -8,7 +8,7 @@ export enum ReadyState {
   Closed = 3,
 }
 
-export interface Options {
+export interface UseWebSocketOptions {
   reconnectLimit?: number
   reconnectInterval?: number
   manual?: Ref<boolean> | boolean
@@ -36,7 +36,7 @@ export interface Result {
  */
 export default function useWebSocket(
   socketUrl: Ref<string> | string,
-  options: Options = {},
+  options: UseWebSocketOptions = {},
 ): Result {
   const {
     reconnectLimit = 3,
