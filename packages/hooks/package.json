@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "1.6.0-alpha.7",
+	"version": "1.6.0-alpha.8",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
@@ -11,14 +11,6 @@
 		"package.json",
 		"README.md"
 	],
-  "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "require": "./lib/index.js",
-      "import": "./es/index.js"
-    },
-    "./*": "./*"
-  },
 	"main": "./lib/index.js",
 	"module": "./es/index.js",
 	"types": "./lib/index.d.ts",

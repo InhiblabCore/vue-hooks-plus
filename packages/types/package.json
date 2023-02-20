@@ -1,13 +1,14 @@
 {
   "name": "@vue-hooks-plus/types",
-  "version": "1.6.0-alpha.3",
+  "version": "1.6.0-alpha.8",
   "description": "",
   "files": [
-    "types",
+    "index.d.ts",
+    "types.d.ts",
     "package.json",
     "README.md"
   ],
-  "types": "./types/index.d.ts",
+  "types": "./index.d.ts",
   "scripts": {
     "build": "vite build"
   },
