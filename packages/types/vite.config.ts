@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     dts({
       include: ['../hooks/src/**/*.ts'],
-      outputDir: path.resolve(__dirname, 'types'),
+      outputDir: path.resolve(__dirname),
       rollupTypes: true,
     }),
   ],
