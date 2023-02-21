@@ -1,4 +1,12 @@
 :root {
+  // --vp-c-brand: #fff;
+  // --vp-c-brand-light: #747bff;
+
+  --vp-c-bg: #fff;
+  --vp-c-bg-alt: #fff;
+  --vp-c-black-mute: rgba(255, 255, 255, 0.1);
+  // --vp-c-white-mute: rgba(0, 0, 0, 0.3);
+
   --vp-code-block-bg: #f9fafb;
   /* --vp-code-block-bg: var(--vp-c-bg-alt); */
 
@@ -28,9 +36,16 @@
 .VPHome {
   padding-bottom: 0px !important;
 }
+
 @media (min-width: 768px) {
   .VPHome {
     padding-bottom: 0px !important;
+  }
+}
+
+#docsearch {
+  button {
+    background-color: var(--vp-c-white-mute);
   }
 }
 
@@ -49,15 +64,23 @@ input:focus {
   color: var(--vp-button-brand-bg);
 }
 
+.VPNav {
+  background-color: var(--vp-c-bg-light) !important;
+}
+
 .vitepress-demo {
   border-radius: 12px;
   overflow: hidden;
   margin-top: 8px;
   box-shadow: 0px 2px 4px var(--vhp-demo-shadow-color);
+  border: 1px solid var(--vp-code-line-number-color);
 }
 
 .dark {
-  --vp-code-block-bg: var(--vp-c-bg-alt);
+  // --vp-c-black-mute: rgba(0, 0, 0, 1);
+  --vp-c-bg: rgba(1, 14, 25, 1);
+  --vp-c-bg-alt: rgba(11, 14, 25, 0.8);
+  --vp-code-block-bg: var(--vp-c-black-mute);
   --vp-font-color: rgba(182, 202, 230, 1);
   --vhp-func-bg: rgba(255, 255, 255, 0.08);
   --vhp-getstart-bg: linear-gradient(
@@ -66,6 +89,24 @@ input:focus {
     rgba(59, 206, 128, 0.7) 76%
   );
   --vhp-demo-shadow-color: rgba(188, 189, 190, 0.3);
+
+  .VPNavBar.has-sidebar .content {
+    background-color: rgba(10, 14, 25, 1) !important;
+  }
+
+  .VPNavBarTitle.has-sidebar {
+    background-color: rgba(10, 14, 25, 1) !important;
+  }
+
+  .VPNav {
+    background-color: var(--vp-c-bg) !important;
+  }
+
+  #docsearch {
+    button {
+      background-color: var(--vp-c-black-mute);
+    }
+  }
 }
 
 .vp-doc [class*='language-']:before {
@@ -85,6 +126,25 @@ input:focus {
   }
 }
 
+@media (max-width: 767px) {
+  .VPNavBar {
+    border-bottom: 0 !important;
+  }
+
+  .dark {
+    #docsearch {
+      button {
+        background-color: transparent;
+      }
+    }
+  }
+  #docsearch {
+    button {
+      background-color: transparent;
+    }
+  }
+}
+
 /* 中文字太大了 */
 @media (min-width: 640px) {
   .name,
@@ -97,5 +157,9 @@ input:focus {
   .name,
   .text {
     font-size: 32px !important;
+  }
+
+  .VPNavBarTitle.has-sidebar {
+    border-bottom: 0;
   }
 }

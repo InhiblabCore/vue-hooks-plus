@@ -11,87 +11,89 @@
 <template>
   <div class="home">
     <Icon />
-    <section id="hero">
-      <Waves />
-      <h1 class="tagline">
-        <span class="accent">VueHooks</span>
-        <br />Plus
-      </h1>
-      <p class="description"> </p>
-      <p class="actions" style="position: relative; z-index: 9;">
-        <a class="get-started" href="/docs/hooks/guide/">
-          快速开始
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="10"
-            height="10"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
-            />
-          </svg>
-        </a>
-      </p>
-    </section>
-    <!-- <Badge /> -->
-    <section id="highlights" class="vt-box-container">
-      <div class="vt-box">
-        <h2>🛸 Vue3 的 Hooks</h2>
-        <p>
-          基础和高级的 hook， 高性能逻辑的抽象封装，满足大量场景。
+    <div class="bg">
+      <section id="hero">
+        <Waves />
+        <h1 class="tagline">
+          <span class="accent">VueHooks</span>
+          <br />Plus
+        </h1>
+        <p class="description"> </p>
+        <p class="actions" style="position: relative; z-index: 9;">
+          <a class="get-started" href="/docs/hooks/guide/">
+            快速开始
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
+              />
+            </svg>
+          </a>
         </p>
-      </div>
-      <div class="vt-box">
-        <h2>🏄🏼‍♂️ 简洁易用</h2>
-        <p>
-          简洁的语法和易用的特性，轻松上手，详细的文档。
-        </p>
-      </div>
-      <div class="vt-box">
-        <h2>🎯 TypeScript</h2>
-        <p>
-          使用 TypeScript 构建，提供完整的类型定义文件，安全严谨。
-        </p>
-      </div>
-      <div class="vt-box">
-        <h2>🎪 交互式demo演示</h2>
-        <p>
-          眼见为实，身临其境。
-        </p>
-      </div>
-      <div class="vt-box">
-        <h2>🔋 支持 SSR</h2>
-        <p>
-          服务器端渲染的友好支持。
-        </p>
-      </div>
-      <div class="vt-box">
-        <h2>🦾 useRequest</h2>
-        <p>
-          基于插件模式设计的请求函数。
-        </p>
-      </div>
-      <div class="vt-box">
-        <h2>🤺 演练场</h2>
-        <p>
-          在线编码，大有用武之地。
-        </p>
-      </div>
-      <div class="vt-box">
-        <h2>🧩 按需加载</h2>
-        <p>
-          拿你想要，包体积更小。
-        </p>
-      </div>
-      <div class="vt-box">
-        <h2>🔐 安全性</h2>
-        <p>
-          测试完善，安全可靠。
-        </p>
-      </div>
-    </section>
+      </section>
+      <!-- <Badge /> -->
+      <section id="highlights" class="vt-box-container">
+        <div class="vt-box">
+          <h2>🛸 Vue3 的 Hooks</h2>
+          <p>
+            基础和高级的 hook， 高性能逻辑的抽象封装，满足大量场景。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🏄🏼‍♂️ 简洁易用</h2>
+          <p>
+            简洁的语法和易用的特性，轻松上手，详细的文档。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🎯 TypeScript</h2>
+          <p>
+            使用 TypeScript 构建，提供完整的类型定义文件，安全严谨。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🎪 交互式demo演示</h2>
+          <p>
+            眼见为实，身临其境。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🔋 支持 SSR</h2>
+          <p>
+            服务器端渲染的友好支持。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🦾 useRequest</h2>
+          <p>
+            基于插件模式设计的请求函数。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🤺 演练场</h2>
+          <p>
+            在线编码，大有用武之地。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🧩 按需加载</h2>
+          <p>
+            拿你想要，包体积更小。
+          </p>
+        </div>
+        <div class="vt-box">
+          <h2>🔐 安全性</h2>
+          <p>
+            测试完善，安全可靠。
+          </p>
+        </div>
+      </section>
+    </div>
     <DemoEditor>
       <div class="demo-name">
         Demo.vue

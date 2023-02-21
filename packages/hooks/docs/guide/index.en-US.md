@@ -54,7 +54,7 @@ npm i -D @vue-hooks-plus/resolvers
 
 ```
 
-::: details Vite
+#### Vite
 
 ```typescript
 import AutoImport from 'unplugin-auto-import/vite'
@@ -69,9 +69,7 @@ export const AutoImportDeps = () =>
   })
 ```
 
-:::
-
-::: details Webpack
+#### Webpack
 
 ```typescript
 const { VueHooksPlusResolver } = require('@vue-hooks-plus/resolvers')
@@ -87,8 +85,6 @@ module.exports = {
   ],
 }
 ```
-
-:::
 
 For other supported tools, please see [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
 
