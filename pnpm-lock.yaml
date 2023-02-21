@@ -24,7 +24,7 @@ importers:
       '@vue-hooks-plus/use-immer': workspace:^1.0.0
       '@vue-hooks-plus/use-worker': workspace:^1.0.0
       '@vue-hooks-plus/vite-plugin-gen-temp': ^2.6.6
-      '@vue-hooks-plus/vitepress': 1.2.3
+      '@vue-hooks-plus/vitepress': ^1.2.4
       '@vue-hooks-plus/vitepress-demo-block': ^1.3.1
       '@vue/test-utils': ^2.1.0
       cross-env: ^7.0.3
@@ -80,7 +80,7 @@ importers:
       '@vue-hooks-plus/use-immer': link:packages/use-immer
       '@vue-hooks-plus/use-worker': link:packages/use-worker
       '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.6_uakuilq6iygkg5ll5cv37w4i7m
-      '@vue-hooks-plus/vitepress': 1.2.3_less@4.1.3
+      '@vue-hooks-plus/vitepress': 1.2.4_less@4.1.3
       '@vue-hooks-plus/vitepress-demo-block': 1.3.5_vue@3.2.45
       '@vue/test-utils': 2.2.7_vue@3.2.45
       cross-env: 7.0.3
@@ -1351,8 +1351,8 @@ packages:
       - vue
     dev: true
 
-  /@vue-hooks-plus/vitepress/1.2.3_less@4.1.3:
-    resolution: {integrity: sha512-FkiA+3TfCCPiGz9lpxMo/663a6CbFR7nD5lzuv5k3Ec76qVQf5b+eVnWjPrz3sWiPqQ69l67sHueN+1McVm/0g==}
+  /@vue-hooks-plus/vitepress/1.2.4_less@4.1.3:
+    resolution: {integrity: sha512-mP6goD88OLY981sVEbbqGXgApx+KXS9TciA22mXSV9fgdKeYhTb6CIjDCueR029O44kaEyJNG/TBcWvk3Qj7Cw==}
     engines: {node: '>=14.6.0'}
     hasBin: true
     dependencies:
