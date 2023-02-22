@@ -4,6 +4,7 @@ import { genTemp } from '@vue-hooks-plus/vite-plugin-gen-temp'
 import { resolve } from 'path'
 import { svg } from './theme/home/iconBase64'
 import { getRouterConfig } from './router'
+
 const base =
   process.env.NODE_ENV === 'production'
     ? process.env?.BASE_URL
@@ -70,7 +71,7 @@ export default defineConfig({
     locales: {
       '/': {
         nav: [
-          { text: '⒡ Hooks', link: '/useRequest/' },
+          { text: `⒡ Hooks`, link: '/useRequest/' },
           isGithub
             ? {
                 text: '演武场',
