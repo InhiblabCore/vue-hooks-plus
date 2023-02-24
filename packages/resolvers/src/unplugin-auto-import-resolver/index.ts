@@ -1,6 +1,8 @@
 import { Resolver } from 'unplugin-auto-import/types'
 import { resolveModule } from 'local-pkg'
 import { readFileSync } from 'node:fs'
+import VueHooksPlusUseWorkerResolver from './useWorkerResolver'
+import VueHooksPlusUseImmerResolver from './useImmerResolver'
 
 let hooks: string[] | undefined
 
@@ -46,7 +48,7 @@ function resolveHooks(name: string, options: VueHooksPlusResolverOptions) {
   }
 }
 
-export function VueHooksPlusResolver(options: VueHooksPlusResolverOptions = {}): Resolver {
+function VueHooksPlusResolver(options: VueHooksPlusResolverOptions = {}): Resolver {
   return name => {
     if (!hooks) {
       queryMetaData()
@@ -55,4 +57,4 @@ export function VueHooksPlusResolver(options: VueHooksPlusResolverOptions = {}):
   }
 }
 
-export default VueHooksPlusResolver
+export { VueHooksPlusUseImmerResolver, VueHooksPlusUseWorkerResolver, VueHooksPlusResolver }

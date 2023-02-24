@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 // import isoworker from 'isoworker'
-import { TRANSFERABLE_TYPE } from '../useWorker'
+import { TRANSFERABLE_TYPE } from '../index'
 import jobRunner from './jobRunner'
 import remoteDepsParser from './remoteDepsParser'
 
