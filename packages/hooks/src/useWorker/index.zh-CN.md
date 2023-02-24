@@ -18,6 +18,16 @@ npm i @vue-hooks-plus/use-worker
 
 ```
 
+### 自动引入
+
+```typescript
+
+import { VueHooksPlusUseWorkerResolver } from '@vue-hooks-plus/resolvers'
+
+```
+
+[使用方法](https://inhiblabcore.github.io/docs/hooks/guide/#%F0%9F%94%A8-%E4%BD%BF%E7%94%A8)
+
 ## 代码演示
 
 <demo src="./demo/demo.vue"
