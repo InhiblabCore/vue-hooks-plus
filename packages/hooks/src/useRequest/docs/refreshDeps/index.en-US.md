@@ -13,7 +13,7 @@ source:
 
 :::tip remark
 
-Only the automatic mode mode, that is, `manual` is `true`, depends on the new configuration of swiping the card to have an effect. Manual mode requires users to manage requests themselves.
+When the automatic mode `manual` is not `true` and refreshDeps  will take effect.
 
 :::
 
