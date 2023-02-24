@@ -13,7 +13,7 @@ source:
 
 :::tip remark
 
-When the automatic mode `manual` is not `true` and refreshDeps  will take effect.
+When the automatic, mode `manual` is not `true` and refreshDeps  will take effect.
 
 :::
 
