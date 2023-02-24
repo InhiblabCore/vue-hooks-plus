@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { TRANSFERABLE_TYPE } from 'src/useWorker'
+import { TRANSFERABLE_TYPE } from 'src'
 
 interface JOB_RUNNER_OPTIONS {
   fn: Function

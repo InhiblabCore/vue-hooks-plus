@@ -18,6 +18,16 @@ npm i @vue-hooks-plus/use-immer
 
 ```
 
+### 自动引入
+
+```typescript
+
+import { VueHooksPlusUseImmerResolver } from '@vue-hooks-plus/resolvers'
+
+```
+
+[使用方法](https://inhiblabcore.github.io/docs/hooks/guide/#%F0%9F%94%A8-%E4%BD%BF%E7%94%A8)
+
 > 该 `hook` 基于 `immer` 管理状态，会安装 `immer`保证在项目中正常工作
 
 > 独立安装 `@vue-hooks-plus/use-immer`
