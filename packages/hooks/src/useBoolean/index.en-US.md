@@ -10,9 +10,9 @@ A hook that elegantly manages boolean state.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue" 
-language="vue" 
-title="Basic usage" 
+<demo src="./demo/demo.vue"
+language="vue"
+title="Basic usage"
 desc="Toggle boolean to receive default value."> </demo>
 
 ## API

@@ -1,0 +1,7 @@
+{
+  "no-inline-html": {
+    "allowed_elements": ["ul", "li", "div", "img", "a", "br", "script", "Badge", "Home"]
+  },
+  "MD013": false,
+  "MD041": false
+}
