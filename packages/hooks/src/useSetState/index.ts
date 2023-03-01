@@ -13,9 +13,10 @@ function useSetState<S extends Record<string, any>>(
 
   const state = ref<S>(getInitialState() as S)
 
-  const setMergeState = (patch: Record<string, any>) => {
+  const setMergeState = (patch: Record<string, any>, cover = false) => {
     const newState = unref(patch)
-    state.value = newState ? merge(state.value, newState) : state.value
+    if (cover) state.value = newState
+    else state.value = newState ? merge(state.value, newState) : state.value
   }
 
   return [readonly(state), setMergeState]
