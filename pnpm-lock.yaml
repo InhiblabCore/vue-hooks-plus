@@ -165,6 +165,12 @@ importers:
     dependencies:
       immer: 9.0.18
 
+  packages/use-request:
+    specifiers:
+      lodash: ^4.17.21
+    dependencies:
+      lodash: 4.17.21
+
   packages/use-worker:
     specifiers:
       lodash: ^4.17.21

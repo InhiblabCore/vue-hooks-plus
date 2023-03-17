@@ -131,6 +131,10 @@ export default defineConfig({
         link: 'https://github.com//InhiblabCore/vue-hooks-plus',
       },
       {
+        icon: 'discord',
+        link: 'https://discord.gg/RU6ZPjf8',
+      },
+      {
         icon: 'twitter',
         link: 'https://twitter.com/Yong_Git',
       },
