@@ -7,7 +7,7 @@ source:
   demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/global/demo/demo.vue
 ---
 
-# 全局配置 `v1.6.1`
+# 全局配置 useRequestProvider `v1.6.1`
 
 :::tip 🌍 useRequestProvider
 
