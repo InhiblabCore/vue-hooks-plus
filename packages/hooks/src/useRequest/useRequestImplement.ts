@@ -10,9 +10,9 @@ function useRequestImplement<TData, TParams extends any[]>(
   options: UseRequestOptions<TData, TParams, any> = {},
   plugins: UseRequestPlugin<TData, TParams>[] = [],
 ) {
-  // 全局注入的配置
+  // global option
   const USEREQUEST_GLOBAL_OPTIONS = inject(USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY)
-  // 读取配置
+  // read option
   const { initialData = undefined, manual = false, ready = true, ...rest } = merge(
     USEREQUEST_GLOBAL_OPTIONS,
     options ?? {},
@@ -24,10 +24,10 @@ function useRequestImplement<TData, TParams extends any[]>(
     ...rest,
   }
 
-  // 定义一个serviceRef
+  // serviceRef store service
   const serviceRef = ref(service)
 
-  // 存储state的响应式对象
+  // reactive
   const state = reactive<{
     data?: TData
     loading: boolean
@@ -52,7 +52,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   }
 
   const initState = plugins.map(p => p?.onInit?.(fetchOptions)).filter(Boolean)
-  // fetch的实例化
+  // Fetch Instance
   const fetchInstance = new Fetch<TData, TParams>(
     serviceRef,
     fetchOptions,
@@ -62,12 +62,12 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   fetchInstance.options = fetchOptions
 
-  // 运行插件
+  // run plugins
   fetchInstance.pluginImpls = plugins.map(p => {
     return p(fetchInstance, fetchOptions)
   })
 
-  // manual控制是否自动发送请求
+  // manual
   onMounted(() => {
     if (!manual) {
       const params = fetchInstance.state.params || options.defaultParams || []
@@ -75,7 +75,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     }
   })
 
-  // 组件卸载的时候取消请求
+  // onUnmounted cancel request
   onUnmounted(() => {
     fetchInstance.cancel()
   })
