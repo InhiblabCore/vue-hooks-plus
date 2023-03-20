@@ -1,4 +1,8 @@
-import useRequest, { clearCache } from './useRequest'
+import useRequest, {
+  clearUseRequestCache,
+  createUseRequest,
+  useRequestProvider,
+} from './useRequest'
 import useAsyncOrder from './useAsyncOrder'
 import useBoolean from './useBoolean'
 import useCookieState from './useCookieState'
@@ -49,7 +53,9 @@ import useWebSocket from './useWebSocket'
 
 export {
   useRequest,
-  clearCache,
+  clearUseRequestCache,
+  useRequestProvider,
+  createUseRequest,
   useAsyncOrder,
   useBoolean,
   useCookieState,

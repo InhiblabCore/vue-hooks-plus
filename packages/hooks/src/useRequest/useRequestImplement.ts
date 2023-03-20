@@ -1,15 +1,22 @@
-import { ref, reactive, toRefs, onMounted, onUnmounted, unref } from 'vue'
+import { ref, reactive, toRefs, onMounted, onUnmounted, unref, inject } from 'vue'
 
 import Fetch from './Fetch'
+import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import { UseRequestOptions, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
+import { merge } from 'lodash'
 
 function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
   options: UseRequestOptions<TData, TParams, any> = {},
   plugins: UseRequestPlugin<TData, TParams>[] = [],
 ) {
+  // 全局注入的配置
+  const USEREQUEST_GLOBAL_OPTIONS = inject(USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY)
   // 读取配置
-  const { initialData = undefined, manual = false, ready = true, ...rest } = options
+  const { initialData = undefined, manual = false, ready = true, ...rest } = merge(
+    USEREQUEST_GLOBAL_OPTIONS,
+    options ?? {},
+  ) as Record<string, any>
 
   const fetchOptions = {
     manual,
@@ -52,6 +59,8 @@ function useRequestImplement<TData, TParams extends any[]>(
     setState,
     Object.assign({}, ...initState, state),
   )
+
+  console.log(fetchOptions)
 
   fetchInstance.options = fetchOptions
 

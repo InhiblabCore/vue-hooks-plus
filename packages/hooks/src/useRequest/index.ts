@@ -1,6 +1,8 @@
-import useRequest from "./useRequest";
-import { clearCache } from "./utils/cache";
+import useRequest from './useRequest'
+import useRequestProvider from './useRequestProvider'
+import createUseRequest from './createUseRequest'
+import { clearCache as clearUseRequestCache } from './utils/cache'
 
-export { clearCache };
+export { clearUseRequestCache, createUseRequest, useRequestProvider }
 
-export default useRequest;
+export default useRequest
