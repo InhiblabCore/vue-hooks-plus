@@ -60,8 +60,6 @@ function useRequestImplement<TData, TParams extends any[]>(
     Object.assign({}, ...initState, state),
   )
 
-  console.log(fetchOptions)
-
   fetchInstance.options = fetchOptions
 
   // 运行插件
