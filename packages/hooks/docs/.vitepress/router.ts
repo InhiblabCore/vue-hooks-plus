@@ -151,8 +151,12 @@ const useRequestRouter = [
         link: '/useRequest/scroll/',
       },
       {
-        text: '插件',
+        text: '插件设计',
         link: '/useRequest/plugin/',
+      },
+      {
+        text: '全局配置',
+        link: '/useRequest/global/',
       },
     ],
   },
@@ -220,8 +224,12 @@ const useRequestRouterEN = [
         link: '/en/useRequest/scroll/',
       },
       {
-        text: 'Plugins',
+        text: 'Plugins Design',
         link: '/en/useRequest/plugin/',
+      },
+      {
+        text: 'Global Option',
+        link: '/en/useRequest/global/',
       },
     ],
   },

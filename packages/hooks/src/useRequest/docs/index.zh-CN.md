@@ -42,7 +42,7 @@ const { data, error, loading } = useRequest(service)
 
 <br />
 
-<demo src="./basic/demo/demo.vue"
+<demo src="./basic/demo/Index.vue"
   language="vue"
   title=""
   desc="默认发送获取请求"> </demo>

@@ -7,7 +7,7 @@ function useSetState<S extends Record<string, any>>(
   initialState: UseSetStateType<S>,
 ): [
   DeepReadonly<UnwrapNestedRefs<[S] extends [Ref<any>] ? S : Ref<UnwrapRef<S>>>>,
-  (patch: Record<string, any>) => void,
+  (patch: Record<string, any>, cover?: boolean) => void,
 ] {
   const getInitialState = () => unref(initialState)
 

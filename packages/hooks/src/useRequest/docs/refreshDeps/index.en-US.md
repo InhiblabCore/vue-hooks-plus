@@ -13,7 +13,7 @@ source:
 
 :::tip remark
 
-When the automatic, mode `manual` is not `true` and refreshDeps  will take effect.
+When the automatic, mode `manual` is not `true` and refreshDeps will take effect.
 
 :::
 
@@ -26,7 +26,7 @@ When `refreshDeps` passes in an array of responsive objects, when its value chan
   title=""
   desc="In the example code above, useRequest will execution when it is initialized and Id & store ID changes."> </demo>
 
-## Automatically collect dependencies `>=v1.6.0-alpha.1`
+## Automatically collect dependencies `v1.6.0`
 
 When `refreshDeps` is passed in `true`, `useRequest` will automatically collect the response object parameters in the function parameters, as long as the response object in the parameters changes, it will carry the latest value to re-initiate the request.
 

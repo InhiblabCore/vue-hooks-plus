@@ -1,6 +1,6 @@
 {
   "name": "@vue-hooks-plus/use-request",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Vue use-request hooks library",
 	"files": [
 		"dist",
