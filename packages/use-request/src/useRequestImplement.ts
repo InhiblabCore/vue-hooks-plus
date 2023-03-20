@@ -1,6 +1,7 @@
-import { ref, reactive, toRefs, onMounted, onUnmounted, unref } from 'vue'
+import { ref, reactive, toRefs, onMounted, onUnmounted, unref, inject } from 'vue'
 
 import Fetch from './Fetch'
+import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import { UseRequestOptions, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
 
 function useRequestImplement<TData, TParams extends any[]>(
@@ -8,8 +9,15 @@ function useRequestImplement<TData, TParams extends any[]>(
   options: UseRequestOptions<TData, TParams, any> = {},
   plugins: UseRequestPlugin<TData, TParams>[] = [],
 ) {
-  // 读取配置
-  const { initialData = undefined, manual = false, ready = true, ...rest } = options
+  // global option
+  const USEREQUEST_GLOBAL_OPTIONS = inject<Record<string, any>>(
+    USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY,
+  )
+  // read option
+  const { initialData = undefined, manual = false, ready = true, ...rest } = {
+    ...(USEREQUEST_GLOBAL_OPTIONS ?? {}),
+    ...(options ?? {}),
+  } as Record<string, any>
 
   const fetchOptions = {
     manual,
@@ -17,10 +25,10 @@ function useRequestImplement<TData, TParams extends any[]>(
     ...rest,
   }
 
-  // 定义一个serviceRef
+  // serviceRef store service
   const serviceRef = ref(service)
 
-  // 存储state的响应式对象
+  // reactive
   const state = reactive<{
     data?: TData
     loading: boolean
@@ -45,7 +53,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   }
 
   const initState = plugins.map(p => p?.onInit?.(fetchOptions)).filter(Boolean)
-  // fetch的实例化
+  // Fetch Instance
   const fetchInstance = new Fetch<TData, TParams>(
     serviceRef,
     fetchOptions,
@@ -55,12 +63,12 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   fetchInstance.options = fetchOptions
 
-  // 运行插件
+  // run plugins
   fetchInstance.pluginImpls = plugins.map(p => {
     return p(fetchInstance, fetchOptions)
   })
 
-  // manual控制是否自动发送请求
+  // manual
   onMounted(() => {
     if (!manual) {
       const params = fetchInstance.state.params || options.defaultParams || []
@@ -68,7 +76,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     }
   })
 
-  // 组件卸载的时候取消请求
+  // onUnmounted cancel request
   onUnmounted(() => {
     fetchInstance.cancel()
   })
