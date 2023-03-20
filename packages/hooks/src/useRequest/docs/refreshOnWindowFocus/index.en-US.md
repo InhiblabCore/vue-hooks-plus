@@ -29,7 +29,8 @@ By setting `options.refreshOnWindowFocus`, the request will be refreshed when th
 
 :::warning Remark
 
-- `options.refreshOnWindowFocus`、`options.focusTimespan` support dynamic changes.。
+- `options.refreshOnWindowFocus` support dynamic changes.
+- `options.focusTimespan` support dynamic changes.
 - Listen for browser events `visibilitychange` and `focus`.
 
 :::
