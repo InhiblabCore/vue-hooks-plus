@@ -3,7 +3,6 @@ import { ref, reactive, toRefs, onMounted, onUnmounted, unref, inject } from 'vu
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import { UseRequestOptions, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
-import { merge } from 'lodash'
 
 function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
@@ -11,12 +10,14 @@ function useRequestImplement<TData, TParams extends any[]>(
   plugins: UseRequestPlugin<TData, TParams>[] = [],
 ) {
   // global option
-  const USEREQUEST_GLOBAL_OPTIONS = inject(USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY)
+  const USEREQUEST_GLOBAL_OPTIONS = inject<Record<string, any>>(
+    USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY,
+  )
   // read option
-  const { initialData = undefined, manual = false, ready = true, ...rest } = merge(
-    USEREQUEST_GLOBAL_OPTIONS,
-    options ?? {},
-  ) as Record<string, any>
+  const { initialData = undefined, manual = false, ready = true, ...rest } = {
+    ...(USEREQUEST_GLOBAL_OPTIONS ?? {}),
+    ...(options ?? {}),
+  } as Record<string, any>
 
   const fetchOptions = {
     manual,
