@@ -12,6 +12,10 @@
     <vhp-button @click="addTag()">
       Add tag
     </vhp-button>
+
+    <vhp-button @click="cover()">
+      cover
+    </vhp-button>
   </div>
 </template>
 
@@ -38,6 +42,15 @@
     setState({
       age: 2,
     })
+  }
+
+  const cover = () => {
+    setState(
+      {
+        age: 0,
+      },
+      true,
+    )
   }
 </script>
 
