@@ -24,6 +24,6 @@
 
   const { data } = useRequest(() => getUsername())
   const { data: data1, loading } = useRequest(() => getUsername1(), {
-    loadingDelay: 300,
+    loadingDelay: 10000,
   })
 </script>
