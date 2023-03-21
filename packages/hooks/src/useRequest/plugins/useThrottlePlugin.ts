@@ -20,7 +20,7 @@ const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
 
   const throttledRef = computed<DebouncedFunc<any>>(() =>
     throttle(
-      (callback: any) => {
+      (callback: () => void) => {
         callback()
       },
       unref(throttleWait),

@@ -29,7 +29,7 @@ const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
     if (unref(debounceWait)) {
       const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance);
       debouncedRef.value = debounce(
-        (callback: any) => {
+        (callback: () => void) => {
           callback();
         },
         unref(debounceWait),

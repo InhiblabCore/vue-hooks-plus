@@ -21,7 +21,10 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
   constructor(
     public serviceRef: Ref<UseRequestService<TData, TParams>>,
     public options: UseRequestOptions<TData, TParams, any>,
-    public setUpdateData: (s: any, key?: keyof UseRequestFetchState<TData, TParams>) => void,
+    public setUpdateData: (
+      currentState: unknown,
+      key?: keyof UseRequestFetchState<TData, TParams>,
+    ) => void,
     public initState: Partial<UseRequestFetchState<TData, TParams>> = {},
   ) {
     this.state = {
@@ -32,16 +35,16 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
   }
 
   // 设置state
-  setState(s: Partial<UseRequestFetchState<TData, TParams>> = {}) {
+  setState(currentState: Partial<UseRequestFetchState<TData, TParams>> = {}) {
     this.state = {
       ...this.state,
-      ...s,
+      ...currentState,
     }
     this.setUpdateData(this.state)
   }
 
   /**
-   *
+   * should rename
    * @param data Result value `any`
    * @param key Result key `data`| `params` | `loading`| `error`
    */
@@ -62,8 +65,30 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     }
   }
 
+  /**
+   *
+   * @param data Result value `unknown`
+   * @param key Result key `data`| `params` | `loading`| `error`
+   */
+  setFetchState(
+    data: unknown,
+    key?:
+      | keyof UseRequestFetchState<TData, TParams>
+      | (keyof UseRequestFetchState<TData, TParams>)[],
+  ) {
+    if (key instanceof Array) {
+      key.forEach(k => {
+        this.state[k as keyof UseRequestFetchState<TData, TParams>] = data as any
+        this.setUpdateData(data, k)
+      })
+    } else {
+      this.state[key as keyof UseRequestFetchState<TData, TParams>] = data as any
+      this.setUpdateData(data, key)
+    }
+  }
+
   // 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
-  runPluginHandler(event: keyof UseRequestPluginReturn<TData, TParams>, ...rest: any[]) {
+  runPluginHandler(event: keyof UseRequestPluginReturn<TData, TParams>, ...rest: unknown[]) {
     // @ts-ignore
     const r = (this.pluginImpls?.map(i => i[event]?.(...rest)) ?? [])?.filter(Boolean)
     // @ts-ignore
@@ -102,7 +127,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       // replace service 开始请求，如果含有onRequest事件名
       let { servicePromise } = this.runPluginHandler('onRequest', this.serviceRef.value, params)
 
-      const requestReturn = (res: any) => {
+      const requestReturnResponse = (res: any) => {
         // 取消了请求，count将与currentCount不一致，将发送空请求
         if (currentCount !== this.count) {
           return new Promise(() => {})
@@ -137,16 +162,16 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
             if (unref(this.options.ready)) {
               this.setData(true, 'loading')
               servicePromise = this.serviceRef.value(...params)
-              const res = await servicePromise
-              return requestReturn(res)
+              const servicePromiseResult = await servicePromise
+              return requestReturnResponse(servicePromiseResult)
             }
           })
         } else {
           servicePromise = this.serviceRef.value(...params)
         }
       }
-      const res = await servicePromise
-      return requestReturn(res)
+      const servicePromiseResult = await servicePromise
+      return requestReturnResponse(servicePromiseResult)
     } catch (error) {
       if (currentCount !== this.count) {
         return new Promise(() => {})

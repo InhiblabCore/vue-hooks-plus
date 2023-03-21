@@ -1,8 +1,28 @@
-import { ref, reactive, toRefs, onMounted, onUnmounted, unref, inject } from 'vue'
+import { ref, reactive, toRefs, onMounted, onUnmounted, unref, inject, UnwrapRef } from 'vue'
 
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
-import { UseRequestOptions, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
+import {
+  UseRequestFetchState,
+  UseRequestOptions,
+  UseRequestPlugin,
+  useRequestResult,
+  UseRequestService,
+} from './types'
+
+function isUseRequestFetchState<TData, TParams extends any[]>(
+  state: unknown,
+): state is UseRequestFetchState<TData, TParams> {
+  const keys = Object.keys(state as object)
+  return keys.filter(i => ['data', 'loading', 'params', 'error'].includes(i)).length === 4
+}
+
+function isUseRequestFetchStateKey<TData, TParams extends any[]>(
+  field: string,
+  state: unknown,
+): state is UseRequestFetchState<TData, TParams>[keyof UseRequestFetchState<TData, TParams>] {
+  return Boolean(['data', 'loading', 'params', 'error'].find(i => i === field))
+}
 
 function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
@@ -17,7 +37,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   const { initialData = undefined, manual = false, ready = true, ...rest } = {
     ...(USEREQUEST_GLOBAL_OPTIONS ?? {}),
     ...(options ?? {}),
-  } as Record<string, any>
+  }
 
   const fetchOptions = {
     manual,
@@ -29,26 +49,25 @@ function useRequestImplement<TData, TParams extends any[]>(
   const serviceRef = ref(service)
 
   // reactive
-  const state = reactive<{
-    data?: TData
-    loading: boolean
-    params?: TParams
-    error?: Error
-  }>({
+  const state = reactive<UseRequestFetchState<TData, TParams>>({
     data: initialData,
     loading: false,
     params: undefined,
     error: undefined,
   })
 
-  const setState = (s: any, field?: keyof typeof state) => {
+  const setState = (currentState: unknown, field?: keyof typeof state) => {
     if (field) {
-      state[field] = s
+      if (isUseRequestFetchStateKey<UnwrapRef<TData>, UnwrapRef<TParams>>(field, currentState)) {
+        state[field] = currentState as any
+      }
     } else {
-      state.data = s.data
-      state.loading = s.loading
-      state.error = s.error
-      state.params = s.params
+      if (isUseRequestFetchState<UnwrapRef<TData>, UnwrapRef<TParams>>(currentState)) {
+        state.data = currentState.data
+        state.loading = currentState.loading
+        state.error = currentState.error
+        state.params = currentState.params
+      }
     }
   }
 
