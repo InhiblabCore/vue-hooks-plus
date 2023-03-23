@@ -4,12 +4,10 @@ import { reactive, ref } from 'vue'
 import useRequest from '../useRequest'
 
 let text = ''
-let text1 = ''
 function getUsername({ id, storeId }: { id: number; storeId: number }): Promise<string> {
   return new Promise(resolve => {
     setTimeout(() => {
       text = `${String(Date.now())}； \t 参数id: ${id} \t； 参数storeId: ${storeId}`
-      text1 = `${String(Date.now())}； \t 参数id: ${id} \t； 参数storeId: ${storeId}`
       resolve(`${String(Date.now())}； \t 参数id: ${id} \t； 参数storeId: ${storeId}`)
     }, 1000)
   })
