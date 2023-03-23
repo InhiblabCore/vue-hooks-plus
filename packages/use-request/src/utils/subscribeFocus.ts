@@ -1,27 +1,32 @@
-import isDocumentVisible from "./isDocumentVisible";
-import isOnline from "./isOnline";
-import { canUseDom } from "./utils";
+// from swr
+import isBrowser from './isBrowser'
+import isDocumentVisible from './isDocumentVisible'
+import isOnline from './isOnline'
 
-const listeners: any[] = [];
+type Listener = () => void
 
-function subscribe(listener: () => void) {
-  listeners.push(listener);
+const listeners: Listener[] = []
+
+function subscribe(listener: Listener) {
+  listeners.push(listener)
   return function unsubscribe() {
-    const index = listeners.indexOf(listener);
-    listeners.splice(index, 1);
-  };
-}
-
-if (canUseDom()) {
-  const revalidate = () => {
-    if (!isDocumentVisible() || !isOnline()) return;
-    for (let i = 0; i < listeners.length; i++) {
-      const listener = listeners[i];
-      listener();
+    const index = listeners.indexOf(listener)
+    if (index > -1) {
+      listeners.splice(index, 1)
     }
-  };
-  window.addEventListener("visibilitychange", revalidate, false);
-  window.addEventListener("focus", revalidate, false);
+  }
 }
 
-export default subscribe;
+if (isBrowser) {
+  const revalidate = () => {
+    if (!isDocumentVisible() || !isOnline()) return
+    for (let i = 0; i < listeners.length; i++) {
+      const listener = listeners[i]
+      listener()
+    }
+  }
+  window.addEventListener('visibilitychange', revalidate, false)
+  window.addEventListener('focus', revalidate, false)
+}
+
+export default subscribe
