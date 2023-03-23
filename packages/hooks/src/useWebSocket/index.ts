@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { watch, ref, Ref, onUnmounted, unref } from 'vue'
+import { watch, ref, Ref, onUnmounted, unref, isRef } from 'vue'
 
 export enum ReadyState {
   Connecting = 0,
@@ -21,7 +21,7 @@ export interface UseWebSocketOptions {
 }
 
 export interface UseWebSocketResult {
-  latestMessage?: Ref<WebSocketEventMap['message']>
+  latestMessage: Ref<WebSocketEventMap['message'] | undefined>
   sendMessage?: WebSocket['send']
   disconnect?: () => void
   connect?: () => void
@@ -144,18 +144,36 @@ export default function useWebSocket(
     websocketRef.value?.close()
   }
 
-  watch(
-    [socketUrl, manual],
-    c => {
-      const [_, manualWatch] = c
-      if (!manualWatch) {
-        connect()
-      }
-    },
-    {
-      immediate: true,
-    },
-  )
+  if (isRef(socketUrl) && isRef(manual))
+    watch(
+      [socketUrl, manual],
+      c => {
+        const [_, manualWatch] = c
+        if (!manualWatch) {
+          connect()
+        }
+      },
+      {
+        immediate: true,
+      },
+    )
+  else if (isRef(manual)) {
+    watch(
+      manual,
+      manualWatch => {
+        if (!manualWatch) {
+          connect()
+        }
+      },
+      {
+        immediate: true,
+      },
+    )
+  } else {
+    if (!manual) {
+      connect()
+    }
+  }
 
   onUnmounted(() => {
     unmountedRef.value = true

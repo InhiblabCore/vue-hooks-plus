@@ -41,7 +41,7 @@
   const { readyState, sendMessage, latestMessage, disconnect, connect } = useWebSocket(
     'wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self',
   )
-  const messageHistory = computed(() => latestMessage?.value)
+  const messageHistory = computed(() => latestMessage.value)
 
   const messageList = ref<any[]>([])
 
