@@ -29,7 +29,8 @@ source:
 
 :::warning 注意
 
-- `options.refreshOnWindowFocus`、`options.focusTimespan` 支持动态变化。
+- `options.refreshOnWindowFocus` 支持动态变化。
+- `options.focusTimespan` 支持动态变化。
 - 监听的浏览器事件为 `visibilitychange` 和 `focus`。
 
 :::

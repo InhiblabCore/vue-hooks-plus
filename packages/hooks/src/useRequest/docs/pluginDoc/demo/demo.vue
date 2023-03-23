@@ -26,7 +26,7 @@
   > = (fetchInstance, { formatter }) => {
     return {
       onSuccess: () => {
-        fetchInstance.setData(formatter?.(fetchInstance.state.data), 'data')
+        fetchInstance.setFetchState(formatter?.(fetchInstance.state.data), 'data')
       },
     }
   }

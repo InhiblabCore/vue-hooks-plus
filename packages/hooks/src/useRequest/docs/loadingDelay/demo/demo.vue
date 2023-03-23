@@ -7,7 +7,7 @@
   import { useRequest } from 'vue-hooks-plus'
 
   function getUsername(): Promise<string> {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         resolve('vue-hooks-plus useRequest')
       }, 1000)
@@ -15,7 +15,7 @@
   }
 
   function getUsername1(): Promise<string> {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       setTimeout(() => {
         resolve('vue-hooks-plus useRequest A')
       }, 1000)
