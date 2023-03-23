@@ -22,7 +22,7 @@ describe('useRequest/RefreshDeps', () => {
   })
   const [{ data }] = renderHook(() =>
     useRequest(() => getUsername({ id: id.value, storeId: store.id }), {
-      refreshDeps: [id, () => store.id],
+      refreshDeps: true,
     }),
   )
 
