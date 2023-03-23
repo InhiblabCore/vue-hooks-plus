@@ -87,7 +87,7 @@ interface UseRequestPluginReturn<TData, TParams extends any[]> {
 
 :::tip 注意
 
-需要设置 `data` 、`params` 、 `loading` 、 `error` 需要使用实例上的 `setData` 进行变更。
+需要设置 `data` 、`params` 、 `loading` 、 `error` 需要使用实例上的 `setFetchState` 进行变更。
 
 :::
 
@@ -98,7 +98,7 @@ interface UseRequestPluginReturn<TData, TParams extends any[]> {
   title=""
   desc="字段过滤插件, 在数据请求成功的时候修改原本的数据"> </demo>
 
-在请求数据完成后将 外部传入的 `formatter` 处理完数据后将结果返回，调用 `setData` 重新设置值。
+在请求数据完成后将 外部传入的 `formatter` 处理完数据后将结果返回，调用 `setFetchState` 重新设置值。
 
 ```typescript
 const useFormatterPlugin: UseRequestPlugin<
@@ -113,7 +113,7 @@ const useFormatterPlugin: UseRequestPlugin<
 > = (fetchInstance, { formatter }) => {
   return {
     onSuccess: () => {
-      fetchInstance.setData(formatter?.(fetchInstance.state.data), 'data')
+      fetchInstance.setFetchState(formatter?.(fetchInstance.state.data), 'data')
     },
   }
 }

@@ -84,7 +84,7 @@ interface UseRequestPluginReturn<TData, TParams extends any[]> {
 
 :::tip Remark
 
-Need to setup `data`, `params`, `loading`, `error` Change requires use using the `setData` on the instance.
+Need to setup `data`, `params`, `loading`, `error` Change requires use using the `setFetchState` on the instance.
 
 :::
 
@@ -95,7 +95,7 @@ Need to setup `data`, `params`, `loading`, `error` Change requires use using the
   title=""
   desc="Field filter plug-in to modify the original data when the data request is successful"> </demo>
 
-Return the results after the request data has processed the data, call `setData` to reset the value.
+Return the results after the request data has processed the data, call `setFetchState` to reset the value.
 
 ```typescript
 const useFormatterPlugin: UseRequestPlugin<
@@ -110,7 +110,7 @@ const useFormatterPlugin: UseRequestPlugin<
 > = (fetchInstance, { formatter }) => {
   return {
     onSuccess: () => {
-      fetchInstance.setData(formatter?.(fetchInstance.state.data), 'data')
+      fetchInstance.setFetchState(formatter?.(fetchInstance.state.data), 'data')
     },
   }
 }

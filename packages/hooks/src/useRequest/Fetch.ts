@@ -45,22 +45,23 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
 
   /**
    * should rename
-   * @param data Result value `any`
+   * @param data Result value `unknown`
    * @param key Result key `data`| `params` | `loading`| `error`
    */
   setData(
-    data: any,
+    data: unknown,
     key?:
       | keyof UseRequestFetchState<TData, TParams>
       | (keyof UseRequestFetchState<TData, TParams>)[],
   ) {
+    console.warn("Please use 'setFetchState' instead of 'setData'")
     if (key instanceof Array) {
       key.forEach(k => {
-        this.state[k as keyof UseRequestFetchState<TData, TParams>] = data
+        this.state[k as keyof UseRequestFetchState<TData, TParams>] = data as any
         this.setUpdateData(data, k)
       })
     } else {
-      this.state[key as keyof UseRequestFetchState<TData, TParams>] = data
+      this.state[key as keyof UseRequestFetchState<TData, TParams>] = data as any
       this.setUpdateData(data, key)
     }
   }
@@ -160,7 +161,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
         if (!this.options.manual && this.options.refreshDeps === true) {
           watchEffect(async () => {
             if (unref(this.options.ready)) {
-              this.setData(true, 'loading')
+              this.setFetchState(true, 'loading')
               servicePromise = this.serviceRef.value(...params)
               const servicePromiseResult = await servicePromise
               return requestReturnResponse(servicePromiseResult)
