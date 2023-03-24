@@ -7,6 +7,7 @@ export default defineConfig({
     dts({
       include: ['../hooks/src/**/*.ts'],
       outputDir: path.resolve(__dirname),
+      tsConfigFilePath: './tsconfig.json',
       rollupTypes: true,
     }),
   ],
