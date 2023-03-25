@@ -12,7 +12,8 @@
   "module": "./dist/useWorker.es.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "vite build"
+    "build": "vite build",
+    "clean": "rimraf dist"
   },
   "keywords": [
     "vue3",
