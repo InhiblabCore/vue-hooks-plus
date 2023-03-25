@@ -10,7 +10,8 @@ const usePollingPlugin: UseRequestPlugin<unknown, unknown[]> = (
   const timerRef = ref<Interval>();
   const unsubscribeRef = ref<() => void>();
   const countRef = ref<number>(0);
-  
+
+
 
   const stopPolling = () => {
     if (timerRef.value) {
@@ -33,7 +34,7 @@ const usePollingPlugin: UseRequestPlugin<unknown, unknown[]> = (
     onBefore: () => {
       stopPolling();
     },
-     onError: () => {
+    onError: () => {
       countRef.value += 1;
     },
     onSuccess: () => {
