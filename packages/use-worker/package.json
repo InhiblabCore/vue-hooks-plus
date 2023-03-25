@@ -12,7 +12,7 @@
   "module": "./dist/useWorker.es.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "vite build",
+    "build": "npm run clean && vite build",
     "clean": "rimraf dist"
   },
   "keywords": [
