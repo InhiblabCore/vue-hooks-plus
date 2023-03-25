@@ -27,7 +27,7 @@
     staleTime: 5000,
 
     setCache: res => {
-      localStorage.setItem(cacheKey, `${res.data}`)
+      localStorage.setItem(cacheKey, JSON.stringify(res.data))
     },
     getCache: () => {
       return JSON.parse(localStorage.getItem(cacheKey) ?? '{}')

@@ -17,7 +17,9 @@ declare interface CachedData<TData = any, TParams = any> {
     time: number;
 }
 
-export declare const clearCache: (key?: string | string[]) => void;
+export declare const clearUseRequestCache: (key?: string | string[]) => void;
+
+export declare function createUseRequest<TData, TParams extends unknown[] = unknown[], PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]>(service: UseRequestService<TData, TParams>, options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[] ? P extends UseRequestPlugin<TData, TParams, infer R> ? R : any : any>, plugins?: PluginsOptions): useRequestResult<TData, TParams>;
 
 declare interface DebounceOptions {
     /**
@@ -66,20 +68,26 @@ declare const eventEmitterOverall: EventEmitter<unknown>;
 declare class Fetch<TData, TParams extends unknown[] = any> {
     serviceRef: Ref<UseRequestService<TData, TParams>>;
     options: UseRequestOptions<TData, TParams, any>;
-    setUpdateData: (s: any, key?: keyof UseRequestFetchState<TData, TParams>) => void;
+    setUpdateData: (currentState: unknown, key?: keyof UseRequestFetchState<TData, TParams>) => void;
     initState: Partial<UseRequestFetchState<TData, TParams>>;
     pluginImpls: UseRequestPluginReturn<TData, TParams>[] | undefined;
     count: number;
     state: UseRequestFetchState<TData, TParams>;
-    constructor(serviceRef: Ref<UseRequestService<TData, TParams>>, options: UseRequestOptions<TData, TParams, any>, setUpdateData: (s: any, key?: keyof UseRequestFetchState<TData, TParams>) => void, initState?: Partial<UseRequestFetchState<TData, TParams>>);
-    setState(s?: Partial<UseRequestFetchState<TData, TParams>>): void;
+    constructor(serviceRef: Ref<UseRequestService<TData, TParams>>, options: UseRequestOptions<TData, TParams, any>, setUpdateData: (currentState: unknown, key?: keyof UseRequestFetchState<TData, TParams>) => void, initState?: Partial<UseRequestFetchState<TData, TParams>>);
+    setState(currentState?: Partial<UseRequestFetchState<TData, TParams>>): void;
     /**
-     *
-     * @param data Result value `any`
+     * should rename
+     * @param data Result value `unknown`
      * @param key Result key `data`| `params` | `loading`| `error`
      */
-    setData(data: any, key?: keyof UseRequestFetchState<TData, TParams> | (keyof UseRequestFetchState<TData, TParams>)[]): void;
-    runPluginHandler(event: keyof UseRequestPluginReturn<TData, TParams>, ...rest: any[]): any;
+    setData(data: unknown, key?: keyof UseRequestFetchState<TData, TParams> | (keyof UseRequestFetchState<TData, TParams>)[]): void;
+    /**
+     *
+     * @param data Result value `unknown`
+     * @param key Result key `data`| `params` | `loading`| `error`
+     */
+    setFetchState(data: unknown, key?: keyof UseRequestFetchState<TData, TParams> | (keyof UseRequestFetchState<TData, TParams>)[]): void;
+    runPluginHandler(event: keyof UseRequestPluginReturn<TData, TParams>, ...rest: unknown[]): any;
     runAsync(...params: TParams): Promise<TData>;
     run(...params: TParams): void;
     cancel(): void;
@@ -216,7 +224,7 @@ declare interface UseBooleanActions {
 
 declare type UseBooleanResult = [Ref<boolean>, UseBooleanActions];
 
-export declare function useCookieState(cookieKey: string, options?: UseCookieStateOptions): readonly [Ref<UseCookieStateType>, (newValue: UseCookieStateType | ((prevState: UseCookieStateType) => UseCookieStateType), newOptions?: Cookies.CookieAttributes) => void];
+export declare function useCookieState(cookieKey: string, options?: UseCookieStateOptions): readonly [any, (newValue: UseCookieStateType | ((prevState: UseCookieStateType) => UseCookieStateType), newOptions?: Cookies.CookieAttributes) => void];
 
 declare interface UseCookieStateOptions extends Cookies.CookieAttributes {
     defaultValue?: UseCookieStateType | (() => UseCookieStateType);
@@ -925,6 +933,8 @@ declare interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
     onMutate?: (data: TData) => void;
 }
 
+export declare function useRequestProvider(config: UseRequestOptions<unknown, any, any>): void;
+
 declare interface useRequestResult<TData, TParams extends unknown[]> {
     /**
      * Is the service being executed.
@@ -990,7 +1000,7 @@ declare interface UseSetActions<T> {
 
 export declare function useSetState<S extends Record<string, any>>(initialState: UseSetStateType<S>): [
 DeepReadonly<UnwrapNestedRefs<[S] extends [Ref<any>] ? S : Ref<UnwrapRef<S>>>>,
-(patch: Record<string, any>) => void
+(patch: Record<string, any>, cover?: boolean) => void
 ];
 
 declare type UseSetStateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>);
@@ -1090,7 +1100,7 @@ declare type UseSetStateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>);
  }
 
  declare interface UseWebSocketResult {
-     latestMessage?: Ref<WebSocketEventMap['message']>;
+     latestMessage: Ref<WebSocketEventMap['message'] | undefined>;
      sendMessage?: WebSocket['send'];
      disconnect?: () => void;
      connect?: () => void;

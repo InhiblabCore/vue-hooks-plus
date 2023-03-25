@@ -1,4 +1,4 @@
-import { Ref, unref, watchEffect } from 'vue'
+import { Ref } from 'vue'
 import {
   UseRequestFetchState,
   UseRequestOptions,
@@ -107,7 +107,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     )
     // 是否停止请求
     if (stopNow) {
-      return new Promise(() => {})
+      return new Promise(() => { })
     }
 
     this.setState({
@@ -131,7 +131,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       const requestReturnResponse = (res: any) => {
         // 取消了请求，count将与currentCount不一致，将发送空请求
         if (currentCount !== this.count) {
-          return new Promise(() => {})
+          return new Promise(() => { })
         }
         // 格式化数据
         const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
@@ -158,24 +158,26 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
 
       if (!servicePromise) {
         /** 自动依赖收集 */
-        if (!this.options.manual && this.options.refreshDeps === true) {
-          watchEffect(async () => {
-            if (unref(this.options.ready)) {
-              this.setFetchState(true, 'loading')
-              servicePromise = this.serviceRef.value(...params)
-              const servicePromiseResult = await servicePromise
-              return requestReturnResponse(servicePromiseResult)
-            }
-          })
-        } else {
-          servicePromise = this.serviceRef.value(...params)
-        }
+        // if (!this.options.manual && this.options.refreshDeps === true) {
+        //   watchEffect(async () => {
+        //     if (unref(this.options.ready)) {
+        //       this.setFetchState(true, 'loading')
+        //       servicePromise = this.serviceRef.value(...params)
+        //       const servicePromiseResult = await servicePromise
+        //       return requestReturnResponse(servicePromiseResult)
+        //     }
+        //   })
+        // } else {
+        //   servicePromise = this.serviceRef.value(...params)
+        // }
+        servicePromise = this.serviceRef.value(...params)
       }
+      // servicePromise = this.serviceRef.value(...params)
       const servicePromiseResult = await servicePromise
       return requestReturnResponse(servicePromiseResult)
     } catch (error) {
       if (currentCount !== this.count) {
-        return new Promise(() => {})
+        return new Promise(() => { })
       }
 
       this.setState({

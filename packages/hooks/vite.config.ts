@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
-import { buildConfig, buildFullTypesConfig } from './scripts/build'
+import { buildConfig } from './scripts/build'
 // import config from './scripts/config'
 
-export default defineConfig(({ mode }) => {
-  if (mode === 'fullTypes') {
-    return buildFullTypesConfig
-  }
+export default defineConfig(() => {
+  // if (mode === 'fullTypes') {
+  //   return buildFullTypesConfig
+  // }
   return buildConfig
 })
