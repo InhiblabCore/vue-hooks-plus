@@ -104,7 +104,6 @@ function useRequestImplement<TData, TParams extends any[]>(
       // }
       // 自动收集依赖
       if (readyComputed.value && fetchInstance.options.refreshDeps === true && !!serviceRef.value) {
-        console.log("运行1");
         fetchInstance.run(...(params as TParams))
       }
     }
