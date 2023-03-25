@@ -35,7 +35,15 @@
           }, 1000)
         })
       }
-      const { data, loading } = useRequest(() => getUsername({ desc: 'good' }))
+      const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), {
+        // manual: true,
+        onSuccess: res => {
+          // debugger
+          console.log(res)
+        },
+      })
+
+      // run()
       return () => {
         return h('div', {}, [
           h('h3', 'demo2'),

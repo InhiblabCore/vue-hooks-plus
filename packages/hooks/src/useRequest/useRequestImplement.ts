@@ -1,4 +1,4 @@
-import { ref, reactive, toRefs, onMounted, onUnmounted, unref, inject, UnwrapRef } from 'vue'
+import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, onMounted, unref } from 'vue'
 
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
@@ -87,6 +87,27 @@ function useRequestImplement<TData, TParams extends any[]>(
   // run plugins
   fetchInstance.pluginImpls = plugins.map(p => {
     return p(fetchInstance, fetchOptions)
+  })
+
+  const readyComputed = computed(() => isRef(ready) ? ready.value : ready)
+
+  // const isMount = ref(false)
+
+  watchEffect(() => {
+    if (!manual) {
+      const params = fetchInstance.state.params || options.defaultParams || []
+      // if (readyComputed.value && !isMount.value) {
+      //   fetchInstance.run(...(params as TParams))
+      //   // 模拟首次mount
+      //   isMount.value = true
+
+      // }
+      // 自动收集依赖
+      if (readyComputed.value && fetchInstance.options.refreshDeps === true && !!serviceRef.value) {
+        console.log("运行1");
+        fetchInstance.run(...(params as TParams))
+      }
+    }
   })
 
   // manual

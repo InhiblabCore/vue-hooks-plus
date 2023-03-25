@@ -58,6 +58,8 @@
     storeId: number | string
     count: number | string
   }> {
+    console.log('request')
+
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({
@@ -75,7 +77,7 @@
   })
   const count = ref(0)
 
-  const ready = computed(() => count.value !== 0 && count.value !== 5)
+  const ready = computed(() => count.value !== undefined)
   const { data, loading } = useRequest(
     () => getUsername({ id: id.value, storeId: store.id, count: count.value }),
     {
@@ -87,6 +89,7 @@
       },
       ready,
       refreshDeps: true,
+      debounceWait: 1000,
     },
   )
 </script>
