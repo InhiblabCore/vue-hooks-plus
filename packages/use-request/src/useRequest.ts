@@ -23,8 +23,8 @@ function useRequest<
     PluginsOptions extends (infer P)[]
       ? P extends UseRequestPlugin<TData, TParams, infer R>
         ? R
-        : any
-      : any
+        : never
+      : never
   >,
   plugins?: PluginsOptions,
 ) {
