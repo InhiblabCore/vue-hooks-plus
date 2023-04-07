@@ -140,7 +140,7 @@ export default defineConfig({
       },
       {
         icon: 'discord',
-        link: 'https://discord.gg/RU6ZPjf8',
+        link: 'https://discord.gg/z5Ve5r9Kwp',
       },
       {
         icon: 'twitter',
