@@ -29,6 +29,13 @@ export default defineConfig({
         href: svg,
       },
     ],
+    [
+      'meta',
+      {
+        name: 'viewport',
+        content: 'width=device-width,height=device-height, maximum-scale=1.0,minimum-scale=1.0',
+      },
+    ],
   ],
   description: 'High-quality & Reliable 🧲 Vue3 Hooks library',
   base,
@@ -53,6 +60,7 @@ export default defineConfig({
       apiKey: '268129e44d6b58950b4626bf86e8bd1e',
       indexName: 'vue-hooks-plus-search',
     },
+    // @ts-ignore
     localeLinks: {
       text: '',
       items: [
