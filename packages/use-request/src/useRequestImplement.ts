@@ -1,4 +1,16 @@
-import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, onMounted, unref } from 'vue'
+import {
+  ref,
+  reactive,
+  toRefs,
+  onUnmounted,
+  inject,
+  UnwrapRef,
+  watchEffect,
+  computed,
+  isRef,
+  onMounted,
+  unref,
+} from 'vue'
 
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
@@ -28,7 +40,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
   options: UseRequestOptions<TData, TParams, any> = {},
   plugins: UseRequestPlugin<TData, TParams>[] = [],
-) {
+): useRequestResult<TData, TParams> {
   // global option
   const USEREQUEST_GLOBAL_OPTIONS = inject<Record<string, any>>(
     USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY,
@@ -57,7 +69,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     error: undefined,
   })
 
-  const setState = (currentState: unknown, field?: keyof typeof state) => {
+  const setState = (currentState: unknown, field?: keyof typeof state): void => {
     if (field) {
       // if (isUseRequestFetchStateKey<UnwrapRef<TData>, UnwrapRef<TParams>>(field, currentState)) {
       //   state[field] = currentState as any
@@ -89,7 +101,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     return p(fetchInstance, fetchOptions)
   })
 
-  const readyComputed = computed(() => isRef(ready) ? ready.value : ready)
+  const readyComputed = computed(() => (isRef(ready) ? ready.value : ready))
 
   // const isMount = ref(false)
 
