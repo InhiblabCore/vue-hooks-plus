@@ -5,9 +5,14 @@ import VhpButton from '../components/button'
 import '@vue-hooks-plus/vitepress-demo-block/dist/style.css'
 import './var.less'
 
+import { createPinia } from 'pinia'
+
+const store = createPinia()
+
 export default {
   ...DefaultTheme,
   enhanceApp({ app }: { app: App<Element> }) {
+    app.use(store)
     app.component('demo', DemoBlock)
     app.component('vhp-button', VhpButton)
   },

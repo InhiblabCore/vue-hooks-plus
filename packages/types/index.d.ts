@@ -749,7 +749,7 @@ export declare function usePrevious<T>(state: Ref<T> | ComputedRef<T>, shouldUpd
 
 declare type UsePreviousShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean;
 
-export declare function useRequest<TData, TParams extends unknown[] = unknown[], PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]>(service: UseRequestService<TData, TParams>, options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[] ? P extends UseRequestPlugin<TData, TParams, infer R> ? R : any : any>, plugins?: PluginsOptions): useRequestResult<TData, TParams>;
+export declare function useRequest<TData, TParams extends unknown[] = unknown[], PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]>(service: UseRequestService<TData, TParams>, options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[] ? P extends UseRequestPlugin<TData, TParams, infer R> ? R : never : never>, plugins?: PluginsOptions): useRequestResult<TData, TParams>;
 
 declare interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
     /**
@@ -913,7 +913,7 @@ declare type UseRequestOptions<TData, TParams extends unknown[], TPlugin> = {
     [K in keyof TPlugin]: TPlugin[K];
 };
 
-declare interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
+export declare interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
     (fetchInstance: Fetch<TData, TParams>, options: UseRequestOptions<TData, TParams, TPlugin>): UseRequestPluginReturn<TData, TParams>;
     onInit?: (options: UseRequestOptions<TData, TParams, TPlugin>) => Partial<UseRequestFetchState<TData, TParams>>;
 }

@@ -162,6 +162,30 @@ const useRequestRouter = [
   },
 ]
 
+const useRequestPlugins = [
+  {
+    text: 'useRequest 外置插件',
+    items: [
+      {
+        text: '全局请求状态管理',
+        link: '/useRequest/plugins/fetchsing/',
+      },
+    ],
+  },
+]
+
+const useRequestPluginsEN = [
+  {
+    text: 'UseRequest External Plugins',
+    items: [
+      {
+        text: 'Global Fetching',
+        link: '/en/useRequest/plugins/fetchsing/',
+      },
+    ],
+  },
+]
+
 const useRequestRouterEN = [
   {
     text: 'useRequest',
@@ -240,6 +264,11 @@ const getUseRequestRouter = (langPrefix = '/') => {
   else return useRequestRouterEN
 }
 
+const getUseRequestPlugins = (langPrefix = '/') => {
+  if (langPrefix === '/') return useRequestPlugins
+  else return useRequestPluginsEN
+}
+
 export function getRouterConfig(langPrefix = '/') {
   return [
     {
@@ -260,6 +289,7 @@ export function getRouterConfig(langPrefix = '/') {
       ],
     },
     ...getUseRequestRouter(langPrefix),
+    ...getUseRequestPlugins(langPrefix),
     ...Router.map(item => ({
       text: item.text,
       items: item.items?.map(i => ({
