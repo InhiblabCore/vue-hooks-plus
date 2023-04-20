@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../use-request-plugins/dist", //输出文件
+    "lib": ["esnext", "dom"],
+    "baseUrl": "../use-request-plugins",
+    "rootDir": "../use-request-plugins"
+  },
+  "include": ["../use-request-plugins/src/**/*.ts"],
+  "exclude": ["../use-request-plugins/node_modules", "../use-request-plugins/dist"]
+}
