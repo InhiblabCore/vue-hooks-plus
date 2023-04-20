@@ -3,7 +3,8 @@ map:
   # 映射到docs的路径
   path: /useRequest/plugins/fetchsing
 source:
-  show: false
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/use-request-plugins/src/useFetchingPlugin/index.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/plugins/fetchsing/demo
 ---
 
 # useRequest Fetching 插件
