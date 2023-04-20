@@ -38,6 +38,8 @@
     "@vue-hooks-plus/use-immer":"workspace:^1.0.0",
     "@vue-hooks-plus/use-worker":"workspace:^1.0.0",
     "@vue-hooks-plus/use-request":"workspace:^1.0.0",
+    "@vue-hooks-plus/use-request-plugins":"workspace:^1.0.0",
+    "@vue-hooks-plus/types":"workspace:^1.0.0",
 		"@vue/test-utils": "^2.1.0",
     "@vitest/coverage-c8":"^0.25.7",
 		"eslint": "^8.20.0",
@@ -70,6 +72,7 @@
 		"vue": "^3.2.25",
 		"vue-tsc": "1.0.9",
 		"vue-typical": "^2.1.0",
+    "pinia":"^2.0.34",
     "three":"0.147.0",
     "vue-demi": "^0.13.11"
 	},

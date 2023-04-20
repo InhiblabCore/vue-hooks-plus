@@ -1,0 +1,32 @@
+{
+  "name": "@vue-hooks-plus/use-request-plugins",
+  "version": "1.6.0",
+  "description": "",
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./dist/useRequest_plugins.cjs.js",
+  "module": "./dist/useRequest_plugins.es.js",
+  "types": "./dist/types/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && vite build",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "vue3",
+    "useRequest plugins"
+  ],
+  "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+  "homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+  "author": "NelsonYong",
+  "license": "MIT",
+  "devDependencies": {
+    "@vue-hooks-plus/use-request":"^1.3.2"
+  },
+  "peerDependencies": {
+		"pinia": "^2.0.30"
+	}
+}
