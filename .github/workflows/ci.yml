@@ -29,6 +29,10 @@ jobs:
         run: |
           cd packages/use-worker 
           pnpm build
+      - name: Build use-request-plugins
+        run: |
+          cd packages/use-request-plugins
+          pnpm build
       - name: Docs-Build
         run: |
           cd packages/hooks
