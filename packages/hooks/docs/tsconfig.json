@@ -3,7 +3,7 @@
   "compilerOptions": {
     "lib": ["ES2016", "dom"],
     "baseUrl": "./",
-    "rootDir": "./",
+    "rootDir": "/",
     "paths": {
       "vue-hooks-plus": ["../src/index.ts"]
     }
