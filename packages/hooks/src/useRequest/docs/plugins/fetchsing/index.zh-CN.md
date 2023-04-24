@@ -29,7 +29,7 @@ source:
 
 ```
 
-## 示例
+## 代码演示
 
 <demo src="./demo/demo.vue"
   language="vue"
@@ -55,8 +55,8 @@ useRequest(
 
 ## Options
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| fetchingKey | 需要收集状态的标识 key，存在即会被状态收集 | `(params: any[]) => string` | - |
-| onFetching | 中间态函数回调，第一个参数`current`是当前自身的状态，第二个参数`record`是所有的状态 | `(current:any,record:Record<string,any>) => void` | - |
-| isFetching | 官方自带的功能，判断所有请求状态是否请求完成 | `(_isFetching: boolean) => void` | - |
+| Property | Description | Type |
+| --- | --- | --- |
+| fetchingKey | 需要收集状态的标识 key，存在即会被状态收集 | `(params: any[]) => string` |
+| onFetching | 中间态函数回调，第一个参数`current`是当前自身的状态，第二个参数`record`是所有的状态 | `(current:any,record:Record<string,any>) => void` |
+| isFetching | 官方自带的功能，判断所有请求状态是否请求完成 | `(_isFetching: boolean) => void` |
