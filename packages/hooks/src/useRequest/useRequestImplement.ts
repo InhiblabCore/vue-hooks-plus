@@ -17,13 +17,6 @@ function isUseRequestFetchState<TData, TParams extends any[]>(
   return keys.filter(i => ['data', 'loading', 'params', 'error'].includes(i)).length === 4
 }
 
-// function isUseRequestFetchStateKey<TData, TParams extends any[]>(
-//   field: string,
-//   state: unknown,
-// ): state is UseRequestFetchState<TData, TParams>[keyof UseRequestFetchState<TData, TParams>] {
-//   return Boolean(['data', 'loading', 'params', 'error'].find(i => i === field))
-// }
-
 function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
   options: UseRequestOptions<TData, TParams, any> = {},
@@ -59,9 +52,6 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   const setState = (currentState: unknown, field?: keyof typeof state) => {
     if (field) {
-      // if (isUseRequestFetchStateKey<UnwrapRef<TData>, UnwrapRef<TParams>>(field, currentState)) {
-      //   state[field] = currentState as any
-      // }
       state[field] = currentState as any
     } else {
       if (isUseRequestFetchState<UnwrapRef<TData>, UnwrapRef<TParams>>(currentState)) {
@@ -91,18 +81,10 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   const readyComputed = computed(() => isRef(ready) ? ready.value : ready)
 
-  // const isMount = ref(false)
-
   watchEffect(() => {
     if (!manual) {
       const params = fetchInstance.state.params || options.defaultParams || []
-      // if (readyComputed.value && !isMount.value) {
-      //   fetchInstance.run(...(params as TParams))
-      //   // 模拟首次mount
-      //   isMount.value = true
-
-      // }
-      // 自动收集依赖
+      // auto collect
       if (readyComputed.value && fetchInstance.options.refreshDeps === true && !!serviceRef.value) {
         fetchInstance.run(...(params as TParams))
       }

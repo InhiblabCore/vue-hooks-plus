@@ -4,15 +4,15 @@
 </template>
 
 <script lang="ts" setup>
-import { useRequest } from 'vue-hooks-plus'
+  import { useRequest } from 'vue-hooks-plus'
 
-function getUsername(params: { desc: string }): Promise<string> {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(`vue-hooks-plus ${params.desc}`)
-    }, 1000)
-  })
-}
+  function getUsername(params: { desc: string }): Promise<string> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(`vue-hooks-plus ${params.desc}`)
+      }, 1000)
+    })
+  }
 
-const { data, loading } = useRequest(() => getUsername({ desc: 'good' }))
+  const { data, loading } = useRequest(() => getUsername({ desc: 'good' }))
 </script>

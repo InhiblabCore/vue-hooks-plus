@@ -20,9 +20,9 @@ export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
     params: TParams,
   ) =>
     | ({
-        stopNow?: boolean
-        returnNow?: boolean
-      } & Partial<UseRequestFetchState<TData, TParams>>)
+      stopNow?: boolean
+      returnNow?: boolean
+    } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
@@ -246,22 +246,22 @@ export interface useRequestResult<TData, TParams extends unknown[]> {
   /**
    * Is the service being executed.
    */
-  loading: Ref<boolean>
+  loading: Readonly<Ref<boolean>>
 
   /**
    * Data returned by service.
    */
-  data: Ref<TData | undefined>
+  data: Readonly<Ref<TData | undefined>>
 
   /**
    * 	Exception thrown by service.
    */
-  error: Ref<Error | undefined>
+  error: Readonly<Ref<Error | undefined>>
 
   /**
    * params	An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]`.
    */
-  params: Ref<TParams | []>
+  params: Readonly<Ref<TParams | []>>
 
   /**
    * Ignore the current promise response.
