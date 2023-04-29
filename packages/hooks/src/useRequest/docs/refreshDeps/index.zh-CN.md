@@ -9,7 +9,7 @@ source:
 
 # 依赖刷新
 
-`useRequest` 提供了一个 `options.refreshDeps` 参数。
+`useRequest` 提供了一个 `options.refreshDeps` 参数,替代了 `watch`，会监听响应式值的变化，当值变化的时候会重新发起请求。
 
 :::tip 注意
 
