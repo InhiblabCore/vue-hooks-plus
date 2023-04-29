@@ -170,6 +170,10 @@ const useRequestPlugins = [
         text: '全局请求状态管理',
         link: '/useRequest/plugins/fetchsing/',
       },
+      {
+        text: "同源跨窗口广播",
+        link: "/useRequest/plugins/broadcastChannel/"
+      }
     ],
   },
 ]
@@ -179,9 +183,13 @@ const useRequestPluginsEN = [
     text: 'UseRequest External Plugins',
     items: [
       {
-        text: 'Global Fetching',
+        text: 'global Fetching',
         link: '/en/useRequest/plugins/fetchsing/',
       },
+      {
+        text: "broadcastChannel",
+        link: "/en/useRequest/plugins/broadcastChannel/"
+      }
     ],
   },
 ]
