@@ -13,8 +13,7 @@
   import TypeIt from 'typeit'
   import { El } from 'typeit/dist/types'
   import { ref, onMounted, watch } from 'vue'
-
-  import useInViewport from '../../../../src/useInViewport'
+  import { useInViewport } from 'vue-hooks-plus'
 
   const domRef = ref(null)
   const isMount = ref(false)
@@ -27,12 +26,10 @@
     if (curr?.[0] && curr?.[1] && isFirst.value === true) {
       isFirst.value = false
       if (block.value)
+        // @ts-ignore
         new TypeIt(block.value, {
           speed: 50,
           startDelay: 900,
-          // afterStep: () => {
-          //   console.log(JSON.parse(JSON.stringify(block.value!.innerText.replace('|', ''))))
-          // },
         })
           .type('<br><h1 style="opacity: 0.5;">Welcome use VueHooks Plus!</h1><br /><br />', {
             delay: 100,

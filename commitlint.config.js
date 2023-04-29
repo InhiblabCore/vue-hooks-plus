@@ -6,10 +6,9 @@
 // perf：性能, 体验优化 | Performance, experience optimization
 // test：新增测试用例或是更新现有测试 | Add the new test cases or update the existing tests
 // build：主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交 | The main purpose is to modify the submission of the project building system (such as glup, webpack, rollup configuration, etc.)
-// ci：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交 | The main purpose is to modify the submission of project continued integration processes (e. g. Travis, Jenkins, GitLab CI, Circle, etc.)
+// workflow：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交 | The main purpose is to modify the submission of project continued integration processes (e. g. Travis, Jenkins, GitLab CI, Circle, etc.)
 // chore：不属于以上类型的其他类，比如构建流程, 依赖管理 | Other classes that do not belong to the above types, such as building processes, dependency management
 // revert：回滚某个更早之前的提交 | Roll back some earlier previous submission
-// workflow: 工作流 ｜ workflow
 // version: 改变package.json 版本 | Change the package.json version
 
 module.exports = {
@@ -34,7 +33,7 @@ module.exports = {
         'test',
         'refactor',
         'build',
-        'ci',
+        'type',
         'chore',
         'revert',
         'workflow',

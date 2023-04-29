@@ -3,7 +3,8 @@ map:
   # 映射到docs的路径
   path: /useRequest/plugins/fetchsing
 source:
-  show: false
+  path: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/use-request-plugins/src/useFetchingPlugin/index.ts
+  demoPath: https://github.com/InhiblabCore/vue-hooks-plus/blob/master/packages/hooks/src/useRequest/docs/plugins/fetchsing/demo
 ---
 
 # UseRequest Fetching Plugin
@@ -54,9 +55,9 @@ useRequest(
 
 ## Options
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| Property | Description | Type |
+| --- | --- | --- |
 | fetchingKey | The identification key of the status needs to be collected, and if it exists, it will be collected by the status |
-| `(params: any[]) => string` | - |
-| onFetching | Intermediate state function callback, the first parameter `current` is the current state of itself, and the second parameter `record` is all states | `(current:any,record:Record<string,any>) => void` | - |
-| isFetching | Official built-in function to determine whether all request statuses have been completed | `(_isFetching: boolean) => void` | - |
+| `(params: any[]) => string` |
+| onFetching | Intermediate state function callback, the first parameter `current` is the current state of itself, and the second parameter `record` is all states | `(current:any,record:Record<string,any>) => void` |
+| isFetching | Official built-in function to determine whether all request statuses have been completed | `(_isFetching: boolean) => void` |
