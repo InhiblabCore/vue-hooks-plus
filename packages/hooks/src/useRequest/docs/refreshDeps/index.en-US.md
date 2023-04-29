@@ -9,7 +9,7 @@ source:
 
 # RefreshDeps
 
-`useRequest` provides an `options.refreshDeps` .
+`useRequest` provides an `options.refreshDeps`,Instead of `watch`, it will listen for changes in responsive values and reissue requests when the values change .
 
 :::tip remark
 
