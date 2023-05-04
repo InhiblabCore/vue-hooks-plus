@@ -1,4 +1,3 @@
-import 'intersection-observer'
 import { ref } from 'vue'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
