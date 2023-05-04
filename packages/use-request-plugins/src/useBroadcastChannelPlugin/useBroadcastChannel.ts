@@ -37,7 +37,13 @@ export const useBroadcastChannelPlugin: UseRequestPlugin<any, [], BroadcastChann
     }
   }
 
+
   return {
+    onBefore: () => {
+      if (typeof channel.value?.isClosed === "boolean" && channel.value?.isClosed && broadcastChannel) {
+        channel.value = new BroadcastChannel(broadcastChannel, broadcastChannelOptions)
+      }
+    },
     onSuccess: (data, params) => {
       if (broadcastChannel && transaction === false && !customPostMessage) {
         channel.value?.postMessage({
@@ -56,6 +62,9 @@ export const useBroadcastChannelPlugin: UseRequestPlugin<any, [], BroadcastChann
           error
         })
       }
+    },
+    onCancel: async () => {
+      await channel.value?.close()
     }
   }
 

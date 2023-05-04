@@ -3,7 +3,7 @@ import { useFetchingGlobalStore } from './store'
 
 export interface FetchingPluginType {
   /**
-   * useRequest params
+   * @rigin useFetchingPlugin
    * @param params request params
    * @type (params: any[]) => string
    * @returns string
@@ -11,7 +11,7 @@ export interface FetchingPluginType {
   fetchingKey?: (params: any[]) => string
 
   /**
-   * 
+   * @rigin useFetchingPlugin
    * @param current current fetch data
    * @param record all fetch data
    * @type (current: any, record: any) => void
@@ -20,7 +20,7 @@ export interface FetchingPluginType {
   onFetching?: (current: any, record: any) => void
 
   /**
-   * 
+   * @rigin useFetchingPlugin
    * @param _isFetching all fetching loading status
    * @type (_isFetching: boolean) => void
    * @returns void
