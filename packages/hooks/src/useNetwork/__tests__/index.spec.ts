@@ -4,6 +4,6 @@ import useNetwork from '../index'
 describe('useNetwork', () => {
   it('toggle network state', () => {
     const [hook] = renderHook(() => useNetwork())
-    expect(hook.online).toBeTruthy()
+    expect(hook.value.online).toBeTruthy()
   })
 })
