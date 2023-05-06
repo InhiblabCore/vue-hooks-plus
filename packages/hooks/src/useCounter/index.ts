@@ -1,4 +1,4 @@
-import { Ref, ref } from 'vue'
+import { Ref, readonly, ref } from 'vue'
 import { isNumber } from '../utils'
 
 export interface UseCounterOptions {
@@ -95,7 +95,7 @@ function useCounter(
   }
 
   return [
-    current,
+    readonly(current),
     {
       inc,
       dec,

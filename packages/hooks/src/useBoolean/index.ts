@@ -2,10 +2,10 @@ import type { Ref } from "vue";
 import useToggle from "../useToggle";
 
 export interface UseBooleanActions {
-    /**
-   *  Set state to `true`
-   * @returns void
-   */
+  /**
+ *  Set state to `true`
+ * @returns void
+ */
   setTrue: () => void;
 
   /**
@@ -28,7 +28,7 @@ export interface UseBooleanActions {
   toggle: () => void;
 }
 
-export type UseBooleanResult = [Ref<boolean>, UseBooleanActions]
+export type UseBooleanResult = [Readonly<Ref<boolean>>, UseBooleanActions]
 
 export default function useBoolean(
   defaultValue = false

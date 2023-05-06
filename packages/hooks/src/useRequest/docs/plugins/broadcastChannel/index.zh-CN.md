@@ -31,12 +31,19 @@ source:
 
 ```
 
-## 代码演示
+## 基础用法
 
 <demo src="./demo/demo.vue"
   language="vue"
   title="同源跨窗口通信"
   desc="打开一个同样的新窗口，发送和刷新数据会发现数据跨窗口传递。"> </demo>
+
+## 自定义发送体
+
+<demo src="./demo/demo1.vue"
+  language="vue"
+  title="自定义同源跨窗口通信 postMessage"
+  desc="自由使用 postMessage"> </demo>
 
 ## API
 

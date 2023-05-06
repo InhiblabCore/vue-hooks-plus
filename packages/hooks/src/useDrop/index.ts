@@ -71,6 +71,7 @@ export interface UseDropOptions {
   onPaste?: (event?: ClipboardEvent) => void
 }
 
+
 const useDrop = (target: BasicTarget, options: UseDropOptions = {}) => {
   const optionsRef = ref(options)
 
@@ -146,18 +147,18 @@ const useDrop = (target: BasicTarget, options: UseDropOptions = {}) => {
         optionsRef.value.onPaste?.(event)
       }
 
-      targetElement.addEventListener('dragenter', onDragEnter as any)
-      targetElement.addEventListener('dragover', onDragOver as any)
-      targetElement.addEventListener('dragleave', onDragLeave as any)
-      targetElement.addEventListener('drop', onDrop as any)
-      targetElement.addEventListener('paste', onPaste as any)
+      targetElement.addEventListener('dragenter', onDragEnter as EventListenerOrEventListenerObject)
+      targetElement.addEventListener('dragover', onDragOver as EventListenerOrEventListenerObject)
+      targetElement.addEventListener('dragleave', onDragLeave as EventListenerOrEventListenerObject)
+      targetElement.addEventListener('drop', onDrop as EventListenerOrEventListenerObject)
+      targetElement.addEventListener('paste', onPaste as EventListenerOrEventListenerObject)
 
       return () => {
-        targetElement.removeEventListener('dragenter', onDragEnter as any)
-        targetElement.removeEventListener('dragover', onDragOver as any)
-        targetElement.removeEventListener('dragleave', onDragLeave as any)
-        targetElement.removeEventListener('drop', onDrop as any)
-        targetElement.removeEventListener('paste', onPaste as any)
+        targetElement.removeEventListener('dragenter', onDragEnter as EventListenerOrEventListenerObject)
+        targetElement.removeEventListener('dragover', onDragOver as EventListenerOrEventListenerObject)
+        targetElement.removeEventListener('dragleave', onDragLeave as EventListenerOrEventListenerObject)
+        targetElement.removeEventListener('drop', onDrop as EventListenerOrEventListenerObject)
+        targetElement.removeEventListener('paste', onPaste as EventListenerOrEventListenerObject)
       }
     },
     [],
