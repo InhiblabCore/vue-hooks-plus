@@ -1,5 +1,5 @@
 import produce, { Draft, freeze } from 'immer'
-import { ShallowRef, shallowRef } from 'vue'
+import { ShallowRef, shallowRef, shallowReadonly } from 'vue'
 
 export type DraftFunction<S> = (draft: Draft<S>) => void
 export type Updater<S> = (arg: S | DraftFunction<S>) => void
@@ -16,5 +16,5 @@ export function useImmer<S>(initialValue: any) {
       state.value = produce(state.value, updater)
     } else state.value = freeze(updater)
   }
-  return [state, update]
+  return [shallowReadonly(state), update]
 }

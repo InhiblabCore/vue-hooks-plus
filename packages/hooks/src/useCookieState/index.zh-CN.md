@@ -53,10 +53,10 @@ const [state, setState]: [State, SetState] = useCookieState(
 
 ### Result
 
-| 参数     | 说明           | 类型                         |
-| -------- | -------------- | ---------------------------- |
-| state    | 本地 Cookie 值 | `Ref<string` \| `undefined>` |
-| setState | 设置 Cookie 值 | `SetState`                   |
+| 参数     | 说明           | 类型                                   |
+| -------- | -------------- | -------------------------------------- |
+| state    | 本地 Cookie 值 | `Readonly<Ref<string>>` \| `undefined` |
+| setState | 设置 Cookie 值 | `SetState`                             |
 
 setState 可以更新 cookie options，会与 `useCookieState` 设置的 options 进行 merge 操作。
 

@@ -54,10 +54,10 @@ const [
 
 ## Result
 
-| Property         | Description          | Type         |
-| ---------------- | -------------------- | ------------ |
-| isFullscren      | Is full screen       | `boolean`    |
-| enterFullscreen  | Enter full screen    | `() => void` |
-| exitFullscreen   | Exit full screen     | `() => void` |
-| toggleFullscreen | Toggle full screen   | `() => void` |
-| isEnabled        | Is enable screenfull | `boolean`    |
+| Property         | Description          | Type                     |
+| ---------------- | -------------------- | ------------------------ |
+| isFullscren      | Is full screen       | `Readonly<Ref<boolean>>` |
+| enterFullscreen  | Enter full screen    | `() => void`             |
+| exitFullscreen   | Exit full screen     | `() => void`             |
+| toggleFullscreen | Toggle full screen   | `() => void`             |
+| isEnabled        | Is enable screenfull | `boolean`                |

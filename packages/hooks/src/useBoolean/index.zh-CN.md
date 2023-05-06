@@ -31,10 +31,10 @@ const [state, { toggle, set, setTrue, setFalse }] = useBoolean(
 
 ## Result
 
-| 参数    | 说明     | 类型           |
-| ------- | -------- | -------------- |
-| state   | 状态值   | `Ref<boolean>` |
-| actions | 操作集合 | `Actions`      |
+| 参数    | 说明     | 类型                     |
+| ------- | -------- | ------------------------ |
+| state   | 状态值   | `Readonly<Ref<boolean>>` |
+| actions | 操作集合 | `Actions`                |
 
 ## Actions
 

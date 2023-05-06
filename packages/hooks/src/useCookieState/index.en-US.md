@@ -53,10 +53,10 @@ If you want to remove this data from the document.cookie, use the `setState()` o
 
 ### Result
 
-| Property | Description         | Type                         |
-| -------- | ------------------- | ---------------------------- |
-| state    | Local Cookie value  | `Ref<string` \| `undefined>` |
-| setState | Update Cookie value | `SetState`                   |
+| Property | Description         | Type                                   |
+| -------- | ------------------- | -------------------------------------- |
+| state    | Local Cookie value  | `Readonly<Ref<string>>` \| `undefined` |
+| setState | Update Cookie value | `SetState`                             |
 
 setState can update cookie options, which will be merged with the options set by `useCookieState`
 

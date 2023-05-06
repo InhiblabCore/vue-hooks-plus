@@ -31,6 +31,6 @@ const value = useMedia(['(min-width: 320px)'], [true], false)
 
 ## Result
 
-| 参数  | 说明         | 类型           |
-| ----- | ------------ | -------------- |
-| value | 是否符合查询 | `Ref<boolean>` |
+| 参数  | 说明         | 类型                     |
+| ----- | ------------ | ------------------------ |
+| value | 是否符合查询 | `Readonly<Ref<boolean>>` |

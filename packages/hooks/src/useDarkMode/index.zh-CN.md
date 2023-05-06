@@ -25,5 +25,5 @@ const [darkMode, setDarkMode] = useDarkMode()
 
 | 参数        | 说明                               | 类型                     |
 | ----------- | ---------------------------------- | ------------------------ |
-| darkMode    | 是否是暗黑模式                     | `Ref<boolean>`           |
+| darkMode    | 是否是暗黑模式                     | `ComputedRef<boolean>`   |
 | setDarkMode | 设置暗黑模式，undefined 为跟随系统 | `boolean` \| `undefined` |

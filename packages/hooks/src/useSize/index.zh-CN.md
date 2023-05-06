@@ -38,6 +38,6 @@ const size = useSize(target)
 
 ## Result
 
-| 参数 | 说明           | 类型                                                  |
-| ---- | -------------- | ----------------------------------------------------- |
-| size | DOM 节点的尺寸 | `Ref<{ width: number, height: number } \| undefined>` |
+| 参数 | 说明           | 类型                                                            |
+| ---- | -------------- | --------------------------------------------------------------- |
+| size | DOM 节点的尺寸 | `Readonly<Ref<{ width: number, height: number } \| undefined>>` |

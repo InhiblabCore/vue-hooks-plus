@@ -41,10 +41,10 @@ const [state, { toggle, set, setLeft, setRight }] = useToggle<T, U>(defaultValue
 
 ## Result
 
-| 参数    | 说明     | 类型       |
-| ------- | -------- | ---------- |
-| state   | 状态值   | `Ref<any>` |
-| actions | 操作集合 | `Actions`  |
+| 参数    | 说明     | 类型                 |
+| ------- | -------- | -------------------- |
+| state   | 状态值   | `Readonly<Ref<any>>` |
+| actions | 操作集合 | `Actions`            |
 
 ### Actions
 

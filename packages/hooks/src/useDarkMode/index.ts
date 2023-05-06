@@ -3,7 +3,7 @@ import useLocalStorageState from '../useLocalStorageState'
 
 import useMedia from '../useMedia'
 
-export default function useDarkMode(): [ComputedRef<any>, (value?: unknown) => void] {
+export default function useDarkMode(): [ComputedRef<boolean>, (value?: unknown) => void] {
   const [enabledState, setEnabledState] = useLocalStorageState('dark-mode-enabled')
 
   const prefersDarkMode = usePrefersDarkMode()

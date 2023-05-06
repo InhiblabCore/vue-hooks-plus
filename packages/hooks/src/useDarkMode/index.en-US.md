@@ -25,5 +25,5 @@ const [darkMode, setDarkMode] = useDarkMode()
 
 | Property | Description | Type |
 | --- | --- | --- |
-| darkMode | Is it in dark mode | `Ref<boolean>` |
+| darkMode | Is it in dark mode | `ComputedRef<boolean>` |
 | setDarkMode | Set the dark mode, and the undefined is the following system | `boolean` \| `undefined` |

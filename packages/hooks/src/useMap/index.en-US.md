@@ -34,7 +34,7 @@ const [
 
 | Property | Description      | Type                                     |
 | -------- | ---------------- | ---------------------------------------- |
-| map      | Map object       | `Ref<Map>`                               |
+| map      | Map object       | `Readonly<Ref<Map>>`                     |
 | set      | Add item         | `(key: any, value: any) => void`         |
 | get      | Get item         | `(key: any) => MapItem`                  |
 | setAll   | Set a new Map    | `(newMap: Iterable<[any, any]>) => void` |

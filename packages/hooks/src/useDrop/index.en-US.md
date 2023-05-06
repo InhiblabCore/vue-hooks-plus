@@ -43,10 +43,10 @@ useDrag<T>(
 
 ### DragOptions
 
-| Property    | Description            | Type                           | Default |
-| ----------- | ---------------------- | ------------------------------ | ------- |
-| onDragStart | On drag start callback | `(e: React.DragEvent) => void` | -       |
-| onDragEnd   | On drag end callback   | `(e: React.DragEvent) => void` | -       |
+| Property    | Description            | Type                     | Default |
+| ----------- | ---------------------- | ------------------------ | ------- |
+| onDragStart | On drag start callback | `(e: DragEvent) => void` | -       |
+| onDragEnd   | On drag end callback   | `(e: DragEvent) => void` | -       |
 
 ## useDrop
 
@@ -68,12 +68,12 @@ useDrop<T>(
 
 | 参数 | Description | Type | Default |
 | --- | --- | --- | --- |
-| onText | The callback when text is dropped or pasted | `(text: string, e: React.DragEvent) => void` | - |
-| onFiles | The callback when file is dropped or pasted | `(files: File[], e: React.DragEvent) => void` | - |
-| onUri | The callback when uri is dropped or pasted | `(text: string, e: React.DragEvent) => void` | - |
-| onDom | The callback when DOM is dropped or pasted | `(content: any, e: React.DragEvent) => void` | - |
-| onDrop | The callback when any is dropped | `(e: React.DragEvent) => void` | - |
-| onPaste | The callback when any is pasted | `(e: React.DragEvent) => void` | - |
-| onDragEnter | On drag enter callback | `(e: React.DragEvent) => void` | - |
-| onDragOver | On drag over callback | `(e: React.DragEvent) => void` | - |
-| onDragLeave | On drag leave callback | `(e: React.DragEvent) => void` | - |
+| onText | The callback when text is dropped or pasted | `(text: string, e: DragEvent) => void` | - |
+| onFiles | The callback when file is dropped or pasted | `(files: File[], e: DragEvent) => void` | - |
+| onUri | The callback when uri is dropped or pasted | `(text: string, e: DragEvent) => void` | - |
+| onDom | The callback when DOM is dropped or pasted | `(content: any, e: DragEvent) => void` | - |
+| onDrop | The callback when any is dropped | `(e: DragEvent) => void` | - |
+| onPaste | The callback when any is pasted | `(e: DragEvent) => void` | - |
+| onDragEnter | On drag enter callback | `(e: DragEvent) => void` | - |
+| onDragOver | On drag over callback | `(e: DragEvent) => void` | - |
+| onDragLeave | On drag leave callback | `(e: DragEvent) => void` | - |

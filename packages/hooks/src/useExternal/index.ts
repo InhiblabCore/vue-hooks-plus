@@ -1,4 +1,4 @@
-import { Ref } from 'vue'
+import { Ref, readonly } from 'vue'
 import { watchEffect, ref, unref, computed } from 'vue'
 
 export interface UseExternalOptions {
@@ -88,7 +88,7 @@ const loadCss = (path: string, props = {}): UseExternalLoadResult => {
 export default function useExternal(
   path?: string | Ref<string>,
   options?: UseExternalOptions,
-): Ref<UseExternalStatus> {
+): Readonly<Ref<UseExternalStatus>> {
   const status = ref<UseExternalStatus>(path ? 'loading' : 'unset')
   const hookRef = ref<Element>()
   const path_ = computed(() => unref(path))
@@ -110,7 +110,7 @@ export default function useExternal(
       // do nothing
       console.error(
         "Cannot infer the type of external resource, and please provide a type ('js' | 'css'). " +
-          'Refer to the https://ahooks.js.org/hooks/dom/use-external/#options',
+        'Refer to the https://ahooks.js.org/hooks/dom/use-external/#options',
       )
     }
     if (!hookRef.value) {
@@ -145,5 +145,5 @@ export default function useExternal(
     })
   })
 
-  return status
+  return readonly(status)
 }

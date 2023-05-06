@@ -38,6 +38,6 @@ const size = useSize(target)
 
 ## Result
 
-| Property | Description         | Type                                                  |
-| -------- | ------------------- | ----------------------------------------------------- |
-| size     | Size of the element | `Ref<{ width: number, height: number } \| undefined>` |
+| Property | Description | Type |
+| --- | --- | --- |
+| size | Size of the element | `Readonly《Ref<{ width: number, height: number } \| undefined>>` |

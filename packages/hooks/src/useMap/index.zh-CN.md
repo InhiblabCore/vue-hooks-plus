@@ -34,7 +34,7 @@ const [
 
 | 参数   | 说明                  | 类型                                     |
 | ------ | --------------------- | ---------------------------------------- |
-| map    | Map 对象              | `Ref<Map>`                               |
+| map    | Map 对象              | `Readonly<Ref<Map>>`                     |
 | set    | 添加元素              | `(key: any, value: any) => void`         |
 | get    | 获取元素              | `(key: any) => MapItem`                  |
 | setAll | 生成一个新的 Map 对象 | `(newMap: Iterable<[any, any]>) => void` |

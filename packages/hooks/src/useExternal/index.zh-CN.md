@@ -40,7 +40,7 @@ const status = useExternal(path: string, options?: Options);
 
 | 参数 | 说明 | 类型 |
 | --- | --- | --- |
-| status | 加载状态，`unset`(未设置), `loading`(加载中), `ready`(加载完成), `error`(加载失败) | `Ref<string>` |
+| status | 加载状态，`unset`(未设置), `loading`(加载中), `ready`(加载完成), `error`(加载失败) | `Readonly<Ref<UseExternalStatus>>` |
 
 ## Options
 

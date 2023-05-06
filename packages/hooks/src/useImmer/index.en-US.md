@@ -19,9 +19,7 @@ npm i @vue-hooks-plus/use-immer
 ### Auto Import
 
 ```typescript
-
 import { VueHooksPlusUseImmerResolver } from '@vue-hooks-plus/resolvers'
-
 ```
 
 [How to use](https://inhiblabcore.github.io/docs/hooks/en/guide/#%F0%9F%94%A8-usage)
@@ -39,10 +37,10 @@ import { VueHooksPlusUseImmerResolver } from '@vue-hooks-plus/resolvers'
 
 ## Params
 
-| Property | Description | Type            | Default |
-| -------- | ----------- | --------------- | ------- |
-| state    | ShallowRef  | `ShallowRef<S>` | -       |
-| updater  | -           | `Updater<S>`    | -       |
+| Property | Description | Type                      | Default |
+| -------- | ----------- | ------------------------- | ------- |
+| state    | ShallowRef  | `Readonly<ShallowRef<S>>` | -       |
+| updater  | -           | `Updater<S>`              | -       |
 
 ## Options
 

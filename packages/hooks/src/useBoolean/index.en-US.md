@@ -31,10 +31,10 @@ defaultValue? : boolean,
 
 ## Result
 
-| Property | Description                            | Type           |
-| -------- | -------------------------------------- | -------------- |
-| state    | Current value                          | `Ref<boolean>` |
-| actions  | A set of methods to update state value | `Actions`      |
+| Property | Description                            | Type                     |
+| -------- | -------------------------------------- | ------------------------ |
+| state    | Current value                          | `Readonly<Ref<boolean>>` |
+| actions  | A set of methods to update state value | `Actions`                |
 
 ## Actions
 

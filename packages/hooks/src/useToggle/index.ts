@@ -1,4 +1,4 @@
-import { computed, readonly, Ref, ref, UnwrapRef } from 'vue'
+import { computed, Ref, ref, shallowReadonly, UnwrapRef } from 'vue'
 
 export interface UseToggleActions<T> {
   setLeft: () => void
@@ -35,6 +35,6 @@ function useToggle<D, R>(defaultValue: D = (false as unknown) as D, reverseValue
     }
   })
 
-  return [readonly(state), { ...actions.value }]
+  return [shallowReadonly(state), { ...actions.value }]
 }
 export default useToggle
