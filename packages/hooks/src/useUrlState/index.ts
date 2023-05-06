@@ -55,7 +55,7 @@ function decodeParams(valueStr: string, detectNumber: boolean): Record<string, u
 function useUrlState<S extends UrlState = Partial<UrlState>>(
   initialState?: S | (() => S),
   options?: UseUrlStateOptions,
-): Readonly<Ref<S>> {
+): Ref<S> {
   const routerPushFn = options?.routerPush ? options.routerPush : (s: string) => (location.hash = s)
   const { localStorageKey, detectNumber = true } = options ?? {}
 
