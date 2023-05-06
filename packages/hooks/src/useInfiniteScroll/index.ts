@@ -1,4 +1,4 @@
-import { computed, ref, watch } from "vue";
+import { computed, readonly, ref, watch } from "vue";
 import { useBoolean, useEventListener, useRequest } from "../index";
 
 import { getTargetElement } from "../utils/domTarget";
@@ -43,7 +43,7 @@ const useInfiniteScroll = <TData extends UseInfiniteData>(
       } else {
         finalData.value = {
           ...currentData,
-           
+
           list: [...lastData.list, ...currentData.list],
         };
       }
@@ -115,11 +115,10 @@ const useInfiniteScroll = <TData extends UseInfiniteData>(
   const _loading = computed(() => loadingMore.value && loading.value);
 
   return {
-    data: finalData,
-    loading: _loading,
+    data: readonly(finalData),
+    loading: readonly(_loading),
     loadingMore,
     noMore,
-
     loadMore: loadMore,
     loadMoreAsync: loadMoreAsync,
     reload: reload,

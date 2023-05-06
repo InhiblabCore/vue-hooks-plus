@@ -1,5 +1,5 @@
 import screenfull from 'screenfull'
-import { onUnmounted, ref } from 'vue'
+import { onUnmounted, readonly, ref } from 'vue'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 
@@ -92,7 +92,7 @@ const useFullscreen = (
   })
 
   return [
-    state,
+    readonly(state),
     {
       enterFullscreen: enterFullscreen,
       exitFullscreen: exitFullscreen,

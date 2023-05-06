@@ -1,4 +1,4 @@
-import { createApp, defineComponent, ref, UnwrapRef, watch, watchEffect } from 'vue'
+import { createApp, defineComponent, readonly, ref, UnwrapRef, watch, watchEffect } from 'vue'
 import { UseRequestService, UseRequestOptions } from '../useRequest/types'
 import useRequest from '../useRequest'
 
@@ -8,7 +8,7 @@ function renderHook<R = any>(renderFC: () => R): void {
     defineComponent({
       setup() {
         renderFC()
-        return () => {}
+        return () => { }
       },
     }),
   )
@@ -103,7 +103,7 @@ function useFetchs<TData, TParams>(
   }
 
   return {
-    fetchs: newFetchs,
+    fetchs: readonly(newFetchs),
     fetchRun,
   }
 }

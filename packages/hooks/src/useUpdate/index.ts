@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { readonly, ref } from 'vue'
 
 export default function useUpdate() {
   const update = ref({})
@@ -6,7 +6,7 @@ export default function useUpdate() {
     update.value = Object.assign({}, { ...update.value })
   }
   return {
-    update,
+    update: readonly(update),
     setUpdate,
   }
 }

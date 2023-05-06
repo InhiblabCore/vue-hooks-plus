@@ -1,4 +1,4 @@
-import { ref, Ref, markRaw } from 'vue'
+import { ref, Ref, markRaw, readonly } from 'vue'
 
 interface UseSetActions<T> {
   add: (value: T) => void
@@ -8,7 +8,7 @@ interface UseSetActions<T> {
   reset: () => void
 }
 
-function useSet<T = any>(initialValue?: T[]): [Ref<Set<any>>, UseSetActions<T>]
+function useSet<T = any>(initialValue?: T[]): [Readonly<Ref<Set<T>>>, UseSetActions<T>]
 
 function useSet<T = any>(initialValue?: T[]) {
   const getInitValue = () => {
@@ -52,7 +52,7 @@ function useSet<T = any>(initialValue?: T[]) {
     },
   }
 
-  return [state, markRaw(actions)]
+  return [readonly(state), markRaw(actions)]
 }
 
 export default useSet

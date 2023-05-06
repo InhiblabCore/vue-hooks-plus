@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { readonly, ref } from 'vue'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 import useEffectWithTarget from '../utils/useEffectWithTarget'
@@ -54,7 +54,7 @@ function useInViewport(target: BasicTarget, options?: UseInViewportOptions) {
     target,
   )
 
-  return [state, ratio] as const
+  return [readonly(state), readonly(ratio)] as const
 }
 
 export default useInViewport

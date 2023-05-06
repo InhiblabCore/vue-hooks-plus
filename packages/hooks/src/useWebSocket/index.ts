@@ -21,11 +21,11 @@ export interface UseWebSocketOptions {
 }
 
 export interface UseWebSocketResult {
-  latestMessage: Ref<WebSocketEventMap['message'] | undefined>
+  latestMessage: Readonly<Ref<WebSocketEventMap['message'] | undefined>>
   sendMessage?: WebSocket['send']
   disconnect?: () => void
   connect?: () => void
-  readyState: Ref<ReadyState>
+  readyState: Readonly<Ref<ReadyState>>
   webSocketIns?: WebSocket
 }
 

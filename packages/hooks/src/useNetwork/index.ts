@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { watchEffect, ref } from 'vue'
+import { watchEffect, ref, readonly, Ref } from 'vue'
 
 export interface UseNetworkState {
   since?: Date
@@ -37,8 +37,8 @@ function getConnectionProperty(): UseNetworkState {
   }
 }
 
-function useNetwork(): UseNetworkState {
-  const state = ref({
+function useNetwork(): Readonly<Ref<UseNetworkState>> {
+  const state = ref<UseNetworkState>({
     since: undefined,
     online: navigator?.onLine,
     ...getConnectionProperty(),
@@ -80,7 +80,7 @@ function useNetwork(): UseNetworkState {
     })
   })
 
-  return state.value
+  return readonly(state)
 }
 
 export default useNetwork

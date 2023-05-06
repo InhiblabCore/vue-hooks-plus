@@ -1,5 +1,5 @@
 /* eslint-disable no-empty */
-import { unref, ref, Ref, UnwrapRef, watchEffect } from 'vue'
+import { unref, ref, Ref, UnwrapRef, watchEffect, readonly } from 'vue'
 
 export interface IFuncUpdater<T> {
   (previousState?: T): T
@@ -99,7 +99,7 @@ export function createUseStorageState(getStorage: () => Storage | undefined) {
       }
     }
 
-    return [state, updateState]
+    return [readonly(state), updateState]
   }
   return useStorageState
 }

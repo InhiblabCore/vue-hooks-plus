@@ -53,7 +53,7 @@ type UseMapActions<K, T> = {
   reset: () => void
 }
 
-function useMap<K, T>(initialValue?: UseMapValue<K, T>): [Ref<Map<K, T>>, UseMapActions<K, T>] {
+function useMap<K, T>(initialValue?: UseMapValue<K, T>): [Readonly<Ref<Map<K, T>>>, UseMapActions<K, T>] {
   const getInitValue = () => {
     return initialValue ? new Map(initialValue) : new Map()
   }

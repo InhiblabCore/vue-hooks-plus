@@ -55,7 +55,7 @@ function decodeParams(valueStr: string, detectNumber: boolean): Record<string, u
 function useUrlState<S extends UrlState = Partial<UrlState>>(
   initialState?: S | (() => S),
   options?: UseUrlStateOptions,
-): Ref<S> {
+): Readonly<Ref<S>> {
   const routerPushFn = options?.routerPush ? options.routerPush : (s: string) => (location.hash = s)
   const { localStorageKey, detectNumber = true } = options ?? {}
 
@@ -65,8 +65,8 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
 
   const state = (localStorageKey
     ? useLocalStorageState(localStorageKey, {
-        defaultValue: defaultState,
-      })[0]
+      defaultValue: defaultState,
+    })[0]
     : ref(defaultState)) as Ref<S>
 
   // 初始状态 url > localstorage
