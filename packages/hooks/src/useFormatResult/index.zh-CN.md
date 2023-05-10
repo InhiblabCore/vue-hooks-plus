@@ -25,7 +25,7 @@ const formatData = useFormatResult(data, callback)
 
 | 参数     | 说明             | 类型                     | 默认值 |
 | -------- | ---------------- | ------------------------ | ------ |
-| data     | 需要格式化的数据 | `TData\｜ Ref<TData>`    | -      |
+| data     | 需要格式化的数据 | `TData` \| `Ref<TData>`  | -      |
 | callback | 格式化函数       | `(data: TData) => FData` | -      |
 
 ## Result
