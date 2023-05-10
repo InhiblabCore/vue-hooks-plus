@@ -19,8 +19,6 @@ declare interface CachedData<TData = any, TParams = any> {
 
 export declare const clearUseRequestCache: (key?: string | string[]) => void;
 
-export declare function createUseRequest<TData, TParams extends unknown[] = unknown[], PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]>(service: UseRequestService<TData, TParams>, options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[] ? P extends UseRequestPlugin<TData, TParams, infer R> ? R : any : any>, plugins?: PluginsOptions): useRequestResult<TData, TParams>;
-
 declare interface DebounceOptions {
     /**
      * The number of milliseconds to delay.
@@ -96,13 +94,6 @@ declare class Fetch<TData, TParams extends unknown[] = any> {
     mutate(data?: TData | ((oldData?: TData) => TData | undefined)): void;
 }
 
-declare type FetchType<TData, TParams> = Record<string | number, {
-    data: TData | undefined;
-    params: TParams;
-    loading: boolean;
-    key: string | number;
-}>;
-
 declare interface IFuncUpdater<T> {
     (previousState?: T): T;
 }
@@ -143,8 +134,8 @@ declare enum ReadyState_2 {
 declare type Resolve = (value: any) => void;
 
 declare type Size = {
-    width: Ref<number>;
-    height: Ref<number>;
+    width: Readonly<Ref<number>>;
+    height: Readonly<Ref<number>>;
 };
 
 declare type StorageStateResultHasDefaultValue<T> = [
@@ -222,9 +213,9 @@ declare interface UseBooleanActions {
     toggle: () => void;
 }
 
-declare type UseBooleanResult = [Ref<boolean>, UseBooleanActions];
+declare type UseBooleanResult = [Readonly<Ref<boolean>>, UseBooleanActions];
 
-export declare function useCookieState(cookieKey: string, options?: UseCookieStateOptions): readonly [any, (newValue: UseCookieStateType | ((prevState: UseCookieStateType) => UseCookieStateType), newOptions?: Cookies.CookieAttributes) => void];
+export declare function useCookieState(cookieKey: string, options?: UseCookieStateOptions): readonly [Readonly<Ref<UseCookieStateType | (() => UseCookieStateType)>>, (newValue: UseCookieStateType | ((prevState: UseCookieStateType) => UseCookieStateType), newOptions?: Cookies.CookieAttributes) => void];
 
 declare interface UseCookieStateOptions extends Cookies.CookieAttributes {
     defaultValue?: UseCookieStateType | (() => UseCookieStateType);
@@ -271,7 +262,7 @@ declare interface UseCounterOptions {
     max?: number;
 }
 
-export declare function useDarkMode(): [ComputedRef<any>, (value?: unknown) => void];
+export declare function useDarkMode(): [ComputedRef<boolean>, (value?: unknown) => void];
 
 export declare function useDebounce<T>(value: Ref<T>, options?: DebounceOptions): Ref<T>;
 
@@ -414,7 +405,7 @@ declare type UseEventListenerOptions<T extends UseEventListenerTarget = UseEvent
 
 declare type UseEventListenerTarget = BasicTarget<HTMLElement | Element | Window | Document>;
 
-export declare function useExternal(path?: string | Ref<string>, options?: UseExternalOptions): Ref<UseExternalStatus>;
+export declare function useExternal(path?: string | Ref<string>, options?: UseExternalOptions): Readonly<Ref<UseExternalStatus>>;
 
 declare interface UseExternalOptions {
     /**
@@ -440,7 +431,20 @@ export declare function useFetchs<TData, TParams>(service: UseRequestService<TDa
 }, self: {
     fetchKey?: (...args: ParamsType<TParams>) => string;
 }): {
-    fetchs: Ref<FetchType<TData, TParams>>;
+    fetchs: Readonly<Ref<{
+        readonly [x: string]: {
+            readonly data: DeepReadonly<TData> | undefined;
+            readonly params: DeepReadonly<TParams>;
+            readonly loading: boolean;
+            readonly key: string | number;
+        };
+        readonly [x: number]: {
+            readonly data: DeepReadonly<TData> | undefined;
+            readonly params: DeepReadonly<TParams>;
+            readonly loading: boolean;
+            readonly key: string | number;
+        };
+    }>>;
     fetchRun: (...args: TParams extends any[] ? any[] : any) => void;
 };
 
@@ -448,7 +452,7 @@ export declare function useFocusWithin(
 /**
  * DOM element or ref
  */
-target: BasicTarget, options?: UseFocusWithinOptions): Ref<boolean>;
+target: BasicTarget, options?: UseFocusWithinOptions): Readonly<Ref<boolean>>;
 
 declare interface UseFocusWithinOptions {
     /**
@@ -473,7 +477,7 @@ declare interface UseFocusWithinOptions {
 
 export declare function useFormatResult<TData, FData>(data: TData | Ref<TData>, formatResultCallback: (data: TData) => FData): ComputedRef<FData>;
 
-export declare const useFullscreen: (target: BasicTarget, options?: UseFullscreenOptions) => readonly [Ref<boolean>, {
+export declare const useFullscreen: (target: BasicTarget, options?: UseFullscreenOptions) => readonly [Readonly<Ref<boolean>>, {
     readonly enterFullscreen: () => void;
     readonly exitFullscreen: () => void;
     readonly toggleFullscreen: () => void;
@@ -520,9 +524,9 @@ declare type UseInfiniteData = {
 };
 
 export declare const useInfiniteScroll: <TData extends UseInfiniteData>(service: UseInfiniteService<TData>, options?: UseInfiniteScrollOptions<TData>) => {
-    data: Ref<TData | undefined>;
-    loading: ComputedRef<boolean>;
-    loadingMore: Ref<boolean>;
+    data: Readonly<Ref<TData | undefined>>;
+    loading: Readonly<Ref<boolean>>;
+    loadingMore: Readonly<Ref<boolean>>;
     noMore: ComputedRef<boolean>;
     loadMore: () => void;
     loadMoreAsync: () => Promise<TData> | undefined;
@@ -600,7 +604,7 @@ delay: Ref<number | undefined> | number | undefined, options?: {
     immediate?: boolean;
 }): void;
 
-export declare function useInViewport(target: BasicTarget, options?: UseInViewportOptions): readonly [Ref<boolean | undefined>, Ref<number | undefined>];
+export declare function useInViewport(target: BasicTarget, options?: UseInViewportOptions): readonly [Readonly<Ref<boolean | undefined>>, Readonly<Ref<number | undefined>>];
 
 declare interface UseInViewportOptions {
     /**
@@ -648,7 +652,7 @@ export declare const useLocalStorageState: <T>(key: string | Ref<string>, option
 
 export declare function useLockFn<P extends any[], V>(fn: (...args: P) => Promise<V>): (...args: P) => Promise<V | undefined>;
 
-export declare function useMap<K, T>(initialValue?: UseMapValue<K, T>): [Ref<Map<K, T>>, UseMapActions<K, T>];
+export declare function useMap<K, T>(initialValue?: UseMapValue<K, T>): [Readonly<Ref<Map<K, T>>>, UseMapActions<K, T>];
 
 declare type UseMapActions<K, T> = {
     /**
@@ -713,22 +717,22 @@ values: {
  */
 defaultValue: any): any;
 
-export declare function useMouse(target?: BasicTarget): Ref<{
-    screenX: number;
-    screenY: number;
-    clientX: number;
-    clientY: number;
-    pageX: number;
-    pageY: number;
-    elementX: number;
-    elementY: number;
-    elementH: number;
-    elementW: number;
-    elementPosX: number;
-    elementPosY: number;
-}>;
+export declare function useMouse(target?: BasicTarget): Readonly<Ref<{
+    readonly screenX: number;
+    readonly screenY: number;
+    readonly clientX: number;
+    readonly clientY: number;
+    readonly pageX: number;
+    readonly pageY: number;
+    readonly elementX: number;
+    readonly elementY: number;
+    readonly elementH: number;
+    readonly elementW: number;
+    readonly elementPosX: number;
+    readonly elementPosY: number;
+}>>;
 
-export declare function useNetwork(): UseNetworkState;
+export declare function useNetwork(): Readonly<Ref<UseNetworkState>>;
 
 declare interface UseNetworkState {
     since?: Date;
@@ -745,7 +749,7 @@ export declare function usePreview(md: Parameters<typeof createApp> | Ref<string
     container: Ref<Element | undefined>;
 };
 
-export declare function usePrevious<T>(state: Ref<T> | ComputedRef<T>, shouldUpdate?: UsePreviousShouldUpdateFunc<T>): Ref<T | undefined>;
+export declare function usePrevious<T>(state: Ref<T> | ComputedRef<T>, shouldUpdate?: UsePreviousShouldUpdateFunc<T>): Readonly<Ref<DeepReadonly<T> | undefined>>;
 
 declare type UsePreviousShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean;
 
@@ -913,7 +917,7 @@ declare type UseRequestOptions<TData, TParams extends unknown[], TPlugin> = {
     [K in keyof TPlugin]: TPlugin[K];
 };
 
-export declare interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
+declare interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
     (fetchInstance: Fetch<TData, TParams>, options: UseRequestOptions<TData, TParams, TPlugin>): UseRequestPluginReturn<TData, TParams>;
     onInit?: (options: UseRequestOptions<TData, TParams, TPlugin>) => Partial<UseRequestFetchState<TData, TParams>>;
 }
@@ -939,19 +943,19 @@ declare interface useRequestResult<TData, TParams extends unknown[]> {
     /**
      * Is the service being executed.
      */
-    loading: Ref<boolean>;
+    loading: Readonly<Ref<boolean>>;
     /**
      * Data returned by service.
      */
-    data: Ref<TData | undefined>;
+    data: Readonly<Ref<TData | undefined>>;
     /**
      * 	Exception thrown by service.
      */
-    error: Ref<Error | undefined>;
+    error: Readonly<Ref<Error | undefined>>;
     /**
      * params	An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]`.
      */
-    params: Ref<TParams | []>;
+    params: Readonly<Ref<TParams | []>>;
     /**
      * Ignore the current promise response.
      */
@@ -980,7 +984,7 @@ declare interface useRequestResult<TData, TParams extends unknown[]> {
 
 declare type UseRequestService<TData, TParams extends unknown[]> = (...args: TParams) => Promise<TData>;
 
-export declare function useScroll(target?: UseScrollTarget, shouldUpdate?: UseScrollListenController): Ref<Position | undefined>;
+export declare function useScroll(target?: UseScrollTarget, shouldUpdate?: UseScrollListenController): Readonly<Ref<Position | undefined>>;
 
 declare type UseScrollListenController = (val: Position) => boolean;
 
@@ -988,7 +992,7 @@ declare type UseScrollTarget = BasicTarget<Element | Document>;
 
 export declare const useSessionStorageState: <T>(key: string | Ref<string>, options?: OptionsWithDefaultValue<T> | undefined) => StorageStateResultHasDefaultValue<T>;
 
-export declare function useSet<T = any>(initialValue?: T[]): [Ref<Set<any>>, UseSetActions<T>];
+export declare function useSet<T = any>(initialValue?: T[]): [Readonly<Ref<Set<T>>>, UseSetActions<T>];
 
 declare interface UseSetActions<T> {
     add: (value: T) => void;
@@ -1009,7 +1013,7 @@ declare type UseSetStateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>);
  *
  * @param {dom id节点或者 ref句柄} target
      */
- export declare function useSize(target: BasicTarget): Size | undefined;
+ export declare function useSize(target: BasicTarget): Size;
 
  export declare function useThrottle<T>(value: Ref<T>, options?: UseThrottleOptions): Ref<any>;
 
@@ -1053,7 +1057,7 @@ declare type UseSetStateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>);
  export declare const useTrackedEffect: (effect: UseTrackedEffect, deps?: Ref[]) => void;
 
  export declare function useUpdate(): {
-     update: Ref<{}>;
+     update: Readonly<Ref<{}>>;
      setUpdate: () => void;
  };
 
@@ -1100,11 +1104,11 @@ declare type UseSetStateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>);
  }
 
  declare interface UseWebSocketResult {
-     latestMessage: Ref<WebSocketEventMap['message'] | undefined>;
+     latestMessage: Readonly<Ref<WebSocketEventMap['message'] | undefined>>;
      sendMessage?: WebSocket['send'];
      disconnect?: () => void;
      connect?: () => void;
-     readyState: Ref<ReadyState_2>;
+     readyState: Readonly<Ref<ReadyState_2>>;
      webSocketIns?: WebSocket;
  }
 
