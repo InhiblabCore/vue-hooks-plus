@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>{{ flag }}</div>
-    <br>
+    <br />
     <div>
       <p>
         <vhp-button @click="() => set(!flag)">Set</vhp-button>

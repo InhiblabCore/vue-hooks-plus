@@ -24,9 +24,9 @@ A Hook to return the previous state.
 
 ## Result
 
-| Property    | Description        | Type     |
-| ----------- | ------------------ | -------- |
-| previousRef | The previous value | `Ref<T>` |
+| Property    | Description        | Type               |
+| ----------- | ------------------ | ------------------ |
+| previousRef | The previous value | `Readonly<Ref<T>>` |
 
 ## Params
 

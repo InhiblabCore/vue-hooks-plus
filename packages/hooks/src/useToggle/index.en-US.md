@@ -41,10 +41,10 @@ const [state, { toggle, set, setLeft, setRight }] = useToggle<T, U>(defaultValue
 
 ## Result
 
-| Property | Description                            | Type       |
-| -------- | -------------------------------------- | ---------- |
-| state    | Current state                          | `Ref<any>` |
-| actions  | A set of methods to update state value | `Actions`  |
+| Property | Description                            | Type                 |
+| -------- | -------------------------------------- | -------------------- |
+| state    | Current state                          | `Readonly<Ref<any>>` |
+| actions  | A set of methods to update state value | `Actions`            |
 
 ## Actions
 

@@ -54,10 +54,10 @@ const [
 
 ## Result
 
-| 参数             | 说明         | 类型         |
-| ---------------- | ------------ | ------------ |
-| isFullscren      | 是否全屏     | `boolean`    |
-| enterFullscreen  | 设置全屏     | `() => void` |
-| exitFullscreen   | 退出全屏     | `() => void` |
-| toggleFullscreen | 切换全屏     | `() => void` |
-| isEnabled        | 是否支持全屏 | `boolean`    |
+| 参数             | 说明         | 类型                     |
+| ---------------- | ------------ | ------------------------ |
+| isFullscren      | 是否全屏     | `Readonly<Ref<boolean>>` |
+| enterFullscreen  | 设置全屏     | `() => void`             |
+| exitFullscreen   | 退出全屏     | `() => void`             |
+| toggleFullscreen | 切换全屏     | `() => void`             |
+| isEnabled        | 是否支持全屏 | `boolean`                |

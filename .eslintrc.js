@@ -26,6 +26,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'vue'],
   rules: {
     'vue/multi-word-component-names': 'off',
+    'vue/html-self-closing': 'off',
     'react/no-string-refs': 'off',
     'react/no-unknown-property': 'off',
     'react/display-name': 'off',

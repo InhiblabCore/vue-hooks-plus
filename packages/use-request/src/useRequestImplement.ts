@@ -1,16 +1,4 @@
-import {
-  ref,
-  reactive,
-  toRefs,
-  onUnmounted,
-  inject,
-  UnwrapRef,
-  watchEffect,
-  computed,
-  isRef,
-  onMounted,
-  unref,
-} from 'vue'
+import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, onMounted, unref } from 'vue'
 
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
@@ -29,18 +17,11 @@ function isUseRequestFetchState<TData, TParams extends any[]>(
   return keys.filter(i => ['data', 'loading', 'params', 'error'].includes(i)).length === 4
 }
 
-// function isUseRequestFetchStateKey<TData, TParams extends any[]>(
-//   field: string,
-//   state: unknown,
-// ): state is UseRequestFetchState<TData, TParams>[keyof UseRequestFetchState<TData, TParams>] {
-//   return Boolean(['data', 'loading', 'params', 'error'].find(i => i === field))
-// }
-
 function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
   options: UseRequestOptions<TData, TParams, any> = {},
   plugins: UseRequestPlugin<TData, TParams>[] = [],
-): useRequestResult<TData, TParams> {
+) {
   // global option
   const USEREQUEST_GLOBAL_OPTIONS = inject<Record<string, any>>(
     USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY,
@@ -69,11 +50,8 @@ function useRequestImplement<TData, TParams extends any[]>(
     error: undefined,
   })
 
-  const setState = (currentState: unknown, field?: keyof typeof state): void => {
+  const setState = (currentState: unknown, field?: keyof typeof state) => {
     if (field) {
-      // if (isUseRequestFetchStateKey<UnwrapRef<TData>, UnwrapRef<TParams>>(field, currentState)) {
-      //   state[field] = currentState as any
-      // }
       state[field] = currentState as any
     } else {
       if (isUseRequestFetchState<UnwrapRef<TData>, UnwrapRef<TParams>>(currentState)) {
@@ -101,20 +79,12 @@ function useRequestImplement<TData, TParams extends any[]>(
     return p(fetchInstance, fetchOptions)
   })
 
-  const readyComputed = computed(() => (isRef(ready) ? ready.value : ready))
-
-  // const isMount = ref(false)
+  const readyComputed = computed(() => isRef(ready) ? ready.value : ready)
 
   watchEffect(() => {
     if (!manual) {
       const params = fetchInstance.state.params || options.defaultParams || []
-      // if (readyComputed.value && !isMount.value) {
-      //   fetchInstance.run(...(params as TParams))
-      //   // 模拟首次mount
-      //   isMount.value = true
-
-      // }
-      // 自动收集依赖
+      // auto collect
       if (readyComputed.value && fetchInstance.options.refreshDeps === true && !!serviceRef.value) {
         fetchInstance.run(...(params as TParams))
       }

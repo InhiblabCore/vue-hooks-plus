@@ -1,4 +1,4 @@
-import { ref, Ref } from 'vue'
+import { readonly, ref, Ref } from 'vue'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 import useEffectWithTarget from '../utils/useEffectWithTarget'
@@ -11,7 +11,7 @@ export type UseScrollListenController = (val: Position) => boolean
 function useScroll(
   target?: UseScrollTarget,
   shouldUpdate: UseScrollListenController = () => true,
-): Ref<Position | undefined> {
+): Readonly<Ref<Position | undefined>> {
   const position = ref<Position>()
 
   const shouldUpdateRef = ref(shouldUpdate)
@@ -66,7 +66,7 @@ function useScroll(
     target,
   )
 
-  return position
+  return readonly(position)
 }
 
 export default useScroll

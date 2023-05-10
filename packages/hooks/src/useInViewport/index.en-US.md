@@ -55,5 +55,5 @@ More information refer to [Intersection Observer API](https://developer.mozilla.
 
 | Property | Description | Type |
 | --- | --- | --- |
-| inViewport | Is visible | `Ref<boolean>` \| `undefined` |
-| ratio | Current visible ratio, updated every time the node set by `options.threshold` is reached | `Ref<number>` \| `undefined` |
+| inViewport | Is visible | `Readonly<Ref<boolean>>` \| `undefined` |
+| ratio | Current visible ratio, updated every time the node set by `options.threshold` is reached | `Readonly<Ref<number>>` \| `undefined` |

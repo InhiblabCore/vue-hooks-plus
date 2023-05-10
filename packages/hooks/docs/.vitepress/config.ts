@@ -82,18 +82,18 @@ export default defineConfig({
           { text: `⒡ Hooks`, link: '/useRequest/' },
           isGithub
             ? {
-                text: '演武场',
-                link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
-              }
+              text: '演武场',
+              link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
+            }
             : {
-                text: '演武场',
-                link: 'https://inhiblab-core.gitee.io/vue-hooks-plus-playground/play',
-              },
+              text: '演武场',
+              link: 'https://inhiblab-core.gitee.io/vue-hooks-plus-playground/play',
+            },
           isGithub
             ? {
-                text: '国内镜像 🇨🇳',
-                link: 'https://inhiblab-core.gitee.io/docs/hooks',
-              }
+              text: '国内镜像 🇨🇳',
+              link: 'https://inhiblab-core.gitee.io/docs/hooks',
+            }
             : null,
           {
             text: '发行版本',
@@ -107,18 +107,18 @@ export default defineConfig({
           { text: '⒡ Hooks', link: '/en/useRequest/' },
           isGithub
             ? {
-                text: 'Playground',
-                link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
-              }
+              text: 'Playground',
+              link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
+            }
             : {
-                text: 'Playground',
-                link: 'https://inhiblab-core.gitee.io/vue-hooks-plus-playground/play',
-              },
+              text: 'Playground',
+              link: 'https://inhiblab-core.gitee.io/vue-hooks-plus-playground/play',
+            },
           isGithub
             ? {
-                text: 'Gitee Mirror 🇨🇳',
-                link: 'https://inhiblab-core.gitee.io/docs/hooks/',
-              }
+              text: 'Gitee Mirror 🇨🇳',
+              link: 'https://inhiblab-core.gitee.io/docs/hooks/',
+            }
             : null,
           {
             text: 'Releases',

@@ -3,13 +3,13 @@ import useWinResize from '../useWinResize'
 
 import { BasicTarget, getTargetElement } from '../utils/domTarget'
 
-type Size = { width: Ref<number>; height: Ref<number> }
+type Size = { width: Readonly<Ref<number>>; height: Readonly<Ref<number>> }
 
 /**
  *
  * @param {dom id节点或者 ref句柄} target
  */
-export default function useSize(target: BasicTarget): Size | undefined {
+export default function useSize(target: BasicTarget): Size {
   const size = reactive({
     width: 0,
     height: 0,

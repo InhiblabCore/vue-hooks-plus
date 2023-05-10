@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" placeholder="input" v-model="valueRef">
+    <input type="text" placeholder="input" v-model="valueRef" />
     <p>DebouncedValue：{{ debouncedValue }}</p>
   </div>
 </template>

@@ -1,4 +1,4 @@
-import { ComputedRef, Ref, ref, watchEffect } from 'vue'
+import { ComputedRef, Ref, readonly, ref, watchEffect } from 'vue'
 
 export type UsePreviousShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean
 const defaultShouldUpdate = <T>(a?: T, b?: T) => !Object.is(a, b)
@@ -17,7 +17,7 @@ function usePrevious<T>(
     }
   })
 
-  return prevRef
+  return readonly(prevRef)
 }
 
 export default usePrevious

@@ -25,7 +25,7 @@ const [current, { inc, dec, set, reset }] = useCounter(initialValue, { min, max 
 
 | 参数    | 说明         | 类型                                                   |
 | ------- | ------------ | ------------------------------------------------------ |
-| current | 当前值       | `Ref<number>`                                          |
+| current | 当前值       | `Readonly<Ref<number>>`                                |
 | inc     | 加，默认加 1 | `(delta?: number) => void`                             |
 | dec     | 减，默认减 1 | `(delta?: number) => void`                             |
 | set     | 设置 current | `(value: number` \| `((c: number) => number)) => void` |

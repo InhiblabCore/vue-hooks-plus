@@ -1,7 +1,7 @@
 import useEventListener from '../useEventListener'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
-import { ref } from 'vue'
+import { readonly, ref } from 'vue'
 
 export interface UseMouseCursorState {
   screenX: number
@@ -72,5 +72,5 @@ export default function useMouse(target?: BasicTarget) {
     },
   )
 
-  return state
+  return readonly(state)
 }

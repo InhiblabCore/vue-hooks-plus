@@ -48,4 +48,4 @@ const position = useScroll(target, shouldUpdate)
 
 | Property | Description | Type |
 | --- | --- | --- |
-| position | The current scroll position of the element. | `Ref<{ left: number, top: number } \| undefined>` |
+| position | The current scroll position of the element. | `Readonly<Ref<{ left: number, top: number } \| undefined>>` |

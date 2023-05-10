@@ -31,6 +31,6 @@ const value = useMedia(['(min-width: 320px)'], [true], false)
 
 ## Result
 
-| Property | Description               | Type           |
-| -------- | ------------------------- | -------------- |
-| value    | Compliance with the query | `Ref<boolean>` |
+| Property | Description               | Type                     |
+| -------- | ------------------------- | ------------------------ |
+| value    | Compliance with the query | `Readonly<Ref<boolean>>` |

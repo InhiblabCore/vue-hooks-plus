@@ -32,14 +32,14 @@ const [
 
 ## Result
 
-| Property | Description      | Type               |
-| -------- | ---------------- | ------------------ |
-| set      | Set object       | `Ref<Set>`         |
-| add      | Add item         | `(key: T) => void` |
-| remove   | Remove item      | `(key: T) => void` |
-| clear    | Clear Set        | `() => void`       |
-| has      | Set has          | `(key: T) => void` |
-| reset    | Reset to default | `() => void`       |
+| Property | Description      | Type                 |
+| -------- | ---------------- | -------------------- |
+| set      | Set object       | `Readonly<Ref<Set>>` |
+| add      | Add item         | `(key: T) => void`   |
+| remove   | Remove item      | `(key: T) => void`   |
+| clear    | Clear Set        | `() => void`         |
+| has      | Set has          | `(key: T) => void`   |
+| reset    | Reset to default | `() => void`         |
 
 ## Params
 

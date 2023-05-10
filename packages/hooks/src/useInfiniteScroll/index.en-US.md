@@ -106,9 +106,9 @@ const {
 
 | Property | Description | Type |
 | --- | --- | --- |
-| data | The data returned by the service, where the `list` attribute is the aggregated data | `Ref<TData>` \| `undefined` |
+| data | The data returned by the service, where the `list` attribute is the aggregated data | `Readonly<Ref<TData>>` \| `undefined` |
 | loading | Is the first request in progress | `ComputedRef<boolean>` |
-| loadingMore | Is more data request in progress | `Ref<boolean>` |
+| loadingMore | Is more data request in progress | `Readonly<Ref<boolean>>` |
 | noMore | Whether there is no more data, it will take effect after configuring `options.isNoMore` | `ComputedRef<boolean>` |
 | loadMore | Load more data, it will automatically catch the exception, and handle it through `options.onError` | `() => void` |
 | loadMoreAsync | Load more data, which is consistent with the behavior of `loadMore`, but returns Promise, so you need to handle the exception yourself | `() => Promise<TData>` |

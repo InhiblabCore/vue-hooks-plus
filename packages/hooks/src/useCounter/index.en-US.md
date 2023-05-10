@@ -25,7 +25,7 @@ const [current, { inc, dec, set, reset }] = useCounter(initialValue, { min, max 
 
 | Property | Description | Type |
 | --- | --- | --- |
-| current | Current value | `Ref<number>` |
+| current | Current value | `Readonly<Ref<number>>` |
 | inc | Increment, default delta is 1 | `(delta?: number) => void` |
 | dec | Decrement, default delta is 1 | `(delta?: number) => void` |
 | set | Set current value | `(value: number` \| `((c: number) => number)) => void` |

@@ -65,8 +65,8 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
 
   const state = (localStorageKey
     ? useLocalStorageState(localStorageKey, {
-        defaultValue: defaultState,
-      })[0]
+      defaultValue: defaultState,
+    })[0]
     : ref(defaultState)) as Ref<S>
 
   // 初始状态 url > localstorage

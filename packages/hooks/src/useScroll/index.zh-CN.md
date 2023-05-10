@@ -46,6 +46,6 @@ const position = useScroll(target, shouldUpdate)
 
 ## Result
 
-| 参数     | 说明                   | 类型                                              |
-| -------- | ---------------------- | ------------------------------------------------- |
-| position | 滚动容器当前的滚动位置 | `Ref<{ left: number, top: number } \| undefined>` |
+| 参数     | 说明                   | 类型                                                        |
+| -------- | ---------------------- | ----------------------------------------------------------- |
+| position | 滚动容器当前的滚动位置 | `Readonly<Ref<{ left: number, top: number } \| undefined>>` |

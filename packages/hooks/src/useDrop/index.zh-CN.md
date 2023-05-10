@@ -43,10 +43,10 @@ useDrag<T>(
 
 ### DragOptions
 
-| 参数        | 说明           | 类型                           | 默认值 |
-| ----------- | -------------- | ------------------------------ | ------ |
-| onDragStart | 开始拖拽的回调 | `(e: React.DragEvent) => void` | -      |
-| onDragEnd   | 结束拖拽的回调 | `(e: React.DragEvent) => void` | -      |
+| 参数        | 说明           | 类型                     | 默认值 |
+| ----------- | -------------- | ------------------------ | ------ |
+| onDragStart | 开始拖拽的回调 | `(e: DragEvent) => void` | -      |
+| onDragEnd   | 结束拖拽的回调 | `(e: DragEvent) => void` | -      |
 
 ## useDrop
 
@@ -66,14 +66,14 @@ useDrop<T>(
 
 #### DropOptions
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| onText | 拖拽/粘贴文字的回调 | `(text: string, e: React.DragEvent) => void` | - |
-| onFiles | 拖拽/粘贴文件的回调 | `(files: File[], e: React.DragEvent) => void` | - |
-| onUri | 拖拽/粘贴链接的回调 | `(text: string, e: React.DragEvent) => void` | - |
-| onDom | 拖拽/粘贴自定义 DOM 节点的回调 | `(content: any, e: React.DragEvent) => void` | - |
-| onDrop | 拖拽任意内容的回调 | `(e: React.DragEvent) => void` | - |
-| onPaste | 粘贴内容的回调 | `(e: React.DragEvent) => void` | - |
-| onDragEnter | 拖拽进入 | `(e: React.DragEvent) => void` | - |
-| onDragOver | 拖拽中 | `(e: React.DragEvent) => void` | - |
-| onDragLeave | 拖拽出去 | `(e: React.DragEvent) => void` | - |
+| 参数        | 说明                           | 类型                                    | 默认值 |
+| ----------- | ------------------------------ | --------------------------------------- | ------ |
+| onText      | 拖拽/粘贴文字的回调            | `(text: string, e: DragEvent) => void`  | -      |
+| onFiles     | 拖拽/粘贴文件的回调            | `(files: File[], e: DragEvent) => void` | -      |
+| onUri       | 拖拽/粘贴链接的回调            | `(text: string, e: DragEvent) => void`  | -      |
+| onDom       | 拖拽/粘贴自定义 DOM 节点的回调 | `(content: any, e: DragEvent) => void`  | -      |
+| onDrop      | 拖拽任意内容的回调             | `(e: DragEvent) => void`                | -      |
+| onPaste     | 粘贴内容的回调                 | `(e: DragEvent) => void`                | -      |
+| onDragEnter | 拖拽进入                       | `(e: DragEvent) => void`                | -      |
+| onDragOver  | 拖拽中                         | `(e: DragEvent) => void`                | -      |
+| onDragLeave | 拖拽出去                       | `(e: DragEvent) => void`                | -      |

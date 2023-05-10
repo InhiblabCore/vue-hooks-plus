@@ -21,9 +21,7 @@ npm i @vue-hooks-plus/use-immer
 ### 自动引入
 
 ```typescript
-
 import { VueHooksPlusUseImmerResolver } from '@vue-hooks-plus/resolvers'
-
 ```
 
 [使用方法](https://inhiblabcore.github.io/docs/hooks/guide/#%F0%9F%94%A8-%E4%BD%BF%E7%94%A8)
@@ -47,10 +45,10 @@ const [state, updater] = useImmer(initialValue)
 
 ## Params
 
-| 参数    | 说明       | 类型            | 默认值 |
-| ------- | ---------- | --------------- | ------ |
-| state   | 响应式对象 | `ShallowRef<S>` | -      |
-| updater | 改变值     | `Updater<S>`    | -      |
+| 参数    | 说明       | 类型                      | 默认值 |
+| ------- | ---------- | ------------------------- | ------ |
+| state   | 响应式对象 | `Readonly<ShallowRef<S>>` | -      |
+| updater | 改变值     | `Updater<S>`              | -      |
 
 ## Options
 

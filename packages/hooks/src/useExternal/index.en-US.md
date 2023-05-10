@@ -40,7 +40,7 @@ const status = useExternal(path: string, options?: Options);
 
 | Property | Description | Type |
 | --- | --- | --- |
-| status | The progress of loading the external resources, support `unset`, `loading`, `ready`, `error` | `Ref<string>` |
+| status | The progress of loading the external resources, support `unset`, `loading`, `ready`, `error` | `Readonly<Ref<UseExternalStatus>>` |
 
 ## Options
 

@@ -42,6 +42,6 @@ const isHovering = useHover(target, {
 
 ## Result
 
-| Property   | Description                          | Type           |
-| ---------- | ------------------------------------ | -------------- |
-| isHovering | Whether the element is being hovered | `Ref<boolean>` |
+| Property   | Description                          | Type                     |
+| ---------- | ------------------------------------ | ------------------------ |
+| isHovering | Whether the element is being hovered | `Readonly<Ref<boolean>>` |

@@ -23,13 +23,20 @@ const { fetchRun, fetchs } = useFetchs(service, options, {
 })
 ```
 
+## Result
+
+| 参数     | 说明                             | 类型                                  | 默认值 |
+| -------- | -------------------------------- | ------------------------------------- | ------ |
+| fetchs   | Status of all requests collected | `Readonly<FetchType<TData, TParams>>` | -      |
+| fetchRun | Functions that you need to run   | `(...args) => void`                   | -      |
+
 ## Params
 
-| Property | Description                      | Type                        | Default |
-| -------- | -------------------------------- | --------------------------- | ------- |
-| fetchs   | Status of all requests collected | `FetchType<TData, TParams>` | -       |  |
-| fetchRun | Functions that you need to run   | `(...args) => void`         | -       |  |
-| options  | Additional Configuration Items   | `useRequest Options`        | -       |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| service | Service function | `UseRequestService<TData, ParamsType<TParams>>` | - |
+| options | Additional Configuration Items | `useRequest Options` | - |
+| self | self options `fetchKey` | `(...args: ParamsType<TParams>) => string` | - |
 
 ## Options
 

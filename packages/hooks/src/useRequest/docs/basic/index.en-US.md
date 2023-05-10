@@ -153,10 +153,10 @@ Since `useRequest` needs to guarantee a good plug-in system, format is too invas
 
 ```ts
 const {
-  loading: Ref<boolean>,
-  data?: Ref<TData>,
-  error?: Ref<Error>,
-  params: Ref<TParams | []>,
+  loading: Readonly<Ref<boolean>>,
+  data?: Readonly<Ref<TData>>,
+  error?: Readonly<Ref<Error>>,
+  params: Readonly<Ref<TParams | []>>,
   run: (...params: TParams) => void,
   runAsync: (...params: TParams) => Promise<TData>,
   refresh: () => void,
@@ -181,15 +181,15 @@ const {
 
 | Property | Description | Type |
 | --- | --- | --- |
-| data | Data returned by service | `Ref<TData>` \| `undefined` |
-| error | Exception thrown by service | `Ref<Error>` \| `undefined` |
-| loading | Is the service being executed | `Ref<boolean>` |
-| params | An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]` | `Ref<TParams \| []>` |
+| data | Data returned by service | `Readonly<Ref<TData>>` \| `undefined` |
+| error | Exception thrown by service | `Readonly<Ref<Error>>` \| `undefined` |
+| loading | Is the service being executed | `Readonly<Ref<boolean>>` |
+| params | An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]` | `Readonly<Ref<TParams \| []>>` |
 | run | <ul><li> Manually trigger the execution of the service, and the parameters will be passed to the service</li><li>Automatic handling of exceptions, feedback through `onError`</li></ul> | `(...params: TParams) => void` |
 | runAsync | The usage is the same as `run`, but it returns a Promise, so you need to handle the exception yourself. | `(...params: TParams) => Promise<TData>` |
 | refresh | Use the last params, call `run` again | `() => void` |
 | refreshAsync | Use the last params, call `runAsync` again | `() => Promise<TData>` |
-| mutate | Mutate `data` directly | `(data?: TData / ((oldData?: TData) => (TData / undefined))) => void` |
+| mutate | Mutate `data` directly | `(data?: TData \| ((oldData?: TData) => (TData \| undefined))) => void` |
 | cancel | Ignore the current promise response | `() => void` |
 
 ## Options

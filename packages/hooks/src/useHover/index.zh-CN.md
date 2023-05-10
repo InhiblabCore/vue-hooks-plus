@@ -42,6 +42,6 @@ const isHovering = useHover(target, {
 
 ## Result
 
-| 参数       | 说明                   | 类型           |
-| ---------- | ---------------------- | -------------- |
-| isHovering | 鼠标元素是否处于 hover | `Ref<boolean>` |
+| 参数       | 说明                   | 类型                     |
+| ---------- | ---------------------- | ------------------------ |
+| isHovering | 鼠标元素是否处于 hover | `Readonly<Ref<boolean>>` |
