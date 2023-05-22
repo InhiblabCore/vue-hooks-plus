@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { contributors, coreTeamMembers } from '../../../contributors'
+  import { coreTeamMembers } from '../../../contributors'
   import TeamMember from './TeamMember.vue'
 </script>
 
@@ -23,6 +23,8 @@
 
   h2 {
     text-align: center;
+    font-weight: 600;
+    transform: scale(0.6);
     color: var(--vp-font-color);
   }
 

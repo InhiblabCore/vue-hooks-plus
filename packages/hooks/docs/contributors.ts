@@ -33,15 +33,22 @@ const coreTeamMembers: CoreTeam[] = [
     github: 'NelsonYong',
     twitter: 'Yong_Git',
     sponsors: true,
-    description: 'vue-hooks-plus 作者',
+    description: "VueHooks Plus's Author",
     packages: ['vue-hooks-plus'],
   },
   {
     avatar: contributorsAvatars.hongaah,
     name: 'Hongaah',
     github: 'hongaah',
-    description: '技术达人',
-    functions: ['useFetch'],
+    description: '',
+    functions: ['useSetState', 'useWebSocket'],
+  },
+  {
+    avatar: contributorsAvatars.Noobbbbbbb,
+    name: 'Noobbbbbbb',
+    github: 'Noobbbbbbb',
+    description: '',
+    functions: ['useFullscreen'],
   },
 ]
 // .sort(
