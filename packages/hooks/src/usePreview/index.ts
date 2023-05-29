@@ -1,3 +1,6 @@
+/**
+ * Due to low usage frequency and reliance on security, `v1.7.2` has been deprecated.
+ */
 import { marked } from 'marked'
 import { Ref, computed, unref, ref, watchEffect, createApp, VueElement } from 'vue'
 

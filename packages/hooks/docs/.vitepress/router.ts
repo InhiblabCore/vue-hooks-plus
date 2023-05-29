@@ -77,7 +77,7 @@ const Router = [
         text: 'useAsyncOrder',
         link: '/useAsyncOrder/',
       },
-      { text: 'usePreview', link: '/usePreview/' },
+      { text: 'usePreview ⚠️', link: '/usePreview/' },
     ],
   },
   {
