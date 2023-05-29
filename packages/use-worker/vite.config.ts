@@ -21,7 +21,7 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
-      external: ['vue', 'lodash/isEqual'],
+      external: ['vue'],
       output: {
         globals: {
           vue: 'Vue',

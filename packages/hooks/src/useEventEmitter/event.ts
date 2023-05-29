@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import cloneDeep from 'lodash/cloneDeep'
 import { ref, watchEffect } from 'vue'
 
 type SubscriptionParams<T = any> = {
@@ -52,13 +52,13 @@ class EventEmitter<T> {
       const subscriptionValuesCallback = this.subscriptions.get(event)
       subscriptionValuesCallback?.forEach(callback => {
         callback?.({
-          params: _.cloneDeep(args) as any,
+          params: cloneDeep(args) as any,
           event,
         })
       })
 
       this.emitEffectCache.set(event, {
-        params: _.cloneDeep(args) as any,
+        params: cloneDeep(args) as any,
         event,
       })
     } else throw new TypeError('event must be string or number !')
