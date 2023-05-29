@@ -1,7 +1,8 @@
 import { ref } from 'vue'
-import { isFunction, isNumber, isString } from 'lodash'
+// import { isFunction, isNumber, isString } from 'lodash'
 import { BasicTarget, getTargetElement } from '../utils/domTarget'
 import useDeepCompareEffectWithTarget from '../utils/useDeepCompareWithTarget'
+import { isNumber, isFunction, isString } from '../utils'
 
 export type UseKeyPressKeyPredicate = (event: KeyboardEvent) => boolean
 export type UseKeyPressKeyType = number | string

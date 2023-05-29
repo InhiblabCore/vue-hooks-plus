@@ -25,12 +25,16 @@
       :alt="`${data.name}'s avatar`"
     />
     <div class="name">
-      {{ data.name }}
+      <a v-if="data.github" :href="`https://github.com/${data.github}`" target="_blank">{{
+        data.name
+      }}</a>
+      <div v-else>{{ data.name }}</div>
     </div>
     <div class="description" v-html="data.description" />
 
     <div flex="~ inline gap-2" py2 text-2xl>
       <a
+        v-if="data.github"
         class="i-carbon-logo-github inline-block text-current op30 hover:op100 mya transition duration-200"
         :href="`https://github.com/${data.github}`"
         target="_blank"
@@ -70,7 +74,7 @@
         <div class="code">
           <img class="icon" :src="funcIcon" alt="" />
           <div class="code-container">
-            <a v-for="f of data.functions" :key="f" :href="`/${f}`" target="_blank">
+            <a v-for="f of data.functions" :key="f" :href="`/${f}/`" target="_blank">
               <code>{{ f }}</code>
             </a>
           </div>
@@ -101,10 +105,14 @@
     min-width: 4.75rem;
     border-radius: 4.75rem;
   }
+  .name {
+    cursor: pointer;
+  }
   .name,
   .description {
     margin-top: 16px;
     zoom: 0.85;
+    height: 60px;
   }
   .description {
     color: var(--vp-font-color);
