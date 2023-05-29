@@ -2,6 +2,8 @@
 map:
   # 映射到docs的路径
   path: /usePreview
+  source:
+    show: false
 ---
 
 # usePreview
