@@ -93,7 +93,7 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   // manual
   onMounted(() => {
-    if (!manual) {
+    if (!manual && fetchInstance.options.refreshDeps !== true) {
       const params = fetchInstance.state.params || options.defaultParams || []
       if (unref(ready)) fetchInstance.run(...(params as TParams))
     }
