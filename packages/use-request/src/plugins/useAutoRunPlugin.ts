@@ -9,7 +9,7 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
   const hasAutoRun = ref(false)
 
   watchEffect(() => {
-    if (!manual) hasAutoRun.value = unref(ready)
+    if (!manual && fetchInstance.options.refreshDeps !== true) hasAutoRun.value = unref(ready)
   })
 
   if (refreshDeps instanceof Array)
@@ -52,7 +52,7 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 }
 
-useAutoRunPlugin.onInit = ({ initialData, ready = true, manual }) => {
+useAutoRunPlugin.onInit = ({ ready = true, manual }) => {
   return {
     loading: (!manual && unref(ready)) as UseRequestFetchState<any, any[]>['loading'],
   }
