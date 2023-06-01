@@ -9,7 +9,7 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
   const hasAutoRun = ref(false)
 
   watchEffect(() => {
-    if (!manual) hasAutoRun.value = unref(ready)
+    if (!manual && fetchInstance.options.refreshDeps !== true) hasAutoRun.value = unref(ready)
   })
 
   if (refreshDeps instanceof Array)
