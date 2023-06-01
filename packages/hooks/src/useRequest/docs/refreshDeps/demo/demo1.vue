@@ -16,8 +16,8 @@
   </div>
   <div style="margin-top: 16px;">Loading：{{ loading ? 'loading' : '' }}</div>
 
-  <div style="margin-top: 16px;"
-  >Data Value：
+  <div style="margin-top: 16px;">
+    <span>Data Value：</span>
     <div>
       <table>
         <thead>
