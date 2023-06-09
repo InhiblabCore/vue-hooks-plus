@@ -1,5 +1,6 @@
 /**
  * Will be deprecated in version 1.7.6
+ * Will be replaced by a vue router
  */
 import qs from 'qs'
 import { Ref, ref, watch, watchEffect } from 'vue'
