@@ -1,5 +1,9 @@
+/**
+ * Will be deprecated in version 1.7.6
+ * Will be replaced by a vue router
+ */
 import qs from 'qs'
-import { Ref, ref, watch } from 'vue'
+import { Ref, ref, watch, watchEffect } from 'vue'
 import { useLocalStorageState } from '../index'
 import { isFunction } from '../utils'
 
@@ -63,11 +67,18 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
 
   const defaultState = (isFunction(initialState) ? initialState() : initialState) ?? ({} as S)
 
-  const state = (localStorageKey
+  const state_ = (localStorageKey
     ? useLocalStorageState(localStorageKey, {
       defaultValue: defaultState,
     })[0]
     : ref(defaultState)) as Ref<S>
+
+  const state = ref<S>() as Ref<S>
+
+  watchEffect(() => {
+    state.value = state_.value
+  })
+
 
   // 初始状态 url > localstorage
   if (paramsStr) {
@@ -87,11 +98,12 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
   // 去掉多余的key
   if (initialState && Object.keys(initialState).length) {
     const newState = { ...initialState } as any
-    for (const key in newState) {
-      if (key in state.value) {
-        newState[key] = state.value[key]
+    if (state.value)
+      for (const key in newState) {
+        if (key in state.value) {
+          newState[key] = state.value[key]
+        }
       }
-    }
     state.value = newState
   }
 
@@ -99,8 +111,11 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
   watch(
     state,
     () => {
-      const newParamsStr = encodeParams(state.value)
-      routerPushFn(`${path}?${newParamsStr}`)
+      if (state.value) {
+        const newParamsStr = encodeParams(state.value)
+        routerPushFn(`${path}?${newParamsStr}`)
+      }
+
     },
     {
       deep: true,
