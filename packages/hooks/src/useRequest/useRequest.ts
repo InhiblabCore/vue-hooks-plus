@@ -21,15 +21,15 @@ function useRequest<
     TData,
     TParams,
     PluginsOptions extends (infer P)[]
-      ? P extends UseRequestPlugin<TData, TParams, infer R>
-        ? R
-        : never
-      : never
+    ? P extends UseRequestPlugin<TData, TParams, infer R>
+    ? R
+    : never
+    : never
   >,
   plugins?: PluginsOptions,
 ) {
-  return useRequestImplement<TData, TParams>(service, options, [
-    ...(plugins || []),
+
+  const BuiltInPlugins = [
     useDebouncePlugin,
     useLoadingDelayPlugin,
     usePollingPlugin,
@@ -37,7 +37,12 @@ function useRequest<
     useThrottlePlugin,
     useAutoRunPlugin,
     useCachePlugin,
-    useRetryPlugin,
+    useRetryPlugin
+  ]
+
+  return useRequestImplement<TData, TParams>(service, options, [
+    ...(plugins || []),
+    ...BuiltInPlugins
   ] as UseRequestPlugin<TData, TParams>[])
 }
 

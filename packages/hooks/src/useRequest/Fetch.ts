@@ -88,7 +88,10 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     }
   }
 
-  // 遍历需要运行的插件，是一个回调函数，供插件获取fetch实例和在对应节点执行插件逻辑
+  /**
+   * Traverse the plugin that needs to be run, 
+   * which is a callback function for the plugin to obtain fetch instances and execute plugin logic at the corresponding nodes.
+   */
   runPluginHandler(event: keyof UseRequestPluginReturn<TData, TParams>, ...rest: unknown[]) {
     // @ts-ignore
     const r = (this.pluginImpls?.map(i => i[event]?.(...rest)) ?? [])?.filter(Boolean)
@@ -96,7 +99,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     return Object.assign({}, ...r)
   }
 
-  // 异步请求
+  // Asynchronous request
   // @ts-ignore
   async runAsync(...params: TParams): Promise<TData> {
     this.count += 1
@@ -105,7 +108,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       'onBefore',
       params,
     )
-    // 是否停止请求
+    // Do you want to stop the request
     if (stopNow) {
       return new Promise(() => { })
     }
@@ -116,24 +119,24 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       ...state,
     })
 
-    // 是否立刻返回
+    // Do you want to return immediately
     if (returnNow) {
       return Promise.resolve(state.data)
     }
 
-    // 请求前返回
+    // Return before request
     this.options.onBefore?.(params)
 
     try {
-      // replace service 开始请求，如果含有onRequest事件名
+      // Start the request with the replace service, if it contains the onRequest event name
       let { servicePromise } = this.runPluginHandler('onRequest', this.serviceRef.value, params)
 
       const requestReturnResponse = (res: any) => {
-        // 取消了请求，count将与currentCount不一致，将发送空请求
+        // The request has been cancelled, and the count will be inconsistent with the currentCount
         if (currentCount !== this.count) {
           return new Promise(() => { })
         }
-        // 格式化数据
+        // Format data
         const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
 
         this.setState({
@@ -141,12 +144,12 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
           error: undefined,
           loading: false,
         })
-        // 请求成功
+        // Request successful
         this.options.onSuccess?.(formattedResult, params)
 
         this.runPluginHandler('onSuccess', formattedResult, params)
 
-        // 无论请求成功还是失败都执行
+        // Execute whether the request is successful or unsuccessful
         this.options.onFinally?.(params, formattedResult, undefined)
 
         if (currentCount === this.count) {
@@ -157,22 +160,8 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       }
 
       if (!servicePromise) {
-        /** 自动依赖收集 */
-        // if (!this.options.manual && this.options.refreshDeps === true) {
-        //   watchEffect(async () => {
-        //     if (unref(this.options.ready)) {
-        //       this.setFetchState(true, 'loading')
-        //       servicePromise = this.serviceRef.value(...params)
-        //       const servicePromiseResult = await servicePromise
-        //       return requestReturnResponse(servicePromiseResult)
-        //     }
-        //   })
-        // } else {
-        //   servicePromise = this.serviceRef.value(...params)
-        // }
         servicePromise = this.serviceRef.value(...params)
       }
-      // servicePromise = this.serviceRef.value(...params)
       const servicePromiseResult = await servicePromise
       return requestReturnResponse(servicePromiseResult)
     } catch (error) {
@@ -188,7 +177,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       this.options.onError?.(error as Error, params)
       this.runPluginHandler('onError', error, params)
 
-      // 无论请求成功还是失败都执行
+      // Execute whether the request is successful or unsuccessful
       this.options.onFinally?.(params, undefined, error as Error)
 
       if (currentCount === this.count) {
