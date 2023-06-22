@@ -25,6 +25,7 @@ import useInViewport from './useInViewport'
 import useKeyPress from './useKeyPress'
 import useLocalStorageState from './useLocalStorageState'
 import useLockFn from './useLockFn'
+import useLongPress from './useLongPress'
 import useMouse from './useMouse'
 import useMap from './useMap'
 import useMedia from './useMedia'
@@ -46,7 +47,6 @@ import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
 import useWebSocket from './useWebSocket'
-import useLongPress from './useLongPress'
 
 export {
   useRequest,
