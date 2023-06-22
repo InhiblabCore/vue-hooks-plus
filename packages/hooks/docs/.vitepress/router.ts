@@ -67,6 +67,7 @@ const Router = [
       { text: 'useScroll', link: '/useScroll/' },
       { text: 'useTitle', link: '/useTitle/' },
       { text: 'useWinResize', link: '/useWinResize/' },
+      { text: 'useLongPress', link: '/useLongPress/' },
     ],
   },
   {
