@@ -4,9 +4,9 @@ import renderHook from 'test-utils/renderHook'
 
 describe('useLongPressStatus tests', () => {
   let targetMock: HTMLElement
-  const mouseDownEvent: MouseEvent = new MouseEvent('mousedown')
-  const mouseUpEvent: MouseEvent = new MouseEvent('mouseup')
-  const mouseMoveEvent: MouseEvent = new MouseEvent('mousemove')
+  const mouseDownEvent: PointerEvent = new PointerEvent('pointerdown')
+  const mouseUpEvent: PointerEvent = new PointerEvent('pointerup')
+  const mouseMoveEvent: PointerEvent = new PointerEvent('pointermove')
   beforeEach(() => {
     targetMock = document.createElement('div')
     vi.useFakeTimers({
@@ -19,18 +19,18 @@ describe('useLongPressStatus tests', () => {
   it('should change isPressed status when user longPress in 500ms', async () => {
     const [ result ] = renderHook(() => useLongPress(targetMock))
 
-    targetMock.dispatchEvent(new MouseEvent('mousedown'));
+    targetMock.dispatchEvent(mouseDownEvent);
 
-    expect(result.isPressing.value).toBe(false);
+    expect(result.isPressing.value).toBeFalsy()
 
     vi.advanceTimersByTime(500);
 
-    expect(result.isPressing.value).toBe(true);
+    expect(result.isPressing.value).toBeTruthy()
   });
 
   it('should record pressed every 100ms', () => {
     const [ result ] = renderHook(() => useLongPress(targetMock))
-    targetMock.dispatchEvent(new MouseEvent('mousedown'));
+    targetMock.dispatchEvent(mouseDownEvent);
 
     expect(result.pressingTime.value).toBe(0);
 
@@ -51,27 +51,27 @@ describe('useLongPressStatus tests', () => {
     vi.advanceTimersByTime(600);
 
     expect(result.pressingTime.value).toBe(100);
-    expect(result.isPressing.value).toBe(true);
+    expect(result.isPressing.value).toBeTruthy()
 
     targetMock.dispatchEvent(mouseUpEvent)
 
     expect(result.pressingTime.value).toBe(0);
-    expect(result.isPressing.value).toBe(false);
+    expect(result.isPressing.value).toBeFalsy()
   });
 
-  it('should reset pressedMs and isPressed when user mouseLeave', async () => {
+  it('should reset pressingTime and isPressing when user mouseMove', async () => {
     const [ result ] = renderHook(() => useLongPress(targetMock))
 
     targetMock.dispatchEvent(mouseDownEvent);
     vi.advanceTimersByTime(600);
 
     expect(result.pressingTime.value).toBe(100);
-    expect(result.isPressing.value).toBe(true);
+    expect(result.isPressing.value).toBeTruthy()
 
     targetMock.dispatchEvent(mouseMoveEvent);
 
     expect(result.pressingTime.value).toBe(0);
-    expect(result.isPressing.value).toBe(false);
+    expect(result.isPressing.value).toBeFalsy()
   });
   //
   it('should not cancel event on mouseLeave when cancelOnMove toggle is false', async () => {
@@ -83,12 +83,12 @@ describe('useLongPressStatus tests', () => {
 
     vi.advanceTimersByTime(600);
     expect(pressingTime.value).toBe(100);
-    expect(isPressing.value).toBe(true);
+    expect(isPressing.value).toBeTruthy()
 
     targetMock.dispatchEvent(mouseMoveEvent);
 
     expect(pressingTime.value).toBe(100);
-    expect(isPressing.value).toBe(true);
+    expect(isPressing.value).toBeTruthy()
   });
 
   it('should stop all event listener when component unmounted', async () => {
@@ -97,8 +97,8 @@ describe('useLongPressStatus tests', () => {
 
     app.unmount()
 
-    expect(elementRemoveEventListenerSpy).toHaveBeenCalledWith('mousedown', expect.any(Function));
-    expect(elementRemoveEventListenerSpy).toHaveBeenCalledWith('mouseup', expect.any(Function));
-    expect(elementRemoveEventListenerSpy).toHaveBeenCalledWith('mousemove', expect.any(Function));
+    expect(elementRemoveEventListenerSpy).toHaveBeenCalledWith(mouseDownEvent.type, expect.any(Function));
+    expect(elementRemoveEventListenerSpy).toHaveBeenCalledWith(mouseUpEvent.type, expect.any(Function));
+    expect(elementRemoveEventListenerSpy).toHaveBeenCalledWith(mouseMoveEvent.type, expect.any(Function));
   });
 });

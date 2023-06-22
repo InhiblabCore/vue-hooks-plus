@@ -17,9 +17,40 @@ export interface LongPressModifiers {
   self?: boolean;
 }
 
-type MouseDownEvents = 'touchstart' | 'mousedown';
-type MouseUpEvents = 'touchend' | 'mouseup';
-type MouseMoveEvents = 'touchmove' | 'mousemove';
+type MouseDownEvents = 'pointerdown' | 'touchstart' | 'mousedown';
+type MouseUpEvents = 'pointerup' | 'touchend' | 'mouseup';
+type MouseMoveEvents = 'pointermove' | 'touchmove' | 'mousemove';
+
+const getSupportedMouseEvents = (): {
+  mouseMove: MouseMoveEvents;
+  mouseUp: MouseUpEvents;
+  mouseDown: MouseDownEvents
+} => {
+  const hasPointEvent = 'PointerEvent' in window;
+  if (hasPointEvent) {
+    return {
+      mouseDown: 'pointerdown',
+      mouseUp: 'pointerup',
+      mouseMove: 'pointermove'
+    }
+  }
+
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (isTouch) {
+    return {
+      mouseDown: 'touchstart',
+      mouseUp: 'touchend',
+      mouseMove: 'touchmove'
+    }
+  }
+
+  return {
+    mouseDown: 'mousedown',
+    mouseUp: 'mouseup',
+    mouseMove: 'mousemove'
+  }
+}
 
 const useLongPress: ( target: BasicTarget, options?: UseLongPressOptions ) => {
   pressingTime: DeepReadonly<Ref<number>>;
@@ -28,10 +59,6 @@ const useLongPress: ( target: BasicTarget, options?: UseLongPressOptions ) => {
   const DEFAULT_DELAY_TIME = 500
   const DEFAULT_UPDATE_TIME = 100
 
-  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  const mouseDown: MouseDownEvents = isTouch ? 'touchstart' : 'mousedown';
-  const mouseUp: MouseUpEvents = isTouch ? 'touchend' : 'mouseup';
-  const mouseMove: MouseMoveEvents = isTouch ? 'touchmove' : 'mousemove';
   const isPressing = ref<boolean>(false)
   const pressingTime = ref(0);
 
@@ -48,6 +75,8 @@ const useLongPress: ( target: BasicTarget, options?: UseLongPressOptions ) => {
       if (!targetElement) {
         return
       }
+
+      const { mouseDown, mouseUp, mouseMove } = getSupportedMouseEvents()
 
       function clear() {
         if (timeoutTimer) {
