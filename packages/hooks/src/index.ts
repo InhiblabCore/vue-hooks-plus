@@ -46,6 +46,7 @@ import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
 import useWebSocket from './useWebSocket'
+import useLongPress from './useLongPress'
 
 export {
   useRequest,
@@ -98,4 +99,5 @@ export {
   useWhyDidYouUpdate,
   useWinResize,
   useWebSocket,
+  useLongPress
 }
