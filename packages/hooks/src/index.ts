@@ -76,6 +76,7 @@ export {
   useKeyPress,
   useLocalStorageState,
   useLockFn,
+  useLongPress,
   useMap,
   useMedia,
   useMouse,
@@ -98,6 +99,5 @@ export {
   useVirtualList,
   useWhyDidYouUpdate,
   useWinResize,
-  useWebSocket,
-  useLongPress
+  useWebSocket
 }
