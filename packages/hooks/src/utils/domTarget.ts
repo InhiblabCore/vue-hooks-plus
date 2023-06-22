@@ -1,10 +1,10 @@
 import { isRef } from 'vue';
-import type { Ref } from 'vue';
+import type { Ref , ComponentPublicInstance } from 'vue';
 import isBrowser from './isBrowser';
 
 type TargetValue<T> = T | undefined | null;
 
-type TargetType = HTMLElement | Element | Window | Document;
+type TargetType = HTMLElement | Element | Window | Document | ComponentPublicInstance;
 
 export type BasicTarget<T extends TargetType = Element> =
   | (() => TargetValue<T>)
@@ -24,7 +24,7 @@ export function getTargetElement<T extends TargetType>(target: BasicTarget<T>, d
   if (typeof target === 'function') {
     targetElement = target();
   } else if (isRef(target)) {
-    targetElement = target.value;
+    targetElement = (target.value as ComponentPublicInstance)?.$el ?? target.value;
   } else {
     targetElement = target;
   }

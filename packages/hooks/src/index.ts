@@ -25,6 +25,7 @@ import useInViewport from './useInViewport'
 import useKeyPress from './useKeyPress'
 import useLocalStorageState from './useLocalStorageState'
 import useLockFn from './useLockFn'
+import useLongPress from './useLongPress'
 import useMouse from './useMouse'
 import useMap from './useMap'
 import useMedia from './useMedia'
@@ -75,6 +76,7 @@ export {
   useKeyPress,
   useLocalStorageState,
   useLockFn,
+  useLongPress,
   useMap,
   useMedia,
   useMouse,
@@ -97,5 +99,5 @@ export {
   useVirtualList,
   useWhyDidYouUpdate,
   useWinResize,
-  useWebSocket,
+  useWebSocket
 }
