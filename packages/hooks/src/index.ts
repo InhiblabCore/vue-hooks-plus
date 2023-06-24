@@ -1,4 +1,4 @@
-import useRequest, { clearUseRequestCache, useRequestProvider } from './useRequest'
+import useRequest, { clearUseRequestCache, useRequestProvider, useRequestDevToolsPlugin } from './useRequest'
 import useAsyncOrder from './useAsyncOrder'
 import useBoolean from './useBoolean'
 import useCookieState from './useCookieState'
@@ -52,6 +52,7 @@ export {
   useRequest,
   clearUseRequestCache,
   useRequestProvider,
+  useRequestDevToolsPlugin,
   useAsyncOrder,
   useBoolean,
   useCookieState,

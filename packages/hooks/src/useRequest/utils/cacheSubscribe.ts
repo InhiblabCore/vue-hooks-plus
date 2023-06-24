@@ -1,9 +1,14 @@
 type Listener = (data: any) => void;
 const listeners: Record<string, Listener[]> = {};
+const otherListeners: Listener[] = []
 
 const trigger = (key: string, data: any) => {
   if (listeners[key]) {
     listeners[key].forEach((item) => item(data));
+    otherListeners.forEach((item) => item({
+      type: key,
+      data
+    }))
   }
 };
 
@@ -19,4 +24,8 @@ const subscribe = (key: string, listener: Listener) => {
   };
 };
 
-export { trigger, subscribe };
+const otherSubscribe = (listener: Listener) => {
+  otherListeners.push(listener)
+}
+
+export { trigger, subscribe, otherSubscribe };

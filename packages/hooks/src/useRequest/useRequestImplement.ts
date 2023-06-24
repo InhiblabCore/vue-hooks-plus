@@ -39,6 +39,8 @@ function useRequestImplement<TData, TParams extends any[]>(
     ...rest,
   }
 
+  console.log(service.toString());
+
   // serviceRef store service
   const serviceRef = ref(service)
 

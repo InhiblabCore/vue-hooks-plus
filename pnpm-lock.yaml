@@ -131,6 +131,7 @@ importers:
   packages/hooks:
     specifiers:
       '@types/js-cookie': ^3.0.1
+      '@vue/devtools-api': ^6.5.0
       js-cookie: ^3.0.1
       lodash: ^4.17.21
       qs: ^6.11.0
@@ -138,6 +139,7 @@ importers:
       screenfull: ^5.0.0
     dependencies:
       '@types/js-cookie': 3.0.3
+      '@vue/devtools-api': 6.5.0
       js-cookie: 3.0.1
       lodash: 4.17.21
       qs: 6.11.1
@@ -1679,7 +1681,6 @@ packages:
 
   /@vue/devtools-api/6.5.0:
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
-    dev: true
 
   /@vue/reactivity-transform/3.2.47:
     resolution: {integrity: sha512-m8lGXw8rdnPVVIdIFhf0LeQ/ixyHkH5plYuS83yop5n7ggVJU+z5v0zecwEnX7fa7HNLBhh2qngJJkxpwEEmYA==}
