@@ -1,6 +1,7 @@
 import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, onMounted, unref } from 'vue'
 
 import Fetch from './Fetch'
+import RegisterDevToolsStore from './devtools/register'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import {
   UseRequestFetchState,
@@ -9,6 +10,7 @@ import {
   useRequestResult,
   UseRequestService,
 } from './types'
+import { getArrowFunctionName, getFunctionName, HashTableInstance } from './devtools/utils'
 
 function isUseRequestFetchState<TData, TParams extends any[]>(
   state: unknown,
@@ -38,8 +40,6 @@ function useRequestImplement<TData, TParams extends any[]>(
     ready,
     ...rest,
   }
-
-  console.log(service.toString());
 
   // serviceRef store service
   const serviceRef = ref(service)
@@ -73,6 +73,12 @@ function useRequestImplement<TData, TParams extends any[]>(
     setState,
     Object.assign({}, ...initState, state),
   )
+
+  // devtools provider
+  const functionName = service.toString().includes("function") ? getFunctionName(service.toString()) : getArrowFunctionName(service.toString())
+  const functionNameHashCode = HashTableInstance.insert(functionName)
+  fetchInstance.key = functionNameHashCode
+  RegisterDevToolsStore.insert(functionNameHashCode, fetchInstance)
 
   fetchInstance.options = fetchOptions
 

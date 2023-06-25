@@ -7,6 +7,7 @@ import {
 } from './types'
 
 export default class Fetch<TData, TParams extends unknown[] = any> {
+  key?: number | string | symbol
   pluginImpls: UseRequestPluginReturn<TData, TParams>[] | undefined
 
   count = 0

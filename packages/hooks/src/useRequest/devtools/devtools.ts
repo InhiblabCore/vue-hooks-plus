@@ -2,17 +2,19 @@ import {
   setupDevtoolsPlugin,
 } from '@vue/devtools-api'
 import * as cacheSubscribe from '../utils/cacheSubscribe'
-import { CachedData } from '../utils/cache'
+// import { CachedData } from '../utils/cache'
+
+import RegisterDevToolsStore from './register'
 
 const MUTATIONS_LAYER_ID = 'vue-hooks-plus:mutations'
 const pluginId = 'vue-hooks-plus'
 const pluginName = 'Vue Hooks Plus 🍭'
 const pluginLogo = 'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/c3b984112610ef3fb21140a0beb27b4a228fe0b3/packages/hooks/docs/public/logo.svg'
 
-type Timer = ReturnType<typeof setTimeout>;
-interface RecordData extends CachedData {
-  timer: Timer | undefined;
-}
+// type Timer = ReturnType<typeof setTimeout>;
+// interface RecordData extends CachedData {
+//   timer: Timer | undefined;
+// }
 
 
 export function setupDevtools(app: any, cache: any) {
@@ -55,6 +57,11 @@ export function setupDevtools(app: any, cache: any) {
       treeFilterPlaceholder: 'Search Cache useRequest',
     })
 
+    RegisterDevToolsStore.subscribe(() => {
+      api.sendInspectorTree(pluginId)
+      api.sendInspectorState(pluginId)
+    })
+
 
     cacheSubscribe.otherSubscribe((event) => {
       api.sendInspectorTree(pluginId)
@@ -73,19 +80,28 @@ export function setupDevtools(app: any, cache: any) {
 
     api.on.getInspectorTree((payload) => {
       if (payload.inspectorId === pluginId) {
-        const settings = api.getSettings()
-        const queries = cache.getCacheAll() as RecordData
-        let queriesSort: any = queries
+        // const settings = api.getSettings()
+        // console.log();
 
-        if (settings.baseSort === 1) {
-          queriesSort = Object.fromEntries(Object.entries(queries).sort(([, a], [, b]) => b.time - a.time));
-        } else {
-          queriesSort = Object.fromEntries(Object.entries(queries).sort(([, a], [, b]) => a.time - b.time));
-        }
 
-        const filtered = Object.keys(queriesSort).filter(item => new RegExp(payload.filter, "g").test(item)).map((item, index) => ({
-          id: item,
-          label: item,
+        const queries = RegisterDevToolsStore.getAll()
+        // const queriesSort: any = queries
+
+        console.log(queries);
+
+
+        // if (settings.baseSort === 1) {
+        //   queriesSort = Object.fromEntries(Object.entries(queries).sort(([, a], [, b]) => b.time - a.time));
+        // } else {
+        //   queriesSort = Object.fromEntries(Object.entries(queries).sort(([, a], [, b]) => a.time - b.time));
+        // }
+        const symbols = Object.getOwnPropertySymbols(queries);
+
+        const filtered = symbols.filter(item => new RegExp(payload.filter, "g").test(item.description!)).map((item, index) => ({
+          // @ts-ignore
+          id: queries[item].key.description + index,
+          // @ts-ignore
+          label: queries[item].key.description,
           tags: [
             {
               label: `${index + 1}`,
@@ -108,6 +124,8 @@ export function setupDevtools(app: any, cache: any) {
     })
 
     api.on.getInspectorState((payload) => {
+      console.log(payload);
+
       if (payload.inspectorId === pluginId) {
         const currentCache = cache.getCache(payload.nodeId)
         if (!currentCache) {

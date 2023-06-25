@@ -1,20 +1,34 @@
+class HashTable {
+  private table: { [key: string]: boolean } = {};
+  private hashTable: { [key: symbol]: string } = {};
+
+  // 插入字符串
+  insert(str: string): symbol {
+    const symbolCode = Symbol(str)
+    this.table[str] = true;
+    this.hashTable[symbolCode] = str;
+    return symbolCode;
+  }
+
+  // 使用哈希码查找字符串
+  find(symbolCode: symbol): string | undefined {
+    return this.hashTable[symbolCode];
+  }
+}
+
+export const HashTableInstance = new HashTable()
 
 
-// export function getQueryStatusBg(query: Query): number {
-//   const queryState = getQueryState(query)
+export function getFunctionName(func: string) {
+  const funcString = func.toString();
+  const match = funcString.match(/^function\s+([^\s(]+)/);
+  return match ? match[1] : '';
+}
 
-//   if (queryState === QueryState.Fetching) {
-//     return 0x006bff
-//   }
-//   if (queryState === QueryState.Paused) {
-//     return 0x8c49eb
-//   }
-//   if (queryState === QueryState.Stale) {
-//     return 0xffb200
-//   }
-//   if (queryState === QueryState.Inactive) {
-//     return 0x3f4e60
-//   }
+export function getArrowFunctionName(func: string) {
+  const funcString = func.toString();
+  const regex = /([a-zA-Z$_][a-zA-Z0-9$_]*)\s*\(/;
+  const match = funcString.match(regex);
+  return match ? match[1].trim() : '';
+}
 
-//   return 0x008327
-// }
