@@ -10,6 +10,10 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
 ) => {
   const hasAutoRun = ref(false)
 
+  watchEffect(()=>{
+    RegisterDevToolsStore.emit({ ...fetchInstance, options:{...fetchInstance.options,ready:unref(ready)} })
+  })
+
   watchEffect(() => {
     if (!manual && fetchInstance.options.refreshDeps !== true) {
       hasAutoRun.value = unref(ready)
