@@ -1,9 +1,8 @@
 import { setupDevtoolsPlugin } from '@vue/devtools-api'
-import * as cacheSubscribe from '../utils/cacheSubscribe'
-// import { CachedData } from '../utils/cache'
 
-import RegisterDevToolsStore from './register'
+
 import { unref } from 'vue'
+import { getRequestTagBg } from './utils'
 
 const MUTATIONS_LAYER_ID = 'vue-hooks-plus:mutations'
 const pluginId = 'vue-hooks-plus'
@@ -12,12 +11,8 @@ const pluginLogo =
   'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/c3b984112610ef3fb21140a0beb27b4a228fe0b3/packages/hooks/docs/public/logo.svg'
 
 const controlMap = new Map<symbol, string>()
-// type Timer = ReturnType<typeof setTimeout>;
-// interface RecordData extends CachedData {
-//   timer: Timer | undefined;
-// }
 
-export function setupDevtools(app: any, cache: any) {
+export function setupDevtools(app: any, devToolsStore: any) {
   setupDevtoolsPlugin(
     {
       id: pluginId,
@@ -44,6 +39,7 @@ export function setupDevtools(app: any, cache: any) {
           defaultValue: 1,
         },
       },
+
     },
     api => {
       api.addTimelineLayer({
@@ -56,36 +52,39 @@ export function setupDevtools(app: any, cache: any) {
         id: pluginId,
         label: pluginName,
         icon: 'api',
-        treeFilterPlaceholder: 'Search Cache useRequest',
-      })
-
-      RegisterDevToolsStore.subscribe(() => {
-        api.sendInspectorTree(pluginId)
-        api.sendInspectorState(pluginId)
-      })
-
-      cacheSubscribe.otherSubscribe(event => {
-        api.sendInspectorTree(pluginId)
-        api.sendInspectorState(pluginId)
-
-        api.addTimelineEvent({
-          layerId: pluginId,
-          event: {
-            title: 'update',
-            subtitle: event.type,
-            time: api.now(),
-            data: event.data,
+        treeFilterPlaceholder: 'Search  useRequest',
+        actions: [
+          {
+            icon: 'delete',
+            tooltip: 'Clear Tree',
+            action: () => {
+              controlMap.clear()
+              devToolsStore.reset()
+              api.sendInspectorTree(pluginId)
+              api.sendInspectorState(pluginId)
+            },
           },
-        })
+        ]
       })
+
+      devToolsStore.subscribe((event: any) => {
+        if (controlMap.get(event.key)) {
+          devToolsStore.update(event.key, { time: event.time, type: event.type })
+        }
+
+        api.sendInspectorTree(pluginId)
+        api.sendInspectorState(pluginId)
+      })
+
 
       api.on.getInspectorTree(payload => {
+
         if (payload.inspectorId === pluginId) {
           controlMap.clear()
           // const settings = api.getSettings()
-          // console.log();
+          const queries = devToolsStore.getAll()
+          console.log(queries);
 
-          const queries = RegisterDevToolsStore.getAll()
           // const queriesSort: any = queries
 
           // if (settings.baseSort === 1) {
@@ -105,13 +104,13 @@ export function setupDevtools(app: any, cache: any) {
                 id: queries[item].key.description + index,
                 // @ts-ignore
                 label: queries[item].key.description,
-                tags: [
+                tags: queries[item]?.type ? [
                   {
-                    label: `${index + 1}`,
+                    label: `${queries[item].type}`,
                     textColor: 0xffffff,
-                    backgroundColor: 0x006bff,
+                    backgroundColor: getRequestTagBg(queries[item].type),
                   },
-                ],
+                ] : [],
               }
             })
 
@@ -134,16 +133,16 @@ export function setupDevtools(app: any, cache: any) {
 
       api.on.getInspectorState(payload => {
         if (payload.inspectorId === pluginId) {
-          const queries = RegisterDevToolsStore.getAll()
-          console.log(queries)
+          const queries = devToolsStore.getAll()
+          // console.log(queries)
 
           // @ts-ignore
           const currentKey =
-            [...(controlMap?.entries() ?? [])]?.find?.(([_, v]) => v === payload.nodeId)?.[0] ?? null
+            [...(controlMap?.entries() ?? [])]?.find?.(([, v]) => v === payload.nodeId)?.[0] ?? null
           if (currentKey) {
             // @ts-ignore
             const currentSource = queries[currentKey]
-            console.log(currentSource.options.ready)
+            // console.log(currentSource.options.ready)
             if (!currentSource) {
               return
             }
@@ -167,7 +166,7 @@ export function setupDevtools(app: any, cache: any) {
               // @ts-ignore
               Plugins: currentSource.pluginImpls.map((item, index) => ({
                 key: 'plugin' + index,
-                 // @ts-ignore
+                // @ts-ignore
                 value: currentSource.pluginImpls[index],
               })),
             }

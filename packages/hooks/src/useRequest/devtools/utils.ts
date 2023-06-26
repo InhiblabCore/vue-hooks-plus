@@ -32,3 +32,12 @@ export function getArrowFunctionName(func: string) {
   return match ? match[1].trim() : '';
 }
 
+export function getRequestTagBg(type: string) {
+  if (type === 'pending') return 0xFF8C00
+  if (type === 'done') return 0x42b883
+  if (type === 'error') return 0xFF3300
+  if (type === 'mutate') return 0x006bff
+
+  return 0x4a5cb6
+}
+

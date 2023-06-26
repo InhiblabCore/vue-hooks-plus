@@ -1,7 +1,7 @@
 import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, onMounted, unref } from 'vue'
 
 import Fetch from './Fetch'
-import RegisterDevToolsStore from './devtools/register'
+import RegisterDevToolsStore from './devtools/store'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import {
   UseRequestFetchState,

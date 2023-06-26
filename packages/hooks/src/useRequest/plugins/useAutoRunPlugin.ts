@@ -1,6 +1,5 @@
 import { unref, ref, watch, watchEffect } from 'vue'
 
-import RegisterDevToolsStore from '../devtools/register'
 import { UseRequestFetchState, UseRequestPlugin } from '../types'
 
 // support refreshDeps & ready
@@ -10,9 +9,6 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
 ) => {
   const hasAutoRun = ref(false)
 
-  watchEffect(()=>{
-    RegisterDevToolsStore.emit({ ...fetchInstance, options:{...fetchInstance.options,ready:unref(ready)} })
-  })
 
   watchEffect(() => {
     if (!manual && fetchInstance.options.refreshDeps !== true) {
@@ -50,16 +46,12 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
     })
 
   return {
-    onBefore: (params) => {
-      RegisterDevToolsStore.emit({ ...fetchInstance.state, key: fetchInstance.key, params, loading: true })
+    onBefore: () => {
       if (!unref(ready)) {
         return {
           stopNow: true,
         }
       }
-    },
-    onSuccess(data, params) {
-      RegisterDevToolsStore.emit({ ...fetchInstance.state, key: fetchInstance.key, data, params, loading: false })
     },
   }
 }

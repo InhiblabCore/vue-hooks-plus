@@ -1,6 +1,7 @@
 import useAutoRunPlugin from './plugins/useAutoRunPlugin'
 import useCachePlugin from './plugins/useCachePlugin'
 import useDebouncePlugin from './plugins/useDebouncePlugin'
+import useDevtoolsPlugin from './plugins/useDevtoolsPlugin'
 import useLoadingDelayPlugin from './plugins/useLoadingDelayPlugin'
 import usePollingPlugin from './plugins/usePollingPlugin'
 import useRefreshOnWindowFocusPlugin from './plugins/useRefreshOnWindowFocusPlugin'
@@ -30,6 +31,7 @@ function useRequest<
 ) {
 
   const BuiltInPlugins = [
+    useDevtoolsPlugin,
     useDebouncePlugin,
     useLoadingDelayPlugin,
     usePollingPlugin,

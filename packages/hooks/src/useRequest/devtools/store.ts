@@ -20,11 +20,20 @@ class RegisterDevToolsStore {
   insert(key: symbol, instance: any) {
     this.requestInstances[key] = instance
   }
+  update(key: symbol, payload: any) {
+    // @ts-ignore
+    this.requestInstances[key].time = payload.time
+    // @ts-ignore
+    this.requestInstances[key].type = payload.type
+  }
+  reset() {
+    this.requestInstances = {}
+  }
   getAll() {
     return this.requestInstances
   }
 }
 
-const registerDevToolsStoreInstance = new RegisterDevToolsStore()
+const devToolsStore = new RegisterDevToolsStore()
 
-export default registerDevToolsStoreInstance
+export default devToolsStore
