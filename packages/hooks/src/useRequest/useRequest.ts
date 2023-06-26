@@ -31,7 +31,7 @@ function useRequest<
 ) {
 
   const BuiltInPlugins = [
-    useDevtoolsPlugin,
+    process.env.NODE_ENV === 'development' ? useDevtoolsPlugin : null,
     useDebouncePlugin,
     useLoadingDelayPlugin,
     usePollingPlugin,
@@ -40,7 +40,7 @@ function useRequest<
     useAutoRunPlugin,
     useCachePlugin,
     useRetryPlugin
-  ]
+  ]?.filter(Boolean)
 
   return useRequestImplement<TData, TParams>(service, options, [
     ...(plugins || []),
