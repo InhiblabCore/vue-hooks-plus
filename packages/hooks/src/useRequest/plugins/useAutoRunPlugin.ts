@@ -1,4 +1,5 @@
 import { unref, ref, watch, watchEffect } from 'vue'
+
 import { UseRequestFetchState, UseRequestPlugin } from '../types'
 
 // support refreshDeps & ready
@@ -7,6 +8,7 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
   { manual, ready = true, refreshDeps = [], refreshDepsAction },
 ) => {
   const hasAutoRun = ref(false)
+
 
   watchEffect(() => {
     if (!manual && fetchInstance.options.refreshDeps !== true) {

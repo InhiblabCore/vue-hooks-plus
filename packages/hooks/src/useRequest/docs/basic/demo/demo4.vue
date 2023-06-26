@@ -15,6 +15,7 @@
   }
   const { data, run, loading, refresh } = useRequest(() => getUsername(), {
     manual: true,
+    devKey:"demo4",
   })
   run()
 </script>

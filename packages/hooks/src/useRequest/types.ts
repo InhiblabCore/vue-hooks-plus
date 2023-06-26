@@ -20,9 +20,9 @@ export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
     params: TParams,
   ) =>
     | ({
-      stopNow?: boolean
-      returnNow?: boolean
-    } & Partial<UseRequestFetchState<TData, TParams>>)
+        stopNow?: boolean
+        returnNow?: boolean
+      } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
@@ -104,6 +104,8 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
    *
    */
   loadingDelay?: number | Ref<number>
+
+  devKey?: string
 
   /**
    * Format the request results, which recommend to use `useFormatResult`

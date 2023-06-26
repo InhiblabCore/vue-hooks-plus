@@ -21,6 +21,7 @@
   const value = ref('vue-hooks-plus')
   const { data: data, loading, run } = useRequest(getUsername, {
     manual: true,
+    devKey:"demo1",
     onSuccess: data => {
       alert(data)
     },

@@ -22,6 +22,7 @@
   const value = ref('')
   const { data, loading, run, cancel } = useRequest(getUsername, {
     manual: true,
+    devKey:"demo6",
     onError: () => {
       alert('error')
     },

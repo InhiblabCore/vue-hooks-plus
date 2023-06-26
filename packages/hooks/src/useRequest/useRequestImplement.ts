@@ -72,6 +72,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     Object.assign({}, ...initState, state),
   )
 
+
   fetchInstance.options = fetchOptions
 
   // run plugins

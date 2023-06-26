@@ -5,3 +5,4 @@ export function canUseDom() {
     window.document.createElement
   );
 }
+
