@@ -1,10 +1,10 @@
 import { setupDevtoolsPlugin } from '@vue/devtools-api'
 
-
 import { unref } from 'vue'
 import { getRequestTagBg } from './utils'
+import devToolsStore from './store'
+import Fetch from '../Fetch'
 
-const MUTATIONS_LAYER_ID = 'vue-hooks-plus:mutations'
 const pluginId = 'vue-hooks-plus'
 const pluginName = 'Vue Hooks Plus 🍭'
 const pluginLogo =
@@ -12,7 +12,7 @@ const pluginLogo =
 
 const controlMap = new Map<symbol, string>()
 
-export function setupDevtools(app: any, devToolsStore: any) {
+export function setupDevtools(app: any) {
   setupDevtoolsPlugin(
     {
       id: pluginId,
@@ -39,13 +39,12 @@ export function setupDevtools(app: any, devToolsStore: any) {
           defaultValue: 1,
         },
       },
-
     },
     api => {
       api.addTimelineLayer({
-        id: MUTATIONS_LAYER_ID,
-        label: `Vue Hooks Plus`,
-        color: 0xe5df88,
+        id: pluginId,
+        label: pluginName,
+        color: 0xffd94c,
       })
 
       api.addInspector({
@@ -56,63 +55,69 @@ export function setupDevtools(app: any, devToolsStore: any) {
         actions: [
           {
             icon: 'delete',
-            tooltip: 'Clear Tree',
+            tooltip: 'Clear useRequest root ',
             action: () => {
-              controlMap.clear()
               devToolsStore.reset()
+
               api.sendInspectorTree(pluginId)
               api.sendInspectorState(pluginId)
             },
           },
-        ]
+        ],
       })
 
       devToolsStore.subscribe((event: any) => {
-        if (controlMap.get(event.key)) {
-          devToolsStore.update(event.key, { time: event.time, type: event.type })
-        }
-
+        devToolsStore.update(event.key, { time: event.time, type: event.type })
         api.sendInspectorTree(pluginId)
         api.sendInspectorState(pluginId)
+        api.addTimelineEvent({
+          layerId: pluginId,
+          event: {
+            title: event.type,
+            subtitle: `data: ${JSON.stringify(event.data)}`,
+            time: api.now(),
+            data: {
+              ...event,
+            },
+          },
+        })
       })
 
-
       api.on.getInspectorTree(payload => {
-
         if (payload.inspectorId === pluginId) {
           controlMap.clear()
-          // const settings = api.getSettings()
+          const settings = api.getSettings()
           const queries = devToolsStore.getAll()
-          console.log(queries);
+          let sortedArray: [
+            string,
+            { instance: Fetch<any, any[]>; requestName: string; type?: string; time?: number },
+          ][] = []
 
-          // const queriesSort: any = queries
+          if (settings.baseSort === 1) {
+            sortedArray = Array.from(queries.entries()).sort(
+              (a, b) => (b[1]?.time ?? 0) - (a[1]?.time ?? 0),
+            )
+          } else {
+            sortedArray = Array.from(queries.entries()).sort(
+              (a, b) => (a[1]?.time ?? 0) - (b[1]?.time ?? 0),
+            )
+          }
 
-          // if (settings.baseSort === 1) {
-          //   queriesSort = Object.fromEntries(Object.entries(queries).sort(([, a], [, b]) => b.time - a.time));
-          // } else {
-          //   queriesSort = Object.fromEntries(Object.entries(queries).sort(([, a], [, b]) => a.time - b.time));
-          // }
-          const symbols = Object.getOwnPropertySymbols(queries)
-
-          const filtered = symbols
-            .filter(item => new RegExp(payload.filter, 'g').test(item.description!))
-            .map((item, index) => {
-              // @ts-ignore
-              controlMap.set(queries[item].key, queries[item].key.description + index)
-              return {
-                // @ts-ignore
-                id: queries[item].key.description + index,
-                // @ts-ignore
-                label: queries[item].key.description,
-                tags: queries[item]?.type ? [
-                  {
-                    label: `${queries[item].type}`,
-                    textColor: 0xffffff,
-                    backgroundColor: getRequestTagBg(queries[item].type),
-                  },
-                ] : [],
-              }
-            })
+          const filtered = sortedArray
+            .filter(item => new RegExp(payload.filter, 'g').test(item[0]))
+            .map(item => ({
+              id: item[0],
+              label: item[0],
+              tags: item[1]?.type
+                ? [
+                    {
+                      label: `${item[1]?.type}`,
+                      textColor: 0xffffff,
+                      backgroundColor: getRequestTagBg(item[1]?.type),
+                    },
+                  ]
+                : [],
+            }))
 
           payload.rootNodes = [
             {
@@ -120,12 +125,12 @@ export function setupDevtools(app: any, devToolsStore: any) {
               label: 'useRequest',
               tags: [
                 {
-                  label: 'root',
+                  label: 'Root',
                   textColor: 0xffffff,
-                  backgroundColor: 0x4a5cb6,
+                  backgroundColor: 0x42b883,
                 },
               ],
-              children: filtered,
+              children: filtered ?? [],
             },
           ]
         }
@@ -134,41 +139,37 @@ export function setupDevtools(app: any, devToolsStore: any) {
       api.on.getInspectorState(payload => {
         if (payload.inspectorId === pluginId) {
           const queries = devToolsStore.getAll()
-          // console.log(queries)
-
-          // @ts-ignore
-          const currentKey =
-            [...(controlMap?.entries() ?? [])]?.find?.(([, v]) => v === payload.nodeId)?.[0] ?? null
-          if (currentKey) {
-            // @ts-ignore
-            const currentSource = queries[currentKey]
-            // console.log(currentSource.options.ready)
+          if (payload.nodeId) {
+            const currentSource = queries.get(payload.nodeId)
             if (!currentSource) {
               return
             }
-
             payload.state = {
               Details: [
                 {
                   key: 'Key',
-                  value: currentKey,
+                  value: payload.nodeId,
+                },
+                {
+                  key: 'Request Name',
+                  value: currentSource.requestName,
                 },
               ],
-              'Data Explorer': Object.keys(currentSource.state).map(item => ({
+
+              'Data Explorer': Object.keys(currentSource.instance.state).map(item => ({
                 key: item,
-                // @ts-ignore
-                value: currentSource.state[item],
+                value:
+                  currentSource.instance.state[item as keyof typeof currentSource.instance.state],
               })),
-              Option: Object.keys(currentSource.options).map(item => ({
+              Option: Object.keys(currentSource.instance.options).map(item => ({
                 key: item,
-                value: unref(currentSource.options[item]),
+                value: unref(currentSource.instance.options[item]),
               })),
-              // @ts-ignore
-              Plugins: currentSource.pluginImpls.map((item, index) => ({
-                key: 'plugin' + index,
-                // @ts-ignore
-                value: currentSource.pluginImpls[index],
-              })),
+              Plugins:
+                currentSource.instance.pluginImpls?.map((_, index) => ({
+                  key: 'plugin' + index,
+                  value: currentSource?.instance?.pluginImpls?.[index] ?? null,
+                })) ?? [],
             }
           }
         }

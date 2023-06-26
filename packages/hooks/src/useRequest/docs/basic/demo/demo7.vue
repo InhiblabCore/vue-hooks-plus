@@ -26,5 +26,6 @@
         desc: 'nice',
       },
     ],
+    devKey:"demo7",
   })
 </script>

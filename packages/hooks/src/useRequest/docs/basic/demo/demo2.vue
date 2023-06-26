@@ -21,6 +21,7 @@
   const value = ref('vue-hooks-plus')
   const { data: data, loading, runAsync } = useRequest(getUsername, {
     manual: true,
+    devKey:"demo2",
   })
 
   const handleClick = async () => {

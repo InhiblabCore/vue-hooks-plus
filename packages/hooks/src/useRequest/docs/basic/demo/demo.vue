@@ -14,5 +14,7 @@
     })
   }
 
-  const { data, loading } = useRequest(() => getUsername({ desc: 'good' }))
+  const { data, loading } = useRequest(() => getUsername({ desc: 'good' }),{
+    devKey:'demo'
+  })
 </script>

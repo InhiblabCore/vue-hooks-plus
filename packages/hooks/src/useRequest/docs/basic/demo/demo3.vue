@@ -25,6 +25,7 @@
   const step = ref<string[]>([])
   const { data: data, loading, run } = useRequest(getUsername, {
     manual: true,
+    devKey:"demo3",
     onBefore: () => {
       step.value = []
       step.value.push('start request')

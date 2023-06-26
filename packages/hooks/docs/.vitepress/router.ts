@@ -159,6 +159,10 @@ const useRequestRouter = [
         text: '全局配置',
         link: '/useRequest/global/',
       },
+      {
+        text: '开发者工具',
+        link: '/useRequest/devtools/',
+      },
     ],
   },
 ]
@@ -172,9 +176,9 @@ const useRequestPlugins = [
         link: '/useRequest/plugins/fetchsing/',
       },
       {
-        text: "同源跨窗口广播",
-        link: "/useRequest/plugins/broadcastChannel/"
-      }
+        text: '同源跨窗口广播',
+        link: '/useRequest/plugins/broadcastChannel/',
+      },
     ],
   },
 ]
@@ -188,9 +192,9 @@ const useRequestPluginsEN = [
         link: '/en/useRequest/plugins/fetchsing/',
       },
       {
-        text: "broadcastChannel",
-        link: "/en/useRequest/plugins/broadcastChannel/"
-      }
+        text: 'broadcastChannel',
+        link: '/en/useRequest/plugins/broadcastChannel/',
+      },
     ],
   },
 ]
@@ -263,6 +267,10 @@ const useRequestRouterEN = [
       {
         text: 'Global Option',
         link: '/en/useRequest/global/',
+      },
+      {
+        text: 'DevTools',
+        link: '/en/useRequest/devtools/',
       },
     ],
   },
