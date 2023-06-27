@@ -1,12 +1,11 @@
+import type { ComponentPublicInstance } from 'vue';
 import { ComputedRef } from 'vue';
 import Cookies from 'js-cookie';
-import { createApp } from 'vue';
 import type { DebouncedFunc } from 'lodash';
 import { DeepReadonly } from 'vue';
 import { Ref } from 'vue';
 import { UnwrapNestedRefs } from 'vue';
 import { UnwrapRef } from 'vue';
-import { VueElement } from 'vue';
 import { WatchSource } from 'vue';
 
 declare type BasicTarget<T extends TargetType = Element> = (() => TargetValue<T>) | TargetValue<T> | Ref<TargetValue<T>>;
@@ -85,6 +84,10 @@ declare class Fetch<TData, TParams extends unknown[] = any> {
      * @param key Result key `data`| `params` | `loading`| `error`
      */
     setFetchState(data: unknown, key?: keyof UseRequestFetchState<TData, TParams> | (keyof UseRequestFetchState<TData, TParams>)[]): void;
+    /**
+     * Traverse the plugin that needs to be run,
+     * which is a callback function for the plugin to obtain fetch instances and execute plugin logic at the corresponding nodes.
+     */
     runPluginHandler(event: keyof UseRequestPluginReturn<TData, TParams>, ...rest: unknown[]): any;
     runAsync(...params: TParams): Promise<TData>;
     run(...params: TParams): void;
@@ -101,6 +104,14 @@ declare interface IFuncUpdater<T> {
 declare type InterruptibleRejectType = (error: any) => void;
 
 declare type IProps = Record<string, any>;
+
+declare interface LongPressModifiers {
+    stop?: boolean;
+    once?: boolean;
+    prevent?: boolean;
+    capture?: boolean;
+    self?: boolean;
+}
 
 declare type noop = (...args: any) => any;
 
@@ -150,7 +161,7 @@ declare type SubscriptionParams<T = any> = {
     event: string | number;
 };
 
-declare type TargetType = HTMLElement | Element | Window | Document;
+declare type TargetType = HTMLElement | Element | Window | Document | ComponentPublicInstance;
 
 declare type TargetValue<T> = T | undefined | null;
 
@@ -652,6 +663,18 @@ export declare const useLocalStorageState: <T>(key: string | Ref<string>, option
 
 export declare function useLockFn<P extends any[], V>(fn: (...args: P) => Promise<V>): (...args: P) => Promise<V | undefined>;
 
+export declare const useLongPress: (target: BasicTarget, options?: UseLongPressOptions) => {
+    pressingTime: DeepReadonly<Ref<number>>;
+    isPressing: DeepReadonly<Ref<boolean>>;
+};
+
+declare interface UseLongPressOptions {
+    delay?: number;
+    minUpdateTime?: number;
+    cancelOnMove?: boolean;
+    modifiers?: LongPressModifiers;
+}
+
 export declare function useMap<K, T>(initialValue?: UseMapValue<K, T>): [Readonly<Ref<Map<K, T>>>, UseMapActions<K, T>];
 
 declare type UseMapActions<K, T> = {
@@ -745,10 +768,6 @@ declare interface UseNetworkState {
     effectiveType?: string;
 }
 
-export declare function usePreview(md: Parameters<typeof createApp> | Ref<string> | string | VueElement): {
-    container: Ref<Element | undefined>;
-};
-
 export declare function usePrevious<T>(state: Ref<T> | ComputedRef<T>, shouldUpdate?: UsePreviousShouldUpdateFunc<T>): Readonly<Ref<DeepReadonly<T> | undefined>>;
 
 declare type UsePreviousShouldUpdateFunc<T> = (prev: T | undefined, next: T) => boolean;
@@ -811,6 +830,7 @@ declare interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
      *
      */
     loadingDelay?: number | Ref<number>;
+    devKey?: string;
     /**
      * Format the request results, which recommend to use `useFormatResult`
      * @param data TData
@@ -904,6 +924,10 @@ declare interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
     retryInterval?: number;
 }
 
+export declare const useRequestDevToolsPlugin: {
+    install(app: any): void;
+};
+
 declare interface UseRequestFetchState<TData, TParams extends unknown[]> {
     loading: boolean;
     params?: TParams;
@@ -923,6 +947,7 @@ declare interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[],
 }
 
 declare interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
+    name?: string;
     onBefore?: (params: TParams) => ({
         stopNow?: boolean;
         returnNow?: boolean;

@@ -36,6 +36,7 @@ export const useFetchingPlugin: UseRequestPlugin<any, [], FetchingPluginType> = 
   let currentFetchingKey: string | undefined
 
   return {
+    name: "🧩 fetchingPlugin",
     onBefore: params => {
       currentFetchingKey = fetchingKey?.(params)
       if (currentFetchingKey) store.setFetchingInit(currentFetchingKey, onFetching, isFetching)
