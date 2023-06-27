@@ -14,7 +14,7 @@ export type FetchingGlobalStore = {
   >
 }
 
-export const useFetchingGlobalStore = defineStore('fetchingGlobalStore', {
+export const useFetchingGlobalStore = defineStore('useRequert-plugin-useFetchingPlugin-Store', {
   state: (): FetchingGlobalStore => {
     return {
       states: {},

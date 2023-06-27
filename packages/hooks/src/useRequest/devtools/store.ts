@@ -40,9 +40,13 @@ class RegisterDevToolsStore {
   has(key: string) {
     return this.requestInstances.has(key)
   }
-  reset() {
-    this.requestInstances.clear()
-    // this.listeners = []
+  reset(key: string) {
+    if (this.requestInstances.has(key)) {
+      const current = this.requestInstances.get(key)
+      this.requestInstances.clear()
+      this.insert(key, current)
+    } else
+      this.requestInstances.clear()
   }
   getAll() {
     return this.requestInstances

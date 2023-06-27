@@ -40,6 +40,7 @@ export const useBroadcastChannelPlugin: UseRequestPlugin<any, [], BroadcastChann
   }
 
   return {
+    name: "🧩 broadcastChannel",
     onBefore: () => {
       if (typeof channel.value?.isClosed === "boolean" && channel.value?.isClosed && broadcastChannel) {
         channel.value = new BroadcastChannel(broadcastChannel, broadcastChannelOptions)

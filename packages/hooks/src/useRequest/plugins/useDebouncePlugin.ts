@@ -56,6 +56,7 @@ const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 
   return {
+    name: "debouncePlugin",
     onCancel: () => {
       debouncedRef.value?.cancel();
     },

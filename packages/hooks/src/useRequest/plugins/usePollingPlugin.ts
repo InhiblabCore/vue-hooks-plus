@@ -31,6 +31,7 @@ const usePollingPlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 
   return {
+    name: "pollingPlugin",
     onBefore: () => {
       stopPolling();
     },

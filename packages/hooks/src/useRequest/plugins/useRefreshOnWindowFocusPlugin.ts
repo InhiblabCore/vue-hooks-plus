@@ -32,7 +32,9 @@ const useRefreshOnWindowFocusPlugin: UseRequestPlugin<unknown, unknown[]> = (
     stopSubscribe();
   });
 
-  return {};
+  return {
+    name: "refreshOnWindowFocusPlugin"
+  };
 };
 
 export default useRefreshOnWindowFocusPlugin;

@@ -16,13 +16,14 @@ export interface UseRequestFetchState<TData, TParams extends unknown[]> {
 }
 
 export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
+  name?: string
   onBefore?: (
     params: TParams,
   ) =>
     | ({
-        stopNow?: boolean
-        returnNow?: boolean
-      } & Partial<UseRequestFetchState<TData, TParams>>)
+      stopNow?: boolean
+      returnNow?: boolean
+    } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
