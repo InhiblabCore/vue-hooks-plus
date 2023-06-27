@@ -65,6 +65,7 @@ const useCachePlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 
   return {
+    name: "cachePlugin",
     onBefore: params => {
       const cacheData = _getCache(cacheKey, params)
 

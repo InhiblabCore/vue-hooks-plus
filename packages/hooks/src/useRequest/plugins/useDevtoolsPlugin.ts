@@ -45,6 +45,7 @@ const useDevtoolsPlugin: UseRequestPlugin<
   })
 
   return {
+    name: "devtoolsPlugin",
     onBefore: params => {
       createDevTarget()
       if (devKey && devToolsStore.has(devKey))

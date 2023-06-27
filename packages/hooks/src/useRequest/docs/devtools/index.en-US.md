@@ -28,4 +28,12 @@ import { useRequestDevToolsPlugin } from 'vue-hooks-plus'
 app.use(useRequestDevToolsPlugin)
 ```
 
+## Using in `.vue`
+
+```typescript
+const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { devKey: 'demo' })
+```
+
+Use `devKey` to create a unique identifier and enable it.
+
 You're done! Open the browser Vue plugin to use it 🍺

@@ -1,5 +1,5 @@
 <template>
-  <div style="margin-top: 16px;"><input type="text" v-model="text"></div>
+  <div style="margin-top: 16px;"><input type="text" v-model="text" /></div>
   <div style="margin-top: 16px;">value：{{ data }}</div>
 </template>
 

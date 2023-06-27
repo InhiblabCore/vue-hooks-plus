@@ -30,4 +30,12 @@ import { useRequestDevToolsPlugin } from 'vue-hooks-plus'
 app.use(useRequestDevToolsPlugin)
 ```
 
+## 在 `.vue` 中使用
+
+使用 `devKey` 创建唯一标识开启。
+
+```typescript
+const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { devKey: 'demo' })
+```
+
 大功告成！打开浏览器 Vue 插件进行使用吧 🍺

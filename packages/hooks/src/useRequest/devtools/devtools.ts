@@ -10,6 +10,8 @@ const pluginName = 'Vue Hooks Plus 🍭'
 const pluginLogo =
   'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/c3b984112610ef3fb21140a0beb27b4a228fe0b3/packages/hooks/docs/public/logo.svg'
 
+let currentStateId: string
+
 const controlMap = new Map<symbol, string>()
 
 export function setupDevtools(app: any) {
@@ -57,7 +59,7 @@ export function setupDevtools(app: any) {
             icon: 'delete',
             tooltip: 'Clear useRequest root ',
             action: () => {
-              devToolsStore.reset()
+              devToolsStore.reset(currentStateId)
 
               api.sendInspectorTree(pluginId)
               api.sendInspectorState(pluginId)
@@ -110,12 +112,12 @@ export function setupDevtools(app: any) {
               label: item[0],
               tags: item[1]?.type
                 ? [
-                    {
-                      label: `${item[1]?.type}`,
-                      textColor: 0xffffff,
-                      backgroundColor: getRequestTagBg(item[1]?.type),
-                    },
-                  ]
+                  {
+                    label: `${item[1]?.type}`,
+                    textColor: 0xffffff,
+                    backgroundColor: getRequestTagBg(item[1]?.type),
+                  },
+                ]
                 : [],
             }))
 
@@ -137,6 +139,8 @@ export function setupDevtools(app: any) {
       })
 
       api.on.getInspectorState(payload => {
+        currentStateId = payload.nodeId
+        let pluginsIndex = 0
         if (payload.inspectorId === pluginId) {
           const queries = devToolsStore.getAll()
           if (payload.nodeId) {
@@ -166,10 +170,18 @@ export function setupDevtools(app: any) {
                 value: unref(currentSource.instance.options[item]),
               })),
               Plugins:
-                currentSource.instance.pluginImpls?.map((_, index) => ({
-                  key: 'plugin' + index,
-                  value: currentSource?.instance?.pluginImpls?.[index] ?? null,
-                })) ?? [],
+                currentSource.instance.pluginImpls?.map((_, index) => {
+                  const pluginName = currentSource?.instance?.pluginImpls?.[index]?.name
+                  if (!pluginName) {
+                    if (index !== pluginsIndex)
+                      pluginsIndex++
+                  }
+                  return {
+                    key: pluginName ? pluginName! : `plugin ${pluginsIndex}`,
+                    value: currentSource?.instance?.pluginImpls?.[index] ?? null,
+                  }
+                  // @ts-ignore
+                })?.filter(item => Object.keys(item.value).length !== 0) ?? [],
             }
           }
         }

@@ -46,6 +46,7 @@ const useAutoRunPlugin: UseRequestPlugin<unknown, unknown[]> = (
     })
 
   return {
+    name: "autoRunPlugin",
     onBefore: () => {
       if (!unref(ready)) {
         return {
