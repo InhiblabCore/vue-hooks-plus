@@ -16,7 +16,7 @@ export default function useDarkMode(): [ComputedRef<boolean>, (value?: unknown) 
   })
 
   watchEffect(() => {
-    const className = 'dark-mode'
+    const className = '[vue-hooks-plus]-dark-mode'
     const element = window.document.body
     if (enabled.value) {
       element.classList.add(className)

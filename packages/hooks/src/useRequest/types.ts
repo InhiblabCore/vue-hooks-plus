@@ -1,4 +1,4 @@
-import { Ref, WatchSource } from 'vue'
+import { Ref, watch } from 'vue'
 import { CachedData } from './utils/cache'
 import UseRequestFetch from './Fetch'
 
@@ -97,7 +97,7 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
   /**
    * Dependent on responsive objects, and the `watch` incoming listener object usage for `vue`.
    */
-  refreshDeps?: WatchSource[] | boolean
+  refreshDeps?: Parameters<typeof watch>[0][] | boolean
   refreshDepsAction?: () => void
 
   /**
@@ -106,10 +106,13 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
    */
   loadingDelay?: number | Ref<number>
 
+  /**
+   * open vue devtools,devKey must existence and uniqueness.
+   */
   devKey?: string
 
   /**
-   * Format the request results, which recommend to use `useFormatResult`
+   * Format the request results, which recommend to use `useFormatResult`.
    * @param data TData
    * @returns unknown need cover TData
    */
