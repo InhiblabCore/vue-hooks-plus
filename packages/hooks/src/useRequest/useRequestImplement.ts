@@ -1,4 +1,4 @@
-import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, onMounted, unref } from 'vue'
+import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, unref } from 'vue'
 
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
@@ -93,12 +93,10 @@ function useRequestImplement<TData, TParams extends any[]>(
   })
 
   // manual
-  onMounted(() => {
-    if (!manual && fetchInstance.options.refreshDeps !== true) {
-      const params = fetchInstance.state.params || options.defaultParams || []
-      if (unref(ready)) fetchInstance.run(...(params as TParams))
-    }
-  })
+  if (!manual && fetchInstance.options.refreshDeps !== true) {
+    const params = fetchInstance.state.params || options.defaultParams || []
+    if (unref(ready)) fetchInstance.run(...(params as TParams))
+  }
 
   // onUnmounted cancel request
   onUnmounted(() => {
