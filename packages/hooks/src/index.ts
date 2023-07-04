@@ -17,7 +17,6 @@ import useFormatResult from './useFormatResult'
 import useFetchs from './useFetchs'
 import useFullscreen from './useFullscreen'
 import useHover from './useHover'
-// import usePreview from './usePreview'
 import usePrevious from './usePrevious'
 import useInterval from './useInterval'
 import useInfiniteScroll from './useInfiniteScroll'
@@ -82,7 +81,6 @@ export {
   useMedia,
   useMouse,
   useNetwork,
-  // usePreview,
   usePrevious,
   useSessionStorageState,
   useSet,
