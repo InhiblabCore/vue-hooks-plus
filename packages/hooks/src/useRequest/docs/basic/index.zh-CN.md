@@ -100,6 +100,8 @@ runAsync()
 
 ## 立即变更数据
 
+### 乐观更新
+
 `useRequest` 提供了 `mutate`, 支持立即修改 `useRequest` 返回的 `data` 参数。
 
 支持 `mutate(newData)` 和 `mutate((oldData) => newData)` 两种写法。
@@ -107,6 +109,10 @@ runAsync()
 下面的示例，我们演示了一种 `mutate` 的应用场景。
 
 我们修改了用户名，但是我们不希望等编辑接口调用成功之后，才给用户反馈。而是直接修改页面数据，同时在背后去调用修改接口，等修改接口返回之后，另外提供反馈。
+
+### 错误回滚
+
+当你使用 `mutate`时，有可能在乐观数据展示给用户后，远程数据更改却失败了。在这种情况下，你可以启用 `rollbackOnError`，将本地缓存恢复到之前的状态，确保用户看到的是正确的数据。
 
 <demo src="./demo/demo5.vue"
      language="vue"

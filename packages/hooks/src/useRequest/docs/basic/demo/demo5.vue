@@ -1,7 +1,7 @@
 <template>
   <div>name：{{ data }}</div>
   <div style="margin-top:8px">
-    <input v-model="value">
+    <input v-model="value" />
     <vhp-button style="margin-left: 8px;" @click="handleClick">Edit</vhp-button>
   </div>
   <div style="margin-top:8px">
@@ -25,12 +25,12 @@
   const step = ref<string[]>([])
   const { data: data, run, mutate } = useRequest(getUsername, {
     manual: true,
-    devKey:"demo5",
+    devKey: 'demo5',
+    rollbackOnError: true,
     onError: () => {
       alert('error')
     },
   })
-
   const handleClick = () => {
     mutate(value.value)
     run({ desc: value.value })

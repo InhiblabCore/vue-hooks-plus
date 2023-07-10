@@ -103,6 +103,8 @@ Of course, the difference between `refresh` and `refreshAsync` is the same as `r
 
 ## Change data immediately
 
+### optimisticData
+
 `useRequest` provides `mutate`, which can immediate modify the `data`.
 
 The usage of `mutate` is consistent with `React.setState`, supports: `mutate(newData)` and `mutate((oldData) => newData)`.
@@ -110,6 +112,10 @@ The usage of `mutate` is consistent with `React.setState`, supports: `mutate(new
 In the following example, we demonstrate a scenario of `mutate`.
 
 We have modified the user name, but we do not want to wait for the request to be successful before giving feedback to the user. Instead, modify the data directly, then call the modify request in background, and provide additional feedback after the request returns.
+
+### error rollback
+
+When you use `mutate`, it is possible that the remote data change fails after the optimistic data is displayed to the user. In this case, you can enable `rollbackOnError`, which restores the local cache to its previous state, ensuring that the user sees Got the correct data.
 
 <demo src="./demo/demo5.vue"
      language="vue"
