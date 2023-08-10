@@ -64,7 +64,7 @@
     "tsx": "^3.11.0",
 		"typeit": "^8.7.0",
 		"typescript": "^5.0.4",
-		"vite": "^4.0.3",
+		"vite": "^4.2.3",
 		"vite-plugin-build": "0.7.1",
 		"vite-plugin-dts": "^2.1.0",
 		"vitepress": "1.0.0-alpha.60",
