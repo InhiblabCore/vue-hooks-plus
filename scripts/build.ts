@@ -2,7 +2,7 @@ import { execa } from 'execa'
 import { bin, hooksRootDir, logger } from './utilts'
 
 async function setup() {
-  await execa('npm', ['run', 'clean'], {
+  await execa('pnpm', ['run', 'clean'], {
     cwd: hooksRootDir,
     stdout: 'inherit',
   })
@@ -10,8 +10,8 @@ async function setup() {
     cwd: hooksRootDir,
     stdout: 'inherit',
   })
-  await execa(bin('vite'), ['build'], {
-    cwd: hooksRootDir,
+  await execa("pnpm", ['recursive', 'exec', 'pnpm', 'run', 'build'], {
+    cwd: "./",
     stdout: 'inherit',
   })
 }

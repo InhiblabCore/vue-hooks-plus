@@ -10,7 +10,8 @@
   ],
   "types": "./index.d.ts",
   "scripts": {
-    "build": "vite build"
+    "build": "echo ignore type",
+    "build:type": "vite build"
   },
   "keywords": [
     "vue3",
