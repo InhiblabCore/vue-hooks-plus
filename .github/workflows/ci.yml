@@ -18,38 +18,16 @@ jobs:
       - name: Install
         run: |
           pnpm install --frozen-lockfile
-      - name: Test
+      - name: Unit Test
         run: |
           pnpm run test
-      - name: Build use-immer
+      - name: Build Lib
         run: |
-          cd packages/use-immer 
           pnpm build
-      - name: Build use-worker
-        run: |
-          cd packages/use-worker 
-          pnpm build
-      - name: Build use-request-image
-        run: |
-          cd packages/use-request
-          pnpm build
-      - name: Build use-request-plugins
-        run: |
-          cd packages/use-request-plugins
-          pnpm build
-      - name: Docs-Build
+      - name: Build Docs
         run: |
           cd packages/hooks
-          pnpm install --frozen-lockfile
           pnpm run initial
           pnpm run docs:build
-      - name: Build
-        run: |
-          cd packages/hooks
-          pnpm run build
-      - name: Build Full Types
-        run: |
-          cd packages/hooks
-          pnpm run build:types
         env:
           CI: true
