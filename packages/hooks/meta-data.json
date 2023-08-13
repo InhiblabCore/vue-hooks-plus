@@ -24,6 +24,7 @@
     "useKeyPress",
     "useLocalStorageState",
     "useLockFn",
+    "useLongPress",
     "useMap",
     "useMedia",
     "useMouse",
