@@ -5,6 +5,7 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "useDefineForClassFields": true,
     "moduleResolution": "node",
+    "outDir": "./dist",
     "allowJs": false,
     "strict": true,
     "sourceMap": true,
@@ -22,5 +23,5 @@
     "skipLibCheck": true,
     "types": ["node", "vitest", "vitest/globals"]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "commitlint.config.js"]
 }
