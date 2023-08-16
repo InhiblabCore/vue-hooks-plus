@@ -1,4 +1,8 @@
-import useRequest, { clearUseRequestCache, useRequestProvider, useRequestDevToolsPlugin } from './useRequest'
+import useRequest, {
+  clearUseRequestCache,
+  useRequestProvider,
+  useRequestDevToolsPlugin,
+} from './useRequest'
 import useAsyncOrder from './useAsyncOrder'
 import useBoolean from './useBoolean'
 import useCookieState from './useCookieState'
@@ -46,6 +50,8 @@ import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
 import useWebSocket from './useWebSocket'
+import useElementBounding from './useElementBounding/index'
+import useResizeObserver from './useResizeObserver/index'
 
 export {
   useRequest,
@@ -98,5 +104,7 @@ export {
   useVirtualList,
   useWhyDidYouUpdate,
   useWinResize,
-  useWebSocket
+  useWebSocket,
+  useElementBounding,
+  useResizeObserver,
 }
