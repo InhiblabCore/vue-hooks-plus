@@ -7,32 +7,36 @@ import { BasicTarget, getTargetElement } from '../utils/domTarget'
 export interface UseElementBoundingOptions {
   /**
    *
-   * 当组件为挂载时，将所有值初始化为 0
+   * When the component is mounted, initialize all values to 0
    *
    * @default true
    */
   reset?: boolean
   /**
    *
-   * 监听窗口尺寸变化
+   * windowResize
    *
    * @default true
    */
   windowResize?: boolean
   /**
    *
-   * 监听窗口滚动变化
+   * windowScroll
    *
    * @default true
    */
   windowScroll?: boolean
   /**
    *
-   * 组件挂载时立即执行
+   * immediate
    *
    * @default true
    */
   immediate?: boolean
+}
+
+function keyisUseElementBoundingReturnTypeKey(key: string): key is keyof UseElementBoundingReturnType {
+  return ['width', 'height', 'top', 'left', 'bottom', 'right'].includes(key)
 }
 
 export interface UseElementBoundingReturnType {
@@ -63,10 +67,9 @@ export default function useElementBounding(
 
     if (!targetDom) {
       if (reset) {
-        // 重置值为 0
         Object.keys(size).forEach(key => {
-          // @ts-ignore
-          size[key] = 0
+          if (keyisUseElementBoundingReturnTypeKey(key))
+            size[key] = 0
         })
       }
 
