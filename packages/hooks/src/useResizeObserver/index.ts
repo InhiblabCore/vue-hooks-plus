@@ -1,5 +1,4 @@
-import { watch, ref, computed, Ref } from 'vue'
-import { getCurrentScope, onScopeDispose } from 'vue-demi'
+import { watch, ref, computed, Ref, getCurrentScope, onScopeDispose } from 'vue'
 
 import { BasicTarget, getTargetElement } from '../utils/domTarget'
 
@@ -10,8 +9,8 @@ export type ResizeObserverCallback = (
 
 export interface UseResizeObserverOptions {
   /**
-   * 设置 ResizeObserver 基于那种盒模型方式监听
-   * border-box 与 device-pixel-content-box 两种模式
+   * The box the observer is observing changes to. 
+   * The default is content-box.
    *
    * @default 'content-box'
    */
