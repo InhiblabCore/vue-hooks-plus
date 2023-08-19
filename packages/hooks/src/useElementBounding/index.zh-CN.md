@@ -1,10 +1,10 @@
 ---
 map:
   # 映射到docs的路径
-  path: /useResizeObserver
+  path: /useElementBounding
 ---
 
-# useResizeObserver
+# useElementBounding
 
 动态获取 Dom 元素的尺寸、坐标。
 
