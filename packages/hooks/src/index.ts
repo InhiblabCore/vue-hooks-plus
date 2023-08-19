@@ -50,8 +50,8 @@ import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
 import useWebSocket from './useWebSocket'
-import useElementBounding from './useElementBounding/index'
-import useResizeObserver from './useResizeObserver/index'
+import useElementBounding from './useElementBounding'
+import useResizeObserver from './useResizeObserver'
 
 export {
   useRequest,
