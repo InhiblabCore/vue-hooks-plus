@@ -64,6 +64,8 @@ const Router = [
       { text: 'useMedia', link: '/useMedia/' },
       { text: 'useMouse', link: '/useMouse/' },
       { text: 'useSize', link: '/useSize/' },
+      { text: 'useElementBounding', link: '/useElementBounding/' },
+      { text: 'useResizeObserver', link: '/useResizeObserver/' },
       { text: 'useScroll', link: '/useScroll/' },
       { text: 'useTitle', link: '/useTitle/' },
       { text: 'useWinResize', link: '/useWinResize/' },
