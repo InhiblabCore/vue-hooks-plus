@@ -66,6 +66,7 @@ const Router = [
       { text: 'useSize', link: '/useSize/' },
       { text: 'useElementBounding', link: '/useElementBounding/' },
       { text: 'useResizeObserver', link: '/useResizeObserver/' },
+      { text: 'useMutationObserver', link: '/useMutationObserver/' },
       { text: 'useScroll', link: '/useScroll/' },
       { text: 'useTitle', link: '/useTitle/' },
       { text: 'useWinResize', link: '/useWinResize/' },
