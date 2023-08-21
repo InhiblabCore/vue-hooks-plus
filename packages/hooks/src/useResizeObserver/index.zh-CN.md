@@ -25,10 +25,11 @@ useResizeObserver(target, callback, {
 
 ## Params
 
-| 参数    | 说明                  | 类型                                          | 默认值 |
-| ------- | --------------------- | --------------------------------------------- | ------ |
-| target  | DOM 节点或者 Ref 对象 | `() => Element` \| `Element` \| `JSX.Element` | -      |
-| options | 额外的配置项          | `UseResizeObserverOptions`                    | -      |
+| 参数     | 说明                  | 类型                                          | 默认值 |
+| -------- | --------------------- | --------------------------------------------- | ------ |
+| target   | DOM 节点或者 Ref 对象 | `() => Element` \| `Element` \| `JSX.Element` | -      |
+| callback | callback 函数         | `ResizeObserverCallback`                      | -      |
+| options  | 额外的配置项          | `UseResizeObserverOptions`                    | -      |
 
 ## Options
 
