@@ -183,8 +183,10 @@ importers:
 
   packages/use-request:
     specifiers:
+      '@vue/devtools-api': ^6.5.0
       lodash: ^4.17.21
     dependencies:
+      '@vue/devtools-api': 6.5.0
       lodash: 4.17.21
 
   packages/use-request-plugins:
