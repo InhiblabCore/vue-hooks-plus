@@ -1,4 +1,4 @@
-import { ref, watchEffect, onUnmounted } from 'vue'
+import { ref, watchEffect, onScopeDispose } from 'vue'
 import { UseRequestPlugin } from '../types'
 import * as cache from '../utils/cache'
 import { CachedData } from '../utils/cache'
@@ -56,7 +56,7 @@ const useCachePlugin: UseRequestPlugin<unknown, unknown[]> = (
     })
   })
 
-  onUnmounted(() => {
+  onScopeDispose(() => {
     unSubscribeRef.value?.()
   })
 

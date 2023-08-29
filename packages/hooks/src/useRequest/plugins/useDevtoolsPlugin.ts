@@ -1,4 +1,4 @@
-import { computed, onMounted, unref, watchEffect } from 'vue'
+import { computed, unref, watchEffect } from 'vue'
 
 import { UseRequestPlugin } from '../types'
 import { getArrowFunctionName, getFunctionName } from '../devtools/utils'
@@ -24,10 +24,6 @@ const useDevtoolsPlugin: UseRequestPlugin<
       })
     }
   }
-
-  onMounted(() => {
-    createDevTarget()
-  })
 
   const processObj = computed(() =>
     Object.fromEntries(

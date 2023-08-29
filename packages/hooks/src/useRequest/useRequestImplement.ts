@@ -1,5 +1,4 @@
-import { ref, reactive, toRefs, onUnmounted, inject, UnwrapRef, watchEffect, computed, isRef, unref } from 'vue'
-
+import { ref, reactive, toRefs, onScopeDispose, inject, UnwrapRef, watchEffect, computed, isRef, unref } from 'vue'
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import {
@@ -99,7 +98,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   }
 
   // onUnmounted cancel request
-  onUnmounted(() => {
+  onScopeDispose(() => {
     fetchInstance.cancel()
   })
 
