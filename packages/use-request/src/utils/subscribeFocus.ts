@@ -1,7 +1,8 @@
 // from swr
-import isBrowser from './isBrowser'
+import isBrowser from './utils'
 import isDocumentVisible from './isDocumentVisible'
 import isOnline from './isOnline'
+
 
 type Listener = () => void
 

@@ -1,4 +1,4 @@
-import { Ref, WatchSource } from 'vue'
+import { Ref, watch } from 'vue'
 import { CachedData } from './utils/cache'
 import UseRequestFetch from './Fetch'
 
@@ -16,13 +16,14 @@ export interface UseRequestFetchState<TData, TParams extends unknown[]> {
 }
 
 export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
+  name?: string
   onBefore?: (
     params: TParams,
   ) =>
     | ({
-        stopNow?: boolean
-        returnNow?: boolean
-      } & Partial<UseRequestFetchState<TData, TParams>>)
+      stopNow?: boolean
+      returnNow?: boolean
+    } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
@@ -96,7 +97,7 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
   /**
    * Dependent on responsive objects, and the `watch` incoming listener object usage for `vue`.
    */
-  refreshDeps?: WatchSource[] | boolean
+  refreshDeps?: Parameters<typeof watch>[0][] | boolean
   refreshDepsAction?: () => void
 
   /**
@@ -106,7 +107,12 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
   loadingDelay?: number | Ref<number>
 
   /**
-   * Format the request results, which recommend to use `useFormatResult`
+   * open vue devtools,devKey must existence and uniqueness.
+   */
+  devKey?: string
+
+  /**
+   * Format the request results, which recommend to use `useFormatResult`.
    * @param data TData
    * @returns unknown need cover TData
    */
@@ -246,22 +252,22 @@ export interface useRequestResult<TData, TParams extends unknown[]> {
   /**
    * Is the service being executed.
    */
-  loading: Ref<boolean>
+  loading: Readonly<Ref<boolean>>
 
   /**
    * Data returned by service.
    */
-  data: Ref<TData | undefined>
+  data: Readonly<Ref<TData | undefined>>
 
   /**
    * 	Exception thrown by service.
    */
-  error: Ref<Error | undefined>
+  error: Readonly<Ref<Error | undefined>>
 
   /**
    * params	An array of parameters for the service being executed. For example, you triggered `run(1, 2, 3)`, then params is equal to `[1, 2, 3]`.
    */
-  params: Ref<TParams | []>
+  params: Readonly<Ref<TParams | []>>
 
   /**
    * Ignore the current promise response.

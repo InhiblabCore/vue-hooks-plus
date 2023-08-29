@@ -15,6 +15,7 @@ const useRetryPlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 
   return {
+    name: "retryPlugin",
     onBefore: () => {
       if (!triggerByRetry.value) {
         countRef.value = 0;

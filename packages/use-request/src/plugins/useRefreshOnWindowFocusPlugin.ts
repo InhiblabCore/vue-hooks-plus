@@ -1,4 +1,4 @@
-import { ref, watchEffect, onUnmounted, unref } from "vue";
+import { ref, watchEffect, onScopeDispose, unref } from "vue";
 import type { UseRequestPlugin } from "../types";
 import limit from "../utils/limit";
 import subscribeFocus from "../utils/subscribeFocus";
@@ -28,11 +28,13 @@ const useRefreshOnWindowFocusPlugin: UseRequestPlugin<unknown, unknown[]> = (
     });
   });
 
-  onUnmounted(() => {
+  onScopeDispose(() => {
     stopSubscribe();
   });
 
-  return {};
+  return {
+    name: "refreshOnWindowFocusPlugin"
+  };
 };
 
 export default useRefreshOnWindowFocusPlugin;
