@@ -1,5 +1,5 @@
 import { Ref } from 'vue'
-import { isFunction, isBoolean } from '../utils'
+import { isFunction, isBoolean } from './utils'
 import {
   UseRequestFetchState,
   UseRequestOptions,
@@ -116,7 +116,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     )
     // Do you want to stop the request
     if (stopNow) {
-      return new Promise(() => {})
+      return new Promise(() => { })
     }
 
     this.setState({
@@ -140,7 +140,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       const requestReturnResponse = (res: any) => {
         // The request has been cancelled, and the count will be inconsistent with the currentCount
         if (currentCount !== this.count) {
-          return new Promise(() => {})
+          return new Promise(() => { })
         }
         // Format data
         const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
@@ -174,7 +174,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       return requestReturnResponse(servicePromiseResult)
     } catch (error) {
       if (currentCount !== this.count) {
-        return new Promise(() => {})
+        return new Promise(() => { })
       }
 
       this.setState({

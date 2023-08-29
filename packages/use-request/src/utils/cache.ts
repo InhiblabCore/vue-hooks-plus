@@ -40,6 +40,10 @@ const getCache = (key: CachedKey) => {
   return cache.get(key);
 };
 
+const getCacheAll = () => {
+  return Object.fromEntries(cache.entries());
+}
+
 const clearCache = (key?: string | string[]) => {
   if (key) {
     const cacheKeys = Array.isArray(key) ? key : [key];
@@ -49,4 +53,4 @@ const clearCache = (key?: string | string[]) => {
   }
 };
 
-export { getCache, setCache, clearCache };
+export { getCache, setCache, clearCache, getCacheAll };

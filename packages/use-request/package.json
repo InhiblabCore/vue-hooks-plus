@@ -12,11 +12,13 @@
 	"module": "./dist/useRequest.es.js",
   "types":"./dist/types/index.d.ts" ,
   "scripts": {
+    "sync":"rimraf src & tsx scripts/sync.ts",
     "build": "npm run clean && vite build",
     "clean": "rimraf dist"
   },
   "keywords": [],
   "dependencies": {
+    "@vue/devtools-api": "^6.5.0",
     "lodash": "^4.17.21"
   },
   "repository": "https://github.com/InhiblabCore/vue-hooks-plus",

@@ -14,13 +14,13 @@ const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
     const debounceTrailing_ = unref(debounceTrailing)
     const debounceMaxWait_ = unref(debounceMaxWait)
     if (debounceLeading_ !== undefined) {
-      ret.leading =debounceLeading_;
+      ret.leading = debounceLeading_;
     }
     if (debounceTrailing_ !== undefined) {
       ret.trailing = debounceTrailing_
     }
     if (debounceMaxWait_ !== undefined) {
-      ret.maxWait =debounceMaxWait_;
+      ret.maxWait = debounceMaxWait_;
     }
     return ret;
   });
@@ -56,6 +56,7 @@ const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 
   return {
+    name: "debouncePlugin",
     onCancel: () => {
       debouncedRef.value?.cancel();
     },

@@ -16,9 +16,10 @@ const useLoadingDelayPlugin: UseRequestPlugin<unknown, unknown[]> = (
     }
   };
 
-  
+
 
   return {
+    name: "loadingDelayPlugin",
     onBefore: () => {
       cancelTimeout();
       timerRef.value = setTimeout(() => {
