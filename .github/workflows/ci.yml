@@ -15,9 +15,17 @@ jobs:
         with:
           node-version: '16'
           cache: 'pnpm'
-      - name: Install
-        run: |
-          pnpm install --frozen-lockfile
+      - uses: actions/cache@v3 # cache pnpm packages
+        id: pnpm-cache
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+      - name: Pnpm install
+        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+        run: pnpm install
       - name: Unit Test
         run: |
           pnpm run test
