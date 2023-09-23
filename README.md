@@ -116,6 +116,12 @@ For other supported tools, please see [unplugin-auto-import](https://github.com/
 - [Vite + Vue 3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/vite-vue3)
 - [Webpack + Vue 3](https://github.com/InhiblabCore/vue-hooks-plus-example/tree/main/webpack-vue3)
 
+## 🤩 Awesome
+
+### Template
+
+- [Ray Template](https://github.com/XiaoDaiGua-Ray/ray-template)
+
 ## 🪴 Project Activity
 
 ![Alt](https://repobeats.axiom.co/api/embed/35dbca2274542c0144993be92cc51762227543d9.svg 'Repobeats analytics image')
