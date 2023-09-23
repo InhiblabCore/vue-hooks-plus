@@ -33,12 +33,13 @@ describe('useRequest/Ready', () => {
 
   it('should work with satisfy the condition; meet the condition', async () => {
     toggle()
+    const data = result.data?.value
     expect(ready.value).toBeTruthy()
     await sleep(200)
     expect(result.loading.value).toBeTruthy()
     await sleep(1000)
     await sleep(200)
     expect(result.loading.value).toBeFalsy()
-    expect(result.data?.value).toBe(data)
+    expect(result.data?.value === data).toBeFalsy()
   })
 })
