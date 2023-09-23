@@ -62,6 +62,7 @@ const Router = [
       { text: 'useInViewport', link: '/useInViewport/' },
       { text: 'useKeyPress', link: '/useKeyPress/' },
       { text: 'useMedia', link: '/useMedia/' },
+      { text: "useMutationObserver", link: '/useMutationObserver/' },
       { text: 'useMouse', link: '/useMouse/' },
       { text: 'useSize', link: '/useSize/' },
       { text: 'useElementBounding', link: '/useElementBounding/' },

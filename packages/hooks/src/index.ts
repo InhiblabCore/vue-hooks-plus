@@ -52,6 +52,7 @@ import useWinResize from './useWinResize'
 import useWebSocket from './useWebSocket'
 import useElementBounding from './useElementBounding'
 import useResizeObserver from './useResizeObserver'
+import useMutationObserver from './useMutationObserver'
 
 export {
   useRequest,
@@ -86,6 +87,7 @@ export {
   useMap,
   useMedia,
   useMouse,
+  useMutationObserver,
   useNetwork,
   usePrevious,
   useSessionStorageState,
