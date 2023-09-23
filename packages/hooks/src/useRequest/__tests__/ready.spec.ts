@@ -3,11 +3,9 @@ import { sleep } from 'test-utils/sleep'
 import renderHook from 'test-utils/renderHook'
 import useRequest from '../useRequest'
 
-let data = ''
 function getUsername(): Promise<string> {
   return new Promise(resolve => {
     setTimeout(() => {
-      data = String(Date.now())
       resolve(String(Date.now()))
     }, 1000)
   })
