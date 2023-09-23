@@ -29,6 +29,7 @@
     "useMap",
     "useMedia",
     "useMouse",
+    "useMutationObserver",
     "useNetwork",
     "usePreview",
     "usePrevious",

@@ -9,7 +9,7 @@
     "docs:build-github":"tsx scripts/gitPage.ts github",
     "docs:build-gitee":"tsx scripts/gitPage.ts gitee",
     "clean": " rimraf dist lib es",
-		"build": "tsx scripts/build.ts",
+		"build": "pnpm bootstrap && tsx scripts/build.ts",
     "test": "vitest",
 		"test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
