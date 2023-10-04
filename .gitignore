@@ -4,6 +4,7 @@ dist
 .cache
 .temp
 coverage
+cache
 
 
 # lock
