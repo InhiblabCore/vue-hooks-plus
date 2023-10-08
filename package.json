@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "bootstrap": "tsx scripts/bootstrap.ts",
-    "docs:dev": "vitepress dev packages/docs",
-    "docs:build": "vitepress build packages/docs",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
     "docs:build-github": "tsx scripts/gitPage.ts github",
     "docs:build-gitee": "tsx scripts/gitPage.ts gitee",
     "clean": " rimraf dist lib es",
@@ -14,7 +14,7 @@
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
     "prepare": "husky install",
-    "docs:preview": "vitepress preview packages/docs"
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
@@ -59,7 +59,7 @@
     "tsx": "^3.11.0",
     "typeit": "^8.7.0",
     "typescript": "^5.0.4",
-    "vite": "3.0.2",
+    "vite": "4.4.11",
     "vite-plugin-build": "0.7.1",
     "vite-plugin-dts": "^2.1.0",
     "vitepress": "1.0.0-rc.20",
