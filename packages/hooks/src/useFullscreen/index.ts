@@ -1,5 +1,5 @@
 import screenfull from 'screenfull'
-import { computed, onUnmounted, readonly, ref } from 'vue'
+import { onUnmounted, readonly, ref } from 'vue'
 import { BasicTarget } from '../utils/domTarget'
 import { getTargetElement } from '../utils/domTarget'
 
@@ -15,6 +15,13 @@ export interface UseFullscreenOptions {
    * @returns void
    */
   onEnter?: () => void
+
+  /**
+   *
+   * The element enters full screen by default when the binding element is not found or the element is not passed
+   * @default html
+   */
+  defaultElement: HTMLElement | Element
 }
 
 const useFullscreen = (
@@ -24,7 +31,7 @@ const useFullscreen = (
   target?: BasicTarget,
   options?: UseFullscreenOptions,
 ) => {
-  const { onExit, onEnter } = options || {}
+  const { onExit, onEnter, defaultElement = document.documentElement } = options || {}
 
   const onExitRef = ref(onExit)
   const onEnterRef = ref(onEnter)
@@ -33,11 +40,10 @@ const useFullscreen = (
   const setState = (val: boolean) => {
     state.value = val
   }
-  const modelTraget = computed(() => getTargetElement(target) ?? document?.querySelector('html'))
 
   const onChange = () => {
     if (screenfull.isEnabled) {
-      const el = getTargetElement(modelTraget)
+      const el = getTargetElement(target, defaultElement)
 
       if (!screenfull.element) {
         onExitRef.value?.()
@@ -56,7 +62,7 @@ const useFullscreen = (
   }
 
   const enterFullscreen = () => {
-    const el = getTargetElement(modelTraget)
+    const el = getTargetElement(target, defaultElement)
     if (!el) {
       return
     }
@@ -72,7 +78,7 @@ const useFullscreen = (
   }
 
   const exitFullscreen = () => {
-    const el = getTargetElement(modelTraget)
+    const el = getTargetElement(target, defaultElement)
     if (screenfull.isEnabled && screenfull.element === el) {
       screenfull.exit()
     }

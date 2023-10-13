@@ -47,10 +47,11 @@ const [
 
 ## Options
 
-| Property | Description               | Type         | Default |
-| -------- | ------------------------- | ------------ | ------- |
-| onExit   | Exit full screen trigger  | `() => void` | -       |
-| onEnter  | Enter full screen trigger | `() => void` | -       |
+| Property       | Description                 | Type                     | Default |
+| -------------- | --------------------------- | ------------------------ | ------- |
+| onExit         | Exit full screen trigger    | `() => void`             | -       |
+| onEnter        | Enter full screen trigger   | `() => void`             | -       |
+| defaultElement | Default full screen element | `Element \| HTMLElement` | `html`  |
 
 ## Result
 
