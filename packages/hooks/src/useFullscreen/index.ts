@@ -21,7 +21,7 @@ export interface UseFullscreenOptions {
    * The element enters full screen by default when the binding element is not found or the element is not passed
    * @default html
    */
-  defaultElement: HTMLElement | Element
+  defaultElement?: HTMLElement | Element
 }
 
 const useFullscreen = (
