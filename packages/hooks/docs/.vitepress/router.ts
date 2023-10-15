@@ -57,7 +57,7 @@ const Router = [
       { text: 'useDarkMode', link: '/useDarkMode/' },
       { text: 'useFavicon', link: '/useFavicon/' },
       { text: 'useFocusWithin', link: '/useFocusWithin/' },
-      { text: 'useFullscreen', link: '/useFullscreen/' },
+      { text: 'useFullscreen', link: '/useFull/' },
       { text: 'useHover', link: '/useHover/' },
       { text: 'useInViewport', link: '/useInViewport/' },
       { text: 'useKeyPress', link: '/useKeyPress/' },
