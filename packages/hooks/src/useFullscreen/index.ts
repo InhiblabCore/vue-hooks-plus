@@ -15,16 +15,23 @@ export interface UseFullscreenOptions {
    * @returns void
    */
   onEnter?: () => void
+
+  /**
+   *
+   * The element enters full screen by default when the binding element is not found or the element is not passed
+   * @default html
+   */
+  defaultElement?: HTMLElement | Element
 }
 
 const useFullscreen = (
   /**
    * DOM element or ref
    */
-  target: BasicTarget,
+  target?: BasicTarget,
   options?: UseFullscreenOptions,
 ) => {
-  const { onExit, onEnter } = options || {}
+  const { onExit, onEnter, defaultElement = document.documentElement } = options || {}
 
   const onExitRef = ref(onExit)
   const onEnterRef = ref(onEnter)
@@ -36,7 +43,7 @@ const useFullscreen = (
 
   const onChange = () => {
     if (screenfull.isEnabled) {
-      const el = getTargetElement(target)
+      const el = getTargetElement(target, defaultElement)
 
       if (!screenfull.element) {
         onExitRef.value?.()
@@ -55,7 +62,7 @@ const useFullscreen = (
   }
 
   const enterFullscreen = () => {
-    const el = getTargetElement(target)
+    const el = getTargetElement(target, defaultElement)
     if (!el) {
       return
     }
@@ -71,7 +78,7 @@ const useFullscreen = (
   }
 
   const exitFullscreen = () => {
-    const el = getTargetElement(target)
+    const el = getTargetElement(target, defaultElement)
     if (screenfull.isEnabled && screenfull.element === el) {
       screenfull.exit()
     }

@@ -13,14 +13,14 @@ manages DOM full screen.
 <demo src="./demo/demo.vue"
   language="vue"
   title="Basic usage"
-  desc="Use ref to set elements that need full screen"> </demo>
+  desc="Enter full screen without passing ref"> </demo>
 
 ## Image full screen
 
 <demo src="./demo/demo1.vue"
   language="vue"
   title="Image full screen"
-  desc=""> </demo>
+  desc="Pass the ref setting element into full screen"> </demo>
 
 ## API
 
@@ -47,10 +47,11 @@ const [
 
 ## Options
 
-| Property | Description               | Type         | Default |
-| -------- | ------------------------- | ------------ | ------- |
-| onExit   | Exit full screen trigger  | `() => void` | -       |
-| onEnter  | Enter full screen trigger | `() => void` | -       |
+| Property       | Description                 | Type                     | Default |
+| -------------- | --------------------------- | ------------------------ | ------- |
+| onExit         | Exit full screen trigger    | `() => void`             | -       |
+| onEnter        | Enter full screen trigger   | `() => void`             | -       |
+| defaultElement | Default full screen element | `Element \| HTMLElement` | `html`  |
 
 ## Result
 
