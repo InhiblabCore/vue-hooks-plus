@@ -70,7 +70,7 @@ useDrop<T>(
 | --- | --- | --- | --- |
 | onText | The callback when text is dropped or pasted | `(text: string, e: DragEvent) => void` | - |
 | onFiles | The callback when file is dropped or pasted | `(files: File[], e: DragEvent) => void` | - |
-| onUri | The callback when uri is dropped or pasted | `(text: string, e: DragEvent) => void` | - |
+| onUrl | The callback when uri is dropped or pasted | `(text: string, e: DragEvent) => void` | - |
 | onDom | The callback when DOM is dropped or pasted | `(content: any, e: DragEvent) => void` | - |
 | onDrop | The callback when any is dropped | `(e: DragEvent) => void` | - |
 | onPaste | The callback when any is pasted | `(e: DragEvent) => void` | - |
