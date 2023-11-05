@@ -70,7 +70,7 @@ useDrop<T>(
 | ----------- | ------------------------------ | --------------------------------------- | ------ |
 | onText      | 拖拽/粘贴文字的回调            | `(text: string, e: DragEvent) => void`  | -      |
 | onFiles     | 拖拽/粘贴文件的回调            | `(files: File[], e: DragEvent) => void` | -      |
-| onUri       | 拖拽/粘贴链接的回调            | `(text: string, e: DragEvent) => void`  | -      |
+| onUrl       | 拖拽/粘贴链接的回调            | `(text: string, e: DragEvent) => void`  | -      |
 | onDom       | 拖拽/粘贴自定义 DOM 节点的回调 | `(content: any, e: DragEvent) => void`  | -      |
 | onDrop      | 拖拽任意内容的回调             | `(e: DragEvent) => void`                | -      |
 | onPaste     | 粘贴内容的回调                 | `(e: DragEvent) => void`                | -      |
