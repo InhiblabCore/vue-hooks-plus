@@ -1,7 +1,7 @@
 ---
 map:
   # 映射到docs的路径
-  path: /useFullscreen
+  path: /useFull
 ---
 
 # useFullscreen
@@ -13,14 +13,14 @@ map:
 <demo src="./demo/demo.vue"
   language="vue"
   title="基本用法"
-  desc="使用 ref 设置需要全屏的元素"> </demo>
+  desc="不传递 ref 进入全屏"> </demo>
 
 ## 图片全屏
 
 <demo src="./demo/demo1.vue"
   language="vue"
   title="图片全屏"
-  desc=""> </demo>
+  desc="传递 ref 设置元素进入全屏"> </demo>
 
 ## API
 
@@ -47,10 +47,11 @@ const [
 
 ## Options
 
-| 参数    | 说明         | 类型         | 默认值 |
-| ------- | ------------ | ------------ | ------ |
-| onExit  | 退出全屏触发 | `() => void` | -      |
-| onEnter | 全屏触发     | `() => void` | -      |
+| 参数           | 说明         | 类型                     | 默认值 |
+| -------------- | ------------ | ------------------------ | ------ |
+| onExit         | 退出全屏触发 | `() => void`             | -      |
+| onEnter        | 全屏触发     | `() => void`             | -      |
+| defaultElement | 默认全屏元素 | `Element \| HTMLElement` | `html` |
 
 ## Result
 
