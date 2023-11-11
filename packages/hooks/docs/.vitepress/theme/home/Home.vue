@@ -6,6 +6,9 @@
   // import Waves from '../Waves/index.vue'
   import Waves from '../Wave.vue'
   // import Badge from './Badge.vue'
+
+  // @ts-ignore
+  const mode = import.meta.env.MODE
 </script>
 
 <template>
@@ -20,7 +23,7 @@
         </h1>
         <p class="description"> </p>
         <p class="actions" style="position: relative; z-index: 9;">
-          <a class="get-started" href="/docs/hooks/guide/">
+          <a class="get-started" :href="mode === 'development' ? '/guide/' : '/docs/hooks/guide/'">
             快速开始
             <svg
               class="icon"
