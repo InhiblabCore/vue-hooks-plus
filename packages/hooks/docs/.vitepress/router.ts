@@ -155,6 +155,10 @@ const useRequestRouter = [
         link: '/useRequest/scroll/',
       },
       {
+        text: '中间件·Beta',
+        link: '/useRequest/middleware/',
+      },
+      {
         text: '插件设计',
         link: '/useRequest/plugin/',
       },
@@ -262,6 +266,10 @@ const useRequestRouterEN = [
       {
         text: 'Scroll',
         link: '/en/useRequest/scroll/',
+      },
+      {
+        text: 'Middleware·Beta',
+        link: '/en/useRequest/middleware/',
       },
       {
         text: 'Plugins Design',

@@ -1,0 +1,86 @@
+.vitepress-demo {
+  --demo-border-color: #ebedf1;
+}
+
+.dark .vitepress-demo {
+  --demo-border-color: #6b6c6d;
+}
+
+.vitepress-demo {
+  border: 1px solid var(--demo-border-color);
+  border-radius: 1px;
+  margin-bottom: 24px;
+
+  color: var(--vp-c-text-1);
+  background-color: var(--vp-c-bg);
+
+  div[class*='language-'] {
+    border-radius: 0px;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  [class*='language-'] pre {
+    padding: 0;
+  }
+
+  [class*='language-'] code {
+    padding: 1em;
+  }
+
+  .demo-slot {
+    padding: 40px 24px;
+  }
+
+  .demo-actions {
+    display: flex;
+    height: 40px;
+    padding: 0 8px;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px dashed var(--demo-border-color);
+  }
+
+  .demo-buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  .demo-actions-expand,
+  .demo-actions-copy {
+    margin: 0 0 0 16px;
+    cursor: pointer;
+    color: #666;
+  }
+  .demo-actions-tip {
+    font-size: 12px;
+    color: #3eaf7c;
+  }
+
+  .extra-class {
+    border-top: 1px dashed var(--demo-border-color);
+    box-sizing: border-box;
+  }
+
+  .demo-platforms {
+    display: flex;
+    align-items: center;
+  }
+
+  .demo-title-desc {
+    border-top: 1px dashed var(--demo-border-color);
+    padding: 1.2em 1em 1em;
+    color: var(--vp-c-text-1);
+    position: relative;
+    font-size: 14px;
+  }
+
+  .demo-title {
+    position: absolute;
+    top: 0;
+    left: 1em;
+    transform: translateY(-50%);
+    background: var(--vp-c-bg);
+    font-weight: 500;
+  }
+}
