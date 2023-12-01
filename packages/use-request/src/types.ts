@@ -40,6 +40,18 @@ export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
   onMutate?: (data: TData) => void
 }
 
+export type RequestHook<TData = any, TParams extends any[] = any[]> = (
+  service: UseRequestService<TData, TParams>,
+  options: UseRequestOptions<TData, TParams, any>,
+  plugins: UseRequestPlugin<TData, TParams>[],
+) => useRequestResult<TData, TParams>
+
+
+
+export type UseRequestMiddleware<TData, TParams extends any[]> = (
+  useRequestNext: RequestHook<TData, TParams>
+) => RequestHook<TData, TParams>
+
 export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
   /**
    * Init data.
@@ -229,6 +241,11 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
    * If not set, the simple exponential backoff algorithm will be used by default, taking `1000 * 2 ** retryCount`, that is, waiting for 2s for the first retry, and 4s for the second retry. By analogy, if it is greater than 30s, take 30s.
    */
   retryInterval?: number
+
+  /**
+   * Middleware
+   */
+  use?: UseRequestMiddleware<TData, TParams>[]
 }
 
 export type UseRequestOptions<TData, TParams extends unknown[], TPlugin> = {

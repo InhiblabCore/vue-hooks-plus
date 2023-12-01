@@ -6,7 +6,7 @@ source:
   show: false
 ---
 
-# 开发者工具 `1.7.7-alpha.1`
+# 开发者工具
 
 `useRequest` 提供了一个 `devKey` 参数，并且在 `dev` 模式下会开启 `devtools`。
 
@@ -18,7 +18,7 @@ source:
 
 useRequest devtools 会与官方的开发工具整合，添加自定义的检查器和时间轴事件。Devtools would be treeshaken from production bundles by default.
 
-目前处于`测试阶段`, 你可以下载 `1.7.7-alpha.1`及更高版本使用。
+目前处于`测试阶段`, 你可以下载 `1.7.7`及更高版本使用。
 
 ## 导入 Devtools
 
@@ -39,3 +39,5 @@ const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { devK
 ```
 
 大功告成！打开浏览器 Vue 插件进行使用吧 🍺
+
+![Alt](/plugin.png 'plugin devtool image')

@@ -11,6 +11,7 @@ import useThrottlePlugin from './plugins/useThrottlePlugin'
 import useRequestImplement from './useRequestImplement'
 
 import { UseRequestOptions, UseRequestPlugin, UseRequestService } from './types'
+import { withArgs } from './utils/resolve-args'
 
 function useRequest<
   TData,
@@ -42,7 +43,7 @@ function useRequest<
     useRetryPlugin
   ]?.filter(Boolean)
 
-  return useRequestImplement<TData, TParams>(service, options, [
+  return withArgs<TData, TParams>(useRequestImplement, options?.use)(service, options, [
     ...(plugins || []),
     ...BuiltInPlugins
   ] as UseRequestPlugin<TData, TParams>[])

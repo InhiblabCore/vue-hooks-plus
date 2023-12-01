@@ -25,6 +25,7 @@
     }
   > = (fetchInstance, { formatter }) => {
     return {
+      name: 'formatterPlugin',
       onSuccess: () => {
         fetchInstance.setFetchState(formatter?.(fetchInstance.state.data), 'data')
       },

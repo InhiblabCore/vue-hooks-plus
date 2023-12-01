@@ -6,7 +6,7 @@ source:
   show: false
 ---
 
-# DevTools `1.7.7-alpha.1`
+# DevTools
 
 Wave your hands in the air and shout hooray because useRequest comes with dedicated DevTools! 😍
 
@@ -16,7 +16,7 @@ The only thing you need to do is to install official [Vue Devtools](https://devt
 
 useRequest will seemingly integrate with official devtools, adding custom inspector and timeline events. Devtools would be treeshaken from production bundles by default.
 
-Currently in the `testing phase`, you can download `1.7.7-aLpha.1` and later versions to use.
+Currently in the `testing phase`, you can download `1.7.7` and later versions to use.
 
 ## Import the Devtools
 
@@ -37,3 +37,5 @@ const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { devK
 Use `devKey` to create a unique identifier and enable it.
 
 You're done! Open the browser Vue plugin to use it 🍺
+
+![Alt](/plugin.png 'plugin devtool image')
