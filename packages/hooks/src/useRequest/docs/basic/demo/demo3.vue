@@ -1,7 +1,7 @@
 <template>
   <div>name：{{ loading ? 'loading' : data }}</div>
   <div style="margin-top:8px">
-    <input v-model="value">
+    <input v-model="value" />
     <vhp-button style="margin-left: 8px;" @click="run({ desc: value })">Edit</vhp-button>
   </div>
   <div>
@@ -25,7 +25,7 @@
   const step = ref<string[]>([])
   const { data: data, loading, run } = useRequest(getUsername, {
     manual: true,
-    devKey:"demo3",
+    debugKey: 'demo3',
     onBefore: () => {
       step.value = []
       step.value.push('start request')

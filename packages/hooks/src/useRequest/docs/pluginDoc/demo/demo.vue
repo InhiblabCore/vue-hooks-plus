@@ -46,7 +46,7 @@
   const { data, loading } = useRequest(
     () => getUsername(),
     {
-      devKey: 'plugindemo',
+      debugKey: 'plugindemo',
       formatter: (params?: FormatterDataType) => {
         return {
           name: `${params?.name} - plugins update`,

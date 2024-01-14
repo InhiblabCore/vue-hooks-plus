@@ -25,7 +25,7 @@
   const step = ref<string[]>([])
   const { data: data, run, mutate } = useRequest(getUsername, {
     manual: true,
-    devKey: 'demo5',
+    debugKey: 'demo5',
     rollbackOnError: true,
     onError: () => {
       alert('error')

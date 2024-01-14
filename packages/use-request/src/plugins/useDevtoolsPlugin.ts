@@ -8,16 +8,16 @@ const useDevtoolsPlugin: UseRequestPlugin<
   unknown,
   unknown[],
   {
-    devKey: string
+    debugKey: string
   }
-> = (fetchInstance, { ready = true, devKey, ...rest }) => {
+> = (fetchInstance, { ready = true, debugKey, ...rest }) => {
   // devtools provider
   const createDevTarget = () => {
-    if (devKey && !devToolsStore.has(devKey)) {
+    if (debugKey && !devToolsStore.has(debugKey)) {
       const functionName = fetchInstance.serviceRef.value.toString().includes('function')
         ? getFunctionName(fetchInstance.serviceRef.value.toString())
         : getArrowFunctionName(fetchInstance.serviceRef.value.toString())
-      devToolsStore.insert(devKey, {
+      devToolsStore.insert(debugKey, {
         instance: fetchInstance,
         requestName: functionName,
         time: Date.now(),
@@ -32,7 +32,7 @@ const useDevtoolsPlugin: UseRequestPlugin<
   )
 
   watchEffect(() => {
-    if (devKey && devToolsStore.has(devKey)) {
+    if (debugKey && devToolsStore.has(debugKey)) {
       devToolsStore.emit({
         ...fetchInstance,
         options: { ...fetchInstance.options, ...processObj.value },
@@ -44,10 +44,10 @@ const useDevtoolsPlugin: UseRequestPlugin<
     name: "devtoolsPlugin",
     onBefore: params => {
       createDevTarget()
-      if (devKey && devToolsStore.has(devKey))
+      if (debugKey && devToolsStore.has(debugKey))
         devToolsStore.emit({
           ...fetchInstance.state,
-          key: devKey,
+          key: debugKey,
           params,
           loading: true,
           time: Date.now(),
@@ -56,10 +56,10 @@ const useDevtoolsPlugin: UseRequestPlugin<
     },
     onSuccess(data, params) {
       createDevTarget()
-      if (devKey && devToolsStore.has(devKey))
+      if (debugKey && devToolsStore.has(debugKey))
         devToolsStore.emit({
           ...fetchInstance.state,
-          key: devKey,
+          key: debugKey,
           data,
           params,
           loading: false,
@@ -69,10 +69,10 @@ const useDevtoolsPlugin: UseRequestPlugin<
     },
     onCancel() {
       createDevTarget()
-      if (devKey && devToolsStore.has(devKey))
+      if (debugKey && devToolsStore.has(debugKey))
         devToolsStore.emit({
           ...fetchInstance.state,
-          key: devKey,
+          key: debugKey,
           loading: false,
           time: Date.now(),
           type: 'cancel',
@@ -80,10 +80,10 @@ const useDevtoolsPlugin: UseRequestPlugin<
     },
     onError(e, params) {
       createDevTarget()
-      if (devKey && devToolsStore.has(devKey))
+      if (debugKey && devToolsStore.has(debugKey))
         devToolsStore.emit({
           ...fetchInstance.state,
-          key: devKey,
+          key: debugKey,
           params,
           loading: false,
           error: e,
@@ -93,10 +93,10 @@ const useDevtoolsPlugin: UseRequestPlugin<
     },
     onMutate(data) {
       createDevTarget()
-      if (devKey && devToolsStore.has(devKey))
+      if (debugKey && devToolsStore.has(debugKey))
         devToolsStore.emit({
           ...fetchInstance.state,
-          key: devKey,
+          key: debugKey,
           data,
           loading: false,
           time: Date.now(),

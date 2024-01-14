@@ -119,9 +119,9 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
   loadingDelay?: number | Ref<number>
 
   /**
-   * open vue devtools,devKey must existence and uniqueness.
+   * open vue devtools,debugKey must existence and uniqueness.
    */
-  devKey?: string
+  debugKey?: string
 
   /**
    * Format the request results, which recommend to use `useFormatResult`.

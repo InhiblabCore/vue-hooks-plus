@@ -1,7 +1,7 @@
 <template>
   <div>name：{{ loading ? 'loading' : data }}</div>
   <div style="margin-top:8px">
-    <input v-model="value">
+    <input v-model="value" />
     <vhp-button style="margin-left: 8px;" @click="handleClick">Edit</vhp-button>
   </div>
 </template>
@@ -21,7 +21,7 @@
   const value = ref('vue-hooks-plus')
   const { data: data, loading, runAsync } = useRequest(getUsername, {
     manual: true,
-    devKey:"demo2",
+    debugKey: 'demo2',
   })
 
   const handleClick = async () => {
