@@ -14,7 +14,7 @@
 	"main": "./lib/index.js",
 	"module": "./es/index.js",
 	"types": "./lib/index.d.ts",
-	"unpkg": "dist/index.es.js",
+	"unpkg": "dist/js/index.es.js",
 	"keywords": [
 		"vue-hooks-plus",
 		"vue hooks",
