@@ -2,6 +2,7 @@ import path from 'path'
 import { UserConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import { buildPlugin } from 'vite-plugin-build'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export const buildConfig: UserConfig = {
   plugins: [
@@ -33,6 +34,10 @@ export const buildConfig: UserConfig = {
           },
         },
       },
+    }),
+    // @ts-ignore
+    visualizer({
+      filename: 'visualizer.html',
     }),
   ],
 }
