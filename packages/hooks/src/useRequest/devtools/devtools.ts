@@ -169,7 +169,7 @@ export function setupDevtools(app: any) {
                 key: item,
                 value: unref(currentSource.instance.options[item]),
               })),
-              Plugins:
+              ["Plugins 🧩"]:
                 currentSource.instance.pluginImpls?.map((_, index) => {
                   const pluginName = currentSource?.instance?.pluginImpls?.[index]?.name
                   if (!pluginName) {

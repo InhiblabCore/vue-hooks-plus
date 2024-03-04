@@ -8,7 +8,7 @@ source:
 
 # 开发者工具
 
-`useRequest` 提供了一个 `devKey` 参数，并且在 `dev` 模式下会开启 `devtools`。
+`useRequest` 提供了一个 `debugKey` 参数，并且在 `dev` 模式下会开启 `devtools`。
 
 欢呼雀跃，因为 useRequest 带有专用的开发工具！😍
 
@@ -32,10 +32,10 @@ app.use(useRequestDevToolsPlugin)
 
 ## 在 `.vue` 中使用
 
-使用 `devKey` 创建唯一标识开启。
+使用 `debugKey` 创建唯一标识开启。
 
 ```typescript
-const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { devKey: 'demo' })
+const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { debugKey: 'demo' })
 ```
 
 大功告成！打开浏览器 Vue 插件进行使用吧 🍺

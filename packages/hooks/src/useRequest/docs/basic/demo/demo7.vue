@@ -1,10 +1,10 @@
 <template>
   <div>name：{{ loading ? 'loading' : data }}</div>
   <div style="margin-top:8px">
-    <input v-model="value">
+    <input v-model="value" />
     <vhp-button style="margin-left: 8px;" @click="run({ desc: value })">Edit</vhp-button>
   </div>
-  <br>
+  <br />
   <div> Params: {{ JSON.stringify(params) }} </div>
 </template>
 
@@ -26,6 +26,6 @@
         desc: 'nice',
       },
     ],
-    devKey:"demo7",
+    debugKey: 'demo7',
   })
 </script>

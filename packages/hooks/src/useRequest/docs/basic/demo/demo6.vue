@@ -1,7 +1,7 @@
 <template>
   <div>name：{{ loading ? 'loading..' : data }}</div>
   <div style="margin-top:8px">
-    <input v-model="value">
+    <input v-model="value" />
     <vhp-button style="margin-left: 8px;" @click="handleClick">Edit</vhp-button>
     <vhp-button style="margin-left: 8px;" @click="handleCancel">Cancel</vhp-button>
   </div>
@@ -22,7 +22,7 @@
   const value = ref('')
   const { data, loading, run, cancel } = useRequest(getUsername, {
     manual: true,
-    devKey:"demo6",
+    debugKey: 'demo6',
     onError: () => {
       alert('error')
     },

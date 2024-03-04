@@ -31,10 +31,10 @@ app.use(useRequestDevToolsPlugin)
 ## Using in `.vue`
 
 ```typescript
-const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { devKey: 'demo' })
+const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), { debugKey: 'demo' })
 ```
 
-Use `devKey` to create a unique identifier and enable it.
+Use `debugKey` to create a unique identifier and enable it.
 
 You're done! Open the browser Vue plugin to use it 🍺
 
