@@ -9,7 +9,7 @@ export type ResizeObserverCallback = (
 
 export interface UseResizeObserverOptions {
   /**
-   * The box the observer is observing changes to. 
+   * The box the observer is observing changes to.
    * The default is content-box.
    *
    * @default 'content-box'
@@ -28,7 +28,7 @@ export default function useResizeObserver(
   options?: UseResizeObserverOptions,
 ): UseResizeObserverReturnType {
   const { box = 'content-box', ...argsOptions } = options ?? {}
-  const isSupported = ref('ResizeObserver' in window)
+  const isSupported = ref(window && 'ResizeObserver' in window)
   let ob: ResizeObserver | null
   const modelTargets = computed(() =>
     Array.isArray(target) ? target.map(curr => getTargetElement(curr)) : [getTargetElement(target)],
@@ -61,7 +61,6 @@ export default function useResizeObserver(
     {
       flush: 'post',
       immediate: true,
-      deep: true,
     },
   )
 
