@@ -15,7 +15,10 @@
     if (props.importMap) {
       try {
         sfcJson['import-map.json'] = JSON.stringify({
-          imports: props.importMap,
+          imports: {
+            'vue-hooks-plus': 'https://cdn.jsdelivr.net/npm/vue-hooks-plus/dist/js/index.es.js',
+            ...props.importMap,
+          },
         })
       } catch {
         // @ts-ignore

@@ -4,20 +4,7 @@
   </button>
 </template>
 
-<!-- <script lang="ts" setup></script> -->
-
 <style lang="less" scoped>
-  /* 初始状态 */
-  // button {
-  //   opacity: 0.4;
-  //   transition: 0.3s;
-  // }
-  /* 扩散状态 */
-  // button {
-  //   box-shadow: 0 0 0 6px red;
-  //   opacity: 0;
-  // }
-
   .vhp-button {
     border-color: var(--vp-button-brand-border);
     color: var(--vp-button-brand-text);

@@ -21,7 +21,9 @@
     {
       lang: 'vue',
       defaultExpand: false,
-      importMap: () => ({}),
+      importMap: () => ({
+        'vue-hooks-plus': 'https://cdn.jsdelivr.net/npm/vue-hooks-plus/dist/js/index.es.js',
+      }),
     },
   )
 
