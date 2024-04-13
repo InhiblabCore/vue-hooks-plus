@@ -56,6 +56,7 @@ button:active::after {
   }
 input {
     opacity: 1;
+    color: white;
     background-color: rgba(255, 255, 255, 0.08);
     padding-left: 8px;
     height: 36px;
