@@ -30,9 +30,10 @@ button{
     height: 36px;
     font-weight: 500;
     white-space: nowrap;
-    cursor: pointer;
     transition: color 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.4s,
-    opacity 0.4s;
+      opacity 0.4s;
+    cursor: pointer;
+    transform: scale(1);
 }
 button:hover {
     border-color: #35eb9a;
