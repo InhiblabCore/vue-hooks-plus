@@ -12,6 +12,6 @@
       "test-utils/*": ["test-utils/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/demo/*.vue"],
+  "include": ["src/**/*.ts", "src/**/demo/*.vue", "docs/global.d.ts"],
   "exclude": ["node_modules", "dist", "lib", "es", "example", "test-utils/*"]
 }
