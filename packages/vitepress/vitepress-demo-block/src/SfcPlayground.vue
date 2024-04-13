@@ -54,6 +54,16 @@ button:active::after {
     opacity: 1;
     transition: 0s;
   }
+input {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding-left: 8px;
+    height: 36px;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
 </style>`
 
   const sfcPlaygroundUrl = computed(() => {
