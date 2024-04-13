@@ -1,6 +1,6 @@
 {
   "name": "@vue-hooks-plus/vitepress-demo-block",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "type": "module",
   "types": "./dist/index.d.ts",
