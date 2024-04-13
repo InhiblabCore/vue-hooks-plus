@@ -8,9 +8,68 @@
     importMap: Record<string, string>
   }>()
 
+  const buttonStyleInine = `\n<style>
+body{
+    padding: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 8px;
+    box-shadow: 1px 3px 4px rgba(188, 189, 190, 0.3);
+    border: 1px solid rgba(235, 235, 235, 0.38);
+    background-color: #010e19;
+    color: white;
+}  
+button{
+    border: 1px solid #42d392;
+    color:rgba(255, 255, 255, .87);
+    background-color: #33a06f;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 5px;
+    min-width: 60px;
+    height: 36px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.4s,
+      opacity 0.4s;
+    cursor: pointer;
+    transform: scale(1);
+}
+button:hover {
+    border-color: #35eb9a;
+    background-color: #42b883;
+  }
+
+button::after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    box-shadow: 0 0 0 6px #42b883;
+    transition: 0.4s;
+  }
+button:active::after {
+    box-shadow: none;
+    opacity: 1;
+    transition: 0s;
+  }
+input {
+    opacity: 1;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding-left: 8px;
+    height: 36px;
+    font-weight: 500;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+</style>`
+
   const sfcPlaygroundUrl = computed(() => {
     const sfcJson = {
-      'App.vue': props.content,
+      'App.vue': props.content?.replace(/vhp-/g, '') + buttonStyleInine,
     } as Record<string, string>
     if (props.importMap) {
       try {
