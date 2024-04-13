@@ -6,8 +6,6 @@ export function useCopyCode(code: string) {
   });
 
   function copyCode() {
-    console.log("code", code);
-
     navigator.clipboard.writeText(code);
     state.showTip = true;
     setTimeout(() => {
