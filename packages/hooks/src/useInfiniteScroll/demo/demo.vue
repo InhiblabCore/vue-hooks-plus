@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useInfiniteScroll } from '../../index'
+  import { useInfiniteScroll } from 'vue-hooks-plus'
 
   interface Result {
     list: string[]

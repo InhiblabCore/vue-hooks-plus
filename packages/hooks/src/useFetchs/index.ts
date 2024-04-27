@@ -1,4 +1,4 @@
-import { createApp, defineComponent, readonly, ref, UnwrapRef, watch, watchEffect } from 'vue'
+import { createApp, defineComponent, ref, UnwrapRef, watch, watchEffect } from 'vue'
 import { UseRequestService, UseRequestOptions } from '../useRequest/types'
 import useRequest from '../useRequest'
 
@@ -20,7 +20,7 @@ const DEFAULT_KEY = 'VUE_HOOKS_PLUS_USE_REQUEST_DEFAULT_KEY'
 type FetchType<TData, TParams> = Record<
   string | number,
   {
-    data: TData | undefined
+    data: Readonly<TData> | undefined
     params: TParams
     loading: boolean
     key: string | number
@@ -49,7 +49,6 @@ function useFetchs<TData, TParams>(
   const newFetchs = ref<Fetchs>({})
 
   const setFetchs = (fetchs_: Fetchs) => {
-    // @ts-ignore
     newFetchs.value = fetchs_
   }
 
@@ -68,10 +67,9 @@ function useFetchs<TData, TParams>(
       watchEffect(() => {
         fetchs.value[cacheKey as string] = {
           key: cacheKey,
+          data: data?.value,
           // @ts-ignore
-          data: data?.value as UnwrapRef<TData>,
-          // @ts-ignore
-          params: params.value as UnwrapRef<TParams>,
+          params: params.value,
           loading: loading.value as UnwrapRef<boolean>,
         }
         setFetchs(fetchs.value as Fetchs)
@@ -85,25 +83,24 @@ function useFetchs<TData, TParams>(
           newParams = undefined,
           newLoading = false,
           key = DEFAULT_KEY,
-        ] = curr
+        ] = curr;
 
-        const fetchKey = keyIsStringOrNumber(key) ? key : DEFAULT_KEY
+        const fetchKey = keyIsStringOrNumber(key) ? key : DEFAULT_KEY;
 
         fetchs.value[fetchKey] = {
           key: fetchKey,
+          data: newData,
           // @ts-ignore
-          data: newData as UnwrapRef<TData>,
-          // @ts-ignore
-          params: newParams as UnwrapRef<TParams>,
-          loading: newLoading as UnwrapRef<boolean>,
-        }
-        setFetchs(fetchs.value as Fetchs)
+          params: newParams,
+          loading: newLoading,
+        };
+        setFetchs(fetchs.value);
       })
     })
   }
 
   return {
-    fetchs: readonly(newFetchs),
+    fetchs: newFetchs,
     fetchRun,
   }
 }

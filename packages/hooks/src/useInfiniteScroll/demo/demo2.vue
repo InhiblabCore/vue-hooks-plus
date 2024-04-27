@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { useInfiniteScroll } from '../../index'
+  import { useInfiniteScroll } from 'vue-hooks-plus'
 
   interface Result {
     list: string[]
