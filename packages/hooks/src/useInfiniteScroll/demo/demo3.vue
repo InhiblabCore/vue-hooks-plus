@@ -3,7 +3,8 @@
     <vhp-button @click="() => reload()" style="margin-bottom: 8px;"> Reset </vhp-button>
     <div style="margin-bottom: 16px;"
     >Change will be reset：<input type="text" v-model="text"
-    ></div>
+    /></div>
+
     <p v-if="loading" />
     <div
       v-for="item in data?.list"
@@ -28,7 +29,7 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { useInfiniteScroll } from '../../index'
+  import { useInfiniteScroll } from 'vue-hooks-plus'
 
   interface Result {
     list: string[]
