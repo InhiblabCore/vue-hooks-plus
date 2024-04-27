@@ -2,20 +2,22 @@
   <div>
     <div v-for="item in datas" :key="item.key" class="item">
       {{ item.loading ? 'loading' : '' }}
-      {{ item.data }}
+      {{ item.data?.desc }}
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { computed, watchEffect } from 'vue'
+  import { computed, watchEffect, ref } from 'vue'
   import { useFetchs } from 'vue-hooks-plus'
 
-  async function getUsername(params: { desc: string }): Promise<string> {
+  async function getUsername(params: { desc: string }): Promise<{ desc: string }> {
     return new Promise(resolve => {
       setTimeout(
         () => {
-          resolve(`VueHooks Plus ${params.desc}`)
+          resolve({
+            desc: `VueHooks Plus ${params.desc}`,
+          })
         },
         params.desc === 'SSS' ? 4000 : 2000,
       )
@@ -33,6 +35,9 @@
       },
     },
   )
+
+  const name = ref()
+  name.value = fetchs?.value?.[0]?.data?.desc
 
   watchEffect(() => {
     arr.forEach(item => {
