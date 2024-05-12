@@ -5,7 +5,7 @@
     <vhp-button @click="refresh()">Refresh</vhp-button>
     <div style="margin-top: 8px;">
       <h4>Desc</h4>
-      <input v-model="input">
+      <input v-model="input" />
       <vhp-button style="margin-left: 4px;" @click="submit()">Send</vhp-button>
     </div>
   </div>
@@ -40,9 +40,11 @@
     () => getUsername({ desc: desc.value }),
     {
       refreshDeps: true,
-      broadcastChannel: 'nice-broadcastChannel',
-      onBroadcastChannel: (message: any, channel: any) => {
-        other.value.push(message.data)
+      pluginOptions: {
+        broadcastChannel: 'nice-broadcastChannel',
+        onBroadcastChannel: (message: any, channel: any) => {
+          other.value.push(message.data)
+        },
       },
     },
     [useBroadcastChannelPlugin],
