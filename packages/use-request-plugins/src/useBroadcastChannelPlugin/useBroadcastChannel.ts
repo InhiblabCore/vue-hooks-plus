@@ -15,7 +15,8 @@ export interface BroadcastChannelType {
   onBroadcastChannel?: (value?: MessageType, channel?: BroadcastChannel, setFetchState?: Fetch<any, []>['setFetchState']) => void
 }
 
-export const useBroadcastChannelPlugin: UseRequestPlugin<any, [], BroadcastChannelType> = (fetchInstance, { broadcastChannel, broadcastChannelKey, broadcastChannelOptions = { webWorkerSupport: false }, customPostMessage, onBroadcastChannel }) => {
+export const useBroadcastChannelPlugin: UseRequestPlugin<any, [], BroadcastChannelType> = (fetchInstance, { pluginOptions }) => {
+  const { broadcastChannel, broadcastChannelKey, broadcastChannelOptions = { webWorkerSupport: false }, customPostMessage, onBroadcastChannel } = pluginOptions ?? {}
   let transaction = false
   const channel = ref<BroadcastChannel>()
 
