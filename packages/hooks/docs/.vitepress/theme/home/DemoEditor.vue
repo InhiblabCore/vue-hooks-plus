@@ -1,4 +1,9 @@
 <template>
+  <div>
+    <h2 class="name">
+      Grace
+    </h2>
+  </div>
   <div id="demo-editor" ref="domRef">
     <div class="terminal">
       <slot />
@@ -70,6 +75,13 @@
 </script>
 
 <style lang="less">
+  h2 {
+    text-align: center;
+    font-weight: 600;
+    color: var(--vp-font-color);
+    padding-bottom: 1rem;
+  }
+
   #demo-editor {
     display: flex;
     justify-content: center;

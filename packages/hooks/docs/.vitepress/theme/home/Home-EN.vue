@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import DemoEditor from './DemoEditor.vue'
-  // import HomeTeam from './HomeTeam.vue'
+  import HomeTeam from './HomeTeam.vue'
   import Icon from './Icon.vue'
   // import Waves from '../Waves/index.vue'
   import Waves from '../Wave.vue'
@@ -106,7 +106,7 @@
         <pre ref="block" class="text-left whitespace-normal font-mono bg-transparent"></pre>
       </div> -->
     </DemoEditor>
-    <!-- <HomeTeam /> -->
+    <HomeTeam />
   </div>
 </template>
 
