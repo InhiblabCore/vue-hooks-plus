@@ -20,3 +20,18 @@
 feat: your commit
 
 ```
+
+### 📌 Possible Problems
+
+If running 'pnpm docs:dev' prompts an error, try the following:
+
+- Check 'node' version: It is recommended to use 'node 16', 'node 18' version development
+- build and run: 'pnpm build and run' pnpm docs:dev '
+
+```bash
+# build project
+pnpm build
+
+# run docs
+pnpm docs:dev
+```

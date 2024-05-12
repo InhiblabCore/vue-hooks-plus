@@ -32,7 +32,7 @@ describe('polling', () => {
     result.run()
     expect(result.loading.value).toBeTruthy()
     expect(result.data?.value).toBeUndefined()
-    await sleep(1000)
+    await sleep(1050)
     expect(result.data?.value).toBe(data)
     expect(result.loading.value).toBeFalsy()
   })

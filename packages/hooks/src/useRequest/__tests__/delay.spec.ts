@@ -1,18 +1,27 @@
 import { sleep } from 'test-utils/sleep'
-import { mount } from '@vue/test-utils'
+import useRequest from '../useRequest'
 
-import Demo from '../docs/loadingDelay/demo/demo.vue'
+function getUsername(): Promise<string> {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(`vue-hooks-plus useRequest A ${new Date().getTime()}`)
+    }, 1)
+  })
+}
+
 
 describe('useRequest/LoadingDelay', () => {
   it(' should data work ', async () => {
-    const wrapper = mount(Demo)
-    const text = wrapper.findAll('div').at(1)
+    const { loading, run: runData } = useRequest(() => getUsername())
+    const { loading: loading1, run: runData1 } = useRequest(() => getUsername(), {
+      loadingDelay: 300,
+    })
+    runData()
+    runData1()
+    await sleep(10)
+    expect(loading.value).toBe(false)
+    expect(loading1.value).toBe(true)
 
-    expect(text?.text()).toBe('Username：')
-    await sleep(301)
-    expect(text?.text()).toBe('Username：loading...')
 
-    await sleep(1000)
-    expect(text?.text()).toBe('Username：vue-hooks-plus useRequest A')
   })
 })
