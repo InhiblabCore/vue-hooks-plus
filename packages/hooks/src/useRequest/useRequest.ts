@@ -10,24 +10,45 @@ import useThrottlePlugin from './plugins/useThrottlePlugin'
 
 import useRequestImplement from './useRequestImplement'
 
-import { UseRequestOptions, UseRequestPlugin, UseRequestService } from './types'
+import { UseRequestOptions, UseRequestOptionsWithFormatResult, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
 import { withArgs } from './utils/resolve-args'
 
-function useRequest<
+
+// 有 formatResult
+export function useRequest<
   TData,
   TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
+  SR = any,
+>(service: UseRequestService<SR, TParams>, options?: UseRequestOptionsWithFormatResult<TData, TParams, PluginsOptions extends (infer P)[]
+  ? P extends UseRequestPlugin<TData, TParams, infer R>
+  ? R
+  : never
+  : never, SR>, plugins?: PluginsOptions): useRequestResult<TData, TParams>
+
+
+// 无 formatResults
+export function useRequest<
+  TData,
+  TParams extends unknown[] = unknown[],
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
+>(service: UseRequestService<TData, TParams>, options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[]
+  ? P extends UseRequestPlugin<TData, TParams, infer R>
+  ? R
+  : never
+  : never>, plugins?: PluginsOptions): useRequestResult<TData, TParams>
+
+export function useRequest<
+  TData,
+  TParams extends unknown[] = unknown[],
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
 >(
   service: UseRequestService<TData, TParams>,
-  options?: UseRequestOptions<
-    TData,
-    TParams,
-    PluginsOptions extends (infer P)[]
+  options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[]
     ? P extends UseRequestPlugin<TData, TParams, infer R>
     ? R
     : never
-    : never
-  >,
+    : never>,
   plugins?: PluginsOptions,
 ) {
 
@@ -48,5 +69,7 @@ function useRequest<
     ...BuiltInPlugins
   ] as UseRequestPlugin<TData, TParams>[])
 }
+
+
 
 export default useRequest
