@@ -1,9 +1,9 @@
 import { setupDevtoolsPlugin } from '@vue/devtools-api'
 
-import { unref } from 'vue'
 import { getRequestTagBg } from './utils'
 import devToolsStore from './store'
 import Fetch from '../Fetch'
+import { unref } from 'vue'
 
 const pluginId = 'vue-hooks-plus'
 const pluginName = 'Vue Hooks Plus 🍭'
@@ -163,11 +163,11 @@ export function setupDevtools(app: any) {
               'Data Explorer': Object.keys(currentSource.instance.state).map(item => ({
                 key: item,
                 value:
-                  currentSource.instance.state[item as keyof typeof currentSource.instance.state],
+                  unref(currentSource.instance.state[item as keyof typeof currentSource.instance.state]),
               })),
               Option: Object.keys(currentSource.instance.options).map(item => ({
                 key: item,
-                value: unref(currentSource.instance.options[item]),
+                value: currentSource.instance.options[item as keyof typeof currentSource.instance.options],
               })),
               ["Plugins 🧩"]:
                 currentSource.instance.pluginImpls?.map((_, index) => {
