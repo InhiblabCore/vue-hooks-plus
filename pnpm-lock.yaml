@@ -20,10 +20,10 @@ importers:
       '@vitest/ui': ^0.25.3
       '@vue-hooks-plus/eslint-config': workspace:^1.0.0
       '@vue-hooks-plus/md-demo-plugins': ^1.0.0
-      '@vue-hooks-plus/types': workspace:^1.0.0
+      '@vue-hooks-plus/types': workspace:^2.0.0
       '@vue-hooks-plus/use-immer': workspace:^1.0.0
-      '@vue-hooks-plus/use-request': workspace:^1.0.0
-      '@vue-hooks-plus/use-request-plugins': workspace:^1.0.0
+      '@vue-hooks-plus/use-request': workspace:^2.0.0
+      '@vue-hooks-plus/use-request-plugins': workspace:^2.0.0
       '@vue-hooks-plus/use-worker': workspace:^1.0.0
       '@vue-hooks-plus/vite-plugin-gen-temp': ^2.6.6
       '@vue-hooks-plus/vitepress': ^1.2.4
@@ -195,7 +195,7 @@ importers:
     specifiers:
       '@vue-hooks-plus/use-request': ^1.3.2
     devDependencies:
-      '@vue-hooks-plus/use-request': link:../use-request
+      '@vue-hooks-plus/use-request': 1.6.2
 
   packages/use-worker:
     specifiers:
@@ -1885,6 +1885,13 @@ packages:
       - sass
       - search-insights
       - stylus
+    dev: true
+
+  /@vue-hooks-plus/use-request/1.6.2:
+    resolution: {integrity: sha512-LDkfuDMSsETLcB2cBUUmitOX+IfDsdjgK7Q1J1R9Md9eZpfaj/WMP3VqUuY5urcwfILOWMUEakih7wc/7uvzGg==}
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      lodash: 4.17.21
     dev: true
 
   /@vue-hooks-plus/vite-plugin-gen-temp/2.6.6_6dxxgtbrz56s2zkljf2kg4oim4:
