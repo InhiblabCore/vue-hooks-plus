@@ -97,6 +97,8 @@ Need to setup `data`, `params`, `loading`, `error` Change requires use using the
 
 Return the results after the request data has processed the data, call `setFetchState` to reset the value.
 
+### V1 example
+
 ```typescript
 const useFormatterPlugin: UseRequestPlugin<
   {
@@ -116,7 +118,28 @@ const useFormatterPlugin: UseRequestPlugin<
 }
 ```
 
-## API
+### V2 example
+
+```typescript
+const useFormatterPlugin: UseRequestPlugin<
+  {
+    name: string
+    age: number
+  },
+  [],
+  {
+    formatter?: ({ name, age }?: { name: string; age: number }) => any
+  }
+> = (fetchInstance, { pluginOptions }) => {
+  return {
+    onSuccess: () => {
+      fetchInstance.setFetchState(pluginOptions?.formatter?.(fetchInstance.state.data), 'data')
+    },
+  }
+}
+```
+
+## V1 API
 
 ```typescript
 const { data } = useRequest(
@@ -124,6 +147,21 @@ const { data } = useRequest(
   {
     ...option,
     ...pluginOption,
+  },
+  [useFormatterPlugin, ...otherPlugins],
+)
+```
+
+## V2 API
+
+```typescript
+const { data } = useRequest(
+  () => serviceFn(),
+  {
+    ...option,
+    pluginOptions: {
+      ...pluginOption,
+    },
   },
   [useFormatterPlugin, ...otherPlugins],
 )

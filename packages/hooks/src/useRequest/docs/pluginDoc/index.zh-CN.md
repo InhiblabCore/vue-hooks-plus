@@ -100,6 +100,8 @@ interface UseRequestPluginReturn<TData, TParams extends any[]> {
 
 在请求数据完成后将 外部传入的 `formatter` 处理完数据后将结果返回，调用 `setFetchState` 重新设置值。
 
+### V1 示例
+
 ```typescript
 const useFormatterPlugin: UseRequestPlugin<
   {
@@ -119,7 +121,28 @@ const useFormatterPlugin: UseRequestPlugin<
 }
 ```
 
-## API
+### V2 示例
+
+```typescript
+const useFormatterPlugin: UseRequestPlugin<
+  {
+    name: string
+    age: number
+  },
+  [],
+  {
+    formatter?: ({ name, age }?: { name: string; age: number }) => any
+  }
+> = (fetchInstance, { pluginOptions }) => {
+  return {
+    onSuccess: () => {
+      fetchInstance.setFetchState(pluginOptions?.formatter?.(fetchInstance.state.data), 'data')
+    },
+  }
+}
+```
+
+## V1 API
 
 ```typescript
 const { data } = useRequest(
@@ -127,6 +150,21 @@ const { data } = useRequest(
   {
     ...option,
     ...pluginOption,
+  },
+  [useFormatterPlugin, ...otherPlugins],
+)
+```
+
+## V2 API
+
+```typescript
+const { data } = useRequest(
+  () => serviceFn(),
+  {
+    ...option,
+    pluginOptions: {
+      ...pluginOption,
+    },
   },
   [useFormatterPlugin, ...otherPlugins],
 )
