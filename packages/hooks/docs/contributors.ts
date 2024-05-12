@@ -14,6 +14,7 @@ export interface CoreTeam {
   description: string
   packages?: string[]
   functions?: string[]
+  functionsMap?: Record<string, string>
 }
 
 const contributorsAvatars: Record<string, string> = {}
@@ -56,6 +57,9 @@ const coreTeamMembers: CoreTeam[] = [
     github: 'Noobbbbbbb',
     description: '',
     functions: ['useFullscreen'],
+    functionsMap: {
+      useFullscreen: 'useFull'
+    }
   }
 ]
 // .sort(

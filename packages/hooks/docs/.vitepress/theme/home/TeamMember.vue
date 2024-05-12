@@ -79,7 +79,11 @@
             <a
               v-for="f of data.functions"
               :key="f"
-              :href="isProduction ? `/docs/hooks/${f}/` : `/${f}/`"
+              :href="
+                isProduction
+                  ? `/docs/hooks/${data?.functionsMap?.[f] ?? f}/`
+                  : `/${data?.functionsMap?.[f] ?? f}/`
+              "
               target="_blank"
             >
               <code>{{ f }}</code>
