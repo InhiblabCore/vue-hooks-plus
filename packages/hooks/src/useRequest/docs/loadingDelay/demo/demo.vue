@@ -1,6 +1,7 @@
 <template>
   <div>Username：{{ data }}</div>
   <div>Username：{{ loading ? 'loading...' : data1 }}</div>
+  <vhp-button @click="run">run</vhp-button>
 </template>
 
 <script lang="ts" setup>
@@ -23,7 +24,7 @@
   }
 
   const { data } = useRequest(() => getUsername())
-  const { data: data1, loading } = useRequest(() => getUsername1(), {
-    loadingDelay: 300,
+  const { data: data1, loading, run } = useRequest(() => getUsername1(), {
+    loadingDelay: 2000,
   })
 </script>

@@ -1,44 +1,28 @@
-import { unref, ref } from "vue";
-import type { UseRequestPlugin, Timeout } from "../types";
+import { ref, unref } from 'vue'
+import { Timeout, UseRequestPlugin } from '../types'
 
-const useLoadingDelayPlugin: UseRequestPlugin<unknown, unknown[]> = (
-  fetchInstance,
-  { loadingDelay }
-) => {
-  const timerRef = ref<Timeout>();
-  if (!unref(loadingDelay)) {
-    return {};
-  }
-
-  const cancelTimeout = () => {
-    if (timerRef.value) {
-      clearTimeout(timerRef.value);
-    }
-  };
-
-
+const useLoadingDelayPlugin: UseRequestPlugin<unknown, unknown[]> = (inst, { loadingDelay }) => {
+  const delayRef = ref<Timeout>()
 
   return {
-    name: "loadingDelayPlugin",
-    onBefore: () => {
-      cancelTimeout();
-      timerRef.value = setTimeout(() => {
-        fetchInstance.setState({
-          loading: true,
-        });
-      }, (unref(loadingDelay)) as number);
-
-      return {
-        loading: false,
-      };
-    },
+    name: 'loadingDelayPlugin',
     onFinally: () => {
-      cancelTimeout();
-    },
-    onCancel: () => {
-      cancelTimeout();
-    },
-  };
-};
+      if (delayRef.value) {
+        clearTimeout(unref(delayRef.value))
 
-export default useLoadingDelayPlugin;
+        delayRef.value = undefined
+      }
+
+      inst.setState({
+        loading: true,
+      })
+      setTimeout(() => {
+        inst.setState({
+          loading: false,
+        })
+      }, unref(loadingDelay))
+    },
+  }
+}
+
+export default useLoadingDelayPlugin
