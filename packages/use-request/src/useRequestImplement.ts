@@ -18,7 +18,7 @@ function isUseRequestFetchState<TData, TParams extends any[]>(
 
 function useRequestImplement<TData, TParams extends any[]>(
   service: UseRequestService<TData, TParams>,
-  options: UseRequestOptions<TData, TParams, any> = {},
+  options: UseRequestOptions<TData, TParams> = {},
   plugins: UseRequestPlugin<TData, TParams>[] = [],
 ) {
   // global option

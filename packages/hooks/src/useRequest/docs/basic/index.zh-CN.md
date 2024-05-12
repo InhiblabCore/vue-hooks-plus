@@ -146,12 +146,6 @@ runAsync()
      title=""
      desc=""> </demo>
 
-## 格式化请求数据
-
-由于 `useRequest` 需要保证良好的插件系统，format 对于系统来说侵入性太大，这里格式化使用的的是 `useFormatResult`,在请求数据完成后将 data 传入 `useFormatResult` 进行格式化， `useFormatResult` 可以很好的支持 `typescript` 类型提示。 <br />
-
-<a href="/docs/hooks/useFormatResult/" >跳转至 useFormatResult</a>
-
 ## API
 
 ```ts
@@ -202,7 +196,7 @@ const {
 | initialData | 初始化的数据 | `TData` \| `undefined` |
 | manual | <ul><li> 默认 `false`。 即在初始化时自动执行 service。</li><li>如果设置为 `true`，则需要手动调用 `run` 或 `runAsync` 触发执行。 </li></ul> | `boolean` | `false` |
 | defaultParams | 首次默认执行时，传递给 service 的参数 | `TParams` | - |
-| formatResult | 格式化请求结果，建议使用 `useFormatResult` | `(response: TData) => any` | - |
+| formatResult | 格式化请求结果，v1 建议使用 `useFormatResult` | `(response: TData) => FormatData` | - |
 | onBefore | service 执行前触发 | `(params: TParams) => void` | - |
 | onSuccess | service resolve 时触发 | `(data: TData, params: TParams) => void` | - |
 | onError | service reject 时触发 | `(e: Error, params: TParams) => void` | - |

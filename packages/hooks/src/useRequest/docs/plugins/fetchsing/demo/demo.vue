@@ -22,15 +22,17 @@
       const { data, loading } = useRequest(
         () => getUsername({ desc: 'good' }),
         {
-          fetchingKey: () => {
-            return 'one'
-          },
-          onFetching: (current: any, record: any) => {
-            console.log(current)
-            console.log(record)
-          },
-          isFetching: (v: any) => {
-            console.log(v)
+          pluginOptions: {
+            fetchingKey: () => {
+              return 'one'
+            },
+            onFetching: (current: any, record: any) => {
+              console.log(current)
+              console.log(record)
+            },
+            isFetching: (v: any) => {
+              console.log(v)
+            },
           },
         },
         [useFetchingPlugin],
@@ -56,13 +58,15 @@
       const { data, loading } = useRequest(
         () => getUsername({ desc: 'good' }),
         {
-          // manual: true,
-          fetchingKey: () => {
-            return 'two'
-          },
-          onFetching: (current: any, record: any) => {
-            console.log(current)
-            console.log(record)
+          pluginOptions: {
+            // manual: true,
+            fetchingKey: () => {
+              return 'two'
+            },
+            onFetching: (current: any, record: any) => {
+              console.log(current)
+              console.log(record)
+            },
           },
         },
         [useFetchingPlugin],

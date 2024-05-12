@@ -14,20 +14,20 @@
   }
 
   interface CustomPluginFieldType {
-    formatter: (data?: FormatterDataType) => { name: string; age: number }
+    formatter: (data: FormatterDataType) => { name: string; age: number }
   }
 
   const useFormatterPlugin: UseRequestPlugin<
-    FormatterDataType,
+    any,
     [],
     {
-      formatter: CustomPluginFieldType['formatter']
+      formatter?: CustomPluginFieldType['formatter']
     }
-  > = (fetchInstance, { formatter }) => {
+  > = (fetchInstance, { pluginOptions }) => {
     return {
       name: 'formatterPlugin',
       onSuccess: () => {
-        fetchInstance.setFetchState(formatter?.(fetchInstance.state.data), 'data')
+        fetchInstance.setFetchState(pluginOptions?.formatter?.(fetchInstance.state.data), 'data')
       },
     }
   }
@@ -47,11 +47,13 @@
     () => getUsername(),
     {
       debugKey: 'plugindemo',
-      formatter: (params?: FormatterDataType) => {
-        return {
-          name: `${params?.name} - plugins update`,
-          age: 20,
-        }
+      pluginOptions: {
+        formatter: data => {
+          return {
+            name: `formatter ${data.name}`,
+            age: data.age + 1,
+          }
+        },
       },
     },
     [useFormatterPlugin],
