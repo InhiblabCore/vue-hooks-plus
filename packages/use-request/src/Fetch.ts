@@ -5,6 +5,7 @@ import {
   UseRequestOptions,
   UseRequestPluginReturn,
   UseRequestService,
+  UseRequestOptionsWithFormatResult
 } from './types'
 
 export default class Fetch<TData, TParams extends unknown[] = any> {
@@ -23,7 +24,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
 
   constructor(
     public serviceRef: Ref<UseRequestService<TData, TParams>>,
-    public options: UseRequestOptions<TData, TParams, any>,
+    public options: Partial<UseRequestOptions<TData, TParams, any> & UseRequestOptionsWithFormatResult<TData, TParams, any, any>>,
     public setUpdateData: (
       currentState: unknown,
       key?: keyof UseRequestFetchState<TData, TParams>,
@@ -116,7 +117,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     )
     // Do you want to stop the request
     if (stopNow) {
-      return new Promise(() => {})
+      return new Promise(() => { })
     }
 
     this.setState({
@@ -144,7 +145,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       this.runPluginHandler('onError', error, params)
 
       // Manually intercept the error and return a Promise with an empty status
-      return new Promise(() => {})
+      return new Promise(() => { })
     }
 
     try {
@@ -154,7 +155,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       const requestReturnResponse = (res: any) => {
         // The request has been cancelled, and the count will be inconsistent with the currentCount
         if (currentCount !== this.count) {
-          return new Promise(() => {})
+          return new Promise(() => { })
         }
         // Format data
         const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
@@ -188,7 +189,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       return requestReturnResponse(servicePromiseResult)
     } catch (error) {
       if (currentCount !== this.count) {
-        return new Promise(() => {})
+        return new Promise(() => { })
       }
 
       this.setState({
