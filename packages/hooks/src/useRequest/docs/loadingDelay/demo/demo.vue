@@ -1,6 +1,6 @@
 <template>
-  <div>Username：{{ data }}</div>
-  <div>Username：{{ loading ? 'loading...' : data1 }}</div>
+  <div>Username：{{ loading ? 'loading' : data }}</div>
+  <div>Username：{{ loading1 ? 'loading...' : data1 }}</div>
   <vhp-button @click="run">run</vhp-button>
 </template>
 
@@ -10,21 +10,18 @@
   function getUsername(): Promise<string> {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve('vue-hooks-plus useRequest')
-      }, 1000)
+        resolve(`vue-hooks-plus useRequest A ${new Date().getTime()}`)
+      }, 1)
     })
   }
 
-  function getUsername1(): Promise<string> {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve('vue-hooks-plus useRequest A')
-      }, 1000)
-    })
-  }
-
-  const { data } = useRequest(() => getUsername())
-  const { data: data1, loading, run } = useRequest(() => getUsername1(), {
-    loadingDelay: 2000,
+  const { data, loading, run: runData } = useRequest(() => getUsername())
+  const { data: data1, loading: loading1, run: runData1 } = useRequest(() => getUsername(), {
+    loadingDelay: 300,
   })
+
+  const run = () => {
+    runData()
+    runData1()
+  }
 </script>
