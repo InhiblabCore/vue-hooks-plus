@@ -137,7 +137,10 @@ const useRequestRouter = [
         text: '错误重试',
         link: '/useRequest/retry/',
       },
-
+      {
+        text: '格式化数据',
+        link: '/useRequest/formatResult/',
+      },
       {
         text: '缓存 & SWR',
         link: '/useRequest/cache/',
@@ -155,7 +158,7 @@ const useRequestRouter = [
         link: '/useRequest/scroll/',
       },
       {
-        text: '中间件·Beta',
+        text: '中间件',
         link: '/useRequest/middleware/',
       },
       {
@@ -250,7 +253,10 @@ const useRequestRouterEN = [
         text: 'Retry',
         link: '/en/useRequest/retry/',
       },
-
+      {
+        text: 'Format Result',
+        link: '/en/useRequest/formatResult/',
+      },
       {
         text: 'Cache & SWR',
         link: '/en/useRequest/cache/',
@@ -268,7 +274,7 @@ const useRequestRouterEN = [
         link: '/en/useRequest/scroll/',
       },
       {
-        text: 'Middleware·Beta',
+        text: 'Middleware',
         link: '/en/useRequest/middleware/',
       },
       {
@@ -310,6 +316,11 @@ export function getRouterConfig(langPrefix = '/') {
           text: langPrefix === '/' ? '📐 UseRequest规范' : '📐 UseRequest specification',
           link: `${langPrefix}useRequest/guide/`,
         },
+        {
+          text: langPrefix === '/' ? '🫶 迁移到 v2 版本' : '🫶 Migrate to v2 version',
+          link: `${langPrefix}migrate/`,
+        },
+
         // {
         //   text: langPrefix === '/' ? '🧑‍🏫 在线教程' : '🧑‍🏫 Online Teaching',
         //   link: `${langPrefix}onlineTeaching/`,

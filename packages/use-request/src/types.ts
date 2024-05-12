@@ -52,11 +52,11 @@ export type UseRequestMiddleware<TData, TParams extends any[]> = (
   useRequestNext: RequestHook<TData, TParams>
 ) => RequestHook<TData, TParams>
 
-export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
+export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   /**
    * Init data.
    */
-  initialData?: TData
+  // initialData?: TData
 
   /**
    * - The default is `false.` That is, the service is automatically executed during initialization.
@@ -128,7 +128,7 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
    * @param data TData
    * @returns unknown need cover TData
    */
-  formatResult?: (data?: TData) => unknown
+  // formatResult?: (data?: TData) => any
 
   /**
    * Polling interval, in milliseconds. If the value is greater than 0, the polling mode is activated.
@@ -246,14 +246,24 @@ export interface UseRequestBasicOptions<TData, TParams extends unknown[]> {
    * Middleware
    */
   use?: UseRequestMiddleware<TData, TParams>[]
+
+  rollbackOnError?: boolean | ((params: TParams) => boolean)
 }
 
-export type UseRequestOptions<TData, TParams extends unknown[], TPlugin> = {
-  [K in keyof UseRequestBasicOptions<TData, TParams>]: UseRequestBasicOptions<TData, TParams>[K]
-} &
-  {
-    [K in keyof TPlugin]: TPlugin[K]
-  }
+export type UseRequestOptions<TData, TParams extends any[] = any[], TPlugin = any> = UseRequestBasicOptions<TData, TParams> &
+{
+  pluginOptions?: TPlugin
+}
+
+export type UseRequestOptionsWithFormatResult<
+  TData,
+  TParams extends any[] = any[],
+  TPlugin = any,
+  SR = any,
+> = UseRequestOptions<TData, TParams, TPlugin> & {
+  formatResult: (res: SR) => TData;
+}
+
 
 export interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
   (

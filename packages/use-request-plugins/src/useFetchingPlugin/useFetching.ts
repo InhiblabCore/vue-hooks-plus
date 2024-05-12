@@ -30,8 +30,9 @@ export interface FetchingPluginType {
 
 export const useFetchingPlugin: UseRequestPlugin<any, [], FetchingPluginType> = (
   _,
-  { fetchingKey, onFetching, isFetching },
+  { pluginOptions },
 ) => {
+  const { fetchingKey, onFetching, isFetching } = pluginOptions ?? {}
   const store = useFetchingGlobalStore()
   let currentFetchingKey: string | undefined
 

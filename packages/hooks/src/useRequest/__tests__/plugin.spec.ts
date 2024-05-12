@@ -24,10 +24,10 @@ const useFormatterPlugin: UseRequestPlugin<
   {
     formatter?: (params?: { name: string; age: number }) => any
   }
-> = (fetchInstance, { formatter }) => {
+> = (fetchInstance, { pluginOptions }) => {
   return {
     onSuccess: () => {
-      fetchInstance.setData(formatter?.(fetchInstance.state.data), 'data')
+      fetchInstance.setData(pluginOptions?.formatter?.(fetchInstance.state.data), 'data')
     },
   }
 }
@@ -37,12 +37,14 @@ describe('useRequest/Plugin', () => {
     useRequest(
       () => getUsername(),
       {
-        formatter: (data: any) => {
-          return {
-            name: `${data.name} - plugins update`,
-            age: 20,
-          }
-        },
+        pluginOptions: {
+          formatter: (data) => {
+            return {
+              name: `${data?.name} - plugins update`,
+              age: 20,
+            }
+          },
+        }
       },
       [useFormatterPlugin],
     ),

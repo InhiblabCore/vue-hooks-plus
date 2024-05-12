@@ -113,7 +113,7 @@ In the following example, we demonstrate a scenario of `mutate`.
 
 We have modified the user name, but we do not want to wait for the request to be successful before giving feedback to the user. Instead, modify the data directly, then call the modify request in background, and provide additional feedback after the request returns.
 
-### error rollback `1.7.7.alpha.4`
+### error rollback
 
 When you use `mutate`, it is possible that the remote data change fails after the optimistic data is displayed to the user. In this case, you can enable `rollbackOnError`, which restores the local cache to its previous state, ensuring that the user sees Got the correct data.
 
@@ -148,12 +148,6 @@ If we set `options.manual = false`, the parameters of calling `service` for the 
      language="vue"
      title=""
      desc=""> </demo>
-
-## Format the request data
-
-Since `useRequest` needs to guarantee a good plug-in system, format is too invasive for the system, the formatting here is `useFormatResult`, format data to `useFormatResult` after the request data is completed, `useFormatResult` can well support `typescript` type prompt. <br />
-
-<a href="/docs/hooks/en/useFormatResult/" >Jump to useFormatResult</a>
 
 ## API
 
@@ -205,7 +199,7 @@ const {
 | initialData | Init data | `TData` \| `undefined` |
 | manual | <ul><li> The default is `false`. That is, the service is automatically executed during initialization.</li><li>If set to `true`, you need to manually call `run` or `runAsync` to trigger execution. </li></ul> | `boolean` | `false` |
 | defaultParams | The parameters passed to the service at the first default execution | `TParams` | - |
-| formatResult | Format the request results, which recommend to use `useFormatResult` | `(response: TData) => any` | - |
+| formatResult | Format the request results,v1 which recommend to use `useFormatResult` | `(response: TData) => FormatData` | - |
 | onBefore | Triggered before service execution | `(params: TParams) => void` | - |
 | onSuccess | Triggered when service resolve | `(data: TData, params: TParams) => void` | - |
 | onError | Triggered when service reject | `(e: Error, params: TParams) => void` | - |
