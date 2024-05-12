@@ -6,6 +6,8 @@
   defineProps<{
     data: CoreTeam
   }>()
+
+  const isProduction = process.env.NODE_ENV === 'production'
 </script>
 
 <template>
@@ -74,7 +76,12 @@
         <div class="code">
           <img class="icon" :src="funcIcon" alt="" />
           <div class="code-container">
-            <a v-for="f of data.functions" :key="f" :href="`/${f}/`" target="_blank">
+            <a
+              v-for="f of data.functions"
+              :key="f"
+              :href="isProduction ? `/docs/hooks/${f}/` : `/${f}/`"
+              target="_blank"
+            >
               <code>{{ f }}</code>
             </a>
           </div>
