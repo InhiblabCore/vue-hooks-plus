@@ -4,23 +4,42 @@ import { Timeout, UseRequestPlugin } from '../types'
 const useLoadingDelayPlugin: UseRequestPlugin<unknown, unknown[]> = (inst, { loadingDelay }) => {
   const delayRef = ref<Timeout>()
 
+  const clear = () => {
+    if (delayRef.value) {
+      clearTimeout(unref(delayRef.value))
+
+      delayRef.value = undefined
+    }
+  }
+
   return {
     name: 'loadingDelayPlugin',
     onFinally: () => {
-      if (delayRef.value) {
-        clearTimeout(unref(delayRef.value))
+      clear()
 
-        delayRef.value = undefined
-      }
+      const delay = unref(loadingDelay)
 
-      inst.setState({
-        loading: true,
-      })
-      setTimeout(() => {
+      /**
+       *
+       * if loadingDelay is set, the loading state will be delayed,
+       * until the delay time is reached.
+       *
+       * if delay is set to 0, the loading state will not be delayed. because 0 is mean nothing.
+       */
+      if (delay) {
         inst.setState({
-          loading: false,
+          loading: true,
         })
-      }, unref(loadingDelay))
+
+        delayRef.value = setTimeout(() => {
+          inst.setState({
+            loading: false,
+          })
+        }, delay)
+      }
+    },
+    onError: () => {
+      clear()
     },
   }
 }
