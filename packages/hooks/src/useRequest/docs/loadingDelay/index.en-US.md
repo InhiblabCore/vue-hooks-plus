@@ -15,6 +15,8 @@ By setting `options.loadingDelay`, you can delay the time when `loading` turns t
 
 ### Basic usage
 
+If you hit run quickly, the data without loadingDelay will flash.
+
 <demo src="./demo/demo.vue"
   language="vue"
   title=""

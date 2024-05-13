@@ -14,11 +14,12 @@ export interface CoreTeam {
   description: string
   packages?: string[]
   functions?: string[]
+  functionsMap?: Record<string, string>
 }
 
 const contributorsAvatars: Record<string, string> = {}
 
-const getAvatarUrl = (name: string) => `https://github.com/${name}.png`
+const getAvatarUrl = (name: string) => `https://github.com/${encodeURIComponent(name)}.png`
 
 const contributorList = (contributors as string[]).reduce((acc, name) => {
   contributorsAvatars[name] = getAvatarUrl(name)
@@ -40,8 +41,15 @@ const coreTeamMembers: CoreTeam[] = [
     avatar: contributorsAvatars.hongaah,
     name: 'Hongaah',
     github: 'hongaah',
-    description: '',
+    description: "Swiftcode's Author",
     functions: ['useSetState', 'useWebSocket'],
+  },
+  {
+    avatar: "https://avatars.githubusercontent.com/u/51957438?v=4",
+    name: 'XiaoDaiGua-Ray',
+    github: 'XiaoDaiGua-Ray',
+    description: 'Tring be better～',
+    functions: ['useElementBounding', 'useMutationObserver'],
   },
   {
     avatar: contributorsAvatars.Noobbbbbbb,
@@ -49,7 +57,10 @@ const coreTeamMembers: CoreTeam[] = [
     github: 'Noobbbbbbb',
     description: '',
     functions: ['useFullscreen'],
-  },
+    functionsMap: {
+      useFullscreen: 'useFull'
+    }
+  }
 ]
 // .sort(
 //   (pre, cur) =>

@@ -15,6 +15,8 @@ source:
 
 ### 基本用法
 
+如果你快速的点击 run, 没使用 loadingDelay 的数据将会闪烁。
+
 <demo src="./demo/demo.vue"
   language="vue"
   title=""

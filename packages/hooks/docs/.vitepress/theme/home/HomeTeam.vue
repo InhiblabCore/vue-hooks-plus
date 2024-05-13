@@ -24,13 +24,15 @@
   h2 {
     text-align: center;
     font-weight: 600;
-    transform: scale(0.6);
+    /* transform: scale(0.8); */
     color: var(--vp-font-color);
+    padding-bottom: 1rem;
   }
 
   .main {
     /* padding: 96px 32px; */
     text-align: center;
+    background-color: var(--vp-c-bg);
   }
 
   .grid {
