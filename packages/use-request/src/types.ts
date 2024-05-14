@@ -56,7 +56,7 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   /**
    * Init data.
    */
-  // initialData?: TData
+  initialData?: TData
 
   /**
    * - The default is `false.` That is, the service is automatically executed during initialization.

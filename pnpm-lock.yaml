@@ -193,9 +193,9 @@ importers:
 
   packages/use-request-plugins:
     specifiers:
-      '@vue-hooks-plus/use-request': ^1.3.2
+      '@vue-hooks-plus/use-request': '*'
     devDependencies:
-      '@vue-hooks-plus/use-request': 1.6.2
+      '@vue-hooks-plus/use-request': link:../use-request
 
   packages/use-worker:
     specifiers:
@@ -1885,13 +1885,6 @@ packages:
       - sass
       - search-insights
       - stylus
-    dev: true
-
-  /@vue-hooks-plus/use-request/1.6.2:
-    resolution: {integrity: sha512-LDkfuDMSsETLcB2cBUUmitOX+IfDsdjgK7Q1J1R9Md9eZpfaj/WMP3VqUuY5urcwfILOWMUEakih7wc/7uvzGg==}
-    dependencies:
-      '@vue/devtools-api': 6.5.0
-      lodash: 4.17.21
     dev: true
 
   /@vue-hooks-plus/vite-plugin-gen-temp/2.6.6_6dxxgtbrz56s2zkljf2kg4oim4:

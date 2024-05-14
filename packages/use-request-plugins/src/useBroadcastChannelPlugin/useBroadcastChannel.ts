@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { BroadcastChannel, BroadcastChannelOptions } from 'broadcast-channel'
-import { UseRequestPlugin, UseRequestFetchState } from "@vue-hooks-plus/use-request/dist/types/types";
+import { UseRequestFetchState, UseRequestPlugin } from "@vue-hooks-plus/use-request/dist/types/types";
 import Fetch from '@vue-hooks-plus/use-request/dist/types/Fetch';
 
 
