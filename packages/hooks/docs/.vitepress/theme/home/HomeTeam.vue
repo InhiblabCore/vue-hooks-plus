@@ -4,35 +4,38 @@
 </script>
 
 <template>
-  <div>
-    <h2 class="name">
-      Meet The Team
-    </h2>
-  </div>
-  <div class="main">
-    <div class="grid">
-      <TeamMember v-for="c of coreTeamMembers" :key="c.github" :data="c" />
+  <div class="container">
+    <div class="main">
+      <div>
+        <h2 class="name">
+          Meet The Team
+        </h2>
+      </div>
+      <div class="grid">
+        <TeamMember v-for="c of coreTeamMembers" :key="c.github" :data="c" />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-  .container {
-    display: flex;
-  }
-
   h2 {
     text-align: center;
     font-weight: 600;
     /* transform: scale(0.8); */
     color: var(--vp-font-color);
     padding-bottom: 1rem;
+    padding-top: 2rem;
   }
 
   .main {
     /* padding: 96px 32px; */
     text-align: center;
     background-color: var(--vp-c-bg);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    /* border: 1.5px solid rgba(0, 0, 0, 0.05); */
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 30px 1px rgba(0, 0, 0, 0.15);
   }
 
   .grid {

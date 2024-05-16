@@ -97,11 +97,13 @@
         </div>
       </section>
     </div>
+
     <DemoEditor>
       <div class="demo-name">
         Demo.vue
       </div>
     </DemoEditor>
+
     <HomeTeam />
   </div>
 </template>
