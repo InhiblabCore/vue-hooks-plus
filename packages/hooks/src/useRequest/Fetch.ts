@@ -5,7 +5,8 @@ import {
   UseRequestOptions,
   UseRequestPluginReturn,
   UseRequestService,
-  UseRequestOptionsWithFormatResult
+  UseRequestOptionsWithFormatResult,
+  UseRequestOptionsWithInitialData,
 } from './types'
 
 export default class Fetch<TData, TParams extends unknown[] = any> {
@@ -24,7 +25,12 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
 
   constructor(
     public serviceRef: Ref<UseRequestService<TData, TParams>>,
-    public options: Partial<UseRequestOptions<TData, TParams, any> & UseRequestOptionsWithFormatResult<TData, TParams, any, any>>,
+    public options: Partial<
+      UseRequestOptions<TData, TParams, any> &
+      UseRequestOptionsWithFormatResult<TData, TParams, any, any>
+      &
+      UseRequestOptionsWithInitialData<TData, TParams, any>
+    >,
     public setUpdateData: (
       currentState: unknown,
       key?: keyof UseRequestFetchState<TData, TParams>,

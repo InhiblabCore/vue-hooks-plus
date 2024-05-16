@@ -10,48 +10,104 @@ import useThrottlePlugin from './plugins/useThrottlePlugin'
 
 import useRequestImplement from './useRequestImplement'
 
-import { UseRequestOptions, UseRequestOptionsWithFormatResult, UseRequestPlugin, useRequestResult, UseRequestService } from './types'
+import {
+  UseRequestOptions,
+  UseRequestOptionsWithFormatResult,
+  UseRequestOptionsWithInitialData,
+  UseRequestPlugin,
+  useRequestResult,
+  UseRequestService,
+} from './types'
 import { withArgs } from './utils/resolve-args'
 
-
-// 有 formatResult
-export function useRequest<
+export type PluginsMiddleOptionsType<
+  PluginsOptions,
   TData,
-  TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
-  SR = any,
->(service: UseRequestService<SR, TParams>, options: UseRequestOptionsWithFormatResult<TData, TParams, PluginsOptions extends (infer P)[]
+  TParams extends unknown[] = unknown[]
+> = PluginsOptions extends (infer P)[]
   ? P extends UseRequestPlugin<TData, TParams, infer R>
-  ? R
-  : never
-  : never, SR>, plugins?: PluginsOptions): useRequestResult<TData, TParams>
-
-
-// 无 formatResults
-export function useRequest<
-  TData,
-  TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
->(service: UseRequestService<TData, TParams>, options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[]
-  ? P extends UseRequestPlugin<TData, TParams, infer R>
-  ? R
-  : never
-  : never>, plugins?: PluginsOptions): useRequestResult<TData, TParams>
-
-export function useRequest<
-  TData,
-  TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
->(
-  service: UseRequestService<TData, TParams>,
-  options?: UseRequestOptions<TData, TParams, PluginsOptions extends (infer P)[]
-    ? P extends UseRequestPlugin<TData, TParams, infer R>
     ? R
     : never
-    : never>,
+  : never
+
+// 同时存在 formatResult 和 initialData
+export function useRequest<
+  TData,
+  TParams extends unknown[] = unknown[],
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
+  SR = any
+>(
+  service: UseRequestService<SR, TParams>,
+  options: UseRequestOptionsWithFormatResult<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>,
+    SR
+  > &
+    UseRequestOptionsWithInitialData<SR, TParams, PluginsOptions>,
+  plugins?: PluginsOptions,
+): useRequestResult<TData, TParams>
+
+// 只有 formatResult
+export function useRequest<
+  TData,
+  TParams extends unknown[] = unknown[],
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
+  SR = any
+>(
+  service: UseRequestService<SR, TParams>,
+  options: UseRequestOptionsWithFormatResult<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>,
+    SR
+  >,
+  plugins?: PluginsOptions,
+): useRequestResult<TData, TParams>
+
+// 只有 initialData
+export function useRequest<
+  TData,
+  TParams extends unknown[] = unknown[],
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
+>(
+  service: UseRequestService<TData, TParams>,
+  options: UseRequestOptionsWithInitialData<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>
+  >,
+  plugins?: PluginsOptions,
+): useRequestResult<TData, TParams>
+
+// 无 formatResults 和 initialData
+export function useRequest<
+  TData,
+  TParams extends unknown[] = unknown[],
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
+>(
+  service: UseRequestService<TData, TParams>,
+  options?: UseRequestOptions<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>
+  >,
+  plugins?: PluginsOptions,
+): useRequestResult<TData, TParams>
+
+export function useRequest<
+  TData,
+  TParams extends unknown[] = unknown[],
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
+>(
+  service: UseRequestService<TData, TParams>,
+  options?: UseRequestOptions<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>
+  >,
   plugins?: PluginsOptions,
 ) {
-
   const BuiltInPlugins = [
     process.env.NODE_ENV === 'development' ? useDevtoolsPlugin : null,
     useDebouncePlugin,
@@ -61,15 +117,13 @@ export function useRequest<
     useThrottlePlugin,
     useAutoRunPlugin,
     useCachePlugin,
-    useRetryPlugin
+    useRetryPlugin,
   ]?.filter(Boolean)
 
   return withArgs<TData, TParams>(useRequestImplement, options?.use)(service, options, [
     ...(plugins || []),
-    ...BuiltInPlugins
+    ...BuiltInPlugins,
   ] as UseRequestPlugin<TData, TParams>[])
 }
-
-
 
 export default useRequest

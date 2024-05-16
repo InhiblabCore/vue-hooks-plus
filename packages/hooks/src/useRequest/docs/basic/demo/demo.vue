@@ -1,6 +1,5 @@
 <template>
   <div>name：{{ loading ? 'loading' : data }}</div>
-  {{ data }}
 </template>
 
 <script lang="ts" setup>
@@ -16,5 +15,6 @@
 
   const { data, loading } = useRequest(() => getUsername({ desc: 'good' }), {
     debugKey: 'demo',
+    initialData:"000"
   })
 </script>
