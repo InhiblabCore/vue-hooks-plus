@@ -35,6 +35,7 @@ function useRequestImplement<TData, TParams extends any[]>(
   const fetchOptions = {
     manual,
     ready,
+    initialData,
     ...rest,
   }
 

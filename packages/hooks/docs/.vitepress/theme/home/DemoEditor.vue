@@ -1,9 +1,4 @@
 <template>
-  <div>
-    <h2 class="name">
-      Grace
-    </h2>
-  </div>
   <div id="demo-editor" ref="domRef">
     <div class="terminal">
       <slot />

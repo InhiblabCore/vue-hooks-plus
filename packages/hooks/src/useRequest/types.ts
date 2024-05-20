@@ -21,9 +21,9 @@ export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
     params: TParams,
   ) =>
     | ({
-      stopNow?: boolean
-      returnNow?: boolean
-    } & Partial<UseRequestFetchState<TData, TParams>>)
+        stopNow?: boolean
+        returnNow?: boolean
+      } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
@@ -46,17 +46,15 @@ export type RequestHook<TData = any, TParams extends any[] = any[]> = (
   plugins: UseRequestPlugin<TData, TParams>[],
 ) => useRequestResult<TData, TParams>
 
-
-
 export type UseRequestMiddleware<TData, TParams extends any[]> = (
-  useRequestNext: RequestHook<TData, TParams>
+  useRequestNext: RequestHook<TData, TParams>,
 ) => RequestHook<TData, TParams>
 
 export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   /**
    * Init data.
    */
-  initialData?: TData
+  // initialData?: TData
 
   /**
    * - The default is `false.` That is, the service is automatically executed during initialization.
@@ -250,8 +248,11 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   rollbackOnError?: boolean | ((params: TParams) => boolean)
 }
 
-export type UseRequestOptions<TData, TParams extends any[] = any[], TPlugin = any> = UseRequestBasicOptions<TData, TParams> &
-{
+export type UseRequestOptions<
+  TData,
+  TParams extends any[] = any[],
+  TPlugin = any
+> = UseRequestBasicOptions<TData, TParams> & {
   pluginOptions?: TPlugin
 }
 
@@ -259,11 +260,18 @@ export type UseRequestOptionsWithFormatResult<
   TData,
   TParams extends any[] = any[],
   TPlugin = any,
-  SR = any,
+  SR = any
 > = UseRequestOptions<TData, TParams, TPlugin> & {
-  formatResult: (res: SR) => TData;
+  formatResult: (res: SR) => TData
 }
 
+export type UseRequestOptionsWithInitialData<
+  TData,
+  TParams extends any[] = any[],
+  TPlugin = any
+> = UseRequestOptions<TData, TParams, TPlugin> & {
+  initialData: TData extends infer R ? R : TData
+}
 
 export interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
   (
