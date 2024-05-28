@@ -37,7 +37,7 @@
     "local-pkg": "^0.4.2"
   },
   "peerDependencies": {
-    "vue-hooks-plus": "^1.5.2"
+    "vue-hooks-plus": ">=1.5.2"
   },
   "pnpm": {
     "peerDependencyRules": {
