@@ -1,5 +1,5 @@
 import { unref, ref, watchEffect } from "vue";
-import type { UseRequestPlugin, Interval } from "../types";
+import type { UseRequestPlugin, Timeout } from "../types";
 import isDocumentVisible from "../utils/isDocumentVisible";
 import subscribeReVisible from "../utils/subscribeReVisible";
 
@@ -7,15 +7,15 @@ const usePollingPlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { pollingInterval, pollingWhenHidden = true, pollingErrorRetryCount = -1 }
 ) => {
-  const timerRef = ref<Interval>();
+  let timeouter:Timeout
   const unsubscribeRef = ref<() => void>();
   const countRef = ref<number>(0);
 
 
 
   const stopPolling = () => {
-    if (timerRef.value) {
-      clearInterval(timerRef.value);
+    if (timeouter) {
+      clearTimeout(timeouter);
     }
     unsubscribeRef.value?.();
   };
@@ -47,7 +47,7 @@ const usePollingPlugin: UseRequestPlugin<unknown, unknown[]> = (
         // When an error occurs, the request is not repeated after pollingErrorRetryCount retries
         (pollingErrorRetryCount !== -1 && countRef.value <= pollingErrorRetryCount)
       ) {
-        timerRef.value = setTimeout(() => {
+        timeouter = setTimeout(() => {
           // if pollingWhenHidden = false && document is hidden, then stop polling and subscribe revisible
           if (!pollingWhenHidden && !isDocumentVisible()) {
             unsubscribeRef.value = subscribeReVisible(() => {
@@ -60,15 +60,6 @@ const usePollingPlugin: UseRequestPlugin<unknown, unknown[]> = (
       } else {
         countRef.value = 0;
       }
-      // if (!pollingWhenHidden && !isDocumentVisible()) {
-      //   unsubscribeRef.value = subscribeReVisible(() => {
-      //     fetchInstance.refresh();
-      //   });
-      //   return;
-      // }
-      // timerRef.value = setInterval(() => {
-      //   fetchInstance.refresh();
-      // },unref(pollingInterval));
     },
     onCancel: () => {
       stopPolling();
