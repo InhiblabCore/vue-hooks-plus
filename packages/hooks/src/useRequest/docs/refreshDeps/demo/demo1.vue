@@ -1,22 +1,22 @@
 <template>
-  <div style="margin-top: 16px;">
+  <div style="margin-top: 16px">
     <div>
       <vhp-button type="button" @click="count++">count is {{ count }}</vhp-button>
-      <div style="opacity: 0.6;"> count !==0 and count !==5 ready is true </div>
+      <div style="opacity: 0.6"> count !==0 and count !==5 ready is true </div>
     </div>
     <br />
     <vhp-button @click="() => (id = 1)">Change ID = 1</vhp-button>
-    <vhp-button @click="() => (id = 2)" style="margin-left: 16px;">Change ID = 2</vhp-button>
-    <vhp-button @click="() => (store.id = 1)" style="margin-left: 16px;">
+    <vhp-button @click="() => (id = 2)" style="margin-left: 16px">Change ID = 2</vhp-button>
+    <vhp-button @click="() => (store.id = 1)" style="margin-left: 16px">
       Change store ID = 1
     </vhp-button>
-    <vhp-button @click="() => (store.id = 2)" style="margin-left: 16px;">
+    <vhp-button @click="() => (store.id = 2)" style="margin-left: 16px">
       Change store ID = 2
     </vhp-button>
   </div>
-  <div style="margin-top: 16px;">Loading：{{ loading ? 'loading' : '' }}</div>
+  <div style="margin-top: 16px">Loading：{{ loading ? 'loading' : '' }}</div>
 
-  <div style="margin-top: 16px;">
+  <div style="margin-top: 16px">
     <span>Data Value：</span>
     <div>
       <table>
@@ -58,8 +58,6 @@
     storeId: number | string
     count: number | string
   }> {
-    console.log('request')
-
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({
@@ -88,6 +86,8 @@
         storeId: '-',
       },
       ready,
+      pollingInterval: 3000,
+      pollingWhenHidden: false,
       refreshDeps: true,
     },
   )
