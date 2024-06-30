@@ -1,5 +1,5 @@
 import { computed, ref, WatchSource } from 'vue'
-import isEqual from 'lodash/isEqual'
+import { isEqual } from 'lodash-es'
 
 export type EffectCallback = () => void
 export type DependencyList = WatchSource | any[] | any
