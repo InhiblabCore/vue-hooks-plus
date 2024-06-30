@@ -1,6 +1,6 @@
 import { ref, computed, watchEffect, unref } from "vue";
-import type { DebouncedFunc, DebounceSettings } from "lodash";
-import debounce from "lodash/debounce";
+import type { DebouncedFunc, DebounceSettings } from "lodash-es";
+import { debounce } from "lodash-es";
 import type { UseRequestPlugin } from "../types";
 
 const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (

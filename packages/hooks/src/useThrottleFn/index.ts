@@ -1,4 +1,4 @@
-import throttle from 'lodash/throttle'
+import { throttle } from 'lodash-es'
 import { onUnmounted, ref, computed } from 'vue'
 import { UseThrottleOptions } from '../useThrottle'
 
