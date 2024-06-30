@@ -1,6 +1,6 @@
 import { computed, unref, watchEffect } from 'vue'
-import { DebouncedFunc, ThrottleSettings } from 'lodash'
-import throttle from 'lodash/throttle'
+import { DebouncedFunc, ThrottleSettings } from 'lodash-es'
+import { throttle } from 'lodash-es'
 import { UseRequestPlugin } from '../types'
 
 const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
@@ -52,7 +52,7 @@ const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 
   return {
-    name: "throttlePlugin",
+    name: 'throttlePlugin',
     onCancel: () => {
       throttledRef.value?.cancel()
     },

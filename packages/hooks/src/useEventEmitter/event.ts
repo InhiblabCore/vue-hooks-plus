@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash/cloneDeep'
+import { cloneDeep } from 'lodash-es'
 import { ref, watchEffect } from 'vue'
 
 type SubscriptionParams<T = any> = {
