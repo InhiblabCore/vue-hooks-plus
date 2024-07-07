@@ -293,7 +293,7 @@ importers:
   packages/vitepress/vitepress-demo-block:
     devDependencies:
       '@vitejs/plugin-vue':
-        specifier: '*'
+        specifier: ^2.3.1
         version: 2.3.4(vite@2.9.16)(vue@3.3.4)
       less:
         specifier: ^4.1.3
