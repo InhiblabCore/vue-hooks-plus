@@ -78,7 +78,7 @@ importers:
         specifier: ^1.2.4
         version: 1.2.4(@algolia/client-search@4.19.1)(less@4.2.0)(search-insights@2.14.0)
       '@vue-hooks-plus/vitepress-demo-block':
-        specifier: workspace:^1.0.0
+        specifier: 1.0.5
         version: link:packages/vitepress/vitepress-demo-block
       '@vue/compiler-core':
         specifier: ^3.2.37
