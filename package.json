@@ -28,7 +28,7 @@
 		"@types/marked": "^4.0.3",
 		"@types/node": "^17.0.21",
 		"@types/qs": "^6.9.7",
-		"@vitejs/plugin-vue": "^2.3.1",
+		"@vitejs/plugin-vue": "^3.0.1",
 		"@vue/compiler-core": "^3.2.37",
 		"@vue-hooks-plus/vite-plugin-gen-temp": "^2.6.6",
 		"@vue-hooks-plus/md-demo-plugins": "^1.0.0",
