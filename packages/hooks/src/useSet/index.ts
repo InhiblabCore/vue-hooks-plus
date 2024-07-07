@@ -1,4 +1,4 @@
-import { ref, Ref, markRaw, readonly } from 'vue'
+import { ref, Ref, markRaw, readonly, UnwrapRef } from 'vue'
 
 interface UseSetActions<T> {
   add: (value: T) => void
@@ -8,20 +8,22 @@ interface UseSetActions<T> {
   reset: () => void
 }
 
-function useSet<T = any>(initialValue?: T[]): [Readonly<Ref<Set<T>>>, UseSetActions<T>]
+function useSet<T = any>(
+  initialValue?: UnwrapRef<T>[],
+): [Readonly<Ref<Set<UnwrapRef<T>>>>, UseSetActions<UnwrapRef<T>>]
 
-function useSet<T = any>(initialValue?: T[]) {
+function useSet<T = any>(initialValue?: UnwrapRef<T>[]) {
   const getInitValue = () => {
-    return initialValue === undefined ? new Set<T>() : new Set(initialValue)
+    return initialValue === undefined ? new Set<UnwrapRef<T>>() : new Set(initialValue)
   }
   const state = ref(getInitValue())
 
-  const actions: UseSetActions<T> = {
+  const actions: UseSetActions<UnwrapRef<T>> = {
     /**
      *  Add item
      * @param value T
      */
-    add: (value: T) => {
+    add: value => {
       state.value.add(value)
     },
 
@@ -29,7 +31,7 @@ function useSet<T = any>(initialValue?: T[]) {
      *  Remove item
      * @param value T
      */
-    remove: (value: T) => {
+    remove: value => {
       state.value.delete(value)
     },
 
@@ -37,7 +39,7 @@ function useSet<T = any>(initialValue?: T[]) {
      * Set has
      * @param value T
      */
-    has: (value: T) => state.value.has(value),
+    has: value => state.value.has(value),
 
     /**
      * Clear Set
