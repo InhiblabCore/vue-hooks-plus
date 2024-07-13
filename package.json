@@ -33,7 +33,7 @@
 		"@vue-hooks-plus/vite-plugin-gen-temp": "^2.6.6",
 		"@vue-hooks-plus/md-demo-plugins": "^1.0.0",
 		"@vue-hooks-plus/vitepress": "^1.2.4",
-		"@vue-hooks-plus/vitepress-demo-block": "1.0.5",
+		"@vue-hooks-plus/vitepress-demo-block": "workspace:^1.0.0",
 		"@vue-hooks-plus/use-immer": "workspace:^1.0.0",
 		"@vue-hooks-plus/use-worker": "workspace:^1.0.0",
 		"@vue-hooks-plus/use-request": "workspace:^2.0.0",

@@ -1,0 +1,8 @@
+{
+  "name": "@vue-hooks-plus/vitepress-workspace",
+  "version": "1.1.0",
+  "description": "",
+  "scripts": {
+    "build": "npm run clean && cd packages/vitepress && pnpm run build"
+  }
+}
