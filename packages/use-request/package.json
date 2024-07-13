@@ -19,7 +19,7 @@
   "keywords": [],
   "dependencies": {
     "@vue/devtools-api": "^6.5.0",
-    "lodash": "^4.17.21"
+    "lodash-es": "^4.17.21"
   },
   "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
