@@ -41,6 +41,7 @@ useInterval(
 
 ## Result
 
-| Property      | Description    | Type         |
-| ------------- | -------------- | ------------ |
-| clearInterval | clear interval | `() => void` |
+| Property | Description      | Type         |
+| -------- | ---------------- | ------------ |
+| clear    | clear interval   | `() => void` |
+| restart  | restart interval | `() => void` |
