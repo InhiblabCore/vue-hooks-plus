@@ -23,6 +23,6 @@
     "vue": "*"
   },
   "scripts": {
-    "build": "vite build"
+    "build": "rm -rf dist && vite build"
   }
 }
