@@ -12,7 +12,7 @@ const base =
       : '/vue-hooks-plus/docs'
     : ''
 
-const isGithub = process.env.FLOW === 'github'
+// const isGithub = process.env.FLOW === 'github'
 
 // fetch('https://api.github.com/repos/InhiblabCore/vue-hooks-plus/releases/latest')
 //   .then(response => response.json())
@@ -79,24 +79,13 @@ export default defineConfig({
     locales: {
       '/': {
         nav: [
-          { text: `⒡ Hooks`, link: '/useRequest/' },
-          isGithub
-            ? {
-              text: '演武场',
-              link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
-            }
-            : {
-              text: '演武场',
-              link: 'https://inhiblab-core.gitee.io/vue-hooks-plus-playground/play',
-            },
-          isGithub
-            ? {
-              text: '国内镜像 🇨🇳',
-              link: 'https://inhiblab-core.gitee.io/docs/hooks',
-            }
-            : null,
+          { text: `🥳 Hooks`, link: '/useRequest/' },
           {
-            text: '发行版本',
+            text: '🤺 Playground',
+            link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
+          },
+          {
+            text: '🎀 Releases',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases',
           },
         ].filter(Boolean),
@@ -104,24 +93,13 @@ export default defineConfig({
       },
       '/en/': {
         nav: [
-          { text: '⒡ Hooks', link: '/en/useRequest/' },
-          isGithub
-            ? {
-              text: 'Playground',
-              link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
-            }
-            : {
-              text: 'Playground',
-              link: 'https://inhiblab-core.gitee.io/vue-hooks-plus-playground/play',
-            },
-          isGithub
-            ? {
-              text: 'Gitee Mirror 🇨🇳',
-              link: 'https://inhiblab-core.gitee.io/docs/hooks/',
-            }
-            : null,
+          { text: '🥳 Hooks', link: '/en/useRequest/' },
           {
-            text: 'Releases',
+            text: '🤺 Playground',
+            link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
+          },
+          {
+            text: '🎀 Releases',
             link: 'https://github.com/InhiblabCore/vue-hooks-plus/releases/',
           },
         ].filter(Boolean),

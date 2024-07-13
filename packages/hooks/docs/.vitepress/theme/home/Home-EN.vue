@@ -172,6 +172,7 @@
     padding: 8px 18px;
     font-weight: 500;
     transition: background-color 0.5s, color 0.5s;
+    width: 12rem;
 
     // -webkit-background-clip: text;
     // animation: move 2s infinite linear;
