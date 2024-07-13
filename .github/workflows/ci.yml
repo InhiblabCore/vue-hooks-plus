@@ -34,8 +34,6 @@ jobs:
           pnpm build
       - name: Build Docs
         run: |
-          cd packages/hooks
-          pnpm run initial
           pnpm run docs:build
         env:
           CI: true
