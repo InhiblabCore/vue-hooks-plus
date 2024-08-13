@@ -1,0 +1,19 @@
+{
+  "name": "@vue-hooks-plus/tools",
+  "version": "0.0.1",
+  "private": true,
+  "description": "library",
+  "type": "module",
+  "exports": {
+    "./lodash": "./src/lodash/index.ts"
+  },
+  "scripts": {
+    "build":"echo 'no build'",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"author": "NelsonYong",
+	"license": "MIT"
+}
