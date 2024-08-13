@@ -7,7 +7,7 @@ const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { debounceWait, debounceLeading, debounceTrailing, debounceMaxWait }
 ) => {
-  const debouncedRef = ref<DebouncedFunc<any>>();
+  const debouncedRef = ref<DebouncedFunc<(callback: () => void) => void>>();
   const options = computed(() => {
     const ret: DebounceSettings = {};
     const debounceLeading_ = unref(debounceLeading)

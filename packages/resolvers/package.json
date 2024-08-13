@@ -38,12 +38,5 @@
   },
   "peerDependencies": {
     "vue-hooks-plus": ">=1.5.2"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "vue"
-      ]
-    }
   }
 }
