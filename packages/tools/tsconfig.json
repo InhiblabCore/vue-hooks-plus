@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist", //输出文件
+    "lib": ["esnext", "dom"],
+    "baseUrl": "./",
+    "rootDir": "./"
+  },
+  "include": ["lodash"],
+  "exclude": ["node_modules", "dist"]
+}
