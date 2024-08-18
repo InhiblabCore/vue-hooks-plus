@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "2.2.1",
+	"version": "2.2.2",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
@@ -33,7 +33,7 @@
 		"type": "tsc -d"
 	},
 	"dependencies": {
-    "@vue/devtools-api": "^6.5.0",
+		"@vue/devtools-api": "^6.5.0",
 		"@types/js-cookie": "^3.0.1",
 		"js-cookie": "^3.0.1",
 		"lodash": "^4.17.21",
@@ -41,7 +41,7 @@
 		"query-string": "^7.1.1",
 		"screenfull": "^5.0.0"
 	},
-  "peerDependencies": {
+	"peerDependencies": {
 		"vue": "^3.2.25"
 	},
 	"repository": "https://github.com/InhiblabCore/vue-hooks-plus",
