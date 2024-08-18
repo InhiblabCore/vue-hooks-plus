@@ -1,4 +1,4 @@
-import { useTimeout } from '../index'
+import useTimeout from '../useTimeout'
 
 export type Resolve = (value: any) => void
 export type InterruptibleRejectType = (error: any) => void

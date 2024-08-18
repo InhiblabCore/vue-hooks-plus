@@ -1,4 +1,3 @@
-/* eslint-disable no-empty */
 import { unref, ref, Ref, UnwrapRef, watchEffect, readonly } from 'vue'
 
 export interface IFuncUpdater<T> {
