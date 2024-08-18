@@ -1,5 +1,7 @@
 import { computed, readonly, ref, shallowReadonly, watch } from "vue";
-import { useBoolean, useEventListener, useRequest } from "../index";
+import useBoolean from '../useBoolean'
+import useEventListener from '../useEventListener'
+import useRequest from '../useRequest'
 
 import { getTargetElement } from "../utils/domTarget";
 

@@ -1,5 +1,6 @@
-import { Ref, readonly, ref } from 'vue'
 import { isNumber } from '../utils'
+
+import { Ref, readonly, ref } from 'vue'
 
 export interface UseCounterOptions {
   /**

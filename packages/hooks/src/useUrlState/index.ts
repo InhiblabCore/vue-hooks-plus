@@ -4,7 +4,7 @@
  */
 import qs from 'qs'
 import { Ref, ref, watch, watchEffect } from 'vue'
-import { useLocalStorageState } from '../index'
+import useLocalStorageState from '../useLocalStorageState'
 import { isFunction } from '../utils'
 
 export interface UseUrlStateOptions {
@@ -69,8 +69,8 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
 
   const state_ = (localStorageKey
     ? useLocalStorageState(localStorageKey, {
-      defaultValue: defaultState,
-    })[0]
+        defaultValue: defaultState,
+      })[0]
     : ref(defaultState)) as Ref<S>
 
   const state = ref<S>() as Ref<S>
@@ -78,7 +78,6 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
   watchEffect(() => {
     state.value = state_.value
   })
-
 
   // 初始状态 url > localstorage
   if (paramsStr) {
@@ -115,7 +114,6 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
         const newParamsStr = encodeParams(state.value)
         routerPushFn(`${path}?${newParamsStr}`)
       }
-
     },
     {
       deep: true,
