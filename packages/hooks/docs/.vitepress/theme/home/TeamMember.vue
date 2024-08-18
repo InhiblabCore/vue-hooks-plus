@@ -131,7 +131,6 @@
   .code {
     background-color: var(--vp-code-block-bg);
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     padding: 12px;
     border-radius: 5px;

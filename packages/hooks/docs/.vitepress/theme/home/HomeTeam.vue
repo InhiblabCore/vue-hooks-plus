@@ -42,9 +42,10 @@
     display: grid;
     grid-row-gap: 0.45rem;
     grid-column-gap: 3rem;
-    grid-template-columns: repeat(4, 1fr);
-    padding-left: 184px;
-    padding-right: 184px;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 124px;
+    padding-right: 124px;
+    padding-bottom: 32px;
   }
 
   .grid div {
@@ -94,6 +95,9 @@
   @media (max-width: 370px) {
     .tagline {
       font-size: 36px;
+    }
+    .container {
+      padding-bottom: 32px;
     }
   }
 </style>

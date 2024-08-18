@@ -45,7 +45,7 @@ const coreTeamMembers: CoreTeam[] = [
     functions: ['useSetState', 'useWebSocket'],
   },
   {
-    avatar: "https://avatars.githubusercontent.com/u/51957438?v=4",
+    avatar: 'https://avatars.githubusercontent.com/u/51957438?v=4',
     name: 'XiaoDaiGua-Ray',
     github: 'XiaoDaiGua-Ray',
     description: 'Tring be better～',
@@ -55,12 +55,12 @@ const coreTeamMembers: CoreTeam[] = [
     avatar: contributorsAvatars.Noobbbbbbb,
     name: 'Noobbbbbbb',
     github: 'Noobbbbbbb',
-    description: '',
+    description: 'Mysterious',
     functions: ['useFullscreen'],
     functionsMap: {
-      useFullscreen: 'useFull'
-    }
-  }
+      useFullscreen: 'useFull',
+    },
+  },
 ]
 // .sort(
 //   (pre, cur) =>
