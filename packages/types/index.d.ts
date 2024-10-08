@@ -1,7 +1,7 @@
-import type { ComponentPublicInstance } from 'vue';
+import { type ComponentPublicInstance } from 'vue';
 import { ComputedRef } from 'vue';
 import Cookies from 'js-cookie';
-import type { DebouncedFunc } from 'lodash';
+import { type DebouncedFunc } from 'lodash';
 import { DeepReadonly } from 'vue';
 import { Ref } from 'vue';
 import { UnwrapNestedRefs } from 'vue';

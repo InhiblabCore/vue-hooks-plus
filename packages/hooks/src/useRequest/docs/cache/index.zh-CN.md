@@ -54,9 +54,9 @@ source:
 
 提供了一个 `clearCache` 方法，可以清除指定 `cacheKey` 的缓存数据。 这里就不做展示
 
-## 自定义缓存
+## 自定义同步缓存
 
-通过配置 `setCache` 和 `getCache`，可以自定义数据缓存，比如可以将数据存储到 `localStorage`、`IndexDB` 等。
+通过配置 `setCache` 和 `getCache`，可以自定义数据缓存，比如可以将数据存储到 `localStorage` 等。
 
 ::: tip 请注意
 
@@ -69,6 +69,15 @@ source:
   language="vue"
   title=""
   desc=""> </demo>
+
+## 自定义异步缓存
+
+如 `localforage` 、 `indexDB` 等。
+
+<demo src="./demo/asyncDemo.vue"
+  language="vue"
+  title=""
+  desc="使用异步缓存"> </demo>
 
 ## API
 
