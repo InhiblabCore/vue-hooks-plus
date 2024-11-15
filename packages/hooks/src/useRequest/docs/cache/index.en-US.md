@@ -54,7 +54,7 @@ The cached data includes `data` and `params`. Through the `params` caching mecha
 
 provides a `clearCache` method, which can clear the cache data of the specified `cacheKey`.
 
-## Custom cache
+## Custom sync cache
 
 By setting `setCache` and `getCache`, you can customize the cache, for example, you can store data in `localStorage, IndexDB`, etc.
 
@@ -69,6 +69,15 @@ By setting `setCache` and `getCache`, you can customize the cache, for example, 
   language="vue"
   title=""
   desc=""> </demo>
+
+## Custom async cache
+
+Example `localforage` 、 `indexDB`.
+
+<demo src="./demo/asyncDemo.vue"
+  language="vue"
+  title=""
+  desc="Use async cache"> </demo>
 
 ## API
 
