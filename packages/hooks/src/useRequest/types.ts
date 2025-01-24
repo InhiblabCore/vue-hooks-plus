@@ -283,7 +283,12 @@ export interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], 
   ) => Partial<UseRequestFetchState<TData, TParams>>
 }
 
-export interface useRequestResult<TData, TParams extends unknown[]> {
+export interface useRequestResult<
+  TData,
+  TParams extends unknown[],
+  FormatResult = any,
+  Initial = any
+> {
   /**
    * Is the service being executed.
    */
@@ -292,7 +297,17 @@ export interface useRequestResult<TData, TParams extends unknown[]> {
   /**
    * Data returned by service.
    */
-  data: Readonly<Ref<TData | undefined>>
+  data: Readonly<
+    Ref<
+      FormatResult extends false
+        ? Initial extends false
+          ? TData | undefined
+          : TData
+        : FormatResult extends (...args: any[]) => any
+        ? ReturnType<FormatResult> | undefined
+        : FormatResult | undefined
+    >
+  >
 
   /**
    * 	Exception thrown by service.
