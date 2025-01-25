@@ -52,7 +52,7 @@ const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   }
 
   return {
-    name: 'throttlePlugin',
+    name: "throttlePlugin",
     onCancel: () => {
       throttledRef.value?.cancel()
     },

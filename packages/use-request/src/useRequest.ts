@@ -23,7 +23,7 @@ import { withArgs } from './utils/resolve-args'
 export type PluginsMiddleOptionsType<
   PluginsOptions,
   TData,
-  TParams extends unknown[] = unknown[]
+  TParams extends unknown[] = unknown[],
 > = PluginsOptions extends (infer P)[]
   ? P extends UseRequestPlugin<TData, TParams, infer R>
     ? R
@@ -34,8 +34,11 @@ export type PluginsMiddleOptionsType<
 export function useRequest<
   TData,
   TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
-  SR = any
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<
+    TData,
+    TParams
+  >[],
+  SR = any,
 >(
   service: UseRequestService<SR, TParams>,
   options: UseRequestOptionsWithFormatResult<
@@ -46,14 +49,31 @@ export function useRequest<
   > &
     UseRequestOptionsWithInitialData<SR, TParams, PluginsOptions>,
   plugins?: PluginsOptions,
-): useRequestResult<TData, TParams>
+): useRequestResult<
+  TData,
+  TParams,
+  UseRequestOptionsWithFormatResult<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>,
+    SR
+  >['formatResult'],
+  UseRequestOptionsWithInitialData<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>
+  >['initialData']
+>
 
 // 只有 formatResult
 export function useRequest<
   TData,
   TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[],
-  SR = any
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<
+    TData,
+    TParams
+  >[],
+  SR = any,
 >(
   service: UseRequestService<SR, TParams>,
   options: UseRequestOptionsWithFormatResult<
@@ -63,13 +83,26 @@ export function useRequest<
     SR
   >,
   plugins?: PluginsOptions,
-): useRequestResult<TData, TParams>
+): useRequestResult<
+  TData,
+  TParams,
+  UseRequestOptionsWithFormatResult<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>,
+    SR
+  >['formatResult'],
+  false
+>
 
 // 只有 initialData
 export function useRequest<
   TData,
   TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<
+    TData,
+    TParams
+  >[],
 >(
   service: UseRequestService<TData, TParams>,
   options: UseRequestOptionsWithInitialData<
@@ -78,13 +111,25 @@ export function useRequest<
     PluginsMiddleOptionsType<PluginsOptions, TData, TParams>
   >,
   plugins?: PluginsOptions,
-): useRequestResult<TData, TParams>
+): useRequestResult<
+  TData,
+  TParams,
+  false,
+  UseRequestOptionsWithInitialData<
+    TData,
+    TParams,
+    PluginsMiddleOptionsType<PluginsOptions, TData, TParams>
+  >['initialData']
+>
 
 // 无 formatResults 和 initialData
 export function useRequest<
   TData,
   TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<
+    TData,
+    TParams
+  >[],
 >(
   service: UseRequestService<TData, TParams>,
   options?: UseRequestOptions<
@@ -93,12 +138,15 @@ export function useRequest<
     PluginsMiddleOptionsType<PluginsOptions, TData, TParams>
   >,
   plugins?: PluginsOptions,
-): useRequestResult<TData, TParams>
+): useRequestResult<TData, TParams, false, false>
 
 export function useRequest<
   TData,
   TParams extends unknown[] = unknown[],
-  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<TData, TParams>[]
+  PluginsOptions extends UseRequestPlugin<TData, TParams>[] = UseRequestPlugin<
+    TData,
+    TParams
+  >[],
 >(
   service: UseRequestService<TData, TParams>,
   options?: UseRequestOptions<
@@ -120,10 +168,14 @@ export function useRequest<
     useRetryPlugin,
   ]?.filter(Boolean)
 
-  return withArgs<TData, TParams>(useRequestImplement, options?.use)(service, options, [
-    ...(plugins || []),
-    ...BuiltInPlugins,
-  ] as UseRequestPlugin<TData, TParams>[])
+  return withArgs<TData, TParams>(useRequestImplement, options?.use)(
+    service,
+    options,
+    [...(plugins || []), ...BuiltInPlugins] as UseRequestPlugin<
+      TData,
+      TParams
+    >[],
+  )
 }
 
 export default useRequest
