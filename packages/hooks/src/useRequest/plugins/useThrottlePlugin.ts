@@ -1,4 +1,4 @@
-import { computed, unref, watchEffect } from 'vue'
+import { computed, unref, watchEffect, ref } from 'vue'
 import { type DebouncedFunc, type ThrottleSettings } from 'lodash'
 import throttle from 'lodash/throttle'
 import { UseRequestPlugin } from '../types'
@@ -8,51 +8,46 @@ const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   { throttleWait, throttleLeading, throttleTrailing },
 ) => {
   const options = computed(() => {
-    const ret: ThrottleSettings = {}
-    if (unref(throttleLeading) !== undefined) {
-      ret.leading = unref(throttleLeading)
+    const ops: ThrottleSettings = {
+      leading: unref(throttleLeading),
+      trailing: unref(throttleTrailing),
     }
-    if (unref(throttleTrailing) !== undefined) {
-      ret.trailing = unref(throttleTrailing)
-    }
-    return ret
+
+    return ops
   })
 
-  const throttledRef = computed<DebouncedFunc<any>>(() =>
-    throttle(
-      (callback: () => void) => {
-        callback()
-      },
-      unref(throttleWait),
-      options.value,
-    ),
-  )
+  const throttledRef = ref<DebouncedFunc<any>>()
 
   watchEffect(onInvalidate => {
     if (unref(throttleWait)) {
       const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance)
-      fetchInstance.runAsync = (...args) => {
-        return new Promise((resolve, reject) => {
-          throttledRef.value?.(() => {
+
+      throttledRef.value = throttle(
+        (...args: any[]) => {
+          return new Promise((resolve, reject) => {
             _originRunAsync(...args)
               .then(resolve)
               .catch(reject)
           })
-        })
-      }
+        },
+        unref(throttleWait),
+        options.value,
+      )
+
       onInvalidate(() => {
-        fetchInstance.runAsync = _originRunAsync
         throttledRef.value?.cancel()
       })
     }
   })
 
   if (!unref(throttleWait)) {
-    return {}
+    return {
+      name: 'throttlePlugin',
+    }
   }
 
   return {
-    name: "throttlePlugin",
+    name: 'throttlePlugin',
     onCancel: () => {
       throttledRef.value?.cancel()
     },
