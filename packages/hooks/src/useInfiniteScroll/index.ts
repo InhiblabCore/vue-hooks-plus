@@ -114,7 +114,7 @@ const useInfiniteScroll = <TData extends UseInfiniteData>(
     run();
   });
 
-  const _loading = computed(() => loadingMore.value && loading.value);
+  const _loading = computed(() => !loadingMore.value && loading.value);
 
   return {
     data: shallowReadonly(finalData),
