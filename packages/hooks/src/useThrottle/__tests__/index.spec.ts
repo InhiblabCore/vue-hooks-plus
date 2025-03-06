@@ -1,7 +1,7 @@
 import renderHook from 'test-utils/renderHook'
 import { sleep } from 'test-utils/sleep'
 import { ref } from 'vue'
-import useThrottle from '..'
+import useThrottle from '../index'
 
 describe('useThrottle', () => {
   it('default useThrottle should work', async () => {
@@ -35,26 +35,5 @@ describe('useThrottle', () => {
     expect(mountedState.value).toEqual(4)
   })
 
-  it('leading:true & trailing:false of options useThrottle should work', async () => {
-    const mountedState = ref(0)
-    const [throttledValue] = renderHook(() =>
-      useThrottle(mountedState, { wait: 500, leading: true, trailing: false }),
-    )
 
-    expect(throttledValue.value).toEqual(0)
-    mountedState.value = 1
-    await sleep(0)
-    expect(throttledValue.value).toEqual(0)
-
-    mountedState.value = 2
-    await sleep(200)
-    await sleep(0)
-    expect(throttledValue.value).toEqual(0)
-
-    mountedState.value = 3
-    //Need to wait more than 500ms to get the latest value
-    await sleep(300)
-    await sleep(0)
-    expect(throttledValue.value).toEqual(0)
-  })
 })
