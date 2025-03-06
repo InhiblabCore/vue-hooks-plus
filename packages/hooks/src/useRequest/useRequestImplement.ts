@@ -1,4 +1,4 @@
-import { ref, reactive, toRefs, onScopeDispose, inject, UnwrapRef, watchEffect, computed, isRef, unref } from 'vue'
+import { ref, reactive, toRefs, onScopeDispose, inject, UnwrapRef, computed, isRef, unref, watch } from 'vue'
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import {
@@ -82,14 +82,20 @@ function useRequestImplement<TData, TParams extends any[]>(
 
   const readyComputed = computed(() => isRef(ready) ? ready.value : ready)
 
-  watchEffect(() => {
-    if (!manual) {
+  const run = fetchInstance.run.bind(fetchInstance)
+
+  // watch ready and service, auto collect dependencies
+  // because service is ref value, so we need watch it, he reference will change when service change
+  watch([readyComputed, serviceRef.value], (cur) => {
+    const ready = cur[0]
+    console.log("zhix", ready);
+
+    if (ready && !manual && fetchInstance.options.refreshDeps === true) {
       const params = fetchInstance.state.params || options.defaultParams || []
-      // auto collect
-      if (readyComputed.value && fetchInstance.options.refreshDeps === true && !!serviceRef.value) {
-        fetchInstance.run(...(params as TParams))
-      }
+      run(...(params as TParams))
     }
+  }, {
+    immediate: true,
   })
 
   // manual
@@ -108,7 +114,7 @@ function useRequestImplement<TData, TParams extends any[]>(
     cancel: fetchInstance.cancel.bind(fetchInstance),
     refresh: fetchInstance.refresh.bind(fetchInstance),
     refreshAsync: fetchInstance.refreshAsync.bind(fetchInstance),
-    run: fetchInstance.run.bind(fetchInstance),
+    run,
     runAsync: fetchInstance.runAsync.bind(fetchInstance),
     mutate: fetchInstance.mutate.bind(fetchInstance),
   } as unknown) as useRequestResult<TData, TParams>
