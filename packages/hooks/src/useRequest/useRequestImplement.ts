@@ -88,8 +88,6 @@ function useRequestImplement<TData, TParams extends any[]>(
   // because service is ref value, so we need watch it, he reference will change when service change
   watch([readyComputed, serviceRef.value], (cur) => {
     const ready = cur[0]
-    console.log("zhix", ready);
-
     if (ready && !manual && fetchInstance.options.refreshDeps === true) {
       const params = fetchInstance.state.params || options.defaultParams || []
       run(...(params as TParams))
