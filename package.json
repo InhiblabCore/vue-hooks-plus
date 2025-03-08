@@ -2,6 +2,10 @@
 	"name": "@vue-hooks-plus/monorepo",
 	"version": "1.0.0",
 	"private": true,
+  "packageManager": "pnpm@9.6.0",
+  "engines": {
+    "pnpm": ">=7 <10"
+  },
 	"scripts": {
 		"bootstrap": "tsx scripts/bootstrap.ts",
 		"build:vitepress-demo-block": "cd packages/vitepress/vitepress-demo-block && pnpm build",
