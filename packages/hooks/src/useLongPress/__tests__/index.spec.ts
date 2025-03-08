@@ -1,4 +1,3 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import useLongPress from '../index'
 import renderHook from 'test-utils/renderHook'
 
@@ -10,14 +9,14 @@ describe('useLongPressStatus tests', () => {
   beforeEach(() => {
     targetMock = document.createElement('div')
     vi.useFakeTimers({
-      toFake: [ 'setTimeout', 'setInterval' ],
+      toFake: ['setTimeout', 'setInterval'],
     });
   });
   afterEach(() => {
     vi.useRealTimers();
   });
   it('should change isPressed status when user longPress in 500ms', async () => {
-    const [ result ] = renderHook(() => useLongPress(targetMock))
+    const [result] = renderHook(() => useLongPress(targetMock))
 
     targetMock.dispatchEvent(mouseDownEvent);
 
@@ -29,7 +28,7 @@ describe('useLongPressStatus tests', () => {
   });
 
   it('should record pressed every 100ms', () => {
-    const [ result ] = renderHook(() => useLongPress(targetMock))
+    const [result] = renderHook(() => useLongPress(targetMock))
     targetMock.dispatchEvent(mouseDownEvent);
 
     expect(result.pressingTime.value).toBe(0);
@@ -45,7 +44,7 @@ describe('useLongPressStatus tests', () => {
   });
 
   it('should reset pressingTime and isPressing when user mouseUp', async () => {
-    const [ result ] = renderHook(() => useLongPress(targetMock))
+    const [result] = renderHook(() => useLongPress(targetMock))
 
     targetMock.dispatchEvent(mouseDownEvent);
     vi.advanceTimersByTime(600);
@@ -60,7 +59,7 @@ describe('useLongPressStatus tests', () => {
   });
 
   it('should reset pressingTime and isPressing when user mouseMove', async () => {
-    const [ result ] = renderHook(() => useLongPress(targetMock))
+    const [result] = renderHook(() => useLongPress(targetMock))
 
     targetMock.dispatchEvent(mouseDownEvent);
     vi.advanceTimersByTime(600);
@@ -75,7 +74,7 @@ describe('useLongPressStatus tests', () => {
   });
   //
   it('should not cancel event on mouseLeave when cancelOnMove toggle is false', async () => {
-    const [ { pressingTime, isPressing } ] = renderHook(() => useLongPress(targetMock, {
+    const [{ pressingTime, isPressing }] = renderHook(() => useLongPress(targetMock, {
       cancelOnMove: false,
     }))
 
@@ -93,7 +92,7 @@ describe('useLongPressStatus tests', () => {
 
   it('should stop all event listener when component unmounted', async () => {
     const elementRemoveEventListenerSpy = vi.spyOn(targetMock, 'removeEventListener');
-    const [ , app ] = renderHook(() => useLongPress(targetMock))
+    const [, app] = renderHook(() => useLongPress(targetMock))
 
     app.unmount()
 

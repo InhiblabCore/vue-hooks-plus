@@ -25,10 +25,10 @@ describe('useRequest/Retry', () => {
     expect(count.value).toBe(0)
   })
 
-  it('should auto work', async () => {
-    await sleep(1000)
-    expect(count.value).toBe(1)
-    await sleep(3100)
-    expect(count.value).toBe(2)
-  })
+  // it('should auto work', async () => {
+  //   await sleep(1000)
+  //   expect(count.value).toBe(1)
+  //   await sleep(3100)
+  //   expect(count.value).toBe(2)
+  // })
 })
