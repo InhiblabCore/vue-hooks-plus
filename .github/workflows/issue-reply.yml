@@ -8,6 +8,21 @@ jobs:
   reply-helper:
     runs-on: ubuntu-latest
     steps:
+      - name: pending triage
+        if: github.event.label.name == 'pending triage'
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'issue pending'
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}. We will review your issue as soon as possible.
+            if you want to help us, please send us a Pull Request.
+            if you want issuse to resolve quickly, please change label to `🤔 Need Reproduce`.
+
+            你好 @${{ github.event.issue.user.login }}，我们将尽快对您的 issue 进行处理。
+            如果您想帮助我们，欢迎直接发送 Pull Request 给我们。
+            如果您希望 issue 尽快得到解决，您可以将标签改为 `🤔 Need Reproduce`
+            。
       - name: help wanted
         if: github.event.label.name == 'help wanted'
         uses: actions-cool/issues-helper@v3
