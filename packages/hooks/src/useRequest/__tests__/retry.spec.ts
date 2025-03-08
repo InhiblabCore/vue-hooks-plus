@@ -1,4 +1,3 @@
-import { sleep } from 'test-utils/sleep'
 import renderHook from 'test-utils/renderHook'
 import { ref } from 'vue'
 import useRequest from '../useRequest'
