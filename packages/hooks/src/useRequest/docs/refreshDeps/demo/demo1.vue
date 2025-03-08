@@ -66,7 +66,7 @@
           storeId,
           count,
         })
-      }, 1000)
+      }, 3000)
     })
   }
   const id = ref(1)
@@ -75,7 +75,7 @@
   })
   const count = ref(0)
 
-  const ready = computed(() => count.value !== 0 && count.value !== 5)
+  const ready = computed(() => count.value !== 0)
   const { data, loading } = useRequest(
     () => getUsername({ id: id.value, storeId: store.id, count: count.value }),
     {
@@ -86,9 +86,9 @@
         storeId: '-',
       },
       ready,
-      pollingInterval: 3000,
-      pollingWhenHidden: false,
+      debounceWait: 2000,
       refreshDeps: true,
+      debugKey: 'test',
     },
   )
 </script>

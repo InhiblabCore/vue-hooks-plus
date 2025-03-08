@@ -2,6 +2,10 @@
 	"name": "@vue-hooks-plus/monorepo",
 	"version": "1.0.0",
 	"private": true,
+  "packageManager": "pnpm@9.6.0",
+  "engines": {
+    "pnpm": ">=7 <10"
+  },
 	"scripts": {
 		"bootstrap": "tsx scripts/bootstrap.ts",
 		"build:vitepress-demo-block": "cd packages/vitepress/vitepress-demo-block && pnpm build",
@@ -57,14 +61,14 @@
 		"rimraf": "^3.0.2",
 		"ts-morph": "^13.0.2",
 		"ts-node": "^10.7.0",
-		"tsx": "^3.11.0",
+		"tsx": "4.x",
 		"typeit": "^8.7.0",
 		"typescript": "^5.0.4",
 		"vite": "3.0.2",
 		"vite-plugin-build": "0.7.1",
 		"vite-plugin-dts": "^2.1.0",
 		"vitepress": "1.0.0-alpha.60",
-		"vitest": "0.25.3",
+		"vitest": "2.x",
 		"vue": "^3.2.25",
 		"vue-tsc": "1.0.9",
 		"vue-typical": "^2.1.0",

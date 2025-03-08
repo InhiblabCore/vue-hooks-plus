@@ -8,25 +8,11 @@ export interface UseThrottleOptions {
 }
 
 function useThrottle<T>(value: Ref<T>, options?: UseThrottleOptions) {
-  const throttled = ref()
+  const throttled = ref<T>(value.value) as Ref<T>;
+  const { run } = useThrottleFn(() => (throttled.value = value.value), options);
+  watch(value, () => run(), { deep: true });
+  return throttled;
 
-  throttled.value = value.value
-
-  const { run } = useThrottleFn(() => {
-    throttled.value = value.value
-  }, options)
-
-  watch(
-    value,
-    () => {
-      run.value()
-    },
-    {
-      immediate: true,
-    },
-  )
-
-  return throttled
 }
 
 export default useThrottle

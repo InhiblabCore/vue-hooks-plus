@@ -1,41 +1,42 @@
-import { computed, unref, watchEffect, ref } from 'vue'
-import { type DebouncedFunc, type ThrottleSettings } from 'lodash'
-import throttle from 'lodash/throttle'
+import { computed, unref, watchEffect } from 'vue'
+import { type ThrottleSettings } from 'lodash'
 import { UseRequestPlugin } from '../types'
+import useThrottleFn from '../../useThrottleFn'
 
 const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { throttleWait, throttleLeading, throttleTrailing },
 ) => {
   const options = computed(() => {
-    const ops: ThrottleSettings = {
-      leading: unref(throttleLeading),
-      trailing: unref(throttleTrailing),
+    const ops: ThrottleSettings = {}
+    const leading = unref(throttleLeading)
+    const trailing = unref(throttleTrailing)
+    if (leading !== undefined) {
+      ops.leading = leading;
     }
-
+    if (trailing !== undefined) {
+      ops.trailing = trailing;
+    }
     return ops
   })
 
-  const throttledRef = ref<DebouncedFunc<any>>()
+  const { run, cancel, flush } = useThrottleFn(callback => {
+    callback()
+    unref(throttleWait) ?? 0,
+      options.value
+  })
 
   watchEffect(onInvalidate => {
     if (unref(throttleWait)) {
       const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance)
-
-      throttledRef.value = throttle(
-        (...args: any[]) => {
-          return new Promise((resolve, reject) => {
-            _originRunAsync(...args)
-              .then(resolve)
-              .catch(reject)
-          })
-        },
-        unref(throttleWait),
-        options.value,
-      )
-
+      fetchInstance.runAsync = (...args) => {
+        return new Promise((resolve, reject) => {
+          run(() => _originRunAsync(...args).then(resolve).catch(reject))
+        })
+      }
       onInvalidate(() => {
-        throttledRef.value?.cancel()
+        cancel()
+        fetchInstance.runAsync = _originRunAsync
       })
     }
   })
@@ -49,7 +50,8 @@ const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   return {
     name: 'throttlePlugin',
     onCancel: () => {
-      throttledRef.value?.cancel()
+      cancel()
+      flush()
     },
   }
 }

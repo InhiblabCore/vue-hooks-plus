@@ -1,14 +1,13 @@
-import { ref, computed, watchEffect, unref,  } from "vue"
-import debounce from "lodash/debounce"
+import { computed, watchEffect, unref, } from "vue"
 import type { UseRequestPlugin } from "../types"
-import type { DebouncedFunc, DebounceSettings } from 'lodash'
+import type { DebounceSettings } from 'lodash'
+import useDebounceFn from "../../useDebounceFn"
+
 
 const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { debounceWait, debounceLeading, debounceTrailing, debounceMaxWait },
 ) => {
-  const debouncedRef = ref<DebouncedFunc<any>>()
-
   const options = computed(() => {
     const ops: DebounceSettings = {
       leading: unref(debounceLeading),
@@ -19,24 +18,23 @@ const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
     return ops
   })
 
+  const { run, cancel, flush } = useDebounceFn(callback => {
+    callback()
+    unref(debounceWait) ?? 0,
+      options.value
+  })
+
   watchEffect(onInvalidate => {
     if (unref(debounceWait)) {
       const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance)
-
-      debouncedRef.value = debounce(
-        (...args: any[]) => {
-          return new Promise((resolve, reject) => {
-            _originRunAsync(...args)
-              .then(resolve)
-              .catch(reject)
-          })
-        },
-        unref(debounceWait),
-        options.value,
-      )
-
+      fetchInstance.runAsync = (...args) => {
+        return new Promise((resolve, reject) => {
+          run(() => _originRunAsync(...args).then(resolve).catch(reject))
+        })
+      }
       onInvalidate(() => {
-        debouncedRef.value?.cancel()
+        cancel()
+        fetchInstance.runAsync = _originRunAsync
       })
     }
   })
@@ -51,8 +49,8 @@ const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
     name: 'debouncePlugin',
     onCancel: () => {
       // 取消时同时执行 cancel 和 flush，确保不会有遗留的防抖函数
-      debouncedRef.value?.cancel()
-      debouncedRef.value?.flush()
+      cancel()
+      flush()
     },
   }
 }

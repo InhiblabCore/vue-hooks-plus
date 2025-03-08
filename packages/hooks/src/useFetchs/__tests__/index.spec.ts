@@ -6,9 +6,9 @@ async function getUsername(params: { desc: string }): Promise<string> {
   return new Promise(resolve => {
     setTimeout(
       () => {
-        resolve(`vue-hooks-plus ${params.desc}`)
+        resolve(`vue-hooks-plus ${params?.desc}`)
       },
-      params.desc === '大牛' ? 4000 : 2000,
+      params?.desc === '大牛' ? 4000 : 2000,
     )
   })
 }
