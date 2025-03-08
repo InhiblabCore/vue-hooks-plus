@@ -28,7 +28,7 @@ describe('useRequest/Debounce', () => {
     expect(data?.value).toBeUndefined()
     await sleep(100)
     // expect(data?.value).toBe(count) 
-    const target = count
+    // const target = count
     run()
     run()
     run()
