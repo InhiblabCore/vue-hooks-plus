@@ -1,57 +1,60 @@
-import { computed, unref, watchEffect } from 'vue'
-import { type ThrottleSettings } from 'lodash'
+import { computed, ref, unref, watchEffect } from 'vue'
+import { type DebouncedFunc, type ThrottleSettings } from 'lodash'
+import throttle from 'lodash/throttle'
 import { UseRequestPlugin } from '../types'
-import useThrottleFn from '../../useThrottleFn'
 
 const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
   { throttleWait, throttleLeading, throttleTrailing },
 ) => {
+  const throttledRef = ref<DebouncedFunc<any>>()
   const options = computed(() => {
-    const ops: ThrottleSettings = {}
-    const leading = unref(throttleLeading)
-    const trailing = unref(throttleTrailing)
-    if (leading !== undefined) {
-      ops.leading = leading;
+    const ret: ThrottleSettings = {}
+    if (unref(throttleLeading) !== undefined) {
+      ret.leading = unref(throttleLeading)
     }
-    if (trailing !== undefined) {
-      ops.trailing = trailing;
+    if (unref(throttleTrailing) !== undefined) {
+      ret.trailing = unref(throttleTrailing)
     }
-    return ops
-  })
-
-  const { run, cancel, flush } = useThrottleFn(callback => {
-    callback()
-    unref(throttleWait) ?? 0,
-      options.value
+    return ret
   })
 
   watchEffect(onInvalidate => {
     if (unref(throttleWait)) {
+      // @ts-ignore
+      throttledRef.value = throttle<(callback: () => void) => void>(
+        (callback: () => void) => {
+          callback()
+        },
+        unref(throttleWait),
+        options.value,
+      )
       const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance)
       fetchInstance.runAsync = (...args) => {
         return new Promise((resolve, reject) => {
-          run(() => _originRunAsync(...args).then(resolve).catch(reject))
+          throttledRef.value?.(() => {
+            _originRunAsync(...args)
+              .then(resolve)
+              .catch(reject)
+          })
         })
       }
       onInvalidate(() => {
-        cancel()
         fetchInstance.runAsync = _originRunAsync
+        throttledRef.value?.cancel()
       })
     }
   })
 
   if (!unref(throttleWait)) {
-    return {
-      name: 'throttlePlugin',
-    }
+    return {}
   }
 
   return {
-    name: 'throttlePlugin',
+    name: "throttlePlugin",
     onCancel: () => {
-      cancel()
-      flush()
+      throttledRef.value?.cancel()
+      throttledRef.value?.flush()
     },
   }
 }

@@ -1,58 +1,66 @@
-import { computed, watchEffect, unref, } from "vue"
-import type { UseRequestPlugin } from "../types"
-import type { DebounceSettings } from 'lodash'
-import useDebounceFn from "../../useDebounceFn"
-
+import { ref, computed, watchEffect, unref } from "vue";
+import type { DebouncedFunc, DebounceSettings } from "lodash";
+import debounce from "lodash/debounce";
+import type { UseRequestPlugin } from "../types";
 
 const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,
-  { debounceWait, debounceLeading, debounceTrailing, debounceMaxWait },
+  { debounceWait, debounceLeading, debounceTrailing, debounceMaxWait }
 ) => {
+  const debouncedRef = ref<DebouncedFunc<any>>();
   const options = computed(() => {
-    const ops: DebounceSettings = {
-      leading: unref(debounceLeading),
-      trailing: unref(debounceTrailing),
-      maxWait: unref(debounceMaxWait),
+    const ret: DebounceSettings = {};
+    const debounceLeading_ = unref(debounceLeading)
+    const debounceTrailing_ = unref(debounceTrailing)
+    const debounceMaxWait_ = unref(debounceMaxWait)
+    if (debounceLeading_ !== undefined) {
+      ret.leading = debounceLeading_;
     }
+    if (debounceTrailing_ !== undefined) {
+      ret.trailing = debounceTrailing_
+    }
+    if (debounceMaxWait_ !== undefined) {
+      ret.maxWait = debounceMaxWait_;
+    }
+    return ret;
+  });
 
-    return ops
-  })
-
-  const { run, cancel, flush } = useDebounceFn(callback => {
-    callback()
-    unref(debounceWait) ?? 0,
-      options.value
-  })
-
-  watchEffect(onInvalidate => {
+  watchEffect((onInvalidate) => {
     if (unref(debounceWait)) {
-      const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance)
+      const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance);
+      debouncedRef.value = debounce(
+        (callback: () => void) => {
+          callback();
+        },
+        unref(debounceWait),
+        options.value
+      );
       fetchInstance.runAsync = (...args) => {
         return new Promise((resolve, reject) => {
-          run(() => _originRunAsync(...args).then(resolve).catch(reject))
-        })
-      }
+          debouncedRef.value?.(() => {
+            _originRunAsync(...args)
+              .then(resolve)
+              .catch(reject);
+          });
+        });
+      };
       onInvalidate(() => {
-        cancel()
-        fetchInstance.runAsync = _originRunAsync
-      })
+        debouncedRef.value?.cancel();
+        fetchInstance.runAsync = _originRunAsync;
+      });
     }
-  })
+  });
 
   if (!unref(debounceWait)) {
-    return {
-      name: 'debouncePlugin',
-    }
+    return {};
   }
 
   return {
-    name: 'debouncePlugin',
+    name: "debouncePlugin",
     onCancel: () => {
-      // 取消时同时执行 cancel 和 flush，确保不会有遗留的防抖函数
-      cancel()
-      flush()
+      debouncedRef.value?.cancel();
     },
-  }
-}
+  };
+};
 
-export default useDebouncePlugin
+export default useDebouncePlugin;
