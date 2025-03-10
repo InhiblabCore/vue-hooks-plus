@@ -23,7 +23,7 @@ export const buildConfig: UserConfig = {
         buildOptions: {
           rollupOptions: {
             external: ['vue'],
-            output: { globals: { vue: 'Vue' } },
+            output: { exports: 'named', globals: { vue: 'Vue' } },
           },
           lib: {
             formats: ['es', 'cjs', 'iife'],
@@ -58,6 +58,7 @@ export const buildFullTypesConfig: UserConfig = {
     rollupOptions: {
       external: ['vue'],
       output: {
+        exports: 'named',
         globals: {
           vue: 'Vue',
         },

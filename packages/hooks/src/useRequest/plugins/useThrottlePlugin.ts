@@ -18,6 +18,7 @@ const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
     return ret
   })
 
+  // @ts-ignore
   const throttledRef = computed<DebouncedFunc<any>>(() =>
     throttle(
       (callback: () => void) => {
