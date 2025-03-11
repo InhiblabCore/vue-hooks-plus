@@ -1,13 +1,6 @@
 import renderHook from 'test-utils/renderHook'
 import useRequest from '../useRequest'
 
-function getUsername(): Promise<string> {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(`${String(Date.now())}`)
-    }, 1000)
-  })
-}
 describe('useRequest/Throttle', () => {
   vitest.useFakeTimers()
 
@@ -16,10 +9,7 @@ describe('useRequest/Throttle', () => {
 
     const [{ run }] = renderHook(() =>
       useRequest(
-        () => {
-          callback()
-          return getUsername()
-        },
+        callback,
         {
           manual: true,
           throttleWait: 100,

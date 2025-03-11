@@ -20,7 +20,7 @@ desc="Quickly enter the text in the input box, trigger the run frequently, and w
 
 ## Options
 
-The usage and effect of all debounce property are the same as [lodash.debounce](https://www.lodashjs.com/docs/lodash.debounce/)
+The usage and effect of all debounce property are the same as [lodash-es.debounce](https://www.lodash-esjs.com/docs/lodash-es.debounce/)
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
