@@ -16,10 +16,7 @@ describe('useRequest/Throttle', () => {
 
     const [{ run }] = renderHook(() =>
       useRequest(
-        () => {
-          callback()
-          return getUsername()
-        },
+        callback,
         {
           manual: true,
           throttleWait: 100,
