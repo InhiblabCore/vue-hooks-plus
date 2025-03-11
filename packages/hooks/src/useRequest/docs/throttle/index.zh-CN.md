@@ -20,7 +20,7 @@ source:
 
 ## Options
 
-throttle 所有参数用法和效果同 [lodash.throttle](https://www.lodashjs.com/docs/lodash.throttle/)
+throttle 所有参数用法和效果同 [lodash-es.throttle](https://www.lodash-esjs.com/docs/lodash-es.throttle/)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
