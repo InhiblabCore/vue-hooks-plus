@@ -26,8 +26,8 @@ export type PluginsMiddleOptionsType<
   TParams extends unknown[] = unknown[],
 > = PluginsOptions extends (infer P)[]
   ? P extends UseRequestPlugin<TData, TParams, infer R>
-    ? R
-    : never
+  ? R
+  : never
   : never
 
 // 同时存在 formatResult 和 initialData

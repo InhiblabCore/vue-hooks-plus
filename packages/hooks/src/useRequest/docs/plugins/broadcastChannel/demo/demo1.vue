@@ -38,12 +38,14 @@
     () => getUsername({ desc: desc.value }),
     {
       refreshDeps: true,
-      broadcastChannel: 'nice-broadcastChannel',
-      customPostMessage: (postMessage: ((msg?: any) => Promise<void>) | undefined) => {
-        postMessageRef.value = postMessage
-      },
-      onBroadcastChannel: (message: any) => {
-        other.value.push(message.data)
+      pluginOptions: {
+        broadcastChannel: 'nice-broadcastChannel',
+        customPostMessage: (postMessage: ((msg?: any) => Promise<void>) | undefined) => {
+          postMessageRef.value = postMessage
+        },
+        onBroadcastChannel: (message: any) => {
+          other.value.push(message.data)
+        },
       },
     },
     [useBroadcastChannelPlugin],
