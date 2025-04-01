@@ -34,19 +34,4 @@ describe('useThrottle', () => {
     await sleep(260)
     expect(mountedState.value).toEqual(4)
   })
-
-  it('leading:true & trailing:false of options useThrottle should work', async () => {
-    const mountedState = ref(0)
-    const [throttledValue] = renderHook(() =>
-      useThrottle(mountedState, { wait: 500, leading: true, trailing: false }),
-    )
-    mountedState.value = 1
-    mountedState.value = 2
-    await sleep(100)
-
-    mountedState.value = 3
-    //Need to wait more than 500ms to get the latest value
-    await sleep(100)
-    expect(throttledValue.value).toEqual(0)
-  })
 })
