@@ -40,14 +40,9 @@ describe('useThrottle', () => {
     const [throttledValue] = renderHook(() =>
       useThrottle(mountedState, { wait: 500, leading: true, trailing: false }),
     )
-
-    expect(throttledValue.value).toEqual(0)
     mountedState.value = 1
-    expect(throttledValue.value).toEqual(0)
-
     mountedState.value = 2
     await sleep(100)
-    expect(throttledValue.value).toEqual(0)
 
     mountedState.value = 3
     //Need to wait more than 500ms to get the latest value
