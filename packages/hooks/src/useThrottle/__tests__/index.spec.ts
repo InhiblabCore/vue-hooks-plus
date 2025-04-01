@@ -47,13 +47,13 @@ describe('useThrottle', () => {
     expect(throttledValue.value).toEqual(0)
 
     mountedState.value = 2
-    await sleep(200)
+    await sleep(100)
     await sleep(0)
     expect(throttledValue.value).toEqual(0)
 
     mountedState.value = 3
     //Need to wait more than 500ms to get the latest value
-    await sleep(200)
+    await sleep(100)
     await sleep(0)
     expect(throttledValue.value).toEqual(0)
   })
