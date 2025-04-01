@@ -3,8 +3,9 @@ dist
 .DS_Store
 .cache
 .temp
-.vitepress
+cache
 coverage
+.docs
 
 
 # lock
