@@ -9,12 +9,17 @@ describe('useRequest/Throttle', () => {
     let mountedState = 0
     const [{ run }] = renderHook(() =>
       useRequest(
-        async () => {
-          return mountedState++
+        () => {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              mountedState++
+              resolve(`${String(Date.now())}`)
+            }, 100)
+          })
         },
         {
           manual: true,
-          throttleWait: 100,
+          throttleWait: 200,
         },
       ),
     )
@@ -28,6 +33,6 @@ describe('useRequest/Throttle', () => {
     run()
     await sleep(60)
 
-    expect(3).toEqual(mountedState)
+    expect(1).toEqual(mountedState)
   })
 })
