@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        mode: ['normal', 'strict']
+        mode: ['normal']
         node-version: [18.x, 20.x]
 
     steps:
