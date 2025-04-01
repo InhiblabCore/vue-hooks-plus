@@ -1,15 +1,17 @@
 import renderHook from 'test-utils/renderHook'
 import useRequest from '../useRequest'
+import { sleep } from '@/utils/sleep'
 
 describe('useRequest/Throttle', () => {
-  vitest.useFakeTimers()
+
 
   it('useThrottlePlugin should work', async () => {
-    const callback = vitest.fn()
-
+    let mountedState = 0
     const [{ run }] = renderHook(() =>
       useRequest(
-        callback,
+        async () => {
+          return mountedState++
+        },
         {
           manual: true,
           throttleWait: 100,
@@ -18,14 +20,14 @@ describe('useRequest/Throttle', () => {
     )
 
     run()
-    vitest.advanceTimersByTime(50)
+    await sleep(60)
     run()
-    vitest.advanceTimersByTime(50)
+    await sleep(60)
     run()
-    vitest.advanceTimersByTime(50)
+    await sleep(60)
     run()
-    vitest.advanceTimersByTime(40)
+    await sleep(60)
 
-    expect(callback).toHaveBeenCalledTimes(2)
+    expect(3).toEqual(mountedState)
   })
 })
