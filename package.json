@@ -15,7 +15,7 @@
 		"docs:build-gitee": "pnpm build:vitepress-demo-block &&  tsx scripts/gitPage.ts gitee",
 		"clean": " rimraf dist lib es",
 		"build": "pnpm bootstrap && tsx scripts/build.ts",
-		"test": "vitest",
+		"test": "CI=true && vitest",
 		"test:ui": "vitest --ui",
 		"coverage": "vitest run --coverage",
 		"prepare": "husky install"
