@@ -12,14 +12,14 @@ Use addEventListener elegant by Hook.
 
 ### Default usage
 
-<demo src="./demo/demo.vue"
+<demo src="useEventListener/demo.vue"
   language="vue"
   title="Default usage"
   desc="Click the button to preview."> </demo>
 
 ### Browser-based usage
 
-<demo src="./demo/demo1.vue"
+<demo src="useEventListener/demo1.vue"
   language="vue"
   title=""
   desc="Listen for the browser events"> </demo>
