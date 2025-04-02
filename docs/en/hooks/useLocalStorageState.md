@@ -12,14 +12,14 @@ A Hook that store state into localStorage.
 
 ### Basic usage
 
-<demo src="./demo/demo.vue"
+<demo src="useLocalStorageState/demo.vue"
   language="vue"
   title="Store state into localStorage"
   desc="Refresh this page and you will get the state from localStorage."> </demo>
 
 ### Advanced usage
 
-<demo src="./demo/demo1.vue"
+<demo src="useLocalStorageState/demo1.vue"
   language="vue"
   title="Store complex types of data"
   desc="useLocalStorageState will do the serialization and deserialization work automatically."> </demo>
