@@ -4,7 +4,6 @@ import {
   groupIconVitePlugin,
   localIconLoader
 } from 'vitepress-plugin-group-icons'
-import { applyPlugins } from '@vue-hooks-plus/md-demo-plugins'
 import { search as zhSearch } from './zh'
 import { parseProps } from './utils'
 import { dirname, resolve } from 'path'
@@ -13,7 +12,7 @@ import { getDemoComponent } from './factory'
 
 export const shared = defineConfig({
   title: 'Vue hooks plus',
-
+  base: process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/' : '',
   rewrites: {
     'en/:rest*': ':rest*'
   },
