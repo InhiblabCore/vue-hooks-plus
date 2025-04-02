@@ -137,7 +137,7 @@ export const shared = defineConfig({
   ],
 
   themeConfig: {
-    logo: { src: '/logo.svg', width: 24, height: 24 },
+    logo: { src: `${process.env.NODE_ENV === 'production' ? '/vue-hooks-plus' : ''}/logo.svg`, width: 24, height: 24 },
 
     socialLinks: [
       {
