@@ -10,7 +10,7 @@ A hook that deal with the throttled value.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useThrottle/demo.vue"
   language="vue"
   title="Default usage"
   desc="ThrottledValue will change every 500ms."> </demo>

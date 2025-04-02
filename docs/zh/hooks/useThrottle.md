@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useThrottle/demo.vue"
   language="vue"
   title="基本用法"
   desc="throttledValue 每隔 500ms 变化一次。"> </demo>
