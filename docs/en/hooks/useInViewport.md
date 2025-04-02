@@ -12,14 +12,14 @@ Observe whether the element is in the visible area, and the visible area ratio o
 
 ### Default usage
 
-<demo src="./demo/demo.vue"
+<demo src="useInViewport/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Observe if the element is visible."> </demo>
 
 ### Observe the visible area ratio of element
 
-<demo src="./demo/demo1.vue"
+<demo src="useInViewport/demo1.vue"
   language="vue"
   title="Observe element visible area ratio"
   desc="Pass in options.threshold, you can control the ratio to be triggered when the visible area reach every threshold.
