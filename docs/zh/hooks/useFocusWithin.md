@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useFocusWithin/demo.vue"
   language="vue"
   title="基本用法"
   desc="使用 ref 设置需要监听的区域。可以通过鼠标点击外部区域，或者使用键盘的 tab 等按键来切换焦点。"> </demo>

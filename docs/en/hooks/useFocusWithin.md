@@ -10,7 +10,7 @@ Monitor whether the current focus is within a certain area, Same as css attribut
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useFocusWithin/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Use ref to set area that needs monitoring. The focus can be switched by click the outside with the mouse, or using keys such as tab on the keyboard."> </demo>
