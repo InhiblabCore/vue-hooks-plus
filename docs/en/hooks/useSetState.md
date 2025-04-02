@@ -10,7 +10,7 @@ Manage object type responsive Hooks, supporting deconstructing assignments and f
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useSetState/demo.vue"
   language="vue"
   title="Basic usage"
   desc=""> </demo>
