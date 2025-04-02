@@ -10,7 +10,7 @@ Hook using media queries.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useMedia/demo.vue"
   language="vue"
   title="Basic usage"
   desc="For media queries-Minimum size of 320 px"> </demo>

@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useMedia/demo.vue"
   language="vue"
   title="基本用法"
   desc="用于媒体查询-最小尺寸320px"> </demo>
