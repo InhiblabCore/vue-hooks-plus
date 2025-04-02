@@ -10,7 +10,7 @@ A hook that deal with the debounced function.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useDebounceFn/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Frequent calls run, but the function is executed only after all the clicks have completed 1000ms."> </demo>
