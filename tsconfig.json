@@ -23,5 +23,5 @@
     "skipLibCheck": true,
     "types": ["node", "vitest", "vitest/globals"]
   },
-  "exclude": ["node_modules", "commitlint.config.js"]
+  "exclude": ["node_modules", "commitlint.config.mjs"]
 }

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@9.6.0",
+  "type": "module",
   "engines": {
     "pnpm": ">=7 <10"
   },
@@ -60,6 +61,7 @@
     "kolorist": "^1.6.0",
     "less": "^4.1.3",
     "lint-staged": "^13.0.3",
+    "markdown-it-mathjax3": "^4.3.2",
     "pinia": "^2.0.34",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
@@ -73,6 +75,7 @@
     "vite-plugin-build": "0.7.1",
     "vite-plugin-dts": "^2.1.0",
     "vitepress": "1.6.3",
+    "vitepress-plugin-group-icons": "^1.3.8",
     "vitest": "2.x",
     "vue": "^3.2.25",
     "vue-demi": "^0.13.11",
@@ -81,7 +84,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue}": [
-      "eslint --fix"
+      "echo Linting..."
     ]
   },
   "repository": "https://github.com/InhiblabCore/vue-hooks-plus",

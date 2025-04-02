@@ -4,22 +4,37 @@ layout: home
 
 hero:
   name: "Vue hooks plus"
-  text: "High performance & Simplicity 🧲 Vue 3 Hooks library"
-  tagline: My great project tagline
+  text: "High-performance Hooks Library for Vue"
+  tagline: Your favorite vuejs library 🧲
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Quick Start 
+      link: /hooks/guide
     - theme: alt
-      text: API Examples
+      text: Hooks list
       link: /api-examples
+  image:
+    src: /logo.svg
+    alt: Vue Hooks Plus
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 🛸 Hooks for vue3 
+    details: Contains a comprehensive collection of basic Hooks.
+  - title: 🏄🏼‍♂️ Easy to learn and use
+    details: Simple language and easy-to-use features, easy to use, detailed documentation.
+  - title: 🎯 TypeScript
+    details: Written in TypeScript with predictable static types.
+  - title: 🎪 Interactive demo
+    details: Interactive demo, immersive.
+  - title: 🔋 Support SSR
+    details: Friendly support for server-side rendering.
+  - title: 🦾 useRequest
+    details: Preferred useRequest, Powerful request middle tier.
+  - title: 🤺 Playground
+    details: Playground, there's ample scope for one's abilities.
+  - title: 🪄 Support the on-demand load
+    details: Support the on-demand load, and reduce the packing volume.
+  - title: 🔐 Safe
+    details: Perfect test, safe and reliable.
 ---
 
