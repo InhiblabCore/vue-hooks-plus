@@ -28,7 +28,7 @@ import { VueHooksPlusUseWorkerResolver } from '@vue-hooks-plus/resolvers'
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useWorker/demo.vue"
   language="vue"
   title="basic usage"
   desc="Normal sorting will block UI bleeding, while worker sorting will not"> </demo>

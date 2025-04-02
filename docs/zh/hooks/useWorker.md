@@ -30,7 +30,7 @@ import { VueHooksPlusUseWorkerResolver } from '@vue-hooks-plus/resolvers'
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useWorker/demo.vue"
   language="vue"
   title="基本用法"
   desc="正常排序会阻塞UI渲染，而worker排序则不会"> </demo>
