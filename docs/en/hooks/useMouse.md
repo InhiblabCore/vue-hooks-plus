@@ -12,14 +12,14 @@ Track cursor position
 
 ### Default Usage
 
-<demo src="./demo/demo.vue"
+<demo src="useMouse/demo.vue"
   language="vue"
   title="Default Usage"
   desc="Tracking cursor position."> </demo>
 
 ### Mouse position relative to the element
 
-<demo src="./demo/demo1.vue"
+<demo src="useMouse/demo1.vue"
   language="vue"
   title="Mouse position relative to the element"
   desc="By passing in the target element, you can get the position of the mouse relative to the element."> </demo>
