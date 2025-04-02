@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useTitle/demo.vue"
   language="vue"
   title="基本用法"
   desc="改变浏览器 title,可动态改变；"> </demo>

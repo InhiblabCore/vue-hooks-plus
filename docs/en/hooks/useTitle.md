@@ -10,7 +10,7 @@ A hook that set title of the page.
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useTitle/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Set title of the page."> </demo>
