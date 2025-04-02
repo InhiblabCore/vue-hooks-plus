@@ -32,7 +32,7 @@ useInfiniteScroll 的第一个参数 `service` 是一个异步函数，对这个
 
 在数据固定场景下，我们有时候会用 `page` 和 `pageSize` 来请求新的分页数据。
 
-<demo src="./demo/demo1.vue"
+<demo src="useInfiniteScroll/demo1.vue"
   language="vue"
   title="分页"
   desc=""> </demo>
@@ -64,7 +64,7 @@ useInfiniteScroll 的第一个参数 `service` 是一个异步函数，对这个
 
 通过 `mutate`，我们可以直接修改当前 `data`。下面示例演示了删除某条数据。
 
-<demo src="./demo/demo4.vue"
+<demo src="useInfiniteScroll/demo4.vue"
   language="vue"
   title="mutate 数据突变"
   desc=""> </demo>

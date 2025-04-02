@@ -10,7 +10,7 @@ Listen for a long press on an element.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useLongPress/demo.vue"
   language="vue"
   title="Basic usage"
   desc="listen for a long press on an element."> </demo>

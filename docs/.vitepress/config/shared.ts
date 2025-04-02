@@ -57,6 +57,30 @@ export const shared = defineConfig({
         return demoScripts;
       }
 
+      // const htmlInline = md.renderer.rules.html_inline!
+      // md.renderer.rules.html_inline = function (tokens, idx, options, env, self) {
+      //   const token = tokens[idx];
+      //   const content = token.content.trim();
+      //   const { path } = env;
+      //   const props = parseProps(content);
+
+      //   if (!props?.src) {
+      //     console.error(`miss src props in ${path} demo.`);
+      //     // 必须返回默认渲染结果，否则会导致无限递归
+      //     return htmlInline(tokens, idx, options, env, self);
+      //   }
+
+      //   const srcPath = resolve(process.cwd(), "docs", "demo", props.src);
+      //   const code = fsExtra.readFileSync(srcPath, 'utf8');
+      //   const demoScripts = getDemoComponent(md, env, {
+      //     title: props?.title,
+      //     desc: props?.desc,
+      //     path: srcPath,
+      //     code,
+      //   });
+      //   return demoScripts;
+      // }
+
       // applyPlugins(md)
       // TODO: remove when https://github.com/vuejs/vitepress/issues/4431 is fixed
       const fence = md.renderer.rules.fence!
@@ -147,7 +171,6 @@ export const shared = defineConfig({
     resolve: {
       alias: {
         "vue-hooks-plus": "../../../packages/hooks/src/index.ts",
-        "demos": "../../../packages/hooks/src",
       }
     },
     plugins: [

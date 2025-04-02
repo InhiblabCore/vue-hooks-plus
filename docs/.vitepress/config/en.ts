@@ -2,8 +2,125 @@ import { createRequire } from 'module'
 import { defineConfig, type DefaultTheme } from 'vitepress'
 
 const require = createRequire(import.meta.url)
-const pkg = require('vitepress/package.json')
+const pkg = require('vue-hooks-plus/package.json')
 
+function siderbarUseRequestPlugin(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'UseRequest External Plugins',
+      items: [
+        {
+          text: 'global Fetching',
+          link: 'useRequest/plugins/fetchsing/',
+        },
+        {
+          text: 'broadcastChannel',
+          link: 'useRequest/plugins/broadcastChannel/',
+        }]
+    }
+  ]
+}
+function siderbarUseRequest(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'useRequest',
+      items: [
+        {
+          text: 'Quick Start',
+          link: 'useRequest',
+        },
+        {
+          text: 'Guide',
+          link: 'useRequest/guide',
+        },
+        {
+          text: 'Basic',
+          link: 'useRequest/basic',
+        },
+        {
+          text: 'Debounce',
+          link: 'useRequest/debounce',
+        },
+        {
+          text: 'Throttle',
+          link: 'useRequest/throttle',
+        },
+
+        {
+          text: 'Polling',
+          link: 'useRequest/polling',
+        },
+
+        {
+          text: 'Ready',
+          link: 'useRequest/ready',
+        },
+        {
+          text: 'RefreshDeps',
+          link: 'useRequest/refreshDeps',
+        },
+
+        {
+          text: 'Fetchs',
+          link: 'useRequest/fetchs',
+        },
+        {
+          text: 'Retry',
+          link: 'useRequest/retry',
+        },
+        {
+          text: 'Format Result',
+          link: 'useRequest/formatResult',
+        },
+        {
+          text: 'Cache & SWR',
+          link: 'useRequest/cache',
+        },
+        {
+          text: 'LoadingDelay',
+          link: 'useRequest/loadingDelay',
+        },
+        {
+          text: 'RefreshOnWindowFocus',
+          link: 'useRequest/refreshOnWindowFocus',
+        },
+        {
+          text: 'Scroll',
+          link: 'useRequest/scroll',
+        },
+        {
+          text: 'Middleware',
+          link: 'useRequest/middleware',
+        },
+        {
+          text: 'Plugins Design',
+          link: 'useRequest/plugin',
+        },
+        {
+          text: 'Global Option',
+          link: 'useRequest/global',
+        },
+        {
+          text: 'DevTools',
+          link: 'useRequest/devtools',
+        },
+      ],
+    }
+  ]
+}
+
+function sidebarGuide(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Guide',
+      items: [
+        { text: 'Introduction', link: "guide" },
+        { text: 'Getting Started', link: 'getting-started' },
+        { text: '🫶 Migrate to v2 version', link: 'migrate' }
+      ],
+    }
+  ]
+}
 export const en = defineConfig({
   lang: 'en-US',
   description: 'Vite & Vue powered static site generator.',
@@ -12,7 +129,14 @@ export const en = defineConfig({
     nav: nav(),
 
     sidebar: {
-      '/hooks/': { base: '/hooks/', items: sidebarHooks("") },
+      '/hooks/': {
+        base: '/hooks/', items: [
+          ...sidebarGuide(),
+          ...siderbarUseRequest(),
+          ...siderbarUseRequestPlugin(),
+          ...sidebarHooks(),
+        ]
+      },
     },
 
     editLink: {
@@ -37,33 +161,23 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: '🤺 Playground',
       link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
+    },
+    {
+      text: pkg.version,
+      items: [
+        {
+          text: 'Contributing',
+          link: 'https://github.com/InhiblabCore/vue-hooks-plus/blob/master/CONTRIBUTING.md'
+        }
+      ]
     }
-    // {
-    //   text: pkg.version,
-    //   items: [
-    //     {
-    //       text: 'Changelog',
-    //       link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
-    //     },
-    //     {
-    //       text: 'Contributing',
-    //       link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
-    //     }
-    //   ]
-    // }
   ]
 }
 
-export function sidebarHooks(lang: "" | 'zh'): DefaultTheme.SidebarItem[] {
+
+
+export function sidebarHooks(): DefaultTheme.SidebarItem[] {
   return [
-    {
-      text: 'Guide',
-      items: [
-        { text: 'Introduction', link: "guide" },
-        { text: 'Getting Started', link: 'getting-started' },
-        { text: '🫶 Migrate to v2 version', link: 'migrate' }
-      ],
-    },
     {
       text: 'State',
       items: [
@@ -122,7 +236,7 @@ export function sidebarHooks(lang: "" | 'zh'): DefaultTheme.SidebarItem[] {
         { text: 'useDarkMode', link: 'useDarkMode' },
         { text: 'useFavicon', link: 'useFavicon' },
         { text: 'useFocusWithin', link: 'useFocusWithin' },
-        { text: 'useFullscreen', link: 'useFull' },
+        { text: 'useFullscreen', link: 'useFullscreen' },
         { text: 'useHover', link: 'useHover' },
         { text: 'useInViewport', link: 'useInViewport' },
         { text: 'useKeyPress', link: 'useKeyPress' },
@@ -146,7 +260,7 @@ export function sidebarHooks(lang: "" | 'zh'): DefaultTheme.SidebarItem[] {
           text: 'useAsyncOrder',
           link: 'useAsyncOrder',
         },
-        { text: 'usePreview ⚠️', link: 'usePreview' },
+        // { text: 'usePreview ⚠️', link: 'usePreview' },
       ],
     },
     {

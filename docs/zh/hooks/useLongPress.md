@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useLongPress/demo.vue"
   language="vue"
   title="基本用法"
   desc="监听 Element 的长按事件。"> </demo>

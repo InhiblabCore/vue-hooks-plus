@@ -3,8 +3,126 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 import { sidebarHooks } from './en'
 
 const require = createRequire(import.meta.url)
-const pkg = require('vitepress/package.json')
+const pkg = require('vue-hooks-plus/package.json')
 
+function siderbarUseRequestPlugin(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'useRequest 外置插件',
+      items: [
+        {
+          text: '全局请求状态管理',
+          link: '/useRequest/plugins/fetchsing/',
+        },
+        {
+          text: '同源跨窗口广播',
+          link: '/useRequest/plugins/broadcastChannel/',
+        },
+      ],
+    },
+  ]
+}
+function siderbarUseRequest(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'useRequest',
+      items: [
+        {
+          text: '快速开始',
+          link: 'useRequest',
+        },
+        {
+          text: '使用姿势',
+          link: '/useRequest/guide',
+        },
+        {
+          text: '基础用法',
+          link: '/useRequest/basic',
+        },
+
+        {
+          text: '防抖',
+          link: '/useRequest/debounce',
+        },
+        {
+          text: '节流',
+          link: '/useRequest/throttle',
+        },
+
+        {
+          text: '轮询',
+          link: '/useRequest/polling',
+        },
+
+        {
+          text: 'Ready',
+          link: '/useRequest/ready',
+        },
+        {
+          text: '依赖刷新',
+          link: '/useRequest/refreshDeps',
+        },
+
+        {
+          text: '并行请求',
+          link: '/useRequest/fetchs',
+        },
+        {
+          text: '错误重试',
+          link: '/useRequest/retry',
+        },
+        {
+          text: '格式化数据',
+          link: '/useRequest/formatResult',
+        },
+        {
+          text: '缓存 & SWR',
+          link: '/useRequest/cache',
+        },
+        {
+          text: 'loadingDelay',
+          link: '/useRequest/loadingDelay',
+        },
+        {
+          text: '屏幕聚焦重新请求',
+          link: '/useRequest/refreshOnWindowFocus',
+        },
+        {
+          text: '滚动加载 & 分页加载',
+          link: '/useRequest/scroll',
+        },
+        {
+          text: '中间件',
+          link: '/useRequest/middleware',
+        },
+        {
+          text: '插件设计',
+          link: '/useRequest/plugin',
+        },
+        {
+          text: '全局配置',
+          link: '/useRequest/global',
+        },
+        {
+          text: '开发者工具',
+          link: '/useRequest/devtools',
+        },
+      ],
+    }
+  ]
+}
+function sidebarGuide(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '指南',
+      items: [
+        { text: '介绍', link: "guide" },
+        { text: '开始使用', link: 'getting-started' },
+        { text: '🫶 迁移到 v2 版本', link: 'migrate' }
+      ],
+    }
+  ]
+}
 export const zh = defineConfig({
   lang: 'zh-Hans',
   description: '由 Vite 和 Vue 驱动的静态站点生成器',
@@ -13,7 +131,12 @@ export const zh = defineConfig({
     nav: nav(),
 
     sidebar: {
-      '/zh/hooks/': { base: '/zh/hooks/', items: sidebarHooks("zh") }
+      '/zh/hooks/': {
+        base: '/zh/hooks/', items: [
+          ...sidebarGuide(),
+          ...sidebarHooks()
+        ]
+      }
     },
 
     editLink: {
@@ -63,25 +186,16 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: '🤺 演武场',
       link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
+    },
+    {
+      text: pkg.version,
+      items: [
+        {
+          text: '贡献',
+          link: 'https://github.com/InhiblabCore/vue-hooks-plus/blob/master/CONTRIBUTING.md'
+        }
+      ]
     }
-    // {
-    //   text: '参考',
-    //   link: '/zh/reference/site-config',
-    //   activeMatch: '/zh/reference/'
-    // },
-    // {
-    //   text: pkg.version,
-    //   items: [
-    //     {
-    //       text: '更新日志',
-    //       link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
-    //     },
-    //     {
-    //       text: '参与贡献',
-    //       link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
-    //     }
-    //   ]
-    // }
   ]
 }
 
