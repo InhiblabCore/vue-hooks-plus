@@ -10,7 +10,7 @@ A hook that tracks the state of network connection.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useNetwork/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Return network status"> </demo>

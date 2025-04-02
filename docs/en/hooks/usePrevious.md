@@ -10,14 +10,14 @@ A Hook to return the previous state.
 
 ## Basic usage
 
-<demo src="./demo/demo.vue"
+<demo src="usePrevious/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Record the previous value"> </demo>
 
 ## Custom shouldUpdate function
 
-<demo src="./demo/demo1.vue"
+<demo src="usePrevious/demo1.vue"
   language="vue"
   title="Custom shouldUpdate function"
   desc="Previous value update only when the shouldUpdate function return true"> </demo>

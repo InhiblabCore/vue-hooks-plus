@@ -10,14 +10,14 @@ map:
 
 ## 基础用法
 
-<demo src="./demo/demo.vue"
+<demo src="usePrevious/demo.vue"
   language="vue"
   title="基本用法"
   desc="记录上次的 count 值"> </demo>
 
 ## 自定义 shouldUpdate 函数
 
-<demo src="./demo/demo1.vue"
+<demo src="usePrevious/demo1.vue"
   language="vue"
   title="自定义 shouldUpdate 函数"
   desc="只有 shouldUpdate function 返回 true 时，才会记录值的变化"> </demo>
