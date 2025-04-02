@@ -12,14 +12,14 @@ Dynamically load JS or CSS, useExternal can ensure that the resource are globall
 
 ### Basic Usage
 
-<demo src="./demo/demo.vue"
+<demo src="useExternal/demo.vue"
   language="vue"
   title="Dynamically load JS"
   desc="load axios"> </demo>
 
 ### Load CSS
 
-<demo src="./demo/demo1.vue"
+<demo src="useExternal/demo1.vue"
   language="vue"
   title="Load style"
   desc="load css file"> </demo>

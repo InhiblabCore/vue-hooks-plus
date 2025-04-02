@@ -12,14 +12,14 @@ map:
 
 ### 基本用法
 
-<demo src="./demo/demo.vue"
+<demo src="useExternal/demo.vue"
   language="vue"
   title="动态加载js"
   desc="加载 js 文件,引入 axios"> </demo>
 
 ### 加载 CSS
 
-<demo src="./demo/demo1.vue"
+<demo src="useExternal/demo1.vue"
   language="vue"
   title="动态加载样式"
   desc="加载 css 文件"> </demo>
