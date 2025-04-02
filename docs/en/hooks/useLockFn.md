@@ -10,7 +10,7 @@ Add lock to an async function to prevent parallel executions.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useLockFn/demo.vue"
   language="vue"
   title="Basic usge,Prevent duplicated submits"
   desc="Before the submit function finishes, the other click actions will be ignored."> </demo>

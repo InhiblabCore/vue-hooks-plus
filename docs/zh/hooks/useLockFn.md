@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useLockFn/demo.vue"
   language="vue"
   title="基本用法"
   desc="在 submit 函数执行完成前，其余的点击动作都会被忽略。场景：对于表单提交可以限制其多次提交"> </demo>
