@@ -11,7 +11,7 @@
     "bootstrap": "tsx scripts/bootstrap.ts",
     "build:vitepress-demo-block": "cd packages/vitepress/vitepress-demo-block && pnpm build",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "pnpm build:vitepress-demo-block && vitepress build docs",
+    "docs:build": "pnpm build && vitepress build docs",
     "docs:build-github": "pnpm build:vitepress-demo-block && tsx scripts/gitPage.ts github",
     "docs:build-gitee": "pnpm build:vitepress-demo-block &&  tsx scripts/gitPage.ts gitee",
     "clean": " rimraf dist lib es",
