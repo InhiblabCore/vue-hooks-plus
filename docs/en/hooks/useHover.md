@@ -10,7 +10,7 @@ A hook that tracks whether the element is being hovered.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useHover/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Use ref to set element that needs monitoring."> </demo>
