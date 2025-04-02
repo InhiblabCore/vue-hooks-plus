@@ -10,7 +10,7 @@ Dynamically obtain the size and coordinates of Dom elements.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useElementBounding/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Use ref to set element that needs monitoring."> </demo>
