@@ -116,7 +116,7 @@ export const shared = defineConfig({
   },
 
   sitemap: {
-    hostname: 'https://vitepress.dev',
+    hostname: 'https://inhiblabcore.github.io/vue-hooks-plus/',
     transformItems(items) {
       return items.filter((item) => !item.url.includes('migration'))
     }
