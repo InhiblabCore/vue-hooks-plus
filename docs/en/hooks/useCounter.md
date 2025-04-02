@@ -10,7 +10,7 @@ A hook that manage counter.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useCounter/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Simple example of counter management."> </demo>

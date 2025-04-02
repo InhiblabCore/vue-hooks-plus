@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useCounter/demo.vue"
   language="vue"
   title="管理计数器"
   desc="一个简单的例子管理计数器"> </demo>
