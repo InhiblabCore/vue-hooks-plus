@@ -10,7 +10,7 @@ A hook that handles the `setInterval` timer function.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useInterval/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Execute once per 2000ms."> </demo>
