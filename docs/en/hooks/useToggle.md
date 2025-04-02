@@ -12,14 +12,14 @@ A hook that toggle states.
 
 ### Basic usage
 
-<demo src="./demo/demo.vue"
+<demo src="useToggle/demo.vue"
   language="vue"
   title="Default usage"
   desc="Default value is boolean，alike useBoolean."> </demo>
 
 ### Advanced usage
 
-<demo src="./demo/demo1.vue"
+<demo src="useToggle/demo1.vue"
   language="vue"
   title="Toggle between any two values"
   desc="Accept two optional parameters and toggle between them."> </demo>
