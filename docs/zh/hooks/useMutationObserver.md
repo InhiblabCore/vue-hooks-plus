@@ -11,7 +11,7 @@ map:
 
 ### 基础用法
 
-<demo src="./demo/demo.vue"
+<demo src="useMutationObserver/demo.vue"
   language="vue"
   title="基本用法"
   desc=""> </demo>

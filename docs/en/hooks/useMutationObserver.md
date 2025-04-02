@@ -11,7 +11,7 @@ A hook that provides the ability to watch for changes being made to the DOM tree
 
 ### Default Usage
 
-<demo src="./demo/demo.vue"
+<demo src="useMutationObserver/demo.vue"
   language="vue"
   title="Default Usage"
   desc=""> </demo>
