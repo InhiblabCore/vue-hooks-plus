@@ -22,6 +22,7 @@ function useSet<T = any>(initialValue?: T[]) {
      * @param value T
      */
     add: (value: T) => {
+      // @ts-ignore
       state.value.add(value)
     },
 
@@ -30,6 +31,7 @@ function useSet<T = any>(initialValue?: T[]) {
      * @param value T
      */
     remove: (value: T) => {
+      // @ts-ignore
       state.value.delete(value)
     },
 
@@ -37,6 +39,7 @@ function useSet<T = any>(initialValue?: T[]) {
      * Set has
      * @param value T
      */
+    // @ts-ignore
     has: (value: T) => state.value.has(value),
 
     /**

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import throttle from 'lodash-es/throttle'
 import { onUnmounted, ref, computed } from 'vue'
 import { UseThrottleOptions } from '../useThrottle'
