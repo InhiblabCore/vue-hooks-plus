@@ -8,12 +8,27 @@
 
 :root {
   --vp-home-hero-image-filter: blur(44px);
-
+  --vhp-func-bg: rgba(255, 255, 255, 0.08);
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
   --vp-home-hero-image-background-image: linear-gradient(-45deg,
       #42d392 50%,
       #647eff 50%);
+}
+
+input {
+  opacity: 1;
+  background-color: var(--vhp-func-bg);
+  padding-left: 8px;
+  height: 36px;
+  font-weight: 500;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+input:focus {
+  color: var(--vp-button-brand-bg);
 }
 
 @media (min-width: 640px) {

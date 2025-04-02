@@ -4,15 +4,19 @@ layout: home
 
 hero:
   name: "Vue hooks plus"
-  text: ""
-  tagline: My great project tagline
+  text: "高性能的 vue hooks 库"
+  tagline: 你喜欢的样子它都有 🧲
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 快速开始
+      link: /zh/hooks/guide
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Hooks 列表  
+      link: /zh/api-examples
+  
+  image:
+    src: /logo.svg
+    alt: Vue Hooks Plus
 
 features:
   - title: 🛸 Hooks for vue3 

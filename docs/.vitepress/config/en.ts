@@ -12,8 +12,7 @@ export const en = defineConfig({
     nav: nav(),
 
     sidebar: {
-      '/hooks/': { base: '/hooks/', items: sidebarHooks() },
-      '/reference/': { base: '/reference/', items: sidebarReference() }
+      '/hooks/': { base: '/hooks/', items: sidebarHooks("") },
     },
 
     editLink: {
@@ -31,10 +30,14 @@ export const en = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: 'Hooks',
+      text: 'Hooks guide',
       link: '/hooks/guide',
       activeMatch: '/hooks/'
     },
+    {
+      text: '🤺 Playground',
+      link: 'https://inhiblabcore.github.io/vue-hooks-plus-playground/play',
+    }
     // {
     //   text: pkg.version,
     //   items: [
@@ -51,21 +54,20 @@ function nav(): DefaultTheme.NavItem[] {
   ]
 }
 
-function sidebarHooks(): DefaultTheme.SidebarItem[] {
+export function sidebarHooks(lang: "" | 'zh'): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Guide',
       items: [
-        { text: 'Introduction', link: 'guide' },
+        { text: 'Introduction', link: "guide" },
         { text: 'Getting Started', link: 'getting-started' },
-        { text: 'Routing', link: 'routing' },
-        { text: 'Deploy', link: 'deploy' },
+        { text: '🫶 Migrate to v2 version', link: 'migrate' }
       ],
     },
     {
       text: 'State',
       items: [
-        { text: 'useBoolean', link: '/useBoolean/' },
+        { text: 'useBoolean', link: 'useBoolean' },
         { text: 'useImmer', link: '/useImmer/' },
         { text: 'useUrlState', link: '/useUrlState/' },
         { text: 'useFormatResult', link: '/useFormatResult/' },
@@ -154,7 +156,10 @@ function sidebarHooks(): DefaultTheme.SidebarItem[] {
         { text: 'useWhyDidYouUpdate', link: '/useWhyDidYouUpdate/' },
       ],
     },
-  ]
+  ].map((item) => {
+
+    return item
+  })
 }
 
 function sidebarReference(): DefaultTheme.SidebarItem[] {

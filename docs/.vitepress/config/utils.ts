@@ -5,7 +5,7 @@ export function parseProps(content: string) {
   const demoElement = ast.children[0] as ElementNode;
 
   // 添加props存在性检查
-  if (!demoElement.props || !Array.isArray(demoElement.props)) {
+  if (!demoElement?.props || !Array.isArray(demoElement?.props)) {
     return {};
   }
 

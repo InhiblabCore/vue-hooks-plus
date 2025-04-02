@@ -12,14 +12,14 @@ A Hook that store state into Cookie.
 
 ### Basic usage
 
-<demo src="./demo/demo.vue"
+<demo src="useCookieState/demo.vue"
   language="vue"
   title="Store the status in the Cookie"
   desc="After refreshing the page, you can see the content in the input box being restored from the Cookie."> </demo>
 
 ### Advanced Usage-Receivable functions
 
-<demo src="./demo/demo1.vue"
+<demo src="useCookieState/demo1.vue"
   language="vue"
   title="The set accepts the function"
   desc="Be able to receive feelings when set"> </demo>
