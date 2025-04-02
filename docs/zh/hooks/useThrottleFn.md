@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useThrottleFn/demo.vue"
   language="vue"
   title="基本用法"
   desc="频繁调用 run，但只会每隔 1000ms 执行一次相关函数。"> </demo>

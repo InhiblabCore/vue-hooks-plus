@@ -10,7 +10,7 @@ A hook that deal with the throttled function.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useThrottleFn/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Frequent calls run, but the function is only executed every 1000ms."> </demo>
