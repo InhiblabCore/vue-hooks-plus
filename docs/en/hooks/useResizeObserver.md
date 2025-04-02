@@ -6,20 +6,20 @@ map:
 
 # useResizeObserver
 
-监听元素尺寸的变化。
+Dynamically get the size change of Dom elements.
 
-## 代码演示
+## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useResizeObserver/demo.vue"
   language="vue"
-  title="基本用法"
-  desc="使用 ref 设置需要监听的元素。"> </demo>
+  title="Basic usage"
+  desc="Use ref to set element that needs monitoring."> </demo>
 
 ## API
 
 ```typescript
 useResizeObserver(target, callback, {
-  box: ResizeObserverBoxOptions,
+  box: UseResizeObserverOptions,
 })
 ```
 
