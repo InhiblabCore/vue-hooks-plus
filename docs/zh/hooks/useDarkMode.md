@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useDarkMode/demo.vue"
   language="vue"
   title="基本用法"
   desc="可跟随系统和用户手动切换"> </demo>

@@ -10,7 +10,7 @@ Hook using Dark mode.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useDarkMode/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Follow the system and the user to manually switch"> </demo>
