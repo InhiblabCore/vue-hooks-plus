@@ -10,7 +10,7 @@ Based on `useRequest`'s ability to implement powerful parallel requests, gracefu
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useFetchs/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Request status management for multiple requests simultaneously"> </demo>

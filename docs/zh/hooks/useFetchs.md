@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useFetchs/demo.vue"
   language="vue"
   title="基本用法"
   desc="多个请求同时进行的请求状态管理"> </demo>
