@@ -6,14 +6,17 @@ map:
 
 # useTrackedEffect
 
-Tracking which dependence changes.
+追踪是哪个依赖发生变化。
 
-## Code demonstration
+## 代码演示
 
-<demo src="./demo/demo.vue"
+### 基础用法
+
+<demo src="useTrackedEffect/demo.vue"
   language="vue"
-  title="Basic usage"
-  desc="Console to view the print results"> </demo>
+  title="基本用法"
+  desc="控制台查看打印结果">
+</demo>
 
 ## API
 
