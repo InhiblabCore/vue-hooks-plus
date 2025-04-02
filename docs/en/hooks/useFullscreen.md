@@ -10,14 +10,14 @@ manages DOM full screen.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useFullscreen/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Enter full screen without passing ref"> </demo>
 
 ## Image full screen
 
-<demo src="./demo/demo1.vue"
+<demo src="useFullscreen/demo1.vue"
   language="vue"
   title="Image full screen"
   desc="Pass the ref setting element into full screen"> </demo>

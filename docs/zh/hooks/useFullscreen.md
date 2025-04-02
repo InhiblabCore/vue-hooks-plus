@@ -10,14 +10,14 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useFullscreen/demo.vue"
   language="vue"
   title="基本用法"
   desc="不传递 ref 进入全屏"> </demo>
 
 ## 图片全屏
 
-<demo src="./demo/demo1.vue"
+<demo src="useFullscreen/demo1.vue"
   language="vue"
   title="图片全屏"
   desc="传递 ref 设置元素进入全屏"> </demo>
