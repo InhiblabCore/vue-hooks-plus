@@ -32,7 +32,7 @@ import { VueHooksPlusUseImmerResolver } from '@vue-hooks-plus/resolvers'
 
 ## 基本用法
 
-<demo src="./demo/demo.vue"
+<demo src="useImmer/demo.vue"
   language="vue"
   title="基本用法"
   desc=""> </demo>
