@@ -12,14 +12,14 @@ A hook that allows you to use virtual list to render huge chunks of list data.
 
 ### Default usage
 
-<demo src="./demo/demo.vue"
+<demo src="useVirtualList/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Render a lot of data"> </demo>
 
 ### Dynamic item height
 
-<demo src="./demo/demo1.vue"
+<demo src="useVirtualList/demo1.vue"
   language="vue"
   title="Dynamic item height"
   desc="Specify item height dynamically."> </demo>

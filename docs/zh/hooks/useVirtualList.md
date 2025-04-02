@@ -12,14 +12,14 @@ map:
 
 ### 基本用法
 
-<demo src="./demo/demo.vue"
+<demo src="useVirtualList/demo.vue"
   language="vue"
   title="基本用法"
   desc="渲染大量数据"> </demo>
 
 ### 动态元素高度
 
-<demo src="./demo/demo1.vue"
+<demo src="useVirtualList/demo1.vue"
   language="vue"
   title="动态元素高度"
   desc="跳转到元素指定位置"> </demo>
