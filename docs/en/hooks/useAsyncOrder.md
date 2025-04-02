@@ -12,7 +12,7 @@ Hook to manage the execution order of asynchronous tasks
 
 ### Basic usage
 
-<demo src="./demo/demo.vue"
+<demo src="useAsyncOrder/demo.vue"
   Language = "vue" title = "Basic Usage" desc = "The first data appears after 3000ms, and the second data appears after 2000ms" > </demo>
 
 ## API
@@ -20,16 +20,16 @@ Hook to manage the execution order of asynchronous tasks
 ```typescript
 useAsyncOrder({
   task: ((
-		resolve?: Resolve,
-		reject?: InterruptibleRejectType,
-		index?: number
-	) => void)[]
-	option?: {
-		delay?: number
-		onReady?: () => void
-		onSuccess?: (result: unknown) => void
-		onError?: (err: unknown) => void
-	}})
+  resolve?: Resolve,
+  reject?: InterruptibleRejectType,
+  index?: number
+ ) => void)[]
+ option?: {
+  delay?: number
+  onReady?: () => void
+  onSuccess?: (result: unknown) => void
+  onError?: (err: unknown) => void
+ }})
 ```
 
 ## Params
