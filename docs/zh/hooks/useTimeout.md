@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useTimeout/demo.vue"
   language="vue"
   title="基本用法"
   desc="2000ms后开始执行"> </demo>

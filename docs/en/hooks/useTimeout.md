@@ -10,7 +10,7 @@ A hook that handles the `setTimeout` timer function.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useTimeout/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Execute once after 2000ms"> </demo>
