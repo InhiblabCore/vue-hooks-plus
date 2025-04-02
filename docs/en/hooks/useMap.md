@@ -10,7 +10,7 @@ A hook that can manage the state of Map.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useMap/demo.vue"
   language="vue"
   title="Basic usage"
   desc=""> </demo>
