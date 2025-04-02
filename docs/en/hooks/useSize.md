@@ -12,14 +12,14 @@ A hook that observes size change of an element.
 
 ### Default usage
 
-<demo src="./demo/demo.vue"
+<demo src="useSize/demo.vue"
   language="vue"
   title="Default usage"
   desc="useSize can receive ref as argument"> </demo>
 
 ### Pass in the DOM element
 
-<demo src="./demo/demo1.vue"
+<demo src="useSize/demo1.vue"
   language="vue"
   title="Pass in the DOM element"
   desc="useSize can receive a dom element as parameter. In SSR scenarios, you can pass in function ()=>dom"> </demo>

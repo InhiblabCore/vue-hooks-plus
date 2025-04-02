@@ -12,14 +12,14 @@ map:
 
 ### 基础用法
 
-<demo src="./demo/demo.vue"
+<demo src="useSize/demo.vue"
   language="vue"
   title="基本用法"
   desc="传入需要监听的ref"> </demo>
 
 ### 传入 Dom
 
-<demo src="./demo/demo1.vue"
+<demo src="useSize/demo1.vue"
   language="vue"
   title="基本用法"
   desc="传入 body dom"> </demo>
