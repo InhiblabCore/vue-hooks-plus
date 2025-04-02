@@ -12,7 +12,7 @@ map:
 
 ### 基础用法
 
-<demo src="./demo/demo.vue"
+<demo src="useWhyDidYouUpdate/demo.vue"
   language="vue"
   title="基本用法"
   desc="控制台查看打印结果">

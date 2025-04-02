@@ -10,7 +10,7 @@ Help developers troubleshoot what changes have caused component rerender.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useWhyDidYouUpdate/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Console to view the print results"> </demo>
