@@ -10,7 +10,7 @@ Format the data of hook.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useFormatResult/demo.vue"
   language="vue"
   title="Default usage"
   desc="format the data"> </demo>
