@@ -23,7 +23,7 @@ f the data returned for the first request is `{ list: [1, 2, 3], nextId: 4 }`, t
 
 In the first example, we demonstrate the implementation of a most basic infinite scroll.
 
-<demo src="./demo/demo.vue"
+<demo src="useInfiniteScroll/demo.vue"
   language="vue"
   title="Basic usage"
   desc=""> </demo>
@@ -32,7 +32,7 @@ In the first example, we demonstrate the implementation of a most basic infinite
 
 In the data fixation scenario, we sometimes use `page` and `pageSize` to request new data.
 
-<demo src="./demo/demo1.vue"
+<demo src="useInfiniteScroll/demo1.vue"
   language="vue"
   title="Pagination"
   desc=""> </demo>
@@ -44,7 +44,7 @@ In the infinite scrolling scenario, the most common case is to automatically loa
 - `options.target` specifies the parent element, The parent element needs to set a fixed height and support internal scrolling
 - `options.isNoMore` determines if there is no more data
 
-<demo src="./demo/demo2.vue"
+<demo src="useInfiniteScroll/demo2.vue"
   language="vue"
   title="Scrolling"
   desc=""> </demo>
@@ -53,7 +53,7 @@ In the infinite scrolling scenario, the most common case is to automatically loa
 
 The data can be reset by `reload`. The following example shows that after the `filter` changes, the data is reset to the first page.
 
-<demo src="./demo/demo3.vue"
+<demo src="useInfiniteScroll/demo3.vue"
   language="vue"
   title="reload"
   desc=""> </demo>
@@ -64,7 +64,7 @@ The above code can be implemented with `reloadDeps` syntax sugar. When `reloadDe
 
 With `mutate`, we can directly modify the current `data`. The following example demonstrates deleting a record from the data.
 
-<demo src="./demo/demo4.vue"
+<demo src="useInfiniteScroll/demo4.vue"
   language="vue"
   title="mutate"
   desc=""> </demo>

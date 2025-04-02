@@ -23,7 +23,7 @@ useInfiniteScroll 的第一个参数 `service` 是一个异步函数，对这个
 
 第一个例子我们演示最基本的无限滚动写法。
 
-<demo src="./demo/demo.vue"
+<demo src="useInfiniteScroll/demo.vue"
   language="vue"
   title="基本用法"
   desc=""> </demo>
@@ -44,7 +44,7 @@ useInfiniteScroll 的第一个参数 `service` 是一个异步函数，对这个
 - `options.target` 指定父级元素（父级元素需设置固定高度，且支持内部滚动）
 - `options.isNoMore` 判断是不是没有更多数据了
 
-<demo src="./demo/demo2.vue"
+<demo src="useInfiniteScroll/demo2.vue"
   language="vue"
   title="滚动自动加载"
   desc=""> </demo>
@@ -53,7 +53,7 @@ useInfiniteScroll 的第一个参数 `service` 是一个异步函数，对这个
 
 通过 `reload` 即可实现数据重置，重置数据到第一页。
 
-<demo src="./demo/demo3.vue"
+<demo src="useInfiniteScroll/demo3.vue"
   language="vue"
   title="reload 数据重置"
   desc=""> </demo>
