@@ -10,21 +10,21 @@ Listen for the keyboard press, support key combinations, and support alias.
 
 ## Basic usage
 
-<demo src="./demo/demo.vue"
+<demo src="useKeyPress/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Supported keyCode and alias in keyboard events, pressing ArrowUp or ArrowDown to show effect."> </demo>
 
 ## Combination keys
 
-<demo src="./demo/demo1.vue"
+<demo src="useKeyPress/demo1.vue"
   language="vue"
   title="Combination keys"
   desc=""> </demo>
 
 ## Exact match
 
-<demo src="./demo/demo2.vue"
+<demo src="useKeyPress/demo2.vue"
   language="vue"
   title="Exact match"
   desc="Enable exact matching by setting exactMatch. For example, press [shift + c], will not trigger [c]."> </demo>
