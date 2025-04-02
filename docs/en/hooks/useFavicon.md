@@ -10,7 +10,7 @@ A hook that set the favicon of the page.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useFavicon/demo.vue"
   language="vue"
   title="Basic usage"
   desc="Set favicon"> </demo>

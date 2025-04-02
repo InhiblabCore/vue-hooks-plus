@@ -10,7 +10,7 @@ map:
 
 ## 代码演示
 
-<demo src="./demo/demo.vue"
+<demo src="useFavicon/demo.vue"
   language="vue"
   title="基本用法"
   desc="动态改变 favicon。"> </demo>
