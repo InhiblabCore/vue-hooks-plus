@@ -10,7 +10,7 @@ A hook for WebSocket.
 
 ## Code demonstration
 
-<demo src="./demo/demo.vue"
+<demo src="useWebSocket/demo.vue"
 language="vue"
 title="Basic usage"
 desc=""> </demo>
