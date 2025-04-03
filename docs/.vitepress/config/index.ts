@@ -17,8 +17,6 @@ export default withPwa(defineConfig({
     srcDir: '.vitepress/',
     strategies: 'generateSW', // <== if omitted, defaults to `generateSW`  
     workbox: {
-      globPatterns: ['**/*.{js,css,html,ico,png,svg}'], // 添加明确的glob模式
-      globDirectory: '../', // 指定glob目录
     },
     experimental: {
       includeAllowlist: true
