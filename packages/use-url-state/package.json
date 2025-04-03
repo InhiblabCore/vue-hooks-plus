@@ -1,0 +1,27 @@
+{
+  "name": "@vue-hooks-plus/use-url-state",
+  "version": "1.0.0",
+  "description": "Vue management url state",
+	"files": [
+		"dist",
+		"LICENSE",
+		"package.json",
+		"README.md"
+	],
+  "main": "./dist/useUrlState.cjs.js",
+	"module": "./dist/useUrlState.es.js",
+  "types":"./dist/types/index.d.ts" ,
+  "scripts": {
+    "build": "npm run clean && vite build",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "dependencies": {
+    "vue-hooks-plus": "workspace:*",
+    "qs": "^6.11.0"
+  },
+  "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"author": "NelsonYong",
+	"license": "MIT"
+}

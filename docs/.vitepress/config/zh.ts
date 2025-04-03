@@ -135,6 +135,7 @@ export const zh = defineConfig({
         base: '/zh/hooks/', items: [
           ...sidebarGuide(),
           ...siderbarUseRequest(),
+          ...siderbarUseRequestPlugin(),
           ...sidebarHooks()
         ]
       }

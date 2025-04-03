@@ -4,8 +4,9 @@
  */
 import qs from 'qs'
 import { Ref, ref, watch, watchEffect } from 'vue'
-import useLocalStorageState from '../useLocalStorageState'
-import { isFunction } from '../utils'
+import useLocalStorageState from 'vue-hooks-plus/es/useLocalStorageState'
+
+const isFunction = (value: unknown): value is Function => typeof value === 'function'
 
 export interface UseUrlStateOptions {
   localStorageKey?: string
@@ -69,8 +70,8 @@ function useUrlState<S extends UrlState = Partial<UrlState>>(
 
   const state_ = (localStorageKey
     ? useLocalStorageState(localStorageKey, {
-        defaultValue: defaultState,
-      })[0]
+      defaultValue: defaultState,
+    })[0]
     : ref(defaultState)) as Ref<S>
 
   const state = ref<S>() as Ref<S>

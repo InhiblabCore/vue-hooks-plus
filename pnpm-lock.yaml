@@ -25,6 +25,7 @@ importers:
       '@vue-hooks-plus/use-immer': workspace:^1.0.0
       '@vue-hooks-plus/use-request': workspace:^2.0.0
       '@vue-hooks-plus/use-request-plugins': workspace:^2.0.0
+      '@vue-hooks-plus/use-url-state': workspace:^1.0.0
       '@vue-hooks-plus/use-worker': workspace:^1.0.0
       '@vue-hooks-plus/vite-plugin-gen-temp': ^2.6.6
       '@vue-hooks-plus/vitepress': ^1.2.4
@@ -85,6 +86,7 @@ importers:
       '@vue-hooks-plus/use-immer': link:packages/use-immer
       '@vue-hooks-plus/use-request': link:packages/use-request
       '@vue-hooks-plus/use-request-plugins': link:packages/use-request-plugins
+      '@vue-hooks-plus/use-url-state': link:packages/use-url-state
       '@vue-hooks-plus/use-worker': link:packages/use-worker
       '@vue-hooks-plus/vite-plugin-gen-temp': 2.6.6_dqaymn33g636ttynukiabyihru
       '@vue-hooks-plus/vitepress': 1.2.4_erz2jsxiahvile5wzydwj6eewu
@@ -149,8 +151,6 @@ importers:
       '@vue/devtools-api': ^6.5.0
       js-cookie: ^3.0.1
       lodash-es: ^4.17.21
-      qs: ^6.11.0
-      query-string: ^7.1.1
       screenfull: ^5.0.0
       vue: ^3.2.25
     dependencies:
@@ -158,8 +158,6 @@ importers:
       '@vue/devtools-api': 6.6.4
       js-cookie: 3.0.5
       lodash-es: 4.17.21
-      qs: 6.14.0
-      query-string: 7.1.3
       screenfull: 5.2.0
     devDependencies:
       '@types/lodash-es': 4.17.12
@@ -211,6 +209,14 @@ importers:
     devDependencies:
       '@vue-hooks-plus/use-request': 2.2.2
       pinia: 2.3.1_vue@3.5.13
+
+  packages/use-url-state:
+    specifiers:
+      qs: ^6.11.0
+      vue-hooks-plus: workspace:*
+    dependencies:
+      qs: 6.14.0
+      vue-hooks-plus: link:../hooks
 
   packages/use-worker:
     specifiers:
@@ -3617,8 +3623,8 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.11_ue4hszsjlr3ayqwkvy34jdue3e
-      vue: 3.5.13_typescript@5.8.2
+      vite: 3.2.11_less@4.2.2
+      vue: 3.5.13
     dev: true
 
   /@vitejs/plugin-vue/5.2.3_vite@5.4.16+vue@3.5.13:
@@ -3976,7 +3982,7 @@ packages:
     dependencies:
       '@vue/compiler-ssr': 3.5.13
       '@vue/shared': 3.5.13
-      vue: 3.5.13_typescript@5.8.2
+      vue: 3.5.13
 
   /@vue/shared/3.5.13:
     resolution: {integrity: sha512-/hnE/qP5ZoGpol0a5mDi45bOd7t3tjYJBjsgCsivow7D48cJeV5l05RD82lPqi7gRiphZM37rnhW1l6ZoCNNnQ==}
@@ -9739,6 +9745,7 @@ packages:
     resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: true
 
   /uc.micro/1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
@@ -10491,7 +10498,7 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
-      vue: 3.5.13_typescript@5.8.2
+      vue: 3.5.13
     dev: true
 
   /vue-eslint-parser/9.4.3_eslint@8.57.1:
@@ -10588,6 +10595,7 @@ packages:
       '@vue/server-renderer': 3.5.13_vue@3.5.13
       '@vue/shared': 3.5.13
       typescript: 5.8.2
+    dev: true
 
   /web-resource-inliner/6.0.1:
     resolution: {integrity: sha512-kfqDxt5dTB1JhqsCUQVFDj0rmY+4HLwGQIsLPbyrsN9y9WV/1oFDSx3BQ4GfCv9X+jVeQ7rouTqwK53rA/7t8A==}

@@ -3,6 +3,7 @@ import { resolveModule } from 'local-pkg'
 import { readFileSync } from 'node:fs'
 import VueHooksPlusUseWorkerResolver from './useWorkerResolver'
 import VueHooksPlusUseImmerResolver from './useImmerResolver'
+import VueHooksPlusUseUrlStateResolver from './useUrlStateResolver'
 
 let hooks: string[] | undefined
 
@@ -57,4 +58,4 @@ function VueHooksPlusResolver(options: VueHooksPlusResolverOptions = {}): Resolv
   }
 }
 
-export { VueHooksPlusUseImmerResolver, VueHooksPlusUseWorkerResolver, VueHooksPlusResolver }
+export { VueHooksPlusUseImmerResolver, VueHooksPlusUseWorkerResolver, VueHooksPlusResolver, VueHooksPlusUseUrlStateResolver }

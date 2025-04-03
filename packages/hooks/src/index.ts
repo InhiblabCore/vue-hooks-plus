@@ -45,7 +45,6 @@ import useTimeout from './useTimeout'
 import useTitle from './useTitle'
 import useTrackedEffect from './useTrackedEffect'
 import useUpdate from './useUpdate'
-import useUrlState from './useUrlState'
 import useVirtualList from './useVirtualList'
 import useWhyDidYouUpdate from './useWhyDidYouUpdate'
 import useWinResize from './useWinResize'
@@ -102,7 +101,6 @@ export {
   useTitle,
   useTrackedEffect,
   useUpdate,
-  useUrlState,
   useVirtualList,
   useWhyDidYouUpdate,
   useWinResize,
