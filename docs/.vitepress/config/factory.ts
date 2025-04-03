@@ -19,7 +19,7 @@ export function getDemoComponent(
 
   injectImportStatement(env, componentName, path);
 
-  const highlightedCode = md.options.highlight!(code, 'vue', '');
+  const highlightedCode = md.options.highlight!(code, 'vue', '') as any;
   return `
     <demo
       code="${encodeURIComponent(code)}"
