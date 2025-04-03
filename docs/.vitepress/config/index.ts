@@ -12,9 +12,9 @@ export default withPwa(defineConfig({
     zh: { label: '简体中文', ...zh }
   },
   pwa: {
-    outDir: resolve(__dirname, '../', 'dist'),
-    registerType: 'autoUpdate',
-    srcDir: '.vitepress/',
+    // outDir: resolve(__dirname, '../', 'dist'),
+    // registerType: 'autoUpdate',
+    // srcDir: '.vitepress/',
     strategies: 'generateSW', // <== if omitted, defaults to `generateSW`  
     workbox: {
     },
