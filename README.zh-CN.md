@@ -106,8 +106,8 @@ module.exports = {
 
 ### 国际化文档
 
-- [English Documentations](https://inhiblab-core.gitee.io/docs/hooks/en)
-- [中文文档](https://inhiblab-core.gitee.io/docs/hooks)
+- [English Documentations](https://inhiblabcore.github.io/vue-hooks-plus)
+- [中文文档](https://inhiblabcore.github.io/vue-hooks-plus/zh/)
 
 ### 例子
 

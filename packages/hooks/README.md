@@ -106,8 +106,8 @@ For other supported tools, please see [unplugin-auto-import](https://github.com/
 
 ### Globalization Documentations
 
-- [English Documentations](https://inhiblabcore.github.io/docs/hooks/en)
-- [中文文档](https://inhiblabcore.github.io/docs/hooks)
+- [English Documentations](https://inhiblabcore.github.io/vue-hooks-plus)
+- [中文文档](https://inhiblabcore.github.io/vue-hooks-plus/zh/)
 
 ### Example
 
