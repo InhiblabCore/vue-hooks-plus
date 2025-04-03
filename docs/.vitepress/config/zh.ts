@@ -125,7 +125,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
 }
 export const zh = defineConfig({
   lang: 'zh-Hans',
-  description: '由 Vite 和 Vue 驱动的静态站点生成器',
+  description: '高性能的 Vue 组合式函数库',
 
   themeConfig: {
     nav: nav(),

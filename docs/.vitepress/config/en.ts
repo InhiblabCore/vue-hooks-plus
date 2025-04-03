@@ -123,7 +123,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
 }
 export const en = defineConfig({
   lang: 'en-US',
-  description: 'Vite & Vue powered static site generator.',
+  description: 'High performance and powerful hooks for Vue.',
 
   themeConfig: {
     nav: nav(),
