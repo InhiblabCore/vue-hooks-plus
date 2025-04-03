@@ -16,6 +16,7 @@ export default withPwa(defineConfig({
     registerType: 'prompt',
     includeManifestIcons: false,
     selfDestroying: true,
+    strategies: 'injectManifest',
     manifest: {
       id: '/',
       name: 'VueHooks plus',
