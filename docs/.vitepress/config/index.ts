@@ -35,9 +35,9 @@ export default withPwa(defineConfig({
           purpose: 'any'
         },
         {
-          src: '/vue-hooks-plus/maskable-icon.svg',
-          sizes: '155x155',
-          type: 'image/svg',
+          src: '/vue-hooks-plus/maskable-icon.png',
+          sizes: '512x512',
+          type: 'image/png',
           purpose: 'maskable',
         },
       ],
