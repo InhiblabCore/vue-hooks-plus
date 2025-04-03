@@ -18,6 +18,7 @@ export default withPwa(defineConfig({
     strategies: 'generateSW', // <== if omitted, defaults to `generateSW`  
     workbox: {
     },
+    base: '/',
     experimental: {
       includeAllowlist: true
     }
