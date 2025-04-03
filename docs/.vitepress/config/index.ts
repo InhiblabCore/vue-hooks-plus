@@ -12,14 +12,81 @@ export default withPwa(defineConfig({
     zh: { label: '简体中文', ...zh }
   },
   pwa: {
-    // outDir: resolve(__dirname, '../', 'dist'),
-    // registerType: 'autoUpdate',
-    // srcDir: '.vitepress/',
-    strategies: 'generateSW', // <== if omitted, defaults to `generateSW`  
-    workbox: {
+    outDir: resolve(__dirname, '../dist'),
+    registerType: 'prompt',
+    includeManifestIcons: false,
+    selfDestroying: true,
+    manifest: {
+      id: '/',
+      name: 'VueHooks plus',
+      short_name: 'VueHooks plus',
+      description: 'Highly customizable hooks for Vue',
+      theme_color: '#ffffff',
+      icons: [
+        {
+          src: 'logo.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: 'logo@2.x.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+        {
+          src: 'logo.svg',
+          sizes: '155x155',
+          type: 'image/svg',
+          purpose: 'any maskable',
+        },
+      ],
     },
-    experimental: {
-      includeAllowlist: true
-    }
+    workbox: {
+      globPatterns: ['**/*.{css,js,html,svg,png,ico,txt,woff2}'],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'google-fonts-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'gstatic-fonts-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+        {
+          urlPattern: /^https:\/\/cdn\.jsdelivr\.net\/.*/i,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'jsdelivr-images-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 7, // <== 7 days
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+      ],
+    },
   }
 }))
