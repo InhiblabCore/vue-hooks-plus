@@ -8,4 +8,4 @@ source:
 
 # Look 👇 useFetchs
 
-<a href="/docs/hooks/en/useFetchs/" >Jump to useFetchs</a>
+<a href="/vue-hooks-plus/hooks/useFetchs/" >Jump to useFetchs</a>

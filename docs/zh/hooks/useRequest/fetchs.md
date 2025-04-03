@@ -8,4 +8,4 @@ source:
 
 # 见 👇 useFetchs
 
-<a href="/docs/hooks/useFetchs/" >赋予 useRequest 并行请求的能力</a>
+<a href="/vue-hooks-plus/zh/hooks/useFetchs/" >赋予 useRequest 并行请求的能力</a>

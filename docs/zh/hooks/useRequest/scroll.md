@@ -8,4 +8,4 @@ source:
 
 # 看 👇 useInfiniteScroll
 
-<a href="/docs/hooks/useInfiniteScroll/" >跳转至 useInfiniteScroll</a>
+<a href="/vue-hooks-plus/zh/hooks/useInfiniteScroll/" >跳转至 useInfiniteScroll</a>
