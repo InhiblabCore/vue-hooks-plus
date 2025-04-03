@@ -12,7 +12,7 @@ hero:
       link: /hooks/guide
     - theme: alt
       text: Hooks list
-      link: /api-examples
+      link: /hooks/useRequest
   image:
     src: /logo.svg
     alt: Vue Hooks Plus

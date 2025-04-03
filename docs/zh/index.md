@@ -12,7 +12,7 @@ hero:
       link: /zh/hooks/guide
     - theme: alt
       text: Hooks 列表  
-      link: /zh/api-examples
+      link: /zh/hooks/useRequest
   
   image:
     src: /logo.svg
