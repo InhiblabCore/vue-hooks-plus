@@ -22,7 +22,6 @@ export default withPwa(defineConfig({
       name: 'VueHooks plus',
       short_name: 'VueHooks plus',
       description: 'Highly customizable hooks for Vue',
-      theme_color: '#ffffff',
       icons: [
         {
           src: '/vue-hooks-plus/pwa-192x192.png',
