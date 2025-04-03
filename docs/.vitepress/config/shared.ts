@@ -124,20 +124,19 @@ export const shared = defineConfig({
 
   /* prettier-ignore */
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/logo.svg' : '/logo.svg'}` }],
+    ['link', { rel: 'icon', type: 'image/png', href: `${process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/logo.png' : '/logo.png'}` }],
     ['meta', { name: 'theme-color', content: '#5f67ee' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'en' }],
     ['meta', { property: 'og:title', content: 'VueHooks plus | High-performance Hooks Library for Vue' }],
     ['meta', { property: 'og:site_name', content: 'VueHooks plus' }],
-    ['meta', { property: 'og:image', content: 'https://vitepress.dev/vitepress-og.jpg' }],
-    ['meta', { property: 'og:url', content: 'https://vitepress.dev/' }],
+    ['meta', { property: 'og:url', content: 'https://inhiblabcore.github.io/vue-hooks-plus/' }],
     ['script', { src: 'https://cdn.usefathom.com/script.js', 'data-site': 'AZBRSFGG', 'data-spa': 'auto', defer: '' }]
   ],
 
   themeConfig: {
-    logo: { src: `${process.env.NODE_ENV === 'production' ? '/vue-hooks-plus' : ''}/logo.svg`, width: 24, height: 24 },
+    logo: { src: `/logo.svg`, width: 24, height: 24 },
 
     socialLinks: [
       {
