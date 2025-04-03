@@ -156,7 +156,7 @@ export const shared = defineConfig({
     algolia: {
       appId: 'NE21OY6MBZ',
       apiKey: '0474c01f9e1f5eed051d2c2b905a3cc9',
-      indexName: 'docs',
+      indexName: 'vue-hooks-plus-search',
     }
     // search: {
     //   provider: 'algolia',
