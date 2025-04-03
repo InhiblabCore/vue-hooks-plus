@@ -5,10 +5,9 @@ import {
   localIconLoader
 } from 'vitepress-plugin-group-icons'
 import { search as zhSearch } from './zh'
-import { parseProps } from './utils'
-import { dirname, resolve } from 'path'
-import fsExtra from 'fs-extra'
-import { getDemoComponent } from './factory'
+
+import { applyMdPlugin } from '../plugins/applyMdPlugin'
+
 
 export const shared = defineConfig({
   title: 'Vue hooks plus',
@@ -32,56 +31,7 @@ export const shared = defineConfig({
       }
     ],
     config(md) {
-      const htmlBlock = md.renderer.rules.html_block!
-      md.renderer.rules.html_block = function (tokens, idx, options, env, self) {
-        const token = tokens[idx];
-        const content = token.content.trim();
-        const { path } = env;
-        const props = parseProps(content);
-
-        if (!props?.src) {
-          console.error(`miss src props in ${path} demo.`);
-          // 必须返回默认渲染结果，否则会导致无限递归
-          return htmlBlock(tokens, idx, options, env, self);
-        }
-
-        const srcPath = resolve(process.cwd(), "docs", "demo", props.src);
-        const code = fsExtra.readFileSync(srcPath, 'utf8');
-        const demoScripts = getDemoComponent(md, env, {
-          title: props?.title,
-          desc: props?.desc,
-          path: srcPath,
-          code,
-        });
-        return demoScripts;
-      }
-
-      // const htmlInline = md.renderer.rules.html_inline!
-      // md.renderer.rules.html_inline = function (tokens, idx, options, env, self) {
-      //   const token = tokens[idx];
-      //   const content = token.content.trim();
-      //   const { path } = env;
-      //   const props = parseProps(content);
-
-      //   if (!props?.src) {
-      //     console.error(`miss src props in ${path} demo.`);
-      //     // 必须返回默认渲染结果，否则会导致无限递归
-      //     return htmlInline(tokens, idx, options, env, self);
-      //   }
-
-      //   const srcPath = resolve(process.cwd(), "docs", "demo", props.src);
-      //   const code = fsExtra.readFileSync(srcPath, 'utf8');
-      //   const demoScripts = getDemoComponent(md, env, {
-      //     title: props?.title,
-      //     desc: props?.desc,
-      //     path: srcPath,
-      //     code,
-      //   });
-      //   return demoScripts;
-      // }
-
-      // applyPlugins(md)
-      // TODO: remove when https://github.com/vuejs/vitepress/issues/4431 is fixed
+      applyMdPlugin(md)
       const fence = md.renderer.rules.fence!
       md.renderer.rules.fence = function (tokens, idx, options, env, self) {
         const { localeIndex = 'root' } = env
@@ -108,9 +58,6 @@ export const shared = defineConfig({
           `<button title="${codeCopyButtonTitle}" class="copy"></button>`
         )
       }
-
-
-
       md.use(groupIconMdPlugin)
     }
   },
@@ -137,7 +84,9 @@ export const shared = defineConfig({
 
   themeConfig: {
     logo: { src: `/logo.svg`, width: 24, height: 24 },
-
+    editLink: {
+      pattern: 'https://inhiblabcore.github.io/vue-hooks-plus/edit/main/docs/:path'
+    },
     socialLinks: [
       {
         icon: 'github',
