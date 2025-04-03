@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://inhiblabcore.github.io/docs/hooks">
+   <a href="https://inhiblabcore.github.io/vue-hooks-plus">
     <img width="216" src="https://inhiblabcore.github.io/vue-hooks-plus/logo@2x.png">
   </a>
 </p>

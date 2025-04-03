@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://inhiblabcore.github.io/docs/hooks">
-    <img width="216" src="https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo@2x.png">
+ <a href="https://inhiblabcore.github.io/vue-hooks-plus">
+     <img width="216" src="https://inhiblabcore.github.io/vue-hooks-plus/logo@2x.png">
   </a>
 </p>
 
