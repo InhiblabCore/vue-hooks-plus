@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Quick Start 
-      link: /hooks/guide
+      link: /guide
     - theme: alt
       text: Hooks list
-      link: /hooks/useRequest
+      link: /hooks/useRequest/quick-start
   image:
     src: /logo.svg
     alt: Vue Hooks Plus

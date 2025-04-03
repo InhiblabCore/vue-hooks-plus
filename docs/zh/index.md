@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh/hooks/guide
+      link: /zh/guide
     - theme: alt
       text: Hooks 列表  
-      link: /zh/hooks/useRequest
+      link: /zh/hooks/useRequest/quick-start
   
   image:
     src: /logo.svg

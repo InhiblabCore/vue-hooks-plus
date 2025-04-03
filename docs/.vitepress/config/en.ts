@@ -27,7 +27,7 @@ function siderbarUseRequest(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: 'Quick Start',
-          link: 'useRequest',
+          link: 'useRequest/quick-start',
         },
         {
           text: 'Guide',
@@ -114,9 +114,9 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     {
       text: 'Guide',
       items: [
-        { text: 'Introduction', link: "guide" },
-        { text: 'Getting Started', link: 'getting-started' },
-        { text: '🫶 Migrate to v2 version', link: 'migrate' }
+        { text: 'Introduction', link: "/guide" },
+        { text: 'Getting Started', link: '/guide/getting-started' },
+        { text: '🫶 Migrate to v2 version', link: '/guide/migrate' }
       ],
     }
   ]
@@ -129,9 +129,9 @@ export const en = defineConfig({
     nav: nav(),
 
     sidebar: {
+      '/guide/': sidebarGuide(),
       '/hooks/': {
         base: '/hooks/', items: [
-          ...sidebarGuide(),
           ...siderbarUseRequest(),
           ...siderbarUseRequestPlugin(),
           ...sidebarHooks(),
@@ -154,9 +154,18 @@ export const en = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: 'Hooks guide',
-      link: '/hooks/guide',
-      activeMatch: '/hooks/'
+      text: 'Guide',
+      activeMatch: '/guide/',
+      items: [
+        { text: 'Introduction', link: '/guide/' },
+        { text: 'Getting Started', link: '/guide/getting-started' },
+        { text: '🫶 Migrate to v2 version', link: '/guide/migrate' }
+      ]
+    },
+    {
+      text: 'Hooks',
+      link: '/hooks/useRequest/quick-start',
+      activeMatch: '/hooks/useRequest/quick-start'
     },
     {
       text: '🤺 Playground',

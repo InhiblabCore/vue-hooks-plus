@@ -29,83 +29,83 @@ function siderbarUseRequest(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: '快速开始',
-          link: 'useRequest',
+          link: 'useRequest/quick-start',
         },
         {
           text: '使用姿势',
-          link: '/useRequest/guide',
+          link: 'useRequest/guide',
         },
         {
           text: '基础用法',
-          link: '/useRequest/basic',
+          link: 'useRequest/basic',
         },
 
         {
           text: '防抖',
-          link: '/useRequest/debounce',
+          link: 'useRequest/debounce',
         },
         {
           text: '节流',
-          link: '/useRequest/throttle',
+          link: 'useRequest/throttle',
         },
 
         {
           text: '轮询',
-          link: '/useRequest/polling',
+          link: 'useRequest/polling',
         },
 
         {
           text: 'Ready',
-          link: '/useRequest/ready',
+          link: 'useRequest/ready',
         },
         {
           text: '依赖刷新',
-          link: '/useRequest/refreshDeps',
+          link: 'useRequest/refreshDeps',
         },
 
         {
           text: '并行请求',
-          link: '/useRequest/fetchs',
+          link: 'useRequest/fetchs',
         },
         {
           text: '错误重试',
-          link: '/useRequest/retry',
+          link: 'useRequest/retry',
         },
         {
           text: '格式化数据',
-          link: '/useRequest/formatResult',
+          link: 'useRequest/formatResult',
         },
         {
           text: '缓存 & SWR',
-          link: '/useRequest/cache',
+          link: 'useRequest/cache',
         },
         {
           text: 'loadingDelay',
-          link: '/useRequest/loadingDelay',
+          link: 'useRequest/loadingDelay',
         },
         {
           text: '屏幕聚焦重新请求',
-          link: '/useRequest/refreshOnWindowFocus',
+          link: 'useRequest/refreshOnWindowFocus',
         },
         {
           text: '滚动加载 & 分页加载',
-          link: '/useRequest/scroll',
+          link: 'useRequest/scroll',
         },
         {
           text: '中间件',
-          link: '/useRequest/middleware',
+          link: 'useRequest/middleware',
         },
         {
           text: '插件设计',
-          link: '/useRequest/plugin',
+          link: 'useRequest/plugin',
         },
         {
           text: '全局配置',
-          link: '/useRequest/global',
+          link: 'useRequest/global',
         },
         {
           text: '开发者工具',
-          link: '/useRequest/devtools',
+          link: 'useRequest/devtools',
         },
       ],
     }
@@ -116,9 +116,9 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     {
       text: '指南',
       items: [
-        { text: '介绍', link: "guide" },
-        { text: '开始使用', link: 'getting-started' },
-        { text: '🫶 迁移到 v2 版本', link: 'migrate' }
+        { text: '介绍', link: "/zh/guide/" },
+        { text: '开始使用', link: '/zh/guide/getting-started' },
+        { text: '🫶 迁移到 v2 版本', link: '/zh/guide/migrate' }
       ],
     }
   ]
@@ -131,9 +131,9 @@ export const zh = defineConfig({
     nav: nav(),
 
     sidebar: {
+      '/zh/guide/': sidebarGuide(),
       '/zh/hooks/': {
         base: '/zh/hooks/', items: [
-          ...sidebarGuide(),
           ...siderbarUseRequest(),
           ...siderbarUseRequestPlugin(),
           ...sidebarHooks()
@@ -181,9 +181,18 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: 'Hooks 指南',
-      link: '/zh/hooks/guide',
-      activeMatch: '/zh/hooks/guide'
+      text: '指南',
+      activeMatch: '/zh/guide/',
+      items: [
+        { text: '介绍', link: '/zh/guide/' },
+        { text: '开始使用', link: '/zh/guide/getting-started' },
+        { text: '🫶 迁移到 v2 版本', link: '/zh/guide/migrate' }
+      ]
+    },
+    {
+      text: 'Hooks',
+      link: '/zh/hooks/useRequest/quick-start',
+      activeMatch: '/zh/hooks/useRequest/quick-start'
     },
     {
       text: '🤺 演武场',
