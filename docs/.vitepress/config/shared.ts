@@ -153,17 +153,22 @@ export const shared = defineConfig({
       },
     ],
 
-    search: {
-      provider: 'algolia',
-      options: {
-        appId: 'F75E9UQXRX',
-        apiKey: '268129e44d6b58950b4626bf86e8bd1e',
-        indexName: 'vue-hooks-plus-search',
-        locales: {
-          ...zhSearch
-        }
-      }
+    algolia: {
+      appId: 'NE21OY6MBZ',
+      apiKey: '0474c01f9e1f5eed051d2c2b905a3cc9',
+      indexName: 'docs',
     }
+    // search: {
+    //   provider: 'algolia',
+    //   options: {
+    //     appId: 'F75E9UQXRX',
+    //     apiKey: '268129e44d6b58950b4626bf86e8bd1e',
+    //     indexName: 'vue-hooks-plus-search',
+    //     locales: {
+    //       ...zhSearch
+    //     }
+    //   }
+    // }
   },
   vite: {
     resolve: {
