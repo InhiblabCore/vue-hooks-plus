@@ -25,21 +25,21 @@ export default withPwa(defineConfig({
       theme_color: '#ffffff',
       icons: [
         {
-          src: 'https://inhiblabcore.github.io/vue-hooks-plus/logo.png',
+          src: '/vue-hooks-plus/pwa-192x192.png',
           sizes: '192x192',
           type: 'image/png',
         },
         {
-          src: 'https://inhiblabcore.github.io/vue-hooks-plus/logo@2.x.png',
+          src: 'vue-hooks-plus/pwa-512x512.png',
           sizes: '512x512',
           type: 'image/png',
-          purpose: 'maskable'
+          purpose: 'any'
         },
         {
-          src: 'https://inhiblabcore.github.io/vue-hooks-plus/logo.svg',
+          src: '/vue-hooks-plus/maskable-icon.png',
           sizes: '155x155',
           type: 'image/svg',
-          purpose: 'any',
+          purpose: 'maskable',
         },
       ],
     },
