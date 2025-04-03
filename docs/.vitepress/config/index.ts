@@ -33,12 +33,13 @@ export default withPwa(defineConfig({
           src: 'https://inhiblabcore.github.io/vue-hooks-plus/logo@2.x.png',
           sizes: '512x512',
           type: 'image/png',
+          purpose: 'maskable'
         },
         {
           src: 'https://inhiblabcore.github.io/vue-hooks-plus/logo.svg',
           sizes: '155x155',
           type: 'image/svg',
-          purpose: 'any maskable',
+          purpose: 'any',
         },
       ],
     },
