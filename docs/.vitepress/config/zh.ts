@@ -192,7 +192,7 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: 'Hooks',
       link: '/zh/hooks/useRequest/quick-start',
-      activeMatch: '/zh/hooks/useRequest/quick-start'
+      activeMatch: '/zh/hooks'
     },
     {
       text: '🤺 演武场',

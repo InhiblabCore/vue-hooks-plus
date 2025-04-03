@@ -165,7 +165,7 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: 'Hooks',
       link: '/hooks/useRequest/quick-start',
-      activeMatch: '/hooks/useRequest/quick-start'
+      activeMatch: '/hooks'
     },
     {
       text: '🤺 Playground',
