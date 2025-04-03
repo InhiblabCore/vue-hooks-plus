@@ -24,17 +24,17 @@ export default withPwa(defineConfig({
       theme_color: '#ffffff',
       icons: [
         {
-          src: 'logo.png',
+          src: '/vue-hooks-plus/logo.png',
           sizes: '192x192',
           type: 'image/png',
         },
         {
-          src: 'logo@2.x.png',
+          src: '/vue-hooks-pluslogo@2.x.png',
           sizes: '512x512',
           type: 'image/png',
         },
         {
-          src: 'logo.svg',
+          src: '/vue-hooks-pluslogo.svg',
           sizes: '155x155',
           type: 'image/svg',
           purpose: 'any maskable',
