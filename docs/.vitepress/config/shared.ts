@@ -152,23 +152,17 @@ export const shared = defineConfig({
         link: 'https://twitter.com/Yong_Git',
       },
     ],
-
-    algolia: {
-      appId: 'NE21OY6MBZ',
-      apiKey: '0474c01f9e1f5eed051d2c2b905a3cc9',
-      indexName: 'vue-hooks-plus-search',
+    search: {
+      provider: 'algolia',
+      options: {
+        appId: 'NE21OY6MBZ',
+        apiKey: '0474c01f9e1f5eed051d2c2b905a3cc9',
+        indexName: 'vue-hooks-plus-search',
+        locales: {
+          ...zhSearch
+        }
+      }
     }
-    // search: {
-    //   provider: 'algolia',
-    //   options: {
-    //     appId: 'F75E9UQXRX',
-    //     apiKey: '268129e44d6b58950b4626bf86e8bd1e',
-    //     indexName: 'vue-hooks-plus-search',
-    //     locales: {
-    //       ...zhSearch
-    //     }
-    //   }
-    // }
   },
   vite: {
     resolve: {

@@ -13,6 +13,15 @@
 		"lvl3": ".content h3",
 		"lvl4": ".content h4",
 		"lvl5": ".content h5",
-		"content": ".content p, .content li"
+		"content": ".content p, .content li",
+    "lang": {
+      "selector": "/html/@lang",
+      "type": "xpath",
+      "global": true,
+      "default_value": "zh-CN"
+    }
+  },
+  "custom_settings": {
+    "attributesForFaceting": ["lang"]
 	}
 }
