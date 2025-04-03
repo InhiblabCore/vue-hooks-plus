@@ -43,14 +43,5 @@ jobs:
       - name: Build Lib
         run: |
           pnpm build
-      - name: Build Docs plugin
-        run: |
-          cd packages/vitepress/vitepress-demo-block
-          pnpm run build
-      - name: Build Docs
-        run: |
-          cd packages/hooks
-          pnpm run initial
-          pnpm run docs:build
         env:
           CI: true

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { ref } from 'vue'
 import useFavicon from '..'
-import Test from '../demo/Test.vue'
+import Test from './Test.vue'
 
 const DEFAULT_FAVICON_URL =
   'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/logo.svg'

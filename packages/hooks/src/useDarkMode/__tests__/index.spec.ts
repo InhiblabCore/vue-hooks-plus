@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Test from '../demo/Test.vue'
+import Test from './Test.vue'
 
 describe('useDarkMode', () => {
   const wrapper = mount(Test)

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import useExternal from '..'
-import Demo from '../demo/demo.vue'
+import Demo from './Test.vue'
 
 describe('useExternal', () => {
   const wrapper = mount(Demo)
