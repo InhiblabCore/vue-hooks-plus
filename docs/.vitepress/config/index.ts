@@ -29,12 +29,12 @@ export default withPwa(defineConfig({
           type: 'image/png',
         },
         {
-          src: '/vue-hooks-pluslogo@2.x.png',
+          src: '/vue-hooks-plus/logo@2.x.png',
           sizes: '512x512',
           type: 'image/png',
         },
         {
-          src: '/vue-hooks-pluslogo.svg',
+          src: '/vue-hooks-plus/logo.svg',
           sizes: '155x155',
           type: 'image/svg',
           purpose: 'any maskable',
