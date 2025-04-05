@@ -1,9 +1,13 @@
 import pluginVue from 'eslint-plugin-vue'
 import globals from 'globals'
-import { defineConfig, globalIgnores } from 'eslint/config'
 
-export default defineConfig([
-  ...pluginVue.configs['flat/recommended'],
+import { globalIgnores } from 'eslint/config'
+
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+
+export default defineConfigWithVueTs([
+  ...pluginVue.configs['flat/essential'],
+  vueTsConfigs.recommended,
   globalIgnores(['dist/*', 'node_modules/*', 'patches/*', 'types/*']),
   {
     rules: {
@@ -15,12 +19,6 @@ export default defineConfig([
       'no-sparse-arrays': 0,
       'no-inner-declarations': 0,
       'no-constant-condition': 0,
-      'no-restricted-imports': [
-        'error',
-        {
-          paths: ['vue-hooks-plus', '..', '../..', 'packages/hooks/src/index.ts'],
-        },
-      ],
       'no-unused-vars': [
         2,
         {
