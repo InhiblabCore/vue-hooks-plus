@@ -22,9 +22,9 @@ To develop and test the core `VueHooks Plus` package:
 
 1. `packages/hooks/src` folder adds a folder starting with an `useXxx`.
 
-2. Add `en-US.md` and `zh-CN.md` as a document.
+2. Add `*.md` as a document at `docs/en` or `docs/zh`.
 
-3. Add `demo` folder as a document example.
+3. Add `demo` folder as a document example as `docs/demo`.
 
 4. Add `__tests__` folder as Unit Tests.
 
@@ -40,19 +40,7 @@ Start documentation via [Dev Document Guide](./DEV_DOCUMENT.md).
 
 1. Run `pnpm docs:dev` in VueHooks Plus's root folder or Run `pnpm initial` and `pnpm docs:dev` `packages/hooks` folder.
 
-2. `.md` must add a mapping path.
-
-```
-
----
-map:
-# Path mapped to docs
-path: /useBoolean
----
-
-```
-
-3. `packages/hooks/docs/.vitepress/router.ts` add hooks router info.
+2. `docs/.vitepress/config` add hooks router info.
 
 ## Pull Request Guidelines
 
