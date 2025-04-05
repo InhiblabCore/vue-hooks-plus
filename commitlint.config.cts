@@ -11,9 +11,12 @@
 // revert：回滚某个更早之前的提交 | Roll back some earlier previous submission
 // version: 改变package.json 版本 | Change the package.json version
 
-module.exports = {
+import { RuleConfigSeverity, type UserConfig } from "@commitlint/types";
+
+const Configuration: UserConfig = {
+  extends: ["@commitlint/config-conventional"],
+  formatter: "@commitlint/format",
   ignores: [commit => commit.includes('init')],
-  extends: ['@commitlint/config-conventional'],
   rules: {
     'body-leading-blank': [2, 'always'],
     'footer-leading-blank': [1, 'always'],
@@ -22,8 +25,7 @@ module.exports = {
     'type-empty': [2, 'never'],
     'subject-case': [0],
     'type-enum': [
-      2,
-      'always',
+      RuleConfigSeverity.Error, "always",
       [
         'feat',
         'fix',
@@ -42,4 +44,7 @@ module.exports = {
       ],
     ],
   },
-}
+};
+
+export default Configuration;
+
