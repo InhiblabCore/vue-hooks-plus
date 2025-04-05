@@ -20,7 +20,6 @@ importers:
       '@vitejs/plugin-vue': ^2.3.1
       '@vitest/coverage-c8': ^0.25.7
       '@vitest/ui': ^0.25.3
-      '@vue-hooks-plus/eslint-config': workspace:^1.0.0
       '@vue-hooks-plus/md-demo-plugins': ^1.0.0
       '@vue-hooks-plus/types': workspace:^2.0.0
       '@vue-hooks-plus/use-immer': workspace:^1.0.0
@@ -35,7 +34,6 @@ importers:
       '@vue/test-utils': ^2.1.0
       axios: ^1.4.0
       broadcast-channel: ^5.1.0
-      conventional-changelog-atom: ^5.0.0
       cross-env: ^7.0.3
       eslint: ^9.24.0
       eslint-plugin-vue: ^9.6.0
@@ -85,7 +83,6 @@ importers:
       '@vitejs/plugin-vue': 2.3.4_vite@3.0.2+vue@3.5.13
       '@vitest/coverage-c8': 0.25.8_4rke55fors2tnsu273t7mnruwm
       '@vitest/ui': 0.25.8
-      '@vue-hooks-plus/eslint-config': link:packages/eslint-config
       '@vue-hooks-plus/md-demo-plugins': 1.1.0_erz2jsxiahvile5wzydwj6eewu
       '@vue-hooks-plus/types': link:packages/types
       '@vue-hooks-plus/use-immer': link:packages/use-immer
@@ -100,7 +97,6 @@ importers:
       '@vue/test-utils': 2.4.6
       axios: 1.8.4
       broadcast-channel: 5.5.1
-      conventional-changelog-atom: 5.0.0
       cross-env: 7.0.3
       eslint: 9.24.0
       eslint-plugin-vue: 9.33.0_eslint@9.24.0
@@ -4889,11 +4885,6 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       compare-func: 2.0.0
-    dev: true
-
-  /conventional-changelog-atom/5.0.0:
-    resolution: {integrity: sha512-WfzCaAvSCFPkznnLgLnfacRAzjgqjLUjvf3MftfsJzQdDICqkOOpcMtdJF3wTerxSpv2IAAjX8doM3Vozqle3g==}
-    engines: {node: '>=18'}
     dev: true
 
   /conventional-changelog-conventionalcommits/6.1.0:
