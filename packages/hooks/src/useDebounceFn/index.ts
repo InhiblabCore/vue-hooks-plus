@@ -1,26 +1,26 @@
 import debounce from 'lodash-es/debounce'
-import { onUnmounted, ref, watch } from 'vue'
+import { onUnmounted, Ref, ref, watch } from 'vue'
 
 export interface DebounceOptions {
   /**
    * The number of milliseconds to delay.
    */
-  wait?: number
+  wait?: number | Ref<number, number>
 
   /**
    * Specify invoking on the leading edge of the timeout.
    */
-  leading?: boolean
+  leading?: boolean | Ref<boolean, boolean>
 
   /**
    * Specify invoking on the trailing edge of the timeout.
    */
-  trailing?: boolean
+  trailing?: boolean | Ref<boolean, boolean>
 
   /**
    * The maximum time func is allowed to be delayed before it’s invoked.
    */
-  maxWait?: number
+  maxWait?: number | Ref<number, number>
 }
 
 type noop = (...args: any) => any
@@ -34,6 +34,7 @@ function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
     const { wait = 1000, ...rest } = optionsRef.value;
     return debounce(fn, wait, rest);
   };
+
   debouncedRef.value = createDebounced();
   watch(
     () => ({ ...optionsRef.value }),
