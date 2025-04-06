@@ -3,7 +3,7 @@ map:
   # 映射到docs的路径
   path: /useRequest/formatResult/
 source:
-  show: false
+  showSource: false
 ---
 
 # 格式化请求数据

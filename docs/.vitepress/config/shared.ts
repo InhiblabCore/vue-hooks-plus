@@ -7,6 +7,7 @@ import {
 import { search as zhSearch } from './zh'
 
 import { applyMdPlugin } from '../plugins/applyMdPlugin'
+import { applyFooterLinkPlugin } from '../plugins/applyFooterLinkPlugin'
 
 
 export const shared = defineConfig({
@@ -32,6 +33,7 @@ export const shared = defineConfig({
     ],
     config(md) {
       applyMdPlugin(md)
+      // md.renderer.rules.softbreak
       const fence = md.renderer.rules.fence!
       md.renderer.rules.fence = function (tokens, idx, options, env, self) {
         const { localeIndex = 'root' } = env
@@ -120,6 +122,8 @@ export const shared = defineConfig({
       }
     },
     plugins: [
+      // @ts-ignore
+      applyFooterLinkPlugin(),
       // @ts-ignore
       groupIconVitePlugin({
         customIcon: {

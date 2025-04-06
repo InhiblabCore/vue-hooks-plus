@@ -7,6 +7,7 @@ import useAsyncOrder from './useAsyncOrder'
 import useBoolean from './useBoolean'
 import useCookieState from './useCookieState'
 import useCounter from './useCounter'
+import { useControlledState } from './useControlledState'
 import useDebounce from './useDebounce'
 import useDebounceFn from './useDebounceFn'
 import useDrag from './useDrag'
@@ -62,6 +63,7 @@ export {
   useBoolean,
   useCookieState,
   useCounter,
+  useControlledState,
   useDebounce,
   useDebounceFn,
   useDrag,

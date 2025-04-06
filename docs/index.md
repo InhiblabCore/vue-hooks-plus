@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Quick Start 
-      link: /guide
+      link: /guide/
     - theme: alt
       text: Hooks list
       link: /hooks/useRequest/quick-start
@@ -38,3 +38,34 @@ features:
     details: Perfect test, safe and reliable.
 ---
 
+<script setup>
+import {
+  VPTeamPage,
+  VPTeamPageTitle,
+  VPTeamMembers,
+  VPTeamPageSection
+} from 'vitepress/theme'
+
+import {members} from './contributors'
+
+
+</script>
+
+<VPTeamPage>
+  <VPTeamPageTitle>
+    <template #title>Team</template>
+    <template #lead> Vue Hooks Plus is developed and maintained by a     passionate team of Vue enthusiasts.
+    </template>
+  </VPTeamPageTitle>
+  <VPTeamMembers size="small" :members="members" />
+  <VPTeamPageSection>
+    <template #title>Contributors</template>
+    <template #members>
+      <div style="display: flex; justify-content: center;">
+        <a target="__blank" href="https://github.com/InhiblabCore/vue-hooks-plus/graphs/contributors">
+           <img src="https://contrib.rocks/image?repo=InhiblabCore/vue-hooks-plus" />
+        </a>
+      </div>
+    </template>
+  </VPTeamPageSection>
+</VPTeamPage>

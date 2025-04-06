@@ -11,11 +11,11 @@ function siderbarUseRequestPlugin(): DefaultTheme.SidebarItem[] {
       items: [
         {
           text: 'global Fetching',
-          link: 'useRequest/plugins/fetchsing/',
+          link: 'useRequest/plugins/fetchsing',
         },
         {
           text: 'broadcastChannel',
-          link: 'useRequest/plugins/broadcastChannel/',
+          link: 'useRequest/plugins/broadcastChannel',
         }]
     }
   ]
@@ -140,7 +140,7 @@ export const en = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+      pattern: 'https://github.com/InhiblabCore/vue-hooks-plus/edit/master/docs/:path',
       text: 'Edit this page on GitHub'
     },
 
@@ -157,7 +157,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Guide',
       activeMatch: '/guide/',
       items: [
-        { text: 'Introduction', link: '/guide/' },
+        { text: 'Introduction', link: '/guide' },
         { text: 'Getting Started', link: '/guide/getting-started' },
         { text: '🫶 Migrate to v2 version', link: '/guide/migrate' }
       ]
@@ -191,6 +191,7 @@ export function sidebarHooks(): DefaultTheme.SidebarItem[] {
       text: 'State',
       items: [
         { text: 'useBoolean', link: 'useBoolean' },
+        // { text: "useControlledState", link: "useControlledState" },
         { text: 'useImmer', link: 'useImmer' },
         { text: 'useUrlState', link: 'useUrlState' },
         { text: 'useFormatResult', link: 'useFormatResult' },

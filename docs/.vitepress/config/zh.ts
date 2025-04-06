@@ -142,7 +142,7 @@ export const zh = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+      pattern: 'https://github.com/InhiblabCore/vue-hooks-plus/edit/master/docs/:path',
       text: '在 GitHub 上编辑此页面'
     },
 
@@ -184,7 +184,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: '指南',
       activeMatch: '/zh/guide/',
       items: [
-        { text: '介绍', link: '/zh/guide/' },
+        { text: '介绍', link: '/zh/guide' },
         { text: '开始使用', link: '/zh/guide/getting-started' },
         { text: '🫶 迁移到 v2 版本', link: '/zh/guide/migrate' }
       ]
