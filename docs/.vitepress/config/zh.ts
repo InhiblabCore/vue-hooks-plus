@@ -184,7 +184,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: '指南',
       activeMatch: '/zh/guide/',
       items: [
-        { text: '介绍', link: '/zh/guide/' },
+        { text: '介绍', link: '/zh/guide' },
         { text: '开始使用', link: '/zh/guide/getting-started' },
         { text: '🫶 迁移到 v2 版本', link: '/zh/guide/migrate' }
       ]

@@ -14,11 +14,53 @@
   --vp-home-hero-image-background-image: linear-gradient(-45deg,
       #42d392 50%,
       #647eff 50%);
+  --vhp-demo-shadow-color: rgba(0, 0, 0, 0.3);
+  --vp-code-line-number-color: var(--vp-c-text-dark-3);
+}
+
+.dark {
+  --vhp-demo-shadow-color: rgba(188, 189, 190, 0.3);
+
+  /* 暗黑模式拟物圆角 - 突出版 */
+  .vitepress-demo {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 8px;
+    background: #121212;
+    /* 更深的背景色 */
+    box-shadow:
+      4px 4px 8px rgba(0, 0, 0, 0.5),
+      /* 更强的阴影 */
+      -4px -4px 8px rgba(80, 80, 80, 0.3),
+      /* 更亮的高光 */
+      inset 0 0 10px rgba(0, 0, 0, 0.2);
+    /* 添加内阴影增加层次感 */
+    border: none;
+  }
+
+
+}
+
+/* 亮色模式拟物圆角 - 突出版 */
+.vitepress-demo {
+  border-radius: 8px !important;
+  overflow: hidden;
+  margin-top: 8px;
+  background: #ffffff;
+  /* 更亮的背景色 */
+  box-shadow:
+    4px 4px 8px rgba(0, 0, 0, 0.1),
+    /* 更强的阴影 */
+    -4px -4px 8px rgba(255, 255, 255, 0.8),
+    /* 更亮的高光 */
+    inset 0 0 10px rgba(0, 0, 0, 0.05);
+  /* 添加内阴影增加层次感 */
+  border: none;
 }
 
 input {
   opacity: 1;
-  background-color: var(--vhp-func-bg);
+  background-color: var(--vp-code-bg);
   padding-left: 8px;
   height: 36px;
   font-weight: 500;

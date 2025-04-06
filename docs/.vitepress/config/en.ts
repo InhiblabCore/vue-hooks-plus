@@ -157,7 +157,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Guide',
       activeMatch: '/guide/',
       items: [
-        { text: 'Introduction', link: '/guide/' },
+        { text: 'Introduction', link: '/guide' },
         { text: 'Getting Started', link: '/guide/getting-started' },
         { text: '🫶 Migrate to v2 version', link: '/guide/migrate' }
       ]
