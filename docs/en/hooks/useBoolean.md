@@ -8,6 +8,8 @@ path: /useBoolean
 
 A hook that elegantly manages boolean state.
 
+<!-- [[toc]] -->
+
 ## Code demonstration
 
 <demo src="useBoolean/demo.vue"

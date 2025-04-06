@@ -10,10 +10,9 @@ import { useRequestDevToolsPlugin } from 'vue-hooks-plus'
 import { createPinia } from 'pinia'
 
 const store = createPinia()
-
 export default {
   ...Theme,
-  enhanceApp({ app, router, siteData }) {
+  enhanceApp({ app }) {
     app.use(store)
     app.use(useRequestDevToolsPlugin)
     app.component('demo', DemoBlock)

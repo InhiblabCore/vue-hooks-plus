@@ -1,6 +1,6 @@
 import { computed, unref, watchEffect } from 'vue'
-import { type DebouncedFunc, type ThrottleSettings } from 'lodash'
-import throttle from 'lodash/throttle'
+import { type DebouncedFunc, type ThrottleSettings } from 'lodash-es'
+import { throttle } from 'lodash-es'
 import { UseRequestPlugin } from '../types'
 
 const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (

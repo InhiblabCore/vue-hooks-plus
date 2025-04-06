@@ -1,4 +1,5 @@
 import debounce from 'lodash-es/debounce'
+import { onUnmounted, ref, watch } from 'vue'
 
 export interface DebounceOptions {
   /**
@@ -25,26 +26,61 @@ export interface DebounceOptions {
 type noop = (...args: any) => any
 
 function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
-  const wait = options?.wait ?? 1000
-  const debounced = debounce(fn, wait, options)
+
+  const optionsRef = ref(options || { wait: 1000 });
+  const debouncedRef = ref<ReturnType<typeof debounce>>();
+
+  const createDebounced = () => {
+    const { wait = 1000, ...rest } = optionsRef.value;
+    return debounce(fn, wait, rest);
+  };
+  debouncedRef.value = createDebounced();
+  watch(
+    () => ({ ...optionsRef.value }),
+    (newVal, oldVal) => {
+      if (
+        newVal.wait !== oldVal?.wait ||
+        newVal.maxWait !== oldVal?.maxWait
+      ) {
+        debouncedRef.value?.cancel();
+        debouncedRef.value = createDebounced();
+      }
+    },
+    { deep: true }
+  );
+
+
+  onUnmounted(() => {
+    debouncedRef.value?.cancel();
+  });
+
   return {
     /**
      * Invode and pass parameters to fn.
      * `(...args: any[]) => any`
      */
-    run: debounced,
+    run: ((...args: any[]) => {
+      return debouncedRef.value?.(...args);
+    }) as T,
 
     /**
      * Cancel the invocation of currently debounced function.
      *  `() => void`
      */
-    cancel: debounced.cancel,
+    cancel: () => {
+      debouncedRef.value?.cancel();
+    },
 
     /**
      * Immediately invoke currently debounced function.
      *  `() => void`
      */
-    flush: debounced.flush,
+    flush: () => {
+      debouncedRef.value?.flush();
+    },
+    updateOptions: (newOptions: DebounceOptions) => {
+      optionsRef.value = newOptions;
+    }
   }
 }
 

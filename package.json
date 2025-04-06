@@ -60,6 +60,7 @@
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.3.0",
     "gh-pages": "^4.0.0",
+    "gray-matter": "^4.0.3",
     "happy-dom": "^7.5.10",
     "husky": "^8.0.1",
     "kolorist": "^1.6.0",

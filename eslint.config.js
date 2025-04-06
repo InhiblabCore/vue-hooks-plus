@@ -31,7 +31,8 @@ export default defineConfigWithVueTs([
       'import/default': 'off',
       'import/no-named-as-default': 'off',
       'import/no-named-as-default-member': 'off',
-
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/ban-ts-comment': 'off',
       'vue/attributes-order': 'off',
       'vue/one-component-per-file': 'off',
       'vue/html-closing-bracket-newline': 'off',
