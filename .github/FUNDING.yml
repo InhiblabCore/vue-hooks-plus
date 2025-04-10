@@ -10,6 +10,6 @@ otechie: # Replace with a single Otechie username
 lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
 custom:
   [
-    'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/wx.JPG',
-    'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/packages/hooks/docs/public/zfb.JPG',
+    'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/docs/public/wx.JPG',
+    'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/master/docs/public/zfb.JPG',
   ]
