@@ -37,30 +37,23 @@
     /* 添加内阴影增加层次感 */
     border: none;
   }
-
-
 }
 
-/* 亮色模式拟物圆角 - 突出版 */
+/* 亮色模式拟物圆角 - 轻微版 */
 .vitepress-demo {
   border-radius: 8px !important;
   overflow: hidden;
   margin-top: 8px;
-  background: #ffffff;
-  /* 更亮的背景色 */
+  background: #f0f0f0;
   box-shadow:
-    4px 4px 8px rgba(0, 0, 0, 0.1),
-    /* 更强的阴影 */
-    -4px -4px 8px rgba(255, 255, 255, 0.8),
-    /* 更亮的高光 */
-    inset 0 0 10px rgba(0, 0, 0, 0.05);
-  /* 添加内阴影增加层次感 */
+    4px 4px 8px rgba(0, 0, 0, 0.05),
+    -4px -4px 8px rgba(255, 255, 255, 0.6);
   border: none;
 }
 
 input {
   opacity: 1;
-  background-color: var(--vp-code-bg);
+  background-color: var(--vhp-func-bg);
   padding-left: 8px;
   height: 36px;
   font-weight: 500;
