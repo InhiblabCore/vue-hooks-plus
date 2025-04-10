@@ -36,13 +36,13 @@ export class Banner extends HTMLElement {
     if (lang === 'zh-Hans') {
       return `
     <div class="sponsor-message">
-     如果这个项目对你 <span>有帮助</span>，您可以 <button class="sponsor-btn">赞助</button> 我们来帮助项目更好地发展！
+     如果这个项目对你 <span>有帮助</span>，您可以 <button class="sponsor-btn">赞助</button> 我们来帮助项目更好地发展！感谢你的支持 ❤️
     </div>
     `
     }
     return `
       <div class="sponsor-message">
-        If this project helps you <span>in any way</span>, you can <button class="sponsor-btn">sponsor</button> us to help the project grow better!
+        If this project <span>helps you in any way</span>, you can <button class="sponsor-btn">Sponsor</button> us to help the project grow better! Thanks for your support! ❤️ 
       </div>
       `
   }
