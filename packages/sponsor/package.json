@@ -1,0 +1,20 @@
+{
+  "name": "@vue-hooks-plus/sponsor",
+  "version": "1.0.0",
+  "description": "Vue hooks plus sponsor",
+	"files": [
+		"dist",
+		"LICENSE",
+		"package.json",
+		"README.md"
+	],
+  "scripts": {
+    "build": "npm run clean &&  vite build",
+    "clean": "rimraf dist"
+  },
+  "keywords": [],
+  "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
+	"author": "NelsonYong",
+	"license": "MIT"
+}

@@ -1,0 +1,136 @@
+/* Modal 遮罩层 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Modal Container */
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  color: #121c1a;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+/* 动画效果 */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 删除重复的 animatetop 动画 */
+@keyframes animatetop {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Modal Header */
+.modal-header {
+  padding-left: 16px;
+  padding-right: 16px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 20px;
+  max-height: 70vh;
+  overflow-y: auto;
+  line-height: 1.6em;
+  font-weight: 700;
+
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 16px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer button {
+  background: #75c05e;
+  color: #121c1a;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  padding: 8px 15px;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+  from {
+    transform: translate(-50%, -30vh);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -20vh);
+    opacity: 1;
+  }
+}
+
+/* 关闭按钮 */
+.modal-close {
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+}
+
+.email {
+  text-decoration: underline;
+  color: #1a73e8;
+  cursor: pointer;
+}
+
+.email:hover {
+  opacity: 0.8;
+}

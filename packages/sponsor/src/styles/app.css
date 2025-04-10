@@ -1,0 +1,106 @@
+.vhp-widget-sponsor-banner-root {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* 改用 100% 替代 100vw */
+  height: 72px;
+  background: #0f172a;
+  padding: 20px 28px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  gap: 5px;
+  position: relative;
+  z-index: 1000;
+  pointer-events: auto;
+  /* 确保元素可以响应点击事件 */
+  cursor: pointer;
+  color: #eee;
+  /* 添加鼠标手型指示可点击 */
+}
+
+.vhp-widget-sponsor-thumbnail {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+}
+
+.vhp-widget-sponsor-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.vhp-widget-sponsor-icon {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  flex: 32px
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: '';
+}
+
+.sponsor-message {
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.sponsor-message span {
+  color: #75c05e
+}
+
+.sponsor-message button {
+  background: #75c05e;
+  color: #121c1a;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  padding: 8px 15px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .sponsor-message {
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .vhp-widget-sponsor-thumbnail {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+  }
+
+  .vhp-widget-sponsor-banner-root {
+    padding: 10px 20px;
+  }
+
+  .vhp-widget-sponsor-text {
+    font-size: 8px;
+  }
+
+  .sponsor-message button {
+    padding: 4px 8px;
+    margin: 0 2px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}

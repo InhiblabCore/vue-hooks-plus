@@ -174,6 +174,12 @@ importers:
       tsup: 6.7.0
       unplugin-auto-import: 0.12.2
 
+  packages/sponsor:
+    specifiers:
+      immer: ^9.0.19
+    dependencies:
+      immer: 9.0.21
+
   packages/types:
     specifiers:
       js-cookie: ^3.0.1

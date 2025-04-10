@@ -81,7 +81,14 @@ export const shared = defineConfig({
     ['meta', { property: 'og:title', content: 'VueHooks plus | High-performance Hooks Library for Vue' }],
     ['meta', { property: 'og:site_name', content: 'VueHooks plus' }],
     ['meta', { property: 'og:url', content: 'https://inhiblabcore.github.io/vue-hooks-plus/' }],
-    ['script', { src: 'https://cdn.usefathom.com/script.js', 'data-site': 'AZBRSFGG', 'data-spa': 'auto', defer: '' }]
+    ['script', { src: 'https://cdn.usefathom.com/script.js', 'data-site': 'AZBRSFGG', 'data-spa': 'auto', defer: '' }],
+    [
+      'script',
+      {
+        src: '/sponsor/sponsor.iife.js',
+        defer: ''
+      }
+    ]
   ],
 
   themeConfig: {
