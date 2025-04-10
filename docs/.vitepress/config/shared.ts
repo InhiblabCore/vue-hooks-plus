@@ -85,7 +85,7 @@ export const shared = defineConfig({
     [
       'script',
       {
-        src: '/sponsor/sponsor.iife.js',
+        src: process.env.NODE_ENV === 'production' ? '/vue-hooks-plus' : '' + '/sponsor/sponsor.iife.js',
         defer: ''
       }
     ]
