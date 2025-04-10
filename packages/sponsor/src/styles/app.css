@@ -37,7 +37,6 @@
 .vhp-widget-sponsor-icon {
   cursor: pointer;
   display: flex;
-  justify-content: flex-end;
   flex: 32px
 }
 
