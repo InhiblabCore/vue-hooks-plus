@@ -33,11 +33,20 @@ const debouncedValue = useDebounce(
 | value   | 需要防抖的值   | `Ref<any>` | -      |
 | options | 配置防抖的行为 | `Options`  | -      |
 
+
 ## Options
 
 | 参数     | 说明                     | 类型      | 默认值  |
 | -------- | ------------------------ | --------- | ------- |
-| wait     | 超时时间，单位为毫秒     | `number`  | `1000`  |
-| leading  | 是否在延迟开始前调用函数 | `boolean` | `false` |
-| trailing | 是否在延迟开始后调用函数 | `boolean` | `true`  |
-| maxWait  | 最大等待时间，单位为毫秒 | `number`  | -       |
+| wait     | 超时时间，单位为毫秒     | `number`\|`Ref<number>` | `1000` |
+| leading  | 是否在延迟开始前调用函数 | `boolean`\|`Ref<boolean>` | `false` |
+| trailing | 是否在延迟开始后调用函数 | `boolean`\|`Ref<boolean>` | `true` |
+| maxWait  | 最大等待时间，单位为毫秒 | `number`  |-                         |
+
+::: warning 注意
+
+- `options.wait` 支持动态变化。
+- `options.leading` 支持动态变化。
+- `options.trailing` 支持动态变化。
+- `options.maxWait` 支持动态变化。
+:::

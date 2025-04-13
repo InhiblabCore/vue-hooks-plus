@@ -2,13 +2,13 @@ import { Ref, ref, watch } from 'vue'
 import useThrottleFn from '../useThrottleFn'
 
 export interface UseThrottleOptions {
-  wait?: number
-  leading?: boolean
-  trailing?: boolean
+  wait?: number | Ref<number>
+  leading?: boolean | Ref<boolean>
+  trailing?: boolean | Ref<boolean>
 }
 
 function useThrottle<T>(value: Ref<T>, options?: UseThrottleOptions) {
-  const throttled = ref()
+  const throttled = ref<T>() as Ref<T>
 
   throttled.value = value.value
 
@@ -19,7 +19,7 @@ function useThrottle<T>(value: Ref<T>, options?: UseThrottleOptions) {
   watch(
     value,
     () => {
-      run.value()
+      run?.()
     },
     {
       immediate: true,

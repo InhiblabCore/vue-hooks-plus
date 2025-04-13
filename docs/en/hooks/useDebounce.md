@@ -35,7 +35,16 @@ const debouncedValue = useDebounce(
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| wait | The number of milliseconds to delay. | `number` | `1000` |
-| leading | Specify invoking on the leading edge of the timeout. | `boolean` | `false` |
-| trailing | Specify invoking on the trailing edge of the timeout. | `boolean` | `true` |
-| maxWait | The maximum time func is allowed to be delayed before it’s invoked. | `number` | - |
+| wait | The number of milliseconds to delay. | `number`\|`Ref<number>` | `1000` |
+| leading | Specify invoking on the leading edge of the timeout. | `boolean`\|`Ref<boolean>` | `false` |
+| trailing | Specify invoking on the trailing edge of the timeout. | `boolean`\|`Ref<boolean>` | `true` |
+| maxWait | The maximum time func is allowed to be delayed before it’s invoked. | `number`\|`Ref<number>` | - |
+
+::: warning Remark
+
+- `options.wait` support dynamic changes.
+- `options.leading` support dynamic changes.
+- `options.trailing` support dynamic changes.
+- `options.maxWait` support dynamic changes.
+
+:::

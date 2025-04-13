@@ -35,6 +35,13 @@ const throttledValue = useThrottle(
 
 | 参数     | 说明                     | 类型      | 默认值 |
 | -------- | ------------------------ | --------- | ------ |
-| wait     | 等待时间，单位为毫秒     | `number`  | `1000` |
-| leading  | 是否在延迟开始前调用函数 | `boolean` | `true` |
-| trailing | 是否在延迟开始后调用函数 | `boolean` | `true` |
+| wait     | 超时时间，单位为毫秒     | `number`\|`Ref<number>` | `1000` |
+| leading  | 是否在延迟开始前调用函数 | `boolean`\|`Ref<boolean>` | `false` |
+| trailing | 是否在延迟开始后调用函数 | `boolean`\|`Ref<boolean>` | `true` |
+
+::: warning 注意
+
+- `options.wait` 支持动态变化。
+- `options.leading` 支持动态变化。
+- `options.trailing` 支持动态变化。
+:::

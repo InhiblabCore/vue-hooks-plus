@@ -1,15 +1,14 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist", //输出文件
     "lib": ["esnext", "dom"],
     "baseUrl": "./",
     "rootDir": "./",
-    "types": ["node", "vitest", "vitest/globals"],
+    "types": ["node"],
     "paths": {
       "vue-hooks-plus": ["../packages/hooks/src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "demo/**/*.vue", "docs/global.d.ts"],
-  "exclude": ["node_modules", "dist", "lib", "es", "example", "test-utils/*"]
+  "extends": "../tsconfig.json",
+  "include": [".vitepress/**/*.ts", "./demo/**/*.vue", "./components/**/*.vue"]
 }

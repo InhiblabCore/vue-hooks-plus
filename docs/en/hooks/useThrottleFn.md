@@ -37,11 +37,11 @@ const {
 
 ## Options
 
-| Property | Description                                           | Type      | Default |
-| -------- | ----------------------------------------------------- | --------- | ------- |
-| wait     | The number of milliseconds to delay.                  | `number`  | `1000`  |
-| leading  | Specify invoking on the leading edge of the timeout.  | `boolean` | `true`  |
-| trailing | Specify invoking on the trailing edge of the timeout. | `boolean` | `true`  |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| wait | The number of milliseconds to delay. | `number`\|`Ref<number>` | `1000` |
+| leading | Specify invoking on the leading edge of the timeout. | `boolean`\|`Ref<boolean>` | `false` |
+| trailing | Specify invoking on the trailing edge of the timeout. | `boolean`\|`Ref<boolean>` | `true` |
 
 ## Result
 
@@ -50,3 +50,11 @@ const {
 | run      | Invoke and pass parameters to fn.                      | `(...args: any[]) => any` |
 | cancel   | Cancel the invocation of currently throttled function. | `() => void`              |
 | flush    | Immediately invoke currently throttled function        | `() => void`              |
+
+::: warning Remark
+
+- `options.wait` support dynamic changes.
+- `options.leading` support dynamic changes.
+- `options.trailing` support dynamic changes.
+
+:::

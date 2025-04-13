@@ -1,33 +1,60 @@
 // @ts-nocheck
 import throttle from 'lodash-es/throttle'
-import { onUnmounted, ref, computed } from 'vue'
+import { onUnmounted, watch, ref, unref, computed } from 'vue'
 import { UseThrottleOptions } from '../useThrottle'
+import { DebouncedFunc } from 'lodash-es'
 
 type noop = (...args: any) => any
 
 function useThrottleFn<T extends noop>(fn: T, options?: UseThrottleOptions) {
-  const fnRef = ref(fn)
+  let originThrottled: DebouncedFunc<T>
 
-  const wait = options?.wait ?? 1000
+  const throttled = ref<DebouncedFunc<T>>()
+  const throttleOptions = computed(() => {
+    const ret: UseThrottleOptions = {}
+    if (unref(options?.wait) !== undefined) {
+      ret.wait = unref(options?.wait)
+    }
+    if (unref(options?.leading) !== undefined) {
+      ret.leading = unref(options?.leading)
+    }
+    if (unref(options?.trailing) !== undefined) {
+      ret.trailing = unref(options?.trailing)
+    }
+    return {
+      ...ret,
+      wait: ret?.wait ?? 1000,
+    }
+  })
 
-  const throttled = computed(() =>
-    throttle(
+  watch(throttleOptions, (cur) => {
+    const { wait = 1000, ...options } = cur
+    if (originThrottled) {
+      originThrottled.cancel()
+      originThrottled.flush()
+    }
+    const _throttle = throttle(
       (...args: Parameters<T>): ReturnType<T> => {
-        return fnRef.value([...args])
+        return fn([...args])
       },
       wait,
       options,
-    ),
-  )
+    )
+    originThrottled = _throttle
+    throttled.value = _throttle
+  }, {
+    immediate: true,
+    deep: true,
+  })
 
   onUnmounted(() => {
-    throttled.value.cancel()
+    throttled.value?.cancel()
   })
 
   return {
-    run: throttled,
-    cancel: throttled.value.cancel,
-    flush: throttled.value.flush,
+    run: throttled.value ?? (() => { }),
+    cancel: throttled.value?.cancel,
+    flush: throttled.value?.flush,
   }
 }
 
