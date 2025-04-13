@@ -8,11 +8,24 @@ export type UseRequestService<TData, TParams extends unknown[]> = (
 
 export type UseRequestSubscribe = () => void
 
+export type UseRequestOrigin<TData = unknown> = {
+  data: TData
+}
+
+export type UseRequestOriginSnapshot<TData, TParams extends unknown[]> = {
+  loading: boolean
+  params?: TParams
+  originData?: TData
+  formatData?: TData
+  error?: Error | unknown
+}
+
 export interface UseRequestFetchState<TData, TParams extends unknown[]> {
   loading: boolean
   params?: TParams
   data?: TData
   error?: Error | unknown
+  snapshot?: UseRequestOriginSnapshot<TData, TParams>
 }
 
 export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
@@ -21,9 +34,9 @@ export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
     params: TParams,
   ) =>
     | ({
-        stopNow?: boolean
-        returnNow?: boolean
-      } & Partial<UseRequestFetchState<TData, TParams>>)
+      stopNow?: boolean
+      returnNow?: boolean
+    } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
 
   onRequest?: (
@@ -32,8 +45,14 @@ export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
   ) => {
     servicePromise?: Promise<TData>
   }
-
-  onSuccess?: (data: TData, params: TParams) => void
+  /**
+   * 
+   * @param data Request result data or format data
+   * @param params Maually set the request params.
+   * @param origin Before format origin { data: TData }
+   * @returns Void
+   */
+  onSuccess?: (data: TData, params: TParams, origin: UseRequestOrigin) => void
   onError?: (e: Error, params: TParams) => void
   onFinally?: (params: TParams, data?: TData, e?: Error) => void
   onCancel?: () => void
@@ -300,12 +319,12 @@ export interface useRequestResult<
   data: Readonly<
     Ref<
       FormatResult extends false
-        ? Initial extends false
-          ? TData | undefined
-          : TData
-        : FormatResult extends (...args: any[]) => any
-        ? ReturnType<FormatResult> | undefined
-        : FormatResult | undefined
+      ? Initial extends false
+      ? TData | undefined
+      : TData
+      : FormatResult extends (...args: any[]) => any
+      ? ReturnType<FormatResult> | undefined
+      : FormatResult | undefined
     >
   >
 

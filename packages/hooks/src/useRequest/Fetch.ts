@@ -166,6 +166,9 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
         // Format data
         const formattedResult = this.options.formatResult ? this.options.formatResult(res) : res
 
+        const origin = {
+          data: res,
+        }
         this.setState({
           data: formattedResult,
           error: undefined,
@@ -173,8 +176,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
         })
         // Request successful
         this.options.onSuccess?.(formattedResult, params)
-
-        this.runPluginHandler('onSuccess', formattedResult, params)
+        this.runPluginHandler('onSuccess', formattedResult, params, origin)
 
         this.previousValidData = formattedResult
 

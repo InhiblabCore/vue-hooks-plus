@@ -74,7 +74,7 @@ interface UseRequestPluginReturn<TData, TParams extends any[]> {
     servicePromise?: Promise<TData>
   }
 
-  onSuccess?: (data: TData, params: TParams) => void
+  onSuccess?: (data: TData, params: TParams, origin: Origin) => void
   onError?: (e: Error, params: TParams) => void
   onFinally?: (params: TParams, data?: TData, e?: Error) => void
   onCancel?: () => void
