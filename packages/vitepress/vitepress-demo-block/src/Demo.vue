@@ -66,7 +66,7 @@
         v-html="decodedHighlightedCode"
         :class="`language-${lang} extra-class`"
       ></div></article
-    ></ClientOnly>
+  ></ClientOnly>
 </template>
 
 <style src="./demo.less"></style>

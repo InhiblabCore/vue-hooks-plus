@@ -21,8 +21,6 @@ export function applyFooterLinkPlugin(): Plugin {
     enforce: 'pre', // 确保在默认插件前执行
 
     load(id) {
-      console.log("id", id);
-
       if (!id.endsWith('.md')) return
 
       const rawContent = fs.readFileSync(id, 'utf-8')
@@ -30,8 +28,6 @@ export function applyFooterLinkPlugin(): Plugin {
       const lang = id.includes('/zh/') ? 'zh' : 'en'
       const { data: frontmatter } = matter(rawContent)
       const mapPath = id.replace(process.cwd() + '/docs', '')
-
-      console.log("frontmatter", frontmatter);
 
       if (!frontmatter?.map?.path || frontmatter?.source?.show === false) {
         return
