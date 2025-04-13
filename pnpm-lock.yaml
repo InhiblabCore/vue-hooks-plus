@@ -175,10 +175,7 @@ importers:
       unplugin-auto-import: 0.12.2
 
   packages/sponsor:
-    specifiers:
-      immer: ^9.0.19
-    dependencies:
-      immer: 9.0.21
+    specifiers: {}
 
   packages/types:
     specifiers:
