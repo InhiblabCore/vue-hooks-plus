@@ -24,7 +24,11 @@ const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   const _originRunAsync = fetchInstance.runAsync.bind(fetchInstance)
   const throttled = ref<DebouncedFunc<any>>()
 
-  watch([throttleWait, options], (cur) => {
+  const throttleWaitComputed = computed(() => {
+    return unref(throttleWait)
+  })
+
+  watch([throttleWaitComputed, options], (cur) => {
     if (originThrottled) {
       originThrottled.cancel()
       fetchInstance.runAsync = _originRunAsync
