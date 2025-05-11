@@ -5,6 +5,7 @@ import type {
   UseRequestOptions,
   UseRequestPlugin,
 } from "../types";
+import { isEqual } from "lodash-es";
 
 // 泛型工厂
 function createUseRequestQueryComponent<TData = any, TParams extends unknown[] = any[]>() {
@@ -69,10 +70,13 @@ function createUseRequestQueryComponent<TData = any, TParams extends unknown[] =
 
       watch(
         refreshDeps,
-        () => {
+        (newVal, oldVal) => {
+          // 如果 refreshDeps 没有变化，则不刷新
+          // 这里对比的是数组，所以需要使用 isEqual 来对比
+          if (isEqual(newVal, oldVal)) return;
           result.refresh();
         },
-        { immediate: true, deep: true }
+        { immediate: true }
       );
 
       return () => {
