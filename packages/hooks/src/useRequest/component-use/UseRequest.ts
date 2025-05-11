@@ -44,7 +44,6 @@ function createUseRequestQueryComponent<TData = any, TParams extends unknown[] =
       default: (props: Pick<ReturnType<typeof useRequest<TData, TParams>>, "data">) => any,
       loading: () => any,
       error: (props: { error: ReturnType<typeof useRequest<TData, TParams>>["error"]['value'] }) => any,
-      target?: () => any
     }>,
     setup(props, { slots }) {
 
