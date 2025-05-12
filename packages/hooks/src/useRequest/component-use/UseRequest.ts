@@ -1,10 +1,11 @@
-import { defineComponent, PropType, computed, SlotsType, unref } from "vue";
+import { defineComponent, PropType, computed, SlotsType, unref, watch } from "vue";
 import useRequest from "../useRequest";
 import type {
   UseRequestService,
   UseRequestOptions,
   UseRequestPlugin,
 } from "../types";
+import { isEqual } from "lodash-es";
 
 // 泛型工厂
 function createUseRequestComponent<
@@ -56,21 +57,31 @@ function createUseRequestComponent<
       const service = computed(() => unref(props.service));
       const plugins = computed(() => unref(props.plugins));
 
+      const manual = props.manual
+      const ready = computed(() => props.ready);
+      const refreshDeps = computed(() => props.refreshDeps);
+
       // useRequest 的返回类型会自动推断
       const options = {
-
-        ready: props.ready,
-        refreshDeps: props.refreshDeps,
+        ready,
+        refreshDeps,
         manual: props.manual,
+        formatResult: props.formatResult,
       };
-      // @ts-expect-error: formatResult 可能不是 options 的一部分
-      if (props.formatResult) options.formatResult = props.formatResult;
-
       const result = useRequest(
         service.value,
+        // @ts-ignore
         options,
         plugins.value
       );
+
+
+      watch(refreshDeps, (newVal, oldVal) => {
+        if (isEqual(newVal, oldVal)) return;
+        if (!manual) {
+          result?.refresh()
+        }
+      })
 
       return () => {
         if (result.loading.value && slots.loading) {

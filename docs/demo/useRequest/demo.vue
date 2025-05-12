@@ -1,18 +1,18 @@
 <template>
   <div>name：{{ loading ? 'loading' : data }}</div>
   <h3>UseRequest component</h3>
-  <use-request-user-name :service="getUsername" :manual="true">
-    <template #default="{data,run,loading}">
+  <use-request-user-name
+    :service="
+      () =>
+        getUsername({
+          desc,
+        })
+    "
+    :refreshDeps="[desc]"
+  >
+    <template #default="{data,refresh,loading}">
       <div>name：{{ data }}</div>
-      <vhp-button
-        v-if="!loading.value"
-        @click="
-          run({
-            desc: 'good222',
-          })
-        "
-        >run</vhp-button
-      >
+      <vhp-button v-if="!loading.value" @click="refresh()">refresh</vhp-button>
     </template>
     <template #loading>
       <div>loading</div>
