@@ -54,7 +54,7 @@ import useElementBounding from './useElementBounding'
 import useResizeObserver from './useResizeObserver'
 import useMutationObserver from './useMutationObserver'
 import { UseMouse } from './useMouse/component'
-import createUseRequestQueryComponent from './useRequest/component-use/UseRequest'
+import createUseRequestComponent from './useRequest/component-use/UseRequest'
 
 export {
   useRequest,
@@ -112,5 +112,5 @@ export {
   useElementBounding,
   useResizeObserver,
   UseMouse,
-  createUseRequestQueryComponent
+  createUseRequestComponent
 }

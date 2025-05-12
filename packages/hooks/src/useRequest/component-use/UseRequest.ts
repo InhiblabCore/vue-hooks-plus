@@ -20,6 +20,10 @@ function createUseRequestComponent<
         type: Function as PropType<UseRequestService<TServiceData, TParams>>,
         required: true,
       },
+      manual: {
+        type: Boolean,
+        default: false,
+      },
       ready: {
         type: Object as PropType<
           UseRequestOptions<TServiceData, TParams>["ready"]
@@ -54,8 +58,10 @@ function createUseRequestComponent<
 
       // useRequest 的返回类型会自动推断
       const options = {
+
         ready: props.ready,
         refreshDeps: props.refreshDeps,
+        manual: props.manual,
       };
       // @ts-expect-error: formatResult 可能不是 options 的一部分
       if (props.formatResult) options.formatResult = props.formatResult;
@@ -73,8 +79,8 @@ function createUseRequestComponent<
         if (result.error.value && slots.error) {
           return slots.error({ error: result.error.value });
         }
-        if (!result.loading.value && !result.error.value && slots.default) {
-          return slots.default(result as any);
+        if (slots.default) {
+          return slots.default(computed(() => result).value as any);
         }
         return null;
       };

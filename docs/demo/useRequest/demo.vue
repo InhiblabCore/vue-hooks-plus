@@ -1,9 +1,18 @@
 <template>
   <div>name：{{ loading ? 'loading' : data }}</div>
   <h3>UseRequest component</h3>
-  <use-request-query :service="() => getUsername({ desc: desc })" :refresh-deps="[desc]">
-    <template #default="{data}">
+  <use-request-user-name :service="getUsername" :manual="true">
+    <template #default="{data,run,loading}">
       <div>name：{{ data }}</div>
+      <vhp-button
+        v-if="!loading.value"
+        @click="
+          run({
+            desc: 'good222',
+          })
+        "
+        >run</vhp-button
+      >
     </template>
     <template #loading>
       <div>loading</div>
@@ -11,15 +20,15 @@
     <template #error>
       <div>error</div>
     </template>
-  </use-request-query>
+  </use-request-user-name>
 </template>
 
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue'
-  import { useRequest, createUseRequestQueryComponent } from 'vue-hooks-plus'
+  import { useRequest, createUseRequestComponent } from 'vue-hooks-plus'
 
   const desc = ref('good')
-  const UseRequestQuery = createUseRequestQueryComponent<string>()
+  const UseRequestUserName = createUseRequestComponent<string>()
   function getUsername(params: { desc: string }): Promise<string> {
     return new Promise(resolve => {
       setTimeout(() => {
