@@ -153,6 +153,14 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   pollingInterval?: Ref<number> | number
 
   /**
+   * Whether to allow concurrent requests.
+   * When set to true, multiple requests can be executed concurrently.
+   * When set to false, new requests will cancel previous ones.
+   * Default is false.
+   */
+  concurrent?: boolean
+
+  /**
    * Whether to continue polling when the page is hidden. If set to false, polling will be temporarily paused when the page is hidden, and resume when the page is visible again.
    */
   pollingWhenHidden?: boolean
@@ -190,7 +198,7 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   debounceTrailing?: Ref<boolean> | boolean
 
   /**
-   * The maximum time request is allowed to be delayed before it’s executed.
+   * The maximum time request is allowed to be delayed before it's executed.
    */
   debounceMaxWait?: Ref<number> | number
 
