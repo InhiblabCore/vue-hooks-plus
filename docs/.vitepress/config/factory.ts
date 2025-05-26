@@ -1,4 +1,4 @@
-import fsExtra from 'fs-extra';
+import * as fs from 'node:fs';
 import { dirname, join, sep } from 'path';
 import { MarkdownRenderer } from 'vitepress';
 
@@ -48,13 +48,13 @@ export function genDemoByCode(
     while (true) {
       demoName = `demo-${fenceIndex++}.vue`;
       demoPath = join(dirname(path), 'dist', demoName);
-      if (!fsExtra.existsSync(demoPath)) {
+      if (!fs.existsSync(demoPath)) {
         break;
       }
     }
 
-    fsExtra.createFileSync(demoPath);
-    fsExtra.writeFileSync(demoPath, code);
+    fs.writeFileSync(demoPath, '');
+    fs.writeFileSync(demoPath, code);
 
     codeFileMap[code] = {
       demoName,
