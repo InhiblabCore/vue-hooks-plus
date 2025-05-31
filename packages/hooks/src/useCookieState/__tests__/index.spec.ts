@@ -20,7 +20,7 @@ describe('useCookieState', () => {
     const [message, setMessage] = useCookieState('test', {
       defaultValue: undefined,
     })
-    expect(message.value).toBeUndefined
+    expect(message.value).toBeUndefined()
 
     setMessage('false')
     expect(message.value).toEqual('false')
