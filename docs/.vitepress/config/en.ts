@@ -271,7 +271,7 @@ export function sidebarHooks(): DefaultTheme.SidebarItem[] {
     {
       text: 'Advanced',
       items: [
-        { text: 'useEventEmitter', link: '/useEventEmitter/' },
+        { text: 'useEventEmitter', link: 'useEventEmitter' },
         {
           text: 'useAsyncOrder',
           link: 'useAsyncOrder',

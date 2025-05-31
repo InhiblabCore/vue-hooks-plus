@@ -10,7 +10,8 @@
   const event = useEventEmitter({ global: true })
   const globalCount = ref(0)
 
-  event.useSubscription('change', () => {
+  event.subscribe('change', () => {
+    console.log('global', event)
     globalCount.value += 1
   })
 </script>

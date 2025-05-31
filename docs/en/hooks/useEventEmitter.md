@@ -16,7 +16,7 @@ To get an instance of `EventEmitter`, you can call `useEventEmitter` in React co
 
 ## Code demonstration
 
-<demo src="useEventEmitter/demo.vue"
+<demo src="useEventEmitter/App.vue"
   language="vue"
   title="Parent component shares a event"
   desc=""> </demo>

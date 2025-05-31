@@ -27,7 +27,6 @@
   }
 
   const changeA = () => {
-    // globalCount.value += 1
     eventA.emit('change')
   }
 </script>
