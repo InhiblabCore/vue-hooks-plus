@@ -1,10 +1,10 @@
 import { parseProps } from "../config/utils";
 import { resolve } from 'path'
-import fsExtra from 'fs-extra'
+import * as fs from 'node:fs'
 import { getDemoComponent } from "../config/factory";
 export const applyMdPlugin = (md: any) => {
   const htmlBlock = md.renderer.rules.html_block!
-  md.renderer.rules.html_block = function (tokens, idx, options, env, self) {
+  md.renderer.rules.html_block = function (tokens: any, idx: any, options: any, env: any, self: any) {
     const token = tokens[idx];
     const content = token.content.trim();
     const { path } = env;
@@ -17,7 +17,7 @@ export const applyMdPlugin = (md: any) => {
     }
 
     const srcPath = resolve(process.cwd(), "docs", "demo", props.src);
-    const code = fsExtra.readFileSync(srcPath, 'utf8');
+    const code = fs.readFileSync(srcPath, 'utf8');
     const demoScripts = getDemoComponent(md, env, {
       title: props?.title,
       desc: props?.desc,

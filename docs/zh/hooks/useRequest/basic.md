@@ -67,6 +67,40 @@ runAsync()
   title="runAsync主动发送请求"
   desc="在这个例子中，我们通过 runAsync 来修改用户名，此时必须通过 catch 来自行处理异常。"> </demo>
 
+## 并发请求机制
+
+从 `2.4.0` 版本开始，`useRequest` 引入了并发请求机制。这个机制的主要特点是：
+
+1. 请求不会被 cancel count 机制中断
+2. 每次手动调用请求都会独立执行
+3. 每个请求都会触发对应的回调函数（如 onSuccess）
+
+### 使用示例
+
+```typescript
+const { run } = useRequest(
+  async (id: number, { signal }) => {
+    const response = await fetch(`https://api.example.com/data/${id}`);
+    return response.json();
+  }
+);
+
+// 这些请求会并发执行，互不影响
+run(1); // 会触发 onSuccess
+run(2); // 会触发 onSuccess
+run(3); // 会触发 onSuccess
+```
+
+### 注意事项
+
+- 每个请求都是独立的，不会因为其他请求的取消而中断
+- 所有请求的回调函数都会正常执行
+- 适合需要同时发起多个请求的场景
+
+:::info 参数管理增强
+如果你希望对参数有更好的支持和管理，你可以使用 `useFetchs`。这个 Hook 提供了增强的参数处理能力，特别适合处理多参数和复杂的请求场景。
+:::
+
 ## 生命周期
 
 `useRequest` 提供了以下几个生命周期配置项，供你在异步函数的不同阶段做一些处理。
@@ -201,6 +235,7 @@ const {
 | onSuccess | service resolve 时触发 | `(data: TData, params: TParams) => void` | - |
 | onError | service reject 时触发 | `(e: Error, params: TParams) => void` | - |
 | onFinally | service 执行完成时触发 | `(params: TParams, data?: TData, e?: Error) => void` | - |
+| concurrent | <ul><li>是否允许并发请求</li><li>设置为 `true` 时，允许多个请求并发执行</li><li>设置为 `false` 时，新的请求会取消之前的请求</li><li>默认为 `false`</li></ul> | `boolean` | `false` |
 
 :::info 🛸 PRO
 

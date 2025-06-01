@@ -103,9 +103,8 @@ export default function useElementBounding(
 
   useResizeObserver(target, update)
   watch(() => getTargetElement(target), update)
-
   onMounted(() => {
-    immediate && update()
+    if (immediate) update()
   })
 
   return {

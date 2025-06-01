@@ -8,7 +8,7 @@ import { unref } from 'vue'
 const pluginId = 'vue-hooks-plus'
 const pluginName = 'Vue Hooks Plus 🍭'
 const pluginLogo =
-  'https://raw.githubusercontent.com/InhiblabCore/vue-hooks-plus/c3b984112610ef3fb21140a0beb27b4a228fe0b3/packages/hooks/docs/public/logo.svg'
+  'https://inhiblabcore.github.io/vue-hooks-plus/logo.svg'
 
 let currentStateId: string
 

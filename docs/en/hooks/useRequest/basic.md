@@ -70,6 +70,40 @@ Next, we will demonstrate the difference between `run` and `runAsync` through th
   title="runAsync actively sends requests"
   desc="In this example, we use runAsync to modify the username, and we must use catch to handle exceptions ourselves."> </demo>
 
+## Concurrent Request Mechanism
+
+Starting from version `2.4.0`, `useRequest` introduces a concurrent request mechanism. The key features of this mechanism are:
+
+1. Requests are not interrupted by the cancel count mechanism
+2. Each manual request call executes independently
+3. Each request triggers its corresponding callback functions (such as onSuccess)
+
+### Usage Example
+
+```typescript
+const { run } = useRequest(
+  async (id: number, { signal }) => {
+    const response = await fetch(`https://api.example.com/data/${id}`);
+    return response.json();
+  }
+);
+
+// These requests will execute concurrently without affecting each other
+run(1); // will trigger onSuccess
+run(2); // will trigger onSuccess
+run(3); // will trigger onSuccess
+```
+
+### Notes
+
+- Each request is independent and won't be interrupted by the cancellation of other requests
+- All request callback functions will execute normally
+- Suitable for scenarios where multiple requests need to be initiated simultaneously
+
+:::info Parameter Management Enhancement
+If you need better parameter support and management, you can use `useFetchs`. This hook provides enhanced capabilities for handling multiple parameters and complex request scenarios.
+:::
+
 ## The life cycle
 
 `useRequest` provides the following life cycle for you to do some processing in different stages of asynchronous functions.
@@ -173,6 +207,7 @@ const {
     onSuccess?: (data: TData, params: TParams) => void,
     onError?: (e: Error, params: TParams) => void,
     onFinally?: (params: TParams, data?: TData, e?: Error) => void,
+    concurrent?: boolean,
   }
 );
 ```
@@ -204,6 +239,7 @@ const {
 | onSuccess | Triggered when service resolve | `(data: TData, params: TParams) => void` | - |
 | onError | Triggered when service reject | `(e: Error, params: TParams) => void` | - |
 | onFinally | Triggered when service execution is complete | `(params: TParams, data?: TData, e?: Error) => void` | - |
+| concurrent | <ul><li>Whether to allow concurrent requests</li><li>When set to `true`, multiple requests can be executed concurrently</li><li>When set to `false`, new requests will cancel previous ones</li><li>Default is `false`</li></ul> | `boolean` | `false` |
 
 :::info 🛸 PRO
 

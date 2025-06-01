@@ -6,21 +6,30 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref } from 'vue'
+  import { onMounted, onUnmounted, ref } from 'vue'
 
   import { useEventEmitter } from 'vue-hooks-plus'
+  import { EventEmitter } from 'vue-hooks-plus/src/useEventEmitter/event'
 
-  const event = useEventEmitter({ global: true })
+  const event_ = useEventEmitter({ global: true })
   const props = defineProps<{
-    event: any
+    event: EventEmitter<any>
   }>()
   const count = ref(0)
 
-  props.event.useSubscription('change', () => {
-    count.value += 1
+  let unsubscribe: (() => void) | null = null
+
+  onMounted(() => {
+    unsubscribe = props.event.subscribe('change', () => {
+      console.log('props', props.event)
+      count.value += 1
+    })
+  })
+  onUnmounted(() => {
+    if (unsubscribe) unsubscribe()
   })
 
   const changeGlobal = () => {
-    event.emit('change')
+    event_.emit('change')
   }
 </script>

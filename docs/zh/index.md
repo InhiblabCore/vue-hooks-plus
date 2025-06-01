@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /zh/guide/
+      link: /zh/guide/introduction
     - theme: alt
       text: Hooks 列表  
       link: /zh/hooks/useRequest/quick-start
