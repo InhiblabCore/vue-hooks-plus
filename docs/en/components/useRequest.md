@@ -47,7 +47,7 @@ The `useRequest` component accepts all the same props as the `useRequest` hook o
 
 ### Consistency with useRequest Hook
 
-All features, options, and return values of the `useRequest` component are consistent with the `useRequest` hook. You can refer to the [useRequest hook documentation](../hooks/useRequest.md) for detailed API descriptions and advanced usage.
+All features, options, and return values of the `useRequest` component are consistent with the `useRequest` hook. You can refer to the useRequest hook documentation for detailed API descriptions and advanced usage.
 
 ## When to Use
 
@@ -55,10 +55,6 @@ All features, options, and return values of the `useRequest` component are consi
 - When you want to leverage slots for flexible UI customization
 - When you need to keep logic and UI closely coupled in your component templates
 
-## References
-
-- [useRequest hook documentation](../hooks/useRequest.md)
-- [Component Hook Guide](./guide.md)
 
 ## Using `createUseRequestComponent`
 

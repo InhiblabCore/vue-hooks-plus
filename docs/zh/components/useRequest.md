@@ -40,7 +40,7 @@
 
 ### 与 useRequest hook 的一致性
 
-所有功能、参数和返回值都与 `useRequest` hook 保持一致。详细 API 可参考 [useRequest hook 文档](../hooks/useRequest.md)。
+所有功能、参数和返回值都与 `useRequest` hook 保持一致。详细 API 可参考 useRequest hook 文档。
 
 ---
 
