@@ -1,103 +1,104 @@
 import useBoolean from '..'
 
 describe('useBoolean', () => {
-  // 基础功能测试
-  it('should be defined', () => {
-    expect(useBoolean).toBeDefined()
+  describe('Basic functionality', () => {
+    it('should be defined', () => {
+      expect(useBoolean).toBeDefined()
+    })
+
+    it('default value should be false', () => {
+      const [state] = useBoolean()
+      expect(state.value).toBe(false)
+    })
+
+    it('should accept custom default value', () => {
+      const [state] = useBoolean(true)
+      expect(state.value).toBe(true)
+    })
   })
 
-  // 默认值测试
-  it('should default to be false', () => {
-    const [state] = useBoolean()
-    expect(state.value).toBeFalsy()
+  describe('Operations', () => {
+    let state: ReturnType<typeof useBoolean>[0]
+    let actions: ReturnType<typeof useBoolean>[1]
+    beforeEach(() => {
+      ;[state, actions] = useBoolean(true)
+    })
+
+    it('toggle should switch state', () => {
+      actions.toggle()
+      expect(state.value).toBe(false)
+      actions.toggle()
+      expect(state.value).toBe(true)
+    })
+
+    it('set should set specified value', () => {
+      actions.set(false)
+      expect(state.value).toBe(false)
+      actions.set(true)
+      expect(state.value).toBe(true)
+    })
+
+    it('setTrue/setFalse should set to true/false respectively', () => {
+      actions.setFalse()
+      expect(state.value).toBe(false)
+      actions.setTrue()
+      expect(state.value).toBe(true)
+    })
   })
 
-  // 自定义默认值测试
-  it('should accept custom default value', () => {
-    const [state] = useBoolean(true)
-    expect(state.value).toBeTruthy()
+  describe('Reactivity', () => {
+    let state: ReturnType<typeof useBoolean>[0]
+    let set: ReturnType<typeof useBoolean>[1]['set']
+    beforeEach(() => {
+      ;[state, { set }] = useBoolean(false)
+    })
+
+    it('set should update state multiple times', () => {
+      set(true)
+      expect(state.value).toBe(true)
+      set(false)
+      set(true)
+      set(false)
+      expect(state.value).toBe(false)
+    })
   })
 
-  // 完整功能测试
-  it('should work with all actions', () => {
-    const [state, { set, setFalse, setTrue, toggle }] = useBoolean(true)
+  describe('Edge cases', () => {
+    let state: ReturnType<typeof useBoolean>[0]
+    let set: ReturnType<typeof useBoolean>[1]['set']
+    beforeEach(() => {
+      ;[state, { set }] = useBoolean(false)
+    })
 
-    // 初始值测试
-    expect(state.value).toBeTruthy()
-
-    // toggle 功能测试
-    toggle()
-    expect(state.value).toBeFalsy()
-    toggle()
-    expect(state.value).toBeTruthy()
-
-    // set 功能测试
-    set(false)
-    expect(state.value).toBeFalsy()
-    set(true)
-    expect(state.value).toBeTruthy()
-
-    // setTrue 功能测试
-    setFalse()
-    expect(state.value).toBeFalsy()
-    setTrue()
-    expect(state.value).toBeTruthy()
-
-    // setFalse 功能测试
-    setTrue()
-    expect(state.value).toBeTruthy()
-    setFalse()
-    expect(state.value).toBeFalsy()
-  })
-  // 响应式测试
-  it('should be reactive', () => {
-    const [state, { set }] = useBoolean(false)
-
-    // 测试响应式更新
-    set(true)
-    expect(state.value).toBeTruthy()
-
-    // 测试多次更新
-    set(false)
-    set(true)
-    set(false)
-    expect(state.value).toBeFalsy()
+    it('set(null) should be false', () => {
+      set(null as any)
+      expect(state.value).toBe(false)
+    })
+    it('set(undefined) should be false', () => {
+      set(undefined as any)
+      expect(state.value).toBe(false)
+    })
+    it('set(NaN) should be false', () => {
+      set(NaN as any)
+      expect(state.value).toBe(false)
+    })
+    it('set({}) should be true', () => {
+      set({} as any)
+      expect(state.value).toBe(true)
+    })
+    it('set([]) should be true', () => {
+      set([] as any)
+      expect(state.value).toBe(true)
+    })
   })
 
-  // 边界情况测试
-  it('should handle edge cases', () => {
-    const [state, { set }] = useBoolean(false)
-
-    // 测试 null
-    set(null as any)
-    expect(state.value).toBeFalsy()
-
-    // 测试 undefined
-    set(undefined as any)
-    expect(state.value).toBeFalsy()
-
-    // 测试 NaN
-    set(NaN as any)
-    expect(state.value).toBeFalsy()
-
-    // 测试对象
-    set({} as any)
-    expect(state.value).toBeTruthy()
-
-    // 测试数组
-    set([] as any)
-    expect(state.value).toBeTruthy()
-  })
-
-  // 性能测试
-  it('should handle rapid toggles', () => {
-    const [state, { toggle }] = useBoolean(false)
-
-    // 快速切换测试
-    for (let i = 0; i < 100; i++) {
-      toggle()
-    }
-
-    expect(state.value).toBeFalsy() // 偶数次切换应该回到初始值
+  describe('Performance', () => {
+    it('should return to initial value after toggling 100 times quickly', () => {
+      const [state, { toggle }] = useBoolean(false)
+      for (let i = 0; i < 100; i++) {
+        toggle()
+      }
+      expect(state.value).toBe(false)
+    })
   })
 })
