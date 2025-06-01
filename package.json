@@ -9,15 +9,12 @@
   },
   "scripts": {
     "bootstrap": "tsx scripts/bootstrap.ts",
-    "build:vitepress-demo-block": "cd packages/vitepress/vitepress-demo-block && pnpm build",
     "docs:dev": "vitepress dev docs",
     "docs:build": "pnpm build && vitepress build docs",
-    "build": "pnpm recursive exec pnpm run build",
+    "docs:preview": "vitepress preview docs --base /vue-hooks-plus/",
+    "build": "pnpm bootstrap && pnpm recursive exec pnpm run build",
     "test": "vitest",
-    "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage",
-    "prepare": "husky install",
-    "docs:preview": "vitepress preview docs"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
@@ -34,7 +31,6 @@
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@vite-pwa/vitepress": "^1.0.0",
     "@vitejs/plugin-vue": "^2.3.1",
-    "@vitest/coverage-c8": "^0.25.7",
     "@vitest/ui": "^0.25.3",
     "@vue-hooks-plus/md-demo-plugins": "^1.0.0",
     "@vue-hooks-plus/types": "workspace:^2.0.0",
