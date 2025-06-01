@@ -2,7 +2,7 @@
 
 The `useRequest` component is a high-level abstraction based on the `useRequest` hook, allowing you to use all the powerful features of `useRequest` in a declarative, component-based way.
 
-## Component Usage
+## Component Usage `2.4.0-beta`
 
 You can use the `useRequest` component to handle data fetching, loading, error, and success states directly in your template. The API and props of the component are fully consistent with the `useRequest` hook, making it easy to switch between the two approaches.
 

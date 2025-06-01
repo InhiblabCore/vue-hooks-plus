@@ -2,7 +2,7 @@
 
 `useRequest` 组件是基于 `useRequest` hook 的高阶封装，允许你以声明式、组件化的方式使用所有 `useRequest` 的强大功能。
 
-## 组件用法
+## 组件用法 `2.4.0-beta`
 
 你可以直接在模板中使用 `<use-request />` 组件来处理数据请求、加载、错误和成功等状态。组件的 API 和 props 与 `useRequest` hook 完全一致，方便在两种用法间切换。
 
