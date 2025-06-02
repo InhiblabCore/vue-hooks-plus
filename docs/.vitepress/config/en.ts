@@ -197,7 +197,7 @@ export function sidebarHooks(): DefaultTheme.SidebarItem[] {
       text: 'State',
       items: [
         { text: 'useBoolean', link: 'useBoolean' },
-        // { text: "useControlledState", link: "useControlledState" },
+        { text: "useControlledState", link: "useControlledState" },
         { text: 'useImmer', link: 'useImmer' },
         { text: 'useUrlState', link: 'useUrlState' },
         { text: 'useFormatResult', link: 'useFormatResult' },
