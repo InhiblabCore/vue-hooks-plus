@@ -17,7 +17,7 @@ describe('useEventListener', () => {
     const onClick = () => {
       state++
     }
-    useEventListener('click', onClick, { target: () => container })
+    renderHook(() => useEventListener('click', onClick, { target: () => container }))
 
     document.body.click()
     expect(state).toEqual(0)
@@ -32,7 +32,7 @@ describe('useEventListener', () => {
     const onResize = () => {
       called = true
     }
-    useEventListener('resize', onResize, { target: window })
+    renderHook(() => useEventListener('resize', onResize, { target: window }))
     window.dispatchEvent(new Event('resize'))
     expect(called).toBe(true)
   })
@@ -42,7 +42,7 @@ describe('useEventListener', () => {
     const onKeyDown = (e: KeyboardEvent) => {
       key = e.key
     }
-    useEventListener('keydown', onKeyDown, { target: document })
+    renderHook(() => useEventListener('keydown', onKeyDown, { target: document }))
     const event = new KeyboardEvent('keydown', { key: 'a' })
     document.dispatchEvent(event)
     expect(key).toBe('a')
@@ -57,7 +57,7 @@ describe('useEventListener', () => {
         triggered = true
       }
     }
-    useEventListener('click', onClick, { target: () => container, once: true })
+    renderHook(() => useEventListener('click', onClick, { target: () => container, once: true }))
     container.click()
     container.click()
     expect(count).toBe(1)
@@ -68,7 +68,7 @@ describe('useEventListener', () => {
     const onWheel = () => {
       called = true
     }
-    useEventListener('wheel', onWheel, { target: () => container, passive: true })
+    renderHook(() => useEventListener('wheel', onWheel, { target: () => container, passive: true }))
     const event = new Event('wheel')
     container.dispatchEvent(event)
     expect(called).toBe(true)
@@ -78,7 +78,7 @@ describe('useEventListener', () => {
     const phase: string[] = []
     const onCapture = () => phase.push('capture')
     const onBubble = () => phase.push('bubble')
-    useEventListener('click', onCapture, { target: () => container, capture: true })
+    renderHook(() => useEventListener('click', onCapture, { target: () => container, capture: true }))
     container.addEventListener('click', onBubble)
     container.click()
     expect(phase[0]).toBe('capture')

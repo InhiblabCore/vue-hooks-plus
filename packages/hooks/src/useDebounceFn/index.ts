@@ -1,5 +1,5 @@
 import debounce from 'lodash-es/debounce'
-import { onUnmounted, Ref, ref, watch } from 'vue'
+import { onScopeDispose, Ref, ref, watch } from 'vue'
 
 export interface DebounceOptions {
   /**
@@ -51,9 +51,11 @@ function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
   );
 
 
-  onUnmounted(() => {
+  onScopeDispose(() => {
     debouncedRef.value?.cancel();
   });
+
+
 
   return {
     /**
