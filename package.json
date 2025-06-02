@@ -33,7 +33,6 @@
     "@vitejs/plugin-vue": "^2.3.1",
     "@vitest/ui": "^0.25.3",
     "@vue-hooks-plus/md-demo-plugins": "^1.0.0",
-    "@vue-hooks-plus/types": "workspace:^2.0.0",
     "@vue-hooks-plus/use-immer": "workspace:^1.0.0",
     "@vue-hooks-plus/use-request": "workspace:^2.0.0",
     "@vue-hooks-plus/use-request-plugins": "workspace:^2.0.0",
