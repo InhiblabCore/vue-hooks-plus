@@ -7,6 +7,16 @@ import type {
 } from "../types";
 import { isEqual } from "lodash-es";
 
+// type UnwrapRefProps<T> = {
+//   [K in keyof T]: T[K] extends (...args: any[]) => any
+//   ? T[K]
+//   : T[K] extends Readonly<Ref<infer V>>
+//   ? V
+//   : T[K] extends object
+//   ? UnwrapRefProps<T[K]>
+//   : T[K]
+// }
+
 // 泛型工厂
 function createUseRequestComponent<
   TServiceData = any,

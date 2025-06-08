@@ -55,7 +55,6 @@ All features, options, and return values of the `useRequest` component are consi
 - When you want to leverage slots for flexible UI customization
 - When you need to keep logic and UI closely coupled in your component templates
 
-
 ## Using `createUseRequestComponent`
 
 In addition to the built-in `<use-request />` component, you can use the `createUseRequestComponent` utility to generate your own request components with custom types or behaviors.
