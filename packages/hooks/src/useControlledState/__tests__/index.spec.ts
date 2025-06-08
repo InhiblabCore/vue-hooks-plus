@@ -53,7 +53,7 @@ describe('useControlledState', () => {
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => { });
     setValue((prev: number) => prev + 1);
     expect(warnSpy).toHaveBeenCalledWith(
-      'Function callbacks are not supported. See: https://github.com/adobe/react-spectrum/issues/2320'
+      'Function callbacks are not supported.'
     );
     expect(state.value).toBe(2);
     expect(onChange).toHaveBeenCalledWith(2);
