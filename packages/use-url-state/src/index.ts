@@ -6,6 +6,7 @@ import qs from 'qs'
 import { Ref, ref, watch, watchEffect } from 'vue'
 import useLocalStorageState from 'vue-hooks-plus/es/useLocalStorageState'
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 const isFunction = (value: unknown): value is Function => typeof value === 'function'
 
 export interface UseUrlStateOptions {
@@ -50,6 +51,7 @@ function decodeParams(valueStr: string, detectNumber: boolean): Record<string, u
       // utf-8
       try {
         return decodeURIComponent(strWithoutPlus)
+        // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       } catch (e) {
         return strWithoutPlus
       }

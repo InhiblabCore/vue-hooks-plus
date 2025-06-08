@@ -114,7 +114,7 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     {
       text: 'Guide',
       items: [
-        { text: 'Introduction', link: "/guide" },
+        { text: 'Introduction', link: "/guide/introduction" },
         { text: 'Getting Started', link: '/guide/getting-started' },
         { text: '🫶 Migrate to v2 version', link: '/guide/migrate' }
       ],
@@ -137,6 +137,7 @@ export const en = defineConfig({
           ...sidebarHooks(),
         ]
       },
+      '/components/': sidebarComponents(),
     },
 
     editLink: {
@@ -155,9 +156,9 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: 'Guide',
-      activeMatch: '/guide/',
+      activeMatch: '^/guide/',
       items: [
-        { text: 'Introduction', link: '/guide' },
+        { text: 'Introduction', link: '/guide/introduction' },
         { text: 'Getting Started', link: '/guide/getting-started' },
         { text: '🫶 Migrate to v2 version', link: '/guide/migrate' }
       ]
@@ -166,6 +167,11 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Hooks',
       link: '/hooks/useRequest/quick-start',
       activeMatch: '/hooks'
+    },
+    {
+      text: "Components",
+      link: '/components/guide',
+      activeMatch: '/components/'
     },
     {
       text: '🤺 Playground',
@@ -191,7 +197,7 @@ export function sidebarHooks(): DefaultTheme.SidebarItem[] {
       text: 'State',
       items: [
         { text: 'useBoolean', link: 'useBoolean' },
-        // { text: "useControlledState", link: "useControlledState" },
+        { text: "useControlledState", link: "useControlledState" },
         { text: 'useImmer', link: 'useImmer' },
         { text: 'useUrlState', link: 'useUrlState' },
         { text: 'useFormatResult', link: 'useFormatResult' },
@@ -265,7 +271,7 @@ export function sidebarHooks(): DefaultTheme.SidebarItem[] {
     {
       text: 'Advanced',
       items: [
-        { text: 'useEventEmitter', link: '/useEventEmitter/' },
+        { text: 'useEventEmitter', link: 'useEventEmitter' },
         {
           text: 'useAsyncOrder',
           link: 'useAsyncOrder',
@@ -286,3 +292,19 @@ export function sidebarHooks(): DefaultTheme.SidebarItem[] {
   })
 }
 
+
+
+export function sidebarComponents(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Components',
+      items: [
+        {
+          text: 'Guide',
+          link: '/components/guide',
+        },
+        { text: 'useRequest', link: '/components/useRequest' },
+      ],
+    }
+  ]
+}

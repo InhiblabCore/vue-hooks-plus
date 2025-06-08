@@ -2,6 +2,7 @@
   "function": [
     "useAsyncOrder",
     "useBoolean",
+    "useControlledState",
     "useCookieState",
     "useCounter",
     "useDarkMode",
@@ -47,7 +48,6 @@
     "useToggle",
     "useTrackedEffect",
     "useUpdate",
-    "useUrlState",
     "useVirtualList",
     "useWebSocket",
     "useWhyDidYouUpdate",

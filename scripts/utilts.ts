@@ -1,9 +1,14 @@
-import { existsSync, readdirSync, statSync } from 'fs-extra'
+import * as fs from 'node:fs'
 import { resolve } from 'node:path'
 import { bgYellow, bgCyan, bgGreen, bgRed, yellow, cyan, green, red } from 'kolorist'
 import { Config } from 'prettier'
 import { execa } from 'execa'
 import type { Options } from 'execa'
+import { fileURLToPath } from 'node:url'
+
+const { existsSync, readdirSync, statSync } = fs
+
+const __dirname = fileURLToPath(import.meta.url)
 
 export const prettierConfig: Config = {
   printWidth: 100,
@@ -28,7 +33,7 @@ export const prettierConfig: Config = {
   ],
 }
 
-export const rootDir = resolve(__dirname, '..')
+export const rootDir = resolve(__dirname, "..", "..")
 export const hooksRootDir = resolve(rootDir, 'packages/hooks')
 export const hooksDir = resolve(hooksRootDir, 'src')
 

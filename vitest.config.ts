@@ -19,10 +19,7 @@ export default defineConfig({
   },
   test: {
     globals: true,
-    environment: 'happy-dom',
-    coverage: {
-      provider: 'c8',
-    },
+    environment: 'happy-dom'
   },
   ssr: {
     noExternal: [/vue-hooks-plus\/.*/],

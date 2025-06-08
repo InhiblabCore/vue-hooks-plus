@@ -8,14 +8,14 @@ async function getUsername(params: { desc: string }): Promise<string> {
       () => {
         resolve(`vue-hooks-plus ${params.desc}`)
       },
-      params.desc === '大牛' ? 4000 : 2000,
+      params.desc === '3' ? 4000 : 2000,
     )
   })
 }
 
 describe('useFetchs', () => {
   it('should work', async () => {
-    const arr = ['牛', '小牛', '中牛', '大牛']
+    const arr = ['0', '1', '2', '3']
     const [{ fetchRun, fetchs }] = renderHook(() =>
       useFetchs(
         getUsername,
@@ -40,13 +40,13 @@ describe('useFetchs', () => {
     expect(fetchs.value[arr[3]].loading).toBeTruthy()
 
     await sleep(2000)
-    expect(fetchs.value[arr[0]].data).toBe('vue-hooks-plus 牛')
-    expect(fetchs.value[arr[1]].data).toBe('vue-hooks-plus 小牛')
-    expect(fetchs.value[arr[2]].data).toBe('vue-hooks-plus 中牛')
+    expect(fetchs.value[arr[0]].data).toBe('vue-hooks-plus 0')
+    expect(fetchs.value[arr[1]].data).toBe('vue-hooks-plus 1')
+    expect(fetchs.value[arr[2]].data).toBe('vue-hooks-plus 2')
     expect(fetchs.value[arr[3]].loading).toBeTruthy()
 
     await sleep(2000)
     await sleep(200)
-    expect(fetchs.value[arr[3]].data).toBe('vue-hooks-plus 大牛')
+    expect(fetchs.value[arr[3]].data).toBe('vue-hooks-plus 3')
   })
 })

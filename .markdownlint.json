@@ -1,6 +1,21 @@
 {
   "no-inline-html": {
-    "allowed_elements": ["ul", "li", "div", "img", "a", "br", "script", "Badge", "Home","demo","VPTeamPage","VPTeamPageTitle","VPTeamMembers","VPTeamPageSection"]
+    "allowed_elements": [
+      "ul",
+      "li",
+      "div",
+      "img",
+      "a",
+      "br",
+      "script",
+      "Badge",
+      "Home",
+      "demo",
+      "VPTeamPage",
+      "VPTeamPageTitle",
+      "VPTeamMembers",
+      "VPTeamPageSection"
+    ]
   },
   "MD013": false,
   "MD041": false

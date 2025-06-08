@@ -123,6 +123,19 @@ function sidebarGuide(): DefaultTheme.SidebarItem[] {
     }
   ]
 }
+
+function sidebarComponents(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Components',
+      items: [
+        { text: 'Guide', link: '/zh/components/guide' },
+        { text: 'useRequest', link: '/zh/components/useRequest' },
+      ],
+    }
+  ]
+}
+
 export const zh = defineConfig({
   lang: 'zh-Hans',
   description: '高性能的 Vue 组合式函数库',
@@ -138,7 +151,8 @@ export const zh = defineConfig({
           ...siderbarUseRequestPlugin(),
           ...sidebarHooks()
         ]
-      }
+      },
+      '/zh/components/': sidebarComponents(),
     },
 
     editLink: {
@@ -182,17 +196,22 @@ function nav(): DefaultTheme.NavItem[] {
   return [
     {
       text: '指南',
-      activeMatch: '/zh/guide/',
+      activeMatch: '^/zh/guide/',
       items: [
-        { text: '介绍', link: '/zh/guide' },
+        { text: '介绍', link: '/zh/guide/introduction' },
         { text: '开始使用', link: '/zh/guide/getting-started' },
         { text: '🫶 迁移到 v2 版本', link: '/zh/guide/migrate' }
       ]
     },
     {
-      text: 'Hooks',
+      text: 'Hooks 函数',
       link: '/zh/hooks/useRequest/quick-start',
       activeMatch: '/zh/hooks'
+    },
+    {
+      text: '函数组件',
+      link: '/zh/components/guide',
+      activeMatch: '/zh/components/'
     },
     {
       text: '🤺 演武场',

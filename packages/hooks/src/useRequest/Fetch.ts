@@ -159,8 +159,8 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       let { servicePromise } = this.runPluginHandler('onRequest', this.serviceRef.value, params)
 
       const requestReturnResponse = (res: any) => {
-        // The request has been cancelled, and the count will be inconsistent with the currentCount
-        if (currentCount !== this.count) {
+        // 如果不允许并发请求，则检查是否需要取消当前请求
+        if (!this.options.concurrent && currentCount !== this.count) {
           return new Promise(() => { })
         }
         // Format data
@@ -183,7 +183,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
         // Execute whether the request is successful or unsuccessful
         this.options.onFinally?.(params, formattedResult, undefined)
 
-        if (currentCount === this.count) {
+        if (this.options.concurrent || currentCount === this.count) {
           this.runPluginHandler('onFinally', params, formattedResult, undefined)
         }
 
@@ -196,7 +196,8 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       const servicePromiseResult = await servicePromise
       return requestReturnResponse(servicePromiseResult)
     } catch (error) {
-      if (currentCount !== this.count) {
+      // 如果不允许并发请求，则检查是否需要取消当前请求
+      if (!this.options.concurrent && currentCount !== this.count) {
         return new Promise(() => { })
       }
 
@@ -221,7 +222,7 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
       // Execute whether the request is successful or unsuccessful
       this.options.onFinally?.(params, undefined, error as Error)
 
-      if (currentCount === this.count) {
+      if (this.options.concurrent || currentCount === this.count) {
         this.runPluginHandler('onFinally', params, undefined, error)
       }
 

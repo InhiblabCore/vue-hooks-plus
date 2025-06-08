@@ -93,6 +93,7 @@ const useDrop = (target: BasicTarget, options: UseDropOptions = {}) => {
           let data = dom
           try {
             data = JSON.parse(dom)
+            // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
           } catch (e) {
             data = dom
           }

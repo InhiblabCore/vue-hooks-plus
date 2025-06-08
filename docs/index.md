@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Quick Start 
-      link: /guide/
+      link: /guide/introduction
     - theme: alt
       text: Hooks list
       link: /hooks/useRequest/quick-start
