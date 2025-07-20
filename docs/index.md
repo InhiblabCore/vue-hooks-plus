@@ -3,7 +3,6 @@
 layout: home
 
 hero:
-  name: 'Vue hooks plus'
   text: 'High-performance Hooks Library for Vue'
   tagline: Your favorite vuejs library 🧲
   actions:

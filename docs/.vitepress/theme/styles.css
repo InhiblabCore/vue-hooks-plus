@@ -8,7 +8,7 @@
 
 :root {
   --vhp-func-bg: rgba(255, 255, 255, 0.08);
-  --vp-home-hero-name-color: transparent;
+  /* --vp-home-hero-name-color: transparent; */
   --vhp-demo-shadow-color: rgba(0, 0, 0, 0.3);
   --vp-code-line-number-color: var(--vp-c-text-dark-3);
   /* 浅色主题（灰白色调） */
@@ -255,6 +255,8 @@ input:focus {
 .VPHero .VPImage {
   filter: drop-shadow(-2px 4px 6px rgba(0, 0, 0, 0.2));
   padding: 18px;
+  /* 居中缩放 */
+  /* transform: scale(0.9) translate(-50%, -50%); */
 }
 
 /* used in reference/default-theme-search */
