@@ -11,6 +11,7 @@
   <!-- <a href="https://img.badgesize.io/https:/unpkg.com/vue-hooks-plus/dist/js/index.es.js?label=gzip%20size&compression=gzip"><img src="https://img.badgesize.io/https:/unpkg.com/vue-hooks-plus/dist/js/index.es.js?label=gzip%20size&compression=gzip" alt="gzip"></a> -->
   <a href="#badge"><img src="https://img.shields.io/librariesio/github/InhiblabCore/vue-hooks-plus" alt="librariesio"></a>
   <a href="https://github.com/InhiblabCore/vue-hooks-plus/blob/master/LICENSE"><img src="https://img.shields.io/github/license/InhiblabCore/vue-hooks-plus" alt="LICENSE"></a>
+  <a href="https://deepwiki.com/InhiblabCore/vue-hooks-plus"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"></a>
 </p>
 
 <div align="center">
