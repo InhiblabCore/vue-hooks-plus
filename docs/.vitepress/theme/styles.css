@@ -7,16 +7,199 @@
 }
 
 :root {
-  --vp-home-hero-image-filter: blur(44px);
   --vhp-func-bg: rgba(255, 255, 255, 0.08);
   --vp-home-hero-name-color: transparent;
+  --vhp-demo-shadow-color: rgba(0, 0, 0, 0.3);
+  --vp-code-line-number-color: var(--vp-c-text-dark-3);
+  /* 浅色主题（灰白色调） */
+  --vp-c-bg: #f5f5f5;
+  --vp-c-bg-soft: #eaeaea;
+  --vp-c-bg-mute: #e0e0e0;
+  --vp-c-text: #1a1a1a;
+  --vp-c-text-light: #444444;
+
+  /* 暗色主题 */
+  --vp-c-bg-dark: #000;
+  --vp-c-text-dark: #fff;
+
+  /* 主色调 */
+  --vp-c-brand: #000;
+  --vp-c-brand-light: #1a1a1a;
+  --vp-c-brand-lighter: #333;
+  --vp-c-brand-dark: #fff;
+
+  /* 链接颜色 */
+  --vp-c-link: var(--vp-c-brand);
+  --vp-c-link-hover: var(--vp-c-brand-light);
+
+  /* 代码块 */
+  --vp-code-block-bg: #f0f0f0;
+  --vp-code-block-color: #1a1a1a;
+  --vp-code-line-highlight-bg: #e0e0e0;
+  --vp-code-line-number-color: #999;
+
+  /* 边框 */
+  --vp-c-border: rgba(0, 0, 0, 0.1);
+  --vp-c-divider: rgba(0, 0, 0, 0.1);
+
+  /* 按钮 */
+  --vp-button-brand-bg: #000;
+  --vp-button-brand-text: #fff;
+  --vp-button-brand-hover-bg: #1a1a1a;
+
+  /* 导航栏 */
+  --vp-nav-bg-color: rgba(245, 245, 245, 0.8);
+  --vp-nav-screen-bg-color: rgba(245, 245, 245, 1);
+
+  /* 侧边栏 */
+  --vp-sidebar-bg-color: #f5f5f5;
+  --vp-c-brand-1: oklch(57.61% 0.2508 258.23);
+
+  /* 自定义容器 */
+  --vp-custom-block-info-bg: #f0f0f0;
+  --vp-custom-block-info-border: #e0e0e0;
+  --vp-custom-block-tip-bg: #f0f0f0;
+  --vp-custom-block-tip-border: #e0e0e0;
+  --vp-custom-block-warning-bg: #f0f0f0;
+  --vp-custom-block-warning-border: #e0e0e0;
+
+  /* --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
   --vp-home-hero-image-background-image: linear-gradient(-45deg,
       #42d392 50%,
       #647eff 50%);
   --vhp-demo-shadow-color: rgba(0, 0, 0, 0.3);
-  --vp-code-line-number-color: var(--vp-c-text-dark-3);
+  --vp-home-hero-image-filter: blur(15px); */
 }
+
+/* 暗色主题下的特定样式 */
+.dark {
+  --vp-c-bg: var(--vp-c-bg-dark);
+  --vp-c-bg-soft: #111;
+  --vp-c-bg-mute: #222;
+  --vp-c-text: var(--vp-c-text-dark);
+  --vp-c-text-light: #eee;
+  --vp-c-brand: #fff;
+  --vp-c-brand-light: #f5f5f5;
+  --vp-c-brand-lighter: #eee;
+  --vp-c-link: #fff;
+  --vp-c-link-hover: #f5f5f5;
+  --vp-code-block-bg: #111;
+  --vp-code-block-color: #fff;
+  --vp-code-line-highlight-bg: #222;
+  --vp-c-border: rgba(255, 255, 255, 0.1);
+  --vp-c-divider: rgba(255, 255, 255, 0.1);
+  --vp-nav-bg-color: rgba(0, 0, 0, 0.8);
+  --vp-nav-screen-bg-color: rgba(0, 0, 0, 1);
+  --vp-sidebar-bg-color: #000;
+  --vp-custom-block-info-bg: #111;
+  --vp-custom-block-info-border: #333;
+  --vp-custom-block-tip-bg: #111;
+  --vp-custom-block-tip-border: #333;
+  --vp-custom-block-warning-bg: #111;
+  --vp-custom-block-warning-border: #333;
+  --vp-c-brand-1: oklch(71.7% 0.1648 250.79360374054167)
+}
+
+
+input {
+  opacity: 1;
+  background-color: #e3e3e3;
+  color: #000;
+  padding-left: 8px;
+  height: 36px;
+  font-weight: 500;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+
+/* 调整文本颜色 */
+.VPDoc {
+  color: var(--vp-c-text);
+}
+
+/* 调整链接样式 */
+.vp-doc a {
+  color: var(--vp-c-link);
+  text-decoration: none;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-link-hover);
+}
+
+/* 调整代码块样式 */
+.vp-doc div[class*='language-'] {
+  background-color: var(--vp-code-block-bg);
+  color: var(--vp-code-block-color);
+}
+
+/* 调整导航栏样式 */
+.VPNav {
+  background-color: var(--vp-nav-bg-color);
+  backdrop-filter: blur(8px);
+}
+
+/* 调整侧边栏样式 */
+.VPSidebar {
+  background-color: var(--vp-sidebar-bg-color);
+}
+
+/* 调整按钮样式 */
+.VPButton.brand,
+.VPButton.primary {
+  background-color: var(--vp-button-brand-bg);
+  color: var(--vp-button-brand-text);
+  border: 1px solid transparent;
+  transition: all 0.25s;
+}
+
+.VPButton.brand:hover,
+.VPButton.primary:hover {
+  background-color: var(--vp-button-brand-hover-bg);
+}
+
+/* 次要按钮样式 */
+.VPButton.alt {
+  border: 1px solid var(--vp-c-border);
+  color: var(--vp-c-text);
+  background-color: transparent;
+}
+
+.VPButton.alt:hover {
+  border-color: var(--vp-c-brand);
+  color: var(--vp-c-brand);
+}
+
+/* 确保暗色模式下按钮样式正确 */
+.dark .VPButton.brand,
+.dark .VPButton.primary {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark .VPButton.brand:hover,
+.dark .VPButton.primary:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.dark .VPButton.alt {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.dark .VPButton.alt:hover {
+  border-color: #fff;
+  color: #e0e0e0;
+}
+
+.VPNavScreen {
+  background-color: var(--vp-nav-screen-bg-color);
+  height: 100vh;
+}
+
 
 .dark {
   --vhp-demo-shadow-color: rgba(188, 189, 190, 0.3);
@@ -51,16 +234,7 @@
   border: none;
 }
 
-input {
-  opacity: 1;
-  background-color: var(--vhp-func-bg);
-  padding-left: 8px;
-  height: 36px;
-  font-weight: 500;
-  border-radius: 5px;
-  font-size: 15px;
-  transition: all 0.3s;
-}
+
 
 input:focus {
   color: var(--vp-button-brand-bg);

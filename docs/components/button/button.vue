@@ -7,8 +7,8 @@
 <style lang="less" scoped>
   .vhp-button {
     border-color: var(--vp-button-brand-border);
-    color: var(--vp-button-brand-text);
-    background-color: var(--vp-button-brand-bg);
+    color: var(--vp-c-bg);
+    background-color: var(--vp-c-brand);
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 5px;
@@ -24,7 +24,8 @@
 
   .vhp-button:hover {
     border-color: var(--vp-button-brand-hover-border);
-    background-color: var(--vp-button-brand-hover-bg);
+    background-color: var(--vp-c-brand);
+    opacity: 0.8;
   }
 
   .vhp-button::after {
