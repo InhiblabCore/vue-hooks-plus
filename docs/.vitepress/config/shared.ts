@@ -73,14 +73,35 @@ export const shared = defineConfig({
 
   /* prettier-ignore */
   head: [
+    // base
     ['link', { rel: 'icon', type: 'image/svg+xml', href: `${process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/logo.svg' : '/logo.svg'}` }],
     ['link', { rel: 'icon', type: 'image/png', href: `${process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/logo.png' : '/logo.png'}` }],
     ['meta', { name: 'theme-color', content: '#000000' }],
+
+    // seo
+    ['meta', { name: 'description', content: 'High performance & Simplicity Vue3 Hooks library.' }],
+    ['meta', { name: 'keywords', content: 'vue, hooks, vue-hooks, vue-hooks-plus, composition-api, vue3, frontend, web, javascript, typescript, SSR' }],
+    
+    // og
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'en' }],
     ['meta', { property: 'og:title', content: 'VueHooks plus | High-performance Hooks Library for Vue' }],
+    ['meta', { property: 'og:description', content: 'A high-performance, comprehensive, and reliable Vue 3 hooks library.' }],
     ['meta', { property: 'og:site_name', content: 'VueHooks plus' }],
     ['meta', { property: 'og:url', content: 'https://inhiblabcore.github.io/vue-hooks-plus/' }],
+    ['meta', { property: 'og:image', content: 'https://inhiblabcore.github.io/vue-hooks-plus/logo.png' }],
+
+    // twitter
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:site', content: '@Yong_Git' }],
+    ['meta', { name: 'twitter:image', content: 'https://inhiblabcore.github.io/vue-hooks-plus/logo.png' }],
+
+    // hreflang
+    ['link', { rel: 'alternate', hreflang: 'x-default', href: 'https://inhiblabcore.github.io/vue-hooks-plus/' }],
+    ['link', { rel: 'alternate', hreflang: 'en-us', href: 'https://inhiblabcore.github.io/vue-hooks-plus/' }],
+    ['link', { rel: 'alternate', hreflang: 'zh-cn', href: 'https://inhiblabcore.github.io/vue-hooks-plus/zh/' }],
+
+    // script
     ['script', { src: 'https://cdn.usefathom.com/script.js', 'data-site': 'AZBRSFGG', 'data-spa': 'auto', defer: '' }],
     [
       'script',
@@ -88,6 +109,32 @@ export const shared = defineConfig({
         src: process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/sponsor/sponsor.iife.js' : '/sponsor/sponsor.iife.js',
         defer: ''
       }
+    ],
+    [
+      'script',
+      { type: 'application/ld+json' },
+      JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': 'VueHooks plus',
+        'url': 'https://inhiblabcore.github.io/vue-hooks-plus/',
+        'description': 'A high-performance, comprehensive, and reliable Vue 3 hooks library.',
+        'keywords': ['vue', 'hooks', 'vue-hooks', 'vue-hooks-plus', 'composition-api', 'vue3', 'frontend', 'web', 'javascript', 'typescript', 'SSR'],
+        'potentialAction': {
+          '@type': 'SearchAction',
+          'target': 'https://inhiblabcore.github.io/vue-hooks-plus/?q={search_term_string}',
+          'query-input': 'required name=search_term_string'
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'InhiblabCore',
+          'url': 'https://github.com/InhiblabCore',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://inhiblabcore.github.io/vue-hooks-plus/logo.png'
+          }
+        }
+      })
     ]
   ],
 
