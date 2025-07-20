@@ -3,22 +3,19 @@
 layout: home
 
 hero:
-  name: "Vue hooks plus"
-  text: "High-performance Hooks Library for Vue"
+  name: 'Vue hooks plus'
+  text: 'High-performance Hooks Library for Vue'
   tagline: Your favorite vuejs library 🧲
   actions:
     - theme: brand
-      text: Quick Start 
+      text: Quick Start
       link: /guide/introduction
-    - theme: alt
-      text: Hooks list
-      link: /hooks/useRequest/quick-start
   image:
     src: /logo.svg
     alt: Vue Hooks Plus
 
 features:
-  - title: 🛸 Hooks for vue3 
+  - title: 🛸 Hooks for vue3
     details: Contains a comprehensive collection of basic Hooks.
   - title: 🏄🏼‍♂️ Easy to learn and use
     details: Simple language and easy-to-use features, easy to use, detailed documentation.
