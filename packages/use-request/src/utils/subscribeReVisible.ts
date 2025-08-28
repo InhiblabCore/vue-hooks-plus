@@ -1,23 +1,23 @@
 import isDocumentVisible from "./isDocumentVisible";
 import { canUseDom } from "./utils";
 
-const listeners: any[] = [];
+type Listener = () => void;
 
-function subscribe(listener: () => void) {
-  listeners.push(listener);
+const listeners = new Set<Listener>();
+
+function subscribe(listener: Listener) {
+  listeners.add(listener);
   return function unsubscribe() {
-    const index = listeners.indexOf(listener);
-    listeners.splice(index, 1);
+    listeners.has(listener) && listeners.delete(listener);
   };
 }
 
 if (canUseDom()) {
   const revalidate = () => {
     if (!isDocumentVisible()) return;
-    for (let i = 0; i < listeners.length; i++) {
-      const listener = listeners[i];
+    listeners.forEach(listener => {
       listener();
-    }
+    });
   };
   window.addEventListener("visibilitychange", revalidate, false);
 }
