@@ -81,7 +81,7 @@ export const shared = defineConfig({
     // seo
     ['meta', { name: 'description', content: 'High performance & Simplicity Vue3 Hooks library.' }],
     ['meta', { name: 'keywords', content: 'vue, hooks, vue-hooks, vue-hooks-plus, composition-api, vue3, frontend, web, javascript, typescript, SSR' }],
-    
+
     // og
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:locale', content: 'en' }],
@@ -103,13 +103,13 @@ export const shared = defineConfig({
 
     // script
     ['script', { src: 'https://cdn.usefathom.com/script.js', 'data-site': 'AZBRSFGG', 'data-spa': 'auto', defer: '' }],
-    [
-      'script',
-      {
-        src: process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/sponsor/sponsor.iife.js' : '/sponsor/sponsor.iife.js',
-        defer: ''
-      }
-    ],
+    // [
+    //   'script',
+    //   {
+    //     src: process.env.NODE_ENV === 'production' ? '/vue-hooks-plus/sponsor/sponsor.iife.js' : '/sponsor/sponsor.iife.js',
+    //     defer: ''
+    //   }
+    // ],
     [
       'script',
       { type: 'application/ld+json' },
