@@ -35,7 +35,7 @@ function useThrottleFn<T extends noop>(fn: T, options?: UseThrottleOptions) {
     }
     const _throttle = throttle(
       (...args: Parameters<T>): ReturnType<T> => {
-        return fn([...args])
+        return fn(...args)
       },
       wait,
       options,
