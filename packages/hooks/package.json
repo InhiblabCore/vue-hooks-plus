@@ -30,7 +30,7 @@
 		"@types/js-cookie": "^3.0.1",
 		"@vue/devtools-api": "7.7.2",
 		"js-cookie": "^3.0.1",
-		"lodash-es": "^4.17.21",
+		"lodash-es": "^4.17.23",
 		"screenfull": "^5.0.0"
 	},
 	"peerDependencies": {
