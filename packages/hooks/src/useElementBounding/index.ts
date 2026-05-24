@@ -1,4 +1,4 @@
-import { onMounted, reactive, toRefs, Ref, watch } from 'vue'
+import { nextTick, onMounted, onScopeDispose, reactive, toRefs, Ref, watch } from 'vue'
 import useResizeObserver from '../useResizeObserver'
 import useEventListener from '../useEventListener'
 
@@ -61,6 +61,7 @@ export default function useElementBounding(
     bottom: 0,
     right: 0,
   })
+  let frame: number | undefined
 
   const update = () => {
     const targetDom = getTargetElement(target)
@@ -68,7 +69,7 @@ export default function useElementBounding(
     if (!targetDom) {
       if (reset) {
         Object.keys(size).forEach(key => {
-          if (keyisUseElementBoundingReturnTypeKey(key))
+          if (keyisUseElementBoundingReturnTypeKey(key) && size[key] !== 0)
             size[key] = 0
         })
       }
@@ -79,32 +80,47 @@ export default function useElementBounding(
     if (targetDom) {
       const { width, height, top, left, bottom, right } = targetDom.getBoundingClientRect()
 
-      size.width = width
-      size.height = height
-      size.top = top
-      size.left = left
-      size.bottom = bottom
-      size.right = right
+      if (size.width !== width) size.width = width
+      if (size.height !== height) size.height = height
+      if (size.top !== top) size.top = top
+      if (size.left !== left) size.left = left
+      if (size.bottom !== bottom) size.bottom = bottom
+      if (size.right !== right) size.right = right
     }
   }
 
+  const scheduleUpdate = () => {
+    if (typeof requestAnimationFrame !== 'function') {
+      nextTick(update)
+      return
+    }
+    if (frame !== undefined) cancelAnimationFrame(frame)
+    frame = requestAnimationFrame(() => {
+      frame = undefined
+      update()
+    })
+  }
+
   if (windowResize) {
-    useEventListener('resize', update, {
+    useEventListener('resize', scheduleUpdate, {
       passive: true,
     })
   }
 
   if (windowScroll) {
-    useEventListener('scroll', update, {
+    useEventListener('scroll', scheduleUpdate, {
       capture: true,
       passive: true,
     })
   }
 
-  useResizeObserver(target, update)
+  useResizeObserver(target, scheduleUpdate)
   watch(() => getTargetElement(target), update)
   onMounted(() => {
     if (immediate) update()
+  })
+  onScopeDispose(() => {
+    if (frame !== undefined) cancelAnimationFrame(frame)
   })
 
   return {

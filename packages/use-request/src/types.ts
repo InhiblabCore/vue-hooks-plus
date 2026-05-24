@@ -2,42 +2,64 @@ import { Ref, watch } from 'vue'
 import { CachedData } from './utils/cache'
 import UseRequestFetch from './Fetch'
 
+export type MaybePromise<T> = T | Promise<T>
+
 export type UseRequestService<TData, TParams extends unknown[]> = (
   ...args: TParams
 ) => Promise<TData>
 
 export type UseRequestSubscribe = () => void
 
+export type UseRequestOrigin<TData = unknown> = {
+  data: TData
+}
+
+export type UseRequestOriginSnapshot<TData, TParams extends unknown[]> = {
+  loading: boolean
+  params?: TParams
+  originData?: TData
+  formatData?: TData
+  error?: Error | unknown
+}
+
 export interface UseRequestFetchState<TData, TParams extends unknown[]> {
   loading: boolean
   params?: TParams
   data?: TData
   error?: Error | unknown
+  snapshot?: UseRequestOriginSnapshot<TData, TParams>
 }
 
 export interface UseRequestPluginReturn<TData, TParams extends unknown[]> {
   name?: string
   onBefore?: (
     params: TParams,
-  ) =>
+  ) => MaybePromise<
     | ({
-        stopNow?: boolean
-        returnNow?: boolean
-      } & Partial<UseRequestFetchState<TData, TParams>>)
+      stopNow?: boolean
+      returnNow?: boolean
+    } & Partial<UseRequestFetchState<TData, TParams>>)
     | void
+  >
 
   onRequest?: (
     service: UseRequestService<TData, TParams>,
     params: TParams,
-  ) => {
+  ) => MaybePromise<{
     servicePromise?: Promise<TData>
-  }
-
-  onSuccess?: (data: TData, params: TParams) => void
+  }>
+  /**
+   * 
+   * @param data Request result data or format data
+   * @param params Maually set the request params.
+   * @param origin Before format origin { data: TData }
+   * @returns Void
+   */
+  onSuccess?: (data: TData, params: TParams, origin: UseRequestOrigin) => MaybePromise<void>
   onError?: (e: Error, params: TParams) => void
   onFinally?: (params: TParams, data?: TData, e?: Error) => void
   onCancel?: () => void
-  onMutate?: (data: TData) => void
+  onMutate?: (data: TData) => MaybePromise<void>
 }
 
 export type RequestHook<TData = any, TParams extends any[] = any[]> = (
@@ -134,6 +156,14 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   pollingInterval?: Ref<number> | number
 
   /**
+   * Whether to allow concurrent requests.
+   * When set to true, multiple requests can be executed concurrently.
+   * When set to false, new requests will cancel previous ones.
+   * Default is false.
+   */
+  concurrent?: boolean
+
+  /**
    * Whether to continue polling when the page is hidden. If set to false, polling will be temporarily paused when the page is hidden, and resume when the page is visible again.
    */
   pollingWhenHidden?: boolean
@@ -171,7 +201,7 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   debounceTrailing?: Ref<boolean> | boolean
 
   /**
-   * The maximum time request is allowed to be delayed before it’s executed.
+   * The maximum time request is allowed to be delayed before it's executed.
    */
   debounceMaxWait?: Ref<number> | number
 
@@ -197,7 +227,7 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
   /**
    * A unique ID of the request. If `cacheKey` is set, we will enable the caching mechanism. The data of the same `cacheKey` is globally synchronized.
    */
-  cacheKey?: string
+  cacheKey?: string | ((params?: TParams) => string | undefined | null)
 
   /**
    * - Set the cache time. By default, the cached data will be cleared after 5 minutes.
@@ -218,14 +248,14 @@ export type UseRequestBasicOptions<TData, TParams extends unknown[]> = {
    * @param data CachedData
    * @returns void
    */
-  setCache?: (data: CachedData<TData, TParams>) => void
+  setCache?: (data: CachedData<TData, TParams>) => MaybePromise<void>
 
   /**
    *  Custom get cache
    * @param params TParams
    * @returns CachedData
    */
-  getCache?: (params: TParams) => CachedData<TData, TParams> | undefined
+  getCache?: (params: TParams) => MaybePromise<CachedData<TData, TParams> | undefined>
 
   // <------------------------------- Retry ------------------------------------------->
 
@@ -270,7 +300,7 @@ export type UseRequestOptionsWithInitialData<
   TParams extends any[] = any[],
   TPlugin = any
 > = UseRequestOptions<TData, TParams, TPlugin> & {
-  initialData: TData extends infer R ? R : TData
+  initialData: TData extends infer R ? R | Ref<R> : TData | Ref<TData>
 }
 
 export interface UseRequestPlugin<TData, TParams extends unknown[] = unknown[], TPlugin = any> {
@@ -300,12 +330,12 @@ export interface useRequestResult<
   data: Readonly<
     Ref<
       FormatResult extends false
-        ? Initial extends false
-          ? TData | undefined
-          : TData
-        : FormatResult extends (...args: any[]) => any
-        ? ReturnType<FormatResult> | undefined
-        : FormatResult | undefined
+      ? Initial extends false
+      ? TData | undefined
+      : TData
+      : FormatResult extends (...args: any[]) => any
+      ? ReturnType<FormatResult> | undefined
+      : FormatResult | undefined
     >
   >
 

@@ -1,6 +1,6 @@
 {
   "name": "@vue-hooks-plus/use-request-plugins",
-  "version": "2.1.0",
+  "version": "2.1.1-alpha.0",
   "description": "",
   "files": [
     "dist",
@@ -12,7 +12,7 @@
   "module": "./dist/useRequest_plugins.es.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "npm run clean && vite build",
+    "build": "npm run clean && tsdown",
     "clean": "rimraf dist"
   },
   "keywords": [
@@ -25,6 +25,9 @@
   "license": "MIT",
   "devDependencies": {
     "@vue-hooks-plus/use-request":"*"
+  },
+  "dependencies": {
+    "broadcast-channel": "^5.1.0"
   },
   "peerDependencies": {
 		"pinia": "^2.0.30"

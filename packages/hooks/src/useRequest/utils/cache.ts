@@ -47,8 +47,19 @@ const getCacheAll = () => {
 const clearCache = (key?: string | string[]) => {
   if (key) {
     const cacheKeys = Array.isArray(key) ? key : [key];
-    cacheKeys.forEach((cacheKey) => cache.delete(cacheKey));
+    cacheKeys.forEach((cacheKey) => {
+      const currentCache = cache.get(cacheKey)
+      if (currentCache?.timer) {
+        clearTimeout(currentCache.timer)
+      }
+      cache.delete(cacheKey)
+    });
   } else {
+    cache.forEach((item) => {
+      if (item.timer) {
+        clearTimeout(item.timer)
+      }
+    })
     cache.clear();
   }
 };

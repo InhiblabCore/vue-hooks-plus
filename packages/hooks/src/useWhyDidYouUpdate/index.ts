@@ -5,7 +5,7 @@ export type IProps = Record<string, any>
 export default function useWhyDidYouUpdate(componentName: string, props: IProps) {
   const keys = computed(() => Object.keys(props).map(key => key))
   watch(
-    Object.keys(props).map(key => props[key]),
+    () => Object.keys(props).map(key => props[key]),
     (curr, prev) => {
       const changedProps: IProps = {}
       keys.value.forEach((key, index) => {

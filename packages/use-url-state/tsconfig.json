@@ -3,8 +3,9 @@
   "compilerOptions": {
     "outDir": "./dist", //输出文件
     "lib": ["esnext", "dom"],
-    "baseUrl": "./",
-    "rootDir": "./"
+    "paths": {
+      "vue-hooks-plus/es/useLocalStorageState": ["../hooks/src/useLocalStorageState/index.ts"]
+    }
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]

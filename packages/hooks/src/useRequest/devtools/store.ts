@@ -22,7 +22,7 @@ class RegisterDevToolsStore {
     this.listeners.push(listener)
     return () => {
       const index = this.listeners.indexOf(listener)
-      this.listeners.splice(index, 1)
+      if (index > -1) this.listeners.splice(index, 1)
     }
   }
   insert(key: string, payload: { instance: any; requestName: string } & any) {
@@ -40,11 +40,11 @@ class RegisterDevToolsStore {
   has(key: string) {
     return this.requestInstances.has(key)
   }
-  reset(key: string) {
-    if (this.requestInstances.has(key)) {
+  reset(key?: string) {
+    if (key && this.requestInstances.has(key)) {
       const current = this.requestInstances.get(key)
       this.requestInstances.clear()
-      this.insert(key, current)
+      this.insert(key!, current)
     } else
       this.requestInstances.clear()
   }

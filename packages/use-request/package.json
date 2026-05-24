@@ -1,6 +1,6 @@
 {
   "name": "@vue-hooks-plus/use-request",
-  "version": "2.2.1",
+  "version": "2.3.0-alpha.0",
   "description": "Vue use-request hooks library",
 	"files": [
 		"dist",
@@ -13,13 +13,13 @@
   "types":"./dist/types/index.d.ts" ,
   "scripts": {
     "sync":"rimraf src & tsx scripts/sync.ts",
-    "build": "npm run clean && vite build",
+    "build": "npm run clean && tsdown",
     "clean": "rimraf dist"
   },
   "keywords": [],
   "dependencies": {
     "@vue/devtools-api": "7.7.2",
-   "lodash-es": "^4.17.21"
+    "es-toolkit": "^1.46.1"
   },
   "repository": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",

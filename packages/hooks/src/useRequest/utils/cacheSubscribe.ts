@@ -20,12 +20,20 @@ const subscribe = (key: string, listener: Listener) => {
 
   return function unsubscribe() {
     const index = listeners[key].indexOf(listener);
-    listeners[key].splice(index, 1);
+    if (index > -1) {
+      listeners[key].splice(index, 1);
+    }
   };
 };
 
 const otherSubscribe = (listener: Listener) => {
   otherListeners.push(listener)
+  return function unsubscribe() {
+    const index = otherListeners.indexOf(listener)
+    if (index > -1) {
+      otherListeners.splice(index, 1)
+    }
+  }
 }
 
 export { trigger, subscribe, otherSubscribe };

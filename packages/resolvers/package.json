@@ -1,13 +1,13 @@
 {
   "name": "@vue-hooks-plus/resolvers",
-  "version": "1.3.0",
+  "version": "1.3.1-alpha.0",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsx scripts/build.ts"
+    "build": "tsdown"
   },
   "exports": {
     ".": {
@@ -30,8 +30,7 @@
     "unplugin-auto-import": "^0.12.1",
     "@types/node": "^18.7.23",
     "execa": "^6.1.0",
-    "kolorist": "^1.6.0",
-    "tsup": "^6.2.3"
+    "kolorist": "^1.6.0"
   },
   "dependencies": {
     "local-pkg": "^0.4.2"

@@ -20,7 +20,7 @@ source:
 
 ## Options
 
-debounce 所有参数用法和效果同 [lodash-es.debounce](https://www.lodash-esjs.com/docs/lodash-es.debounce/)
+debounce 所有参数用法和效果同 [`es-toolkit/compat` debounce](https://es-toolkit.dev/zh_hans/reference/compat/function/debounce.html)。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

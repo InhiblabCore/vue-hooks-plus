@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { fileURLToPath } from 'node:url'
 import {
   groupIconMdPlugin,
   groupIconVitePlugin,
@@ -171,9 +172,16 @@ export const shared = defineConfig({
   },
   vite: {
     resolve: {
-      alias: {
-        "vue-hooks-plus": "../../../packages/hooks/src/index.ts",
-      }
+      alias: [
+        {
+          find: /^vue-hooks-plus$/,
+          replacement: fileURLToPath(new URL('../../../packages/hooks/src/index.ts', import.meta.url)),
+        },
+        {
+          find: /^vue-hooks-plus\/es\/(.+)$/,
+          replacement: `${fileURLToPath(new URL('../../../packages/hooks/src/', import.meta.url))}$1`,
+        },
+      ]
     },
     plugins: [
       // @ts-ignore

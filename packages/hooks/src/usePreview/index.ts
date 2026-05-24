@@ -15,7 +15,7 @@ export default function usePreview(
       try {
         if (typeof mdCompute.value === 'string') {
           const html = marked.parse(mdCompute.value)
-          if (html) container.value.innerHTML = html
+          if (typeof html === 'string') container.value.innerHTML = html
         } else {
           const app = createApp(mdCompute.value)
           app.mount(container.value)

@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import isEqual from 'lodash-es/isEqual'
+import { isEqual } from 'es-toolkit/compat'
 import { EffectCallback } from './createEffectWithTarget'
 import { DependencyList } from './depsAreSame'
 import { BasicTarget } from './domTarget'

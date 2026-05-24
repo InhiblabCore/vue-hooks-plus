@@ -1,5 +1,5 @@
 import { ref, Ref, unref, UnwrapRef, readonly, DeepReadonly, UnwrapNestedRefs } from 'vue'
-import merge from 'lodash-es/merge'
+import { merge } from 'es-toolkit/compat'
 
 type UseSetStateType<S> = S | (() => S) | Ref<S> | (() => Ref<S>)
 

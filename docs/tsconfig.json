@@ -2,13 +2,12 @@
   "compilerOptions": {
     "outDir": "./dist", //输出文件
     "lib": ["esnext", "dom"],
-    "baseUrl": "./",
-    "rootDir": "./",
+    "moduleResolution": "bundler",
     "types": ["node"],
     "paths": {
       "vue-hooks-plus": ["../packages/hooks/src/index.ts"]
     }
   },
   "extends": "../tsconfig.json",
-  "include": [".vitepress/**/*.ts", "./demo/**/*.vue", "./components/**/*.vue"]
+  "include": ["env.d.ts", ".vitepress/**/*.ts", "./demo/**/*.vue", "./components/**/*.vue"]
 }

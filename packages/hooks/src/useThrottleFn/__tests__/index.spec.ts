@@ -38,4 +38,24 @@ describe('useThrottleFn', () => {
     await sleep(550) // t: 2100
     expect(count).toBe(6)
   })
+
+  it('should support leading and trailing options', async () => {
+    const calls: number[] = []
+    const [hook] = renderHook(() => useThrottleFn((value: number) => calls.push(value), {
+      wait: 100,
+      leading: false,
+      trailing: true,
+    }))
+
+    hook.run(1)
+    hook.run(2)
+    expect(calls).toEqual([])
+    await sleep(120)
+    expect(calls).toEqual([2])
+
+    hook.run(3)
+    hook.run(4)
+    await sleep(120)
+    expect(calls).toEqual([2, 4])
+  })
 })

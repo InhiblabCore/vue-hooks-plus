@@ -1,4 +1,4 @@
-import { computed, Ref, watch, ref, reactive } from 'vue'
+import { computed, Ref, watch, ref, shallowRef } from 'vue'
 import useSize from '../useSize'
 import { getTargetElement } from '../utils/domTarget'
 
@@ -25,9 +25,36 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<
   const size = useSize(containerTarget)
 
   // 目标列表数据
-  const targetList = ref<{ index: number; data: Ref<T> }[]>([])
+  const targetList = shallowRef<{ index: number; data: T }[]>([])
 
   const scrollTriggerByScrollToFunc = ref(false)
+  let cachedList: T[] | undefined
+  let cachedHeights: number[] = []
+  let cachedPrefixHeights: number[] = []
+
+  const ensureHeightCache = () => {
+    if (typeof itemHeight === 'number') return
+    if (cachedList === list.value && cachedPrefixHeights.length === list.value.length + 1) return
+
+    cachedList = list.value
+    cachedHeights = list.value.map((item, index) => itemHeight(index, item))
+    cachedPrefixHeights = [0]
+    for (let i = 0; i < cachedHeights.length; i++) {
+      cachedPrefixHeights[i + 1] = cachedPrefixHeights[i] + cachedHeights[i]
+    }
+  }
+
+  const findOffsetByScrollTop = (scrollTop: number) => {
+    ensureHeightCache()
+    let left = 0
+    let right = cachedPrefixHeights.length - 1
+    while (left < right) {
+      const mid = Math.floor((left + right) / 2)
+      if (cachedPrefixHeights[mid] >= scrollTop) right = mid
+      else left = mid + 1
+    }
+    return Math.max(1, left)
+  }
 
   const getVisibleCount = (containerHeight: number, fromIndex: number) => {
     if (typeof itemHeight === 'number') {
@@ -36,8 +63,9 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<
 
     let sum = 0
     let endIndex = 0
+    ensureHeightCache()
     for (let i = fromIndex; i < list.value.length; i++) {
-      const height = itemHeight(i, list.value[i])
+      const height = cachedHeights[i] ?? itemHeight(i, list.value[i])
       sum += height
       endIndex = i
       if (sum >= containerHeight) {
@@ -52,17 +80,7 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<
     if (typeof itemHeight === 'number') {
       return Math.floor(scrollTop / itemHeight) + 1
     }
-    let sum = 0
-    let offset = 0
-    for (let i = 0; i < list.value.length; i++) {
-      const height = itemHeight(i, list.value[i])
-      sum += height
-      if (sum >= scrollTop) {
-        offset = i
-        break
-      }
-    }
-    return offset + 1
+    return findOffsetByScrollTop(scrollTop)
   }
 
   // 获取偏移元素的上部高度
@@ -71,10 +89,8 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<
       const height = index * itemHeight
       return height
     }
-    const height = list.value
-      ?.slice(0, index)
-      ?.reduce((sum, _, i) => sum + (itemHeight as any)?.(i, list?.value[index as number]), 0)
-    return height
+    ensureHeightCache()
+    return cachedPrefixHeights[index] ?? 0
   }
 
   // 首次数据总量的高度
@@ -82,10 +98,10 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<
     if (typeof itemHeight === 'number') {
       return list.value.length * itemHeight
     }
-
+    ensureHeightCache()
     return list.value.reduce(
-      (sum: any, _: any, index: string | number) =>
-        sum + (itemHeight as any)?.(index, list?.value[index as number]),
+      (sum: number, _: T, index: number) =>
+        sum + (cachedHeights[index] ?? itemHeight(index, list.value[index])),
       0,
     )
   })
@@ -145,7 +161,7 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<
   }
 
   // 滚动容器的外层监听
-  const container = reactive({
+  const container = {
     ref: (ele: any) => {
       containerTarget.value = ele
     },
@@ -158,7 +174,7 @@ const useVirtualList = <T = any>(list: Ref<T[]>, options: UseVirtualListOptions<
       e.preventDefault()
       calculateRange()
     },
-  })
+  }
 
   return [targetList, container, scrollTo] as const
 }

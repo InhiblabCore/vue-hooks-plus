@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import { TRANSFERABLE_TYPE } from 'src'
+import { TRANSFERABLE_TYPE } from '..'
+
+type WorkerFunction = (...args: any[]) => any
 
 interface JOB_RUNNER_OPTIONS {
-  fn: Function
+  fn: WorkerFunction
   transferable: TRANSFERABLE_TYPE
 }
 
@@ -24,7 +25,7 @@ interface JOB_RUNNER_OPTIONS {
  * @returns {Function} returns a function that accepts the parameters
 to be passed to the "userFunc" function
  */
-const jobRunner = (options: JOB_RUNNER_OPTIONS): Function => (e: MessageEvent) => {
+const jobRunner = (options: JOB_RUNNER_OPTIONS): ((e: MessageEvent) => Promise<void>) => e => {
   const [userFuncArgs] = e.data as [any[]]
   return Promise.resolve(options.fn(...userFuncArgs))
     .then(result => {
