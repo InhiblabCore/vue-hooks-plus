@@ -22,7 +22,7 @@ export default defineConfig([
     clean: true,
     dts: true,
     fixedExtension: false,
-    deps: { neverBundle: external },
+    deps: { neverBundle: external, onlyBundle: false },
     outExtensions: () => ({ js: '.js', dts: '.d.ts' }),
   },
   {
@@ -35,7 +35,7 @@ export default defineConfig([
     clean: true,
     dts: true,
     fixedExtension: false,
-    deps: { neverBundle: external },
+    deps: { neverBundle: external, onlyBundle: false },
     outExtensions: () => ({ js: '.js', dts: '.d.ts' }),
   },
   {
@@ -51,6 +51,7 @@ export default defineConfig([
     deps: {
       neverBundle: external,
       alwaysBundle: id => id !== 'vue',
+      onlyBundle: false,
     },
     outputOptions: (options, format) => ({
       ...options,

@@ -1,24 +1,27 @@
 import { defineConfig } from 'tsdown'
 
-const external = ['vue', 'immer']
+const external = ['vue', '@vue-hooks-plus/use-request', 'pinia', 'broadcast-channel']
 
 export default defineConfig([
   {
-    entry: { useImmer: 'src/index.ts' },
+    entry: { useRequest_plugins: 'src/index.ts' },
     format: ['esm', 'cjs', 'iife'],
-    globalName: 'VueHooks_Plus_useImmer',
+    globalName: 'VueHooks_Plus_useRequestPlugins',
     outDir: 'dist',
     platform: 'browser',
     minify: true,
     clean: true,
     dts: false,
     fixedExtension: false,
-    deps: { neverBundle: external },
+    deps: { neverBundle: external, onlyBundle: false },
     outputOptions: (options, format) => ({
       ...options,
+      exports: 'named',
       globals: {
         vue: 'Vue',
-        immer: 'immer',
+        '@vue-hooks-plus/use-request': 'VueHooks_Plus_useRequest',
+        pinia: 'Pinia',
+        'broadcast-channel': 'BroadcastChannel',
       },
       entryFileNames:
         format === 'cjs'
@@ -34,7 +37,7 @@ export default defineConfig([
     outDir: 'dist/types',
     clean: false,
     dts: { emitDtsOnly: true },
-    deps: { neverBundle: external },
+    deps: { neverBundle: external, onlyBundle: false },
     outExtensions: () => ({ dts: '.d.ts' }),
   },
 ])

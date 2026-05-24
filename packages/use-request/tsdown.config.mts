@@ -1,27 +1,23 @@
 import { defineConfig } from 'tsdown'
 
-const external = ['vue', /^vue-hooks-plus/]
+const external = ['vue']
 
 export default defineConfig([
   {
-    entry: { useUrlState: 'src/index.ts' },
+    entry: { useRequest: 'src/index.ts' },
     format: ['esm', 'cjs', 'iife'],
-    globalName: 'VueHooks_Plus_useUrlState',
+    globalName: 'VueHooks_Plus_useRequest',
     outDir: 'dist',
     platform: 'browser',
     minify: true,
     clean: true,
     dts: false,
     fixedExtension: false,
-    deps: { neverBundle: external },
+    deps: { neverBundle: external, alwaysBundle: [/^es-toolkit/], onlyBundle: false },
     outputOptions: (options, format) => ({
       ...options,
-      globals: {
-        vue: 'Vue',
-        'vue-hooks-plus': 'VueHooks_Plus',
-        'vue-hooks-plus/es/useLocalStorageState': 'VueHooks_Plus',
-        qs: 'Qs',
-      },
+      exports: 'named',
+      globals: { vue: 'Vue' },
       entryFileNames:
         format === 'cjs'
           ? '[name].cjs.js'
@@ -36,7 +32,7 @@ export default defineConfig([
     outDir: 'dist/types',
     clean: false,
     dts: { emitDtsOnly: true },
-    deps: { neverBundle: external },
+    deps: { neverBundle: external, onlyBundle: false },
     outExtensions: () => ({ dts: '.d.ts' }),
   },
 ])

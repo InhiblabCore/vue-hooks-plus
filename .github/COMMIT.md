@@ -25,7 +25,7 @@ feat: your commit
 
 If running 'pnpm docs:dev' prompts an error, try the following:
 
-- Check 'node' version: It is recommended to use 'node 16', 'node 18' version development
+- Check 'node' version: development builds require Node.js 22.18.0 or newer
 - build and run: 'pnpm build and run' pnpm docs:dev '
 
 ```bash

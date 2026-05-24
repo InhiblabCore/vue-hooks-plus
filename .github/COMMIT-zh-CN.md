@@ -27,7 +27,7 @@ feat: your commit
 
 如果运行 `pnpm docs:dev` 提示报错，可以尝试一下以下操作:
 
-- 检查 `node` 版本: 建议使用 `node 16`, `node 18` 版本开发
+- 检查 `node` 版本: 开发构建要求使用 Node.js 22.18.0 或更高版本
 - 构建包后再运行: `pnpm build` 后再运行 `pnpm docs:dev`
 
 ```bash

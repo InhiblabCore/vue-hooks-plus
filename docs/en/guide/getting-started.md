@@ -1,5 +1,9 @@
 # Getting Started
  
+::: danger Minimum Node.js Version
+Developing, building, and running the documentation for this repository require **Node.js >= 22.18.0**. This requirement comes from the current tsdown build toolchain. Browser usage of the published hooks remains tied to Vue 3 and does not add a Node.js runtime requirement.
+:::
+
 ## 📦 Install
 
 ```bash

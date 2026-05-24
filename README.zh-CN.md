@@ -39,6 +39,9 @@
 
 ## 📦 安装
 
+> [!IMPORTANT]
+> 本仓库的开发、构建和文档构建现在要求使用 **Node.js >= 22.18.0**。已发布的 hooks 仍面向 Vue 3 应用，在浏览器运行时不会额外要求 Node.js。
+
 ```bash
 npm i vue-hooks-plus
 ```

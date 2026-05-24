@@ -11,6 +11,7 @@ export default defineConfig({
   fixedExtension: false,
   deps: {
     neverBundle: ['local-pkg', 'unplugin-auto-import'],
+    onlyBundle: false,
   },
   outExtensions: ({ format }) => ({
     js: format === 'cjs' ? '.cjs' : '.js',

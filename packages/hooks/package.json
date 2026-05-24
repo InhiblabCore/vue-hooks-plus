@@ -23,7 +23,7 @@
 	"scripts": {
 		"clean": "rimraf dist lib es types",
 		"build": "npm run clean && vue-tsc --noEmit && tsdown",
-		"build:types": "vue-tsc --noEmit && tsdown --config tsdown.config.ts",
+		"build:types": "vue-tsc --noEmit && tsdown --config tsdown.config.mts",
 		"type": "tsc -d"
 	},
 	"dependencies": {
