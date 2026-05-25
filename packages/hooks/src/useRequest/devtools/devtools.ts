@@ -10,11 +10,31 @@ const pluginName = 'Vue Hooks Plus 🍭'
 const pluginLogo =
   'https://inhiblabcore.github.io/vue-hooks-plus/logo.svg'
 
-let currentStateId: string
+let currentStateId: string | undefined
+let stopDevtoolsSubscribe: (() => void) | undefined
+const installedApps = new WeakSet<object>()
 
-const controlMap = new Map<symbol, string>()
+function stringifyPreview(data: unknown) {
+  try {
+    const seen = new WeakSet<object>()
+    const value = JSON.stringify(data, (_, item) => {
+      if (typeof item === 'object' && item !== null) {
+        if (seen.has(item)) return '[Circular]'
+        seen.add(item)
+      }
+      return item
+    })
+    if (!value) return ''
+    return value.length > 180 ? `${value.slice(0, 180)}...` : value
+  } catch {
+    return '[Unserializable]'
+  }
+}
 
 export function setupDevtools(app: any) {
+  if (typeof window === 'undefined' || !app || installedApps.has(app)) return
+  installedApps.add(app)
+
   setupDevtoolsPlugin(
     {
       id: pluginId,
@@ -68,7 +88,8 @@ export function setupDevtools(app: any) {
         ],
       })
 
-      devToolsStore.subscribe((event: any) => {
+      stopDevtoolsSubscribe?.()
+      stopDevtoolsSubscribe = devToolsStore.subscribe((event: any) => {
         devToolsStore.update(event.key, { time: event.time, type: event.type })
         api.sendInspectorTree(pluginId)
         api.sendInspectorState(pluginId)
@@ -76,7 +97,7 @@ export function setupDevtools(app: any) {
           layerId: pluginId,
           event: {
             title: event.type,
-            subtitle: `data: ${JSON.stringify(event.data)}`,
+            subtitle: `data: ${stringifyPreview(event.data)}`,
             time: api.now(),
             data: {
               ...event,
@@ -87,7 +108,6 @@ export function setupDevtools(app: any) {
 
       api.on.getInspectorTree(payload => {
         if (payload.inspectorId === pluginId) {
-          controlMap.clear()
           const settings = api.getSettings()
           const queries = devToolsStore.getAll()
           let sortedArray: [
@@ -106,7 +126,7 @@ export function setupDevtools(app: any) {
           }
 
           const filtered = sortedArray
-            .filter(item => new RegExp(payload.filter, 'g').test(item[0]))
+            .filter(item => item[0].toLowerCase().includes((payload.filter || '').toLowerCase()))
             .map(item => ({
               id: item[0],
               label: item[0],

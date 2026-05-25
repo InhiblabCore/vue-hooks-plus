@@ -1,4 +1,4 @@
-import { ref, reactive, toRefs, onScopeDispose, inject, UnwrapRef, watchEffect, computed, isRef, unref } from 'vue'
+import { ref, reactive, toRefs, onScopeDispose, inject, UnwrapRef, watchEffect, computed, isRef, unref, watch, isShallow, markRaw, Ref } from 'vue'
 import Fetch from './Fetch'
 import { USEREQUEST_GLOBAL_OPTIONS_PROVIDE_KEY } from './config'
 import {
@@ -31,20 +31,30 @@ function useRequestImplement<TData, TParams extends any[]>(
     ...(USEREQUEST_GLOBAL_OPTIONS ?? {}),
     ...(options ?? {}),
   }
+  const initialDataRef = isRef(initialData) ? initialData as Ref<any> : undefined
+  const normalizeInitialData = (value: unknown) => {
+    if (isRef(value)) {
+      return isShallow(value) && typeof value.value === 'object' && value.value !== null
+        ? markRaw(value.value)
+        : value.value
+    }
+    return value
+  }
+  const initialDataValue = normalizeInitialData(initialData)
 
   const fetchOptions = {
     manual,
     ready,
-    initialData,
+    initialData: initialDataValue,
     ...rest,
-  }
+  } as UseRequestOptions<TData, TParams>
 
   // serviceRef store service
   const serviceRef = ref(service)
 
   // reactive
   const state = reactive<UseRequestFetchState<TData, TParams>>({
-    data: initialData,
+    data: initialDataValue as TData,
     loading: false,
     params: undefined,
     error: undefined,
@@ -53,14 +63,26 @@ function useRequestImplement<TData, TParams extends any[]>(
   const setState = (currentState: unknown, field?: keyof typeof state) => {
     if (field) {
       state[field] = currentState as any
+      if (field === 'data' && initialDataRef) {
+        initialDataRef.value = currentState as any
+      }
     } else {
       if (isUseRequestFetchState<UnwrapRef<TData>, UnwrapRef<TParams>>(currentState)) {
         state.data = currentState.data
         state.loading = currentState.loading
         state.error = currentState.error
         state.params = currentState.params
+        if (initialDataRef) {
+          initialDataRef.value = currentState.data as any
+        }
       }
     }
+  }
+
+  if (initialDataRef) {
+    watch(initialDataRef, value => {
+      state.data = normalizeInitialData(value) as any
+    })
   }
 
   const initState = plugins.map(p => p?.onInit?.(fetchOptions)).filter(Boolean)

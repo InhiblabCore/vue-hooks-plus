@@ -5,7 +5,7 @@ import type { DebounceOptions } from "../useDebounceFn";
 function useDebounce<T>(value: Ref<T>, options?: DebounceOptions) {
   const debounced = ref<T>(value.value) as Ref<T>;
   const { run } = useDebounceFn(() => (debounced.value = value.value), options);
-  watch(value, () => run(), { deep: true });
+  watch(value, () => run(), { deep: true, flush: 'sync' });
   return debounced;
 }
 export default useDebounce;

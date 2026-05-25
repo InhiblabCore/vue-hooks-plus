@@ -1,5 +1,5 @@
-import debounce from 'lodash-es/debounce'
-import { onScopeDispose, Ref, ref, watch } from 'vue'
+import { debounce, type DebouncedFunc } from 'es-toolkit/compat'
+import { computed, onScopeDispose, Ref, ref, unref, watch } from 'vue'
 
 export interface DebounceOptions {
   /**
@@ -26,44 +26,49 @@ export interface DebounceOptions {
 type noop = (...args: any) => any
 
 function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
-
-  const optionsRef = ref(options || { wait: 1000 });
-  const debouncedRef = ref<ReturnType<typeof debounce>>();
+  const optionsRef = ref(options ?? { wait: 1000 })
+  const resolvedOptions = computed(() => ({
+    wait: unref(optionsRef.value.wait) ?? 1000,
+    leading: unref(optionsRef.value.leading),
+    trailing: unref(optionsRef.value.trailing),
+    maxWait: unref(optionsRef.value.maxWait),
+  }))
+  const debouncedRef = ref<DebouncedFunc<T>>()
 
   const createDebounced = () => {
-    const { wait = 1000, ...rest } = optionsRef.value;
-    return debounce(fn, wait, rest);
-  };
+    const { wait, leading, trailing, maxWait } = resolvedOptions.value
+    const settings: {
+      leading?: boolean
+      trailing?: boolean
+      maxWait?: number
+    } = {}
+    if (leading !== undefined) settings.leading = leading
+    if (trailing !== undefined) settings.trailing = trailing
+    if (maxWait !== undefined) settings.maxWait = maxWait
+    return debounce(fn, wait, settings)
+  }
 
-  debouncedRef.value = createDebounced();
+  debouncedRef.value = createDebounced()
   watch(
-    () => ({ ...optionsRef.value }),
-    (newVal, oldVal) => {
-      if (
-        newVal.wait !== oldVal?.wait ||
-        newVal.maxWait !== oldVal?.maxWait
-      ) {
-        debouncedRef.value?.cancel();
-        debouncedRef.value = createDebounced();
-      }
+    resolvedOptions,
+    () => {
+      debouncedRef.value?.cancel()
+      debouncedRef.value = createDebounced()
     },
-    { deep: true }
-  );
-
+    { flush: 'sync' },
+  )
 
   onScopeDispose(() => {
-    debouncedRef.value?.cancel();
-  });
-
-
+    debouncedRef.value?.cancel()
+  })
 
   return {
     /**
      * Invode and pass parameters to fn.
      * `(...args: any[]) => any`
      */
-    run: ((...args: any[]) => {
-      return debouncedRef.value?.(...args);
+    run: ((...args: Parameters<T>) => {
+      return debouncedRef.value?.(...args)
     }) as T,
 
     /**
@@ -71,7 +76,7 @@ function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
      *  `() => void`
      */
     cancel: () => {
-      debouncedRef.value?.cancel();
+      debouncedRef.value?.cancel()
     },
 
     /**
@@ -79,11 +84,11 @@ function useDebounceFn<T extends noop>(fn: T, options?: DebounceOptions) {
      *  `() => void`
      */
     flush: () => {
-      debouncedRef.value?.flush();
+      return debouncedRef.value?.flush()
     },
     updateOptions: (newOptions: DebounceOptions) => {
-      optionsRef.value = newOptions;
-    }
+      optionsRef.value = newOptions
+    },
   }
 }
 

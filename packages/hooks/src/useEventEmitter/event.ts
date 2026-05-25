@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash-es/cloneDeep'
+import { cloneDeep } from 'es-toolkit/compat'
 import { ref, watchEffect } from 'vue'
 
 // 事件名类型，支持 string | number 或自定义字面量类型

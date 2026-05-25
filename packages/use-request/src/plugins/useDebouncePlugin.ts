@@ -1,7 +1,12 @@
 import { ref, computed, watchEffect, unref } from "vue";
-import type { DebouncedFunc, DebounceSettings } from "lodash-es";
-import debounce from "lodash-es/debounce";
+import { type DebouncedFunc, debounce } from "es-toolkit/compat";
 import type { UseRequestPlugin } from "../types";
+
+interface DebounceSettings {
+  leading?: boolean
+  trailing?: boolean
+  maxWait?: number
+}
 
 const useDebouncePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,

@@ -2,6 +2,7 @@ import renderHook from 'test-utils/renderHook'
 import useElementBounding from '..'
 import { ref, nextTick } from 'vue'
 import { UseElementBoundingReturnType } from '../index'
+import { sleep } from 'test-utils/sleep'
 
 // mock getBoundingClientRect for predictable values
 function mockRect(left: number, top: number, width: number, height: number) {
@@ -63,7 +64,7 @@ describe('useElementBounding', () => {
     expect(bounding.width.value).toBe(100)
     rect = mockRect(15, 5, 200, 80)
     window.dispatchEvent(new Event('resize'))
-    await nextTick()
+    await sleep(20)
     expect(bounding.width.value).toBe(200)
     expect(bounding.height.value).toBe(80)
     expect(bounding.top.value).toBe(5)

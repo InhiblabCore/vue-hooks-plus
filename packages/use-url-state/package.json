@@ -1,6 +1,6 @@
 {
   "name": "@vue-hooks-plus/use-url-state",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.0",
   "description": "Vue management url state",
 	"files": [
 		"dist",
@@ -12,7 +12,7 @@
 	"module": "./dist/useUrlState.es.js",
   "types":"./dist/types/index.d.ts" ,
   "scripts": {
-    "build": "npm run clean && vite build",
+    "build": "npm run clean && tsdown",
     "clean": "rimraf dist"
   },
   "keywords": [],

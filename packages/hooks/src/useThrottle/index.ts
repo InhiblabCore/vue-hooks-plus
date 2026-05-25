@@ -22,7 +22,8 @@ function useThrottle<T>(value: Ref<T>, options?: UseThrottleOptions) {
       run?.()
     },
     {
-      immediate: true,
+      immediate: false,
+      flush: 'sync',
     },
   )
 

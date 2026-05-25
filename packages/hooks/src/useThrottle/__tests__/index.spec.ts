@@ -12,7 +12,7 @@ describe('useThrottle', () => {
     mountedState.value = 3
     await sleep(250)
     mountedState.value = 4
-    await sleep(260)
+    await sleep(600)
     expect(throttledValue.value).toEqual(4)
   })
 

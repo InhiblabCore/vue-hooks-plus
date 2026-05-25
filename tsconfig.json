@@ -4,7 +4,7 @@
     "module": "esnext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "useDefineForClassFields": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "outDir": "./dist",
     "allowJs": false,
     "strict": true,

@@ -1,6 +1,6 @@
 {
 	"name": "vue-hooks-plus",
-	"version": "2.4.3",
+	"version": "2.5.0-alpha.0",
 	"description": "Vue hooks library",
 	"files": [
 		"dist",
@@ -22,15 +22,16 @@
 	],
 	"scripts": {
 		"clean": "rimraf dist lib es types",
-		"build": "npm run clean  && vue-tsc --noEmit && vite build",
-		"build:types": "vue-tsc --noEmit && vite build --mode fullTypes",
+		"build": "npm run clean && vue-tsc --noEmit && tsdown",
+		"build:types": "vue-tsc --noEmit && tsdown --config tsdown.config.mts",
 		"type": "tsc -d"
 	},
 	"dependencies": {
 		"@types/js-cookie": "^3.0.1",
 		"@vue/devtools-api": "7.7.2",
+		"es-toolkit": "^1.46.1",
 		"js-cookie": "^3.0.1",
-		"lodash-es": "^4.17.23",
+		"marked": "^18.0.4",
 		"screenfull": "^5.0.0"
 	},
 	"peerDependencies": {
@@ -39,8 +40,5 @@
 	"repository": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"homepage": "https://github.com/InhiblabCore/vue-hooks-plus",
 	"author": "NelsonYong",
-	"license": "MIT",
-	"devDependencies": {
-		"@types/lodash-es": "^4.17.12"
-	}
+	"license": "MIT"
 }

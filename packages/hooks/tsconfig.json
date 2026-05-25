@@ -3,13 +3,12 @@
   "compilerOptions": {
     "outDir": "./dist", //输出文件
     "lib": ["esnext", "dom"],
-    "baseUrl": "./",
     "rootDir": "./",
     "types": ["node", "vitest", "vitest/globals"],
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
       "vue-hooks-plus": ["./src/index.ts"],
-      "test-utils/*": ["test-utils/*"]
+      "test-utils/*": ["./test-utils/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/demo/*.vue", "docs/global.d.ts"],

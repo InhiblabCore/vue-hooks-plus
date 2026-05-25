@@ -112,23 +112,47 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
     return Object.assign({}, ...r)
   }
 
+  runAsyncPluginHandler(
+    event: keyof UseRequestPluginReturn<TData, TParams>,
+    ...rest: unknown[]
+  ) {
+    // @ts-ignore
+    const results = this.pluginImpls?.map(i => i[event]?.(...rest)) ?? []
+    const hasAsyncResult = results.some(result => result && typeof (result as Promise<unknown>).then === 'function')
+
+    if (!hasAsyncResult) {
+      return Object.assign({}, ...results.filter(Boolean))
+    }
+
+    return Promise.all(results).then(resolvedResults =>
+      Object.assign({}, ...resolvedResults.filter(Boolean)),
+    )
+  }
+
   // Asynchronous request
   // @ts-ignore
   async runAsync(...params: TParams): Promise<TData> {
     this.count += 1
     const currentCount = this.count
-    const { stopNow = false, returnNow = false, ...state } = this.runPluginHandler(
-      'onBefore',
+
+    const beforePluginResult = this.runAsyncPluginHandler('onBefore', params)
+
+    this.setState({
+      loading: true,
       params,
-    )
+    })
+
+    const { stopNow = false, returnNow = false, ...state } =
+      beforePluginResult && typeof (beforePluginResult as Promise<unknown>).then === 'function'
+        ? await beforePluginResult
+        : beforePluginResult
+
     // Do you want to stop the request
     if (stopNow) {
       return new Promise(() => { })
     }
 
     this.setState({
-      loading: true,
-      params,
       ...state,
     })
 
@@ -156,9 +180,13 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
 
     try {
       // Start the request with the replace service, if it contains the onRequest event name
-      let { servicePromise } = this.runPluginHandler('onRequest', this.serviceRef.value, params)
+      const requestPluginResult = this.runAsyncPluginHandler('onRequest', this.serviceRef.value, params)
+      let { servicePromise } =
+        requestPluginResult && typeof (requestPluginResult as Promise<unknown>).then === 'function'
+          ? await requestPluginResult
+          : requestPluginResult
 
-      const requestReturnResponse = (res: any) => {
+      const requestReturnResponse = async (res: any) => {
         // 如果不允许并发请求，则检查是否需要取消当前请求
         if (!this.options.concurrent && currentCount !== this.count) {
           return new Promise(() => { })
@@ -176,7 +204,15 @@ export default class Fetch<TData, TParams extends unknown[] = any> {
         })
         // Request successful
         this.options.onSuccess?.(formattedResult, params)
-        this.runPluginHandler('onSuccess', formattedResult, params, origin)
+        const successPluginResult = this.runAsyncPluginHandler(
+          'onSuccess',
+          formattedResult,
+          params,
+          origin,
+        )
+        if (successPluginResult && typeof (successPluginResult as Promise<unknown>).then === 'function') {
+          await successPluginResult
+        }
 
         this.previousValidData = formattedResult
 

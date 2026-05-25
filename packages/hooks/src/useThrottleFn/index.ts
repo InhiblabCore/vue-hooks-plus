@@ -1,60 +1,41 @@
-// @ts-nocheck
-import throttle from 'lodash-es/throttle'
-import { onUnmounted, watch, ref, unref, computed } from 'vue'
+import { throttle, type DebouncedFunc } from 'es-toolkit/compat'
+import { onScopeDispose, watch, unref, computed, ref } from 'vue'
 import { UseThrottleOptions } from '../useThrottle'
-import { DebouncedFunc } from 'lodash-es'
 
 type noop = (...args: any) => any
 
 function useThrottleFn<T extends noop>(fn: T, options?: UseThrottleOptions) {
-  let originThrottled: DebouncedFunc<T>
-
-  const throttled = ref<DebouncedFunc<T>>()
+  const throttledRef = ref<DebouncedFunc<T>>()
   const throttleOptions = computed(() => {
-    const ret: UseThrottleOptions = {}
-    if (unref(options?.wait) !== undefined) {
-      ret.wait = unref(options?.wait)
-    }
-    if (unref(options?.leading) !== undefined) {
-      ret.leading = unref(options?.leading)
-    }
-    if (unref(options?.trailing) !== undefined) {
-      ret.trailing = unref(options?.trailing)
-    }
     return {
-      ...ret,
-      wait: ret?.wait ?? 1000,
+      wait: unref(options?.wait) ?? 1000,
+      leading: unref(options?.leading),
+      trailing: unref(options?.trailing),
     }
   })
 
   watch(throttleOptions, (cur) => {
-    const { wait = 1000, ...options } = cur
-    if (originThrottled) {
-      originThrottled.cancel()
-      originThrottled.flush()
-    }
-    const _throttle = throttle(
-      (...args: Parameters<T>): ReturnType<T> => {
-        return fn(...args)
-      },
-      wait,
-      options,
-    )
-    originThrottled = _throttle
-    throttled.value = _throttle
+    throttledRef.value?.cancel()
+    const settings: {
+      leading?: boolean
+      trailing?: boolean
+    } = {}
+    if (cur.leading !== undefined) settings.leading = cur.leading
+    if (cur.trailing !== undefined) settings.trailing = cur.trailing
+    throttledRef.value = throttle(fn, cur.wait, settings)
   }, {
     immediate: true,
-    deep: true,
+    flush: 'sync',
   })
 
-  onUnmounted(() => {
-    throttled.value?.cancel()
+  onScopeDispose(() => {
+    throttledRef.value?.cancel()
   })
 
   return {
-    run: throttled.value ?? (() => { }),
-    cancel: throttled.value?.cancel,
-    flush: throttled.value?.flush,
+    run: ((...args: Parameters<T>) => throttledRef.value?.(...args)) as T,
+    cancel: () => throttledRef.value?.cancel(),
+    flush: () => throttledRef.value?.flush(),
   }
 }
 

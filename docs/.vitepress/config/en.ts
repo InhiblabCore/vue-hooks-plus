@@ -276,6 +276,10 @@ export function sidebarHooks(): DefaultTheme.SidebarItem[] {
           text: 'useAsyncOrder',
           link: 'useAsyncOrder',
         },
+        {
+          text: 'createUseRequestComponent',
+          link: 'createUseRequestComponent',
+        },
         // { text: 'usePreview ⚠️', link: 'usePreview' },
       ],
     },

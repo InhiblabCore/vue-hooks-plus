@@ -44,12 +44,9 @@ describe('useDebounce', () => {
     count.value = 1
     count.value = 2
     count.value = 3
-    // Should not update immediately
-    expect(debouncedCount.value).toBe(0)
+    expect(debouncedCount.value).toBe(1)
     await sleep(150)
-    // According to lodash debounce, with leading: true and trailing: false,
-    // only the last change within the debounce window is taken.
-    expect(debouncedCount.value).toBe(3)
+    expect(debouncedCount.value).toBe(1)
   })
   it('should support trailing option', async () => {
     const count = ref(0)
@@ -70,7 +67,7 @@ describe('useDebounce', () => {
     await sleep(90)
     count.value = 3
     expect(debouncedCount.value).toBe(0)
-    await sleep(50)
+    await sleep(150)
     expect(debouncedCount.value).toBe(3)
   })
   it('should debounce with wait = 0', async () => {

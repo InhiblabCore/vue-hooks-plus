@@ -39,7 +39,9 @@ export default function useMouse(target?: BasicTarget) {
   useEventListener(
     'mousemove',
     (event: MouseEvent) => {
-      const { screenX, screenY, clientX, clientY, pageX, pageY } = event
+      const { screenX, screenY, clientX, clientY } = event
+      const pageX = event.pageX || clientX + (window.pageXOffset || 0)
+      const pageY = event.pageY || clientY + (window.pageYOffset || 0)
       const newState = {
         screenX,
         screenY,
@@ -58,8 +60,8 @@ export default function useMouse(target?: BasicTarget) {
 
       if (targetElement) {
         const { left, top, width, height } = targetElement.getBoundingClientRect()
-        newState.elementPosX = left + window.pageXOffset
-        newState.elementPosY = top + window.pageYOffset
+        newState.elementPosX = left + (window.pageXOffset || 0)
+        newState.elementPosY = top + (window.pageYOffset || 0)
         newState.elementX = pageX - newState.elementPosX
         newState.elementY = pageY - newState.elementPosY
         newState.elementW = width

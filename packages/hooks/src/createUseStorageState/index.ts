@@ -60,7 +60,7 @@ export function createUseStorageState(getStorage: () => Storage | undefined) {
     function getStoredValue() {
       try {
         const raw = storage?.getItem(unref(key))
-        if (raw) {
+        if (raw !== null && raw !== undefined) {
           return deserializer(raw)
         }
       } catch (e) {

@@ -1,6 +1,6 @@
 {
   "name": "@vue-hooks-plus/use-worker",
-  "version": "1.1.0",
+  "version": "1.1.1-alpha.0",
   "description": "",
   "files": [
     "dist",
@@ -12,7 +12,7 @@
   "module": "./dist/useWorker.es.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
-    "build": "npm run clean && vite build",
+    "build": "npm run clean && tsdown",
     "clean": "rimraf dist"
   },
   "keywords": [
@@ -24,6 +24,6 @@
   "author": "NelsonYong",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "es-toolkit": "^1.46.1"
   }
 }

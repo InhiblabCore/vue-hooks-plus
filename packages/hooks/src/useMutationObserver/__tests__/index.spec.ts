@@ -3,6 +3,7 @@ import renderHook from 'test-utils/renderHook';
 import useMutationObserver from '../index';
 
 const options: MutationObserverInit = { attributes: true, childList: true };
+const waitForMutation = () => new Promise(resolve => setTimeout(resolve, 0));
 
 describe('useMutationObserver', () => {
   let container: HTMLDivElement;
@@ -17,11 +18,12 @@ describe('useMutationObserver', () => {
   });
 
 
-  it('should call the callback when the target element is mutated', () => {
+  it('should call the callback when the target element is mutated', async () => {
     const callback = vitest.fn();
     renderHook(() => useMutationObserver(callback, container, options));
 
     container.setAttribute('data-test', 'test');
+    await waitForMutation();
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
@@ -36,6 +38,7 @@ describe('useMutationObserver', () => {
     renderHook(() => useMutationObserver(callback, () => container, options));
     const paraEl = document.createElement('p');
     container.appendChild(paraEl);
+    await waitForMutation();
     expect(callback).toHaveBeenCalled();
   });
 

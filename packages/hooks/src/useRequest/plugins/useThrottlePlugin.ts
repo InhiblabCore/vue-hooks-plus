@@ -1,7 +1,11 @@
 import { computed, onUnmounted, ref, unref, watch } from 'vue'
-import { type DebouncedFunc, type ThrottleSettings } from 'lodash-es'
-import { throttle } from 'lodash-es'
+import { throttle, type DebouncedFunc } from 'es-toolkit/compat'
 import { UseRequestPlugin } from '../types'
+
+interface ThrottleSettings {
+  leading?: boolean
+  trailing?: boolean
+}
 
 const useThrottlePlugin: UseRequestPlugin<unknown, unknown[]> = (
   fetchInstance,

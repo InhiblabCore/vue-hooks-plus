@@ -1,4 +1,5 @@
 import Theme from 'vitepress/theme'
+import type { App } from 'vue'
 import 'virtual:group-icons.css'
 import './styles.css'
 import '@vue-hooks-plus/vitepress-demo-block/dist/style.css'
@@ -12,7 +13,7 @@ import { createPinia } from 'pinia'
 const store = createPinia()
 export default {
   ...Theme,
-  enhanceApp({ app }) {
+  enhanceApp({ app }: { app: App }) {
     app.use(store)
     app.use(useRequestDevToolsPlugin)
     app.component('demo', DemoBlock)

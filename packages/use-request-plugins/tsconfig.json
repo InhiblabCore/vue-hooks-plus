@@ -3,7 +3,6 @@
   "compilerOptions": {
     "outDir": "./dist", //输出文件
     "lib": ["esnext", "dom"],
-    "baseUrl": "./",
     "rootDir": "./"
   },
   "include": ["src/**/*.ts"],

@@ -38,6 +38,9 @@ High performance & Simplicity Vue3 Hooks library
 
 ## 📦 Install
 
+> [!IMPORTANT]
+> Developing, building, and running the documentation for this repository now require **Node.js >= 22.18.0**. The published hooks still target Vue 3 applications and do not add a Node.js runtime requirement in the browser.
+
 ```bash
 npm i vue-hooks-plus
 ```

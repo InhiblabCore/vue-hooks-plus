@@ -19,7 +19,7 @@ source:
 
 ## Options
 
-The usage and effects of all throttle property are the same as [lodash-es.throttle](https://www.lodash-esjs.com/docs/lodash-es.throttle/)
+The usage and effects of all throttle properties are the same as [`es-toolkit/compat` throttle](https://es-toolkit.dev/reference/compat/function/throttle.html)
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |

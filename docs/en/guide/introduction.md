@@ -7,6 +7,10 @@ import Badge from '@theme/home/Badge.vue'
 
 Through this chapter, you will know how to quickly start using VueHooks Plus.
 
+::: danger Minimum Node.js Version
+Repository development, package builds, CI, and documentation builds require **Node.js >= 22.18.0**. Application runtime usage of VueHooks Plus in the browser is unaffected.
+:::
+
 ## ✨ Features
 
 - 🏄🏼‍♂️ Easy to learn and use

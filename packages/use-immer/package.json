@@ -1,6 +1,6 @@
 {
   "name": "@vue-hooks-plus/use-immer",
-  "version": "1.1.0",
+  "version": "1.1.1-alpha.0",
   "description": "Vue use-immer hooks library",
 	"files": [
 		"dist",
@@ -12,7 +12,7 @@
 	"module": "./dist/useImmer.es.js",
   "types":"./dist/types/index.d.ts" ,
   "scripts": {
-    "build": "npm run clean &&  vite build",
+    "build": "npm run clean && tsdown",
     "clean": "rimraf dist"
   },
   "keywords": [],
