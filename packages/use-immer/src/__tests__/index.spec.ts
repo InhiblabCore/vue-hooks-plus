@@ -30,6 +30,7 @@ describe('useImmer', () => {
     const [state, update] = useImmer<{ a: number }>({ a: 1 })
     update({ a: 2 })
     expect(state.value.a).toBe(2)
+    expect(Object.isFrozen(state.value)).toBe(true)
   })
 
   it('should freeze state', () => {
