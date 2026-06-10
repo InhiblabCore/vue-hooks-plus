@@ -17,7 +17,7 @@ async function main() {
   const metaDataPath = resolve(hooksRootDir, 'meta-data.json')
   await fs.promises.writeFile(
     metaDataPath,
-    prettier.format(metaData, { ...prettierConfig, parser: 'json' }),
+    await prettier.format(metaData, { ...prettierConfig, parser: 'json' }),
     'utf-8',
   )
 }
