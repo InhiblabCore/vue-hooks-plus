@@ -38,13 +38,14 @@ describe('createWorkerBlobUrl', () => {
 })
 
 describe('jobRunner', () => {
+  afterEach(() => vi.unstubAllGlobals())
+
   it('posts SUCCESS with fn result', async () => {
     const postMessage = vi.fn()
     vi.stubGlobal('postMessage', postMessage)
     const handler = jobRunner({ fn: (a: number, b: number) => a + b, transferable: TRANSFERABLE_TYPE.NONE })
     await handler({ data: [[2, 3]] } as MessageEvent)
     expect(postMessage).toHaveBeenCalledWith(['SUCCESS', 5], [])
-    vi.unstubAllGlobals()
   })
 
   it('posts ERROR when fn rejects (async error path)', async () => {
@@ -57,6 +58,5 @@ describe('jobRunner', () => {
     const handler = jobRunner({ fn: () => Promise.reject(boom), transferable: TRANSFERABLE_TYPE.NONE })
     await handler({ data: [[]] } as MessageEvent)
     expect(postMessage).toHaveBeenCalledWith(['ERROR', boom])
-    vi.unstubAllGlobals()
   })
 })

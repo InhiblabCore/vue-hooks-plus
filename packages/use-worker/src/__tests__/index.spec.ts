@@ -21,13 +21,19 @@ class MockWorker {
   terminate() {}
 }
 
+let _origCreateObjectURL: typeof URL.createObjectURL
+let _origRevokeObjectURL: typeof URL.revokeObjectURL
 beforeAll(() => {
+  _origCreateObjectURL = URL.createObjectURL
+  _origRevokeObjectURL = URL.revokeObjectURL
   vi.stubGlobal('Worker', MockWorker)
   URL.createObjectURL = vi.fn(() => `blob:mock-${Math.random()}`)
   URL.revokeObjectURL = vi.fn()
 })
 afterAll(() => {
   vi.unstubAllGlobals()
+  URL.createObjectURL = _origCreateObjectURL
+  URL.revokeObjectURL = _origRevokeObjectURL
 })
 
 const statusOf = (controller: any) => controller.status.value as WORKER_STATUS
@@ -35,7 +41,7 @@ const statusOf = (controller: any) => controller.status.value as WORKER_STATUS
 describe('useWorker', () => {
   it('runs and resolves with SUCCESS status (echo mock returns args)', async () => {
     behavior = 'success'
-    const [[run, controller]] = renderHook(() => useWorker((n: number) => n * 2))
+    const [[run, controller]] = renderHook(() => useWorker((n: number) => n))
     const p = run(21)
     expect(statusOf(controller)).toBe(WORKER_STATUS.RUNNING)
     await expect(p).resolves.toEqual([21])
