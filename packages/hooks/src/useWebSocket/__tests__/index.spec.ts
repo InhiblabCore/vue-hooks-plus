@@ -19,7 +19,7 @@ class MockWebSocket {
   close() {
     if (this.readyState === 3) return // idempotent: connectWs re-closes previous instance; real WebSocket won't fire close twice
     this.readyState = 3
-    this.onclose?.(new Event('close') as CloseEvent)
+    this.onclose?.(new CloseEvent('close')) // real WebSockets emit CloseEvent (has code/reason); happy-dom exposes CloseEvent as a global
   }
   _open() {
     this.readyState = 1
@@ -98,6 +98,17 @@ describe('useWebSocket', () => {
     expect(r.readyState.value).toBe(ReadyState.Closed)
   })
 
+  it('disconnect clears a pending reconnect timer', async () => {
+    const [r] = renderHook(() =>
+      useWebSocket('ws://test', { reconnectLimit: 3, reconnectInterval: 30 }),
+    )
+    last()._open()
+    last().close()      // schedules reconnect in 30ms
+    r.disconnect!()     // must clear the pending timer
+    await sleep(80)
+    expect(MockWebSocket.instances.length).toBe(1) // no reconnect happened
+  })
+
   it('onError triggers reconnect and callback', async () => {
     const onError = vi.fn()
     renderHook(() =>
@@ -115,6 +126,7 @@ describe('useWebSocket', () => {
     const ws = last()
     ws._open()
     app.unmount()
+    expect(MockWebSocket.instances[0].readyState).toBe(3) // unmount calls disconnect() → close()
     ws._message('late')
     expect(onMessage).not.toHaveBeenCalled()
     expect(r.latestMessage.value).toBeUndefined()
