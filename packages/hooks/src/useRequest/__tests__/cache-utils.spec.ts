@@ -23,7 +23,7 @@ describe('cache utils', () => {
   it('getCacheAll snapshots entries; clearCache supports key/array/all', () => {
     setCache('cu-a', 1000, { data: 1, params: [], time: Date.now() })
     setCache('cu-b', 1000, { data: 2, params: [], time: Date.now() })
-    expect(Object.keys(getCacheAll())).toEqual(expect.arrayContaining(['cu-a', 'cu-b']))
+    expect(Object.keys(getCacheAll())).toEqual(['cu-a', 'cu-b'])
     clearCache('cu-a')
     expect(getCache('cu-a')).toBeUndefined()
     clearCache(['cu-b'])

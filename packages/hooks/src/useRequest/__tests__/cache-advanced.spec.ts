@@ -41,24 +41,28 @@ describe('useRequest cache advanced', () => {
 
   it('concurrent mounts share one in-flight promise', async () => {
     const { service, calls } = makeService()
-    const [a] = renderHook(() => useRequest(service, { cacheKey: 'adv-3' }))
-    const [b] = renderHook(() => useRequest(service, { cacheKey: 'adv-3' }))
+    const [a, appA] = renderHook(() => useRequest(service, { cacheKey: 'adv-3' }))
+    const [b, appB] = renderHook(() => useRequest(service, { cacheKey: 'adv-3' }))
     await sleep(80)
     expect(calls.count).toBe(1)
     expect(a.data.value).toBe('ok-1')
     expect(b.data.value).toBe('ok-1')
+    appA.unmount()
+    appB.unmount()
   })
 
   it('mounted instances stay in sync through cache subscription', async () => {
     const { service } = makeService()
-    const [a] = renderHook(() => useRequest(service, { cacheKey: 'adv-4' }))
+    const [a, appA] = renderHook(() => useRequest(service, { cacheKey: 'adv-4' }))
     await sleep(60)
-    const [b] = renderHook(() => useRequest(service, { cacheKey: 'adv-4', manual: true }))
+    const [b, appB] = renderHook(() => useRequest(service, { cacheKey: 'adv-4', manual: true }))
     await sleep(0) // let async watchEffect path initialize cache for b
     expect(b.data.value).toBe('ok-1')
     a.refresh()
     await sleep(60)
     expect(b.data.value).toBe('ok-2')
+    appA.unmount()
+    appB.unmount()
   })
 
   it('custom sync setCache/getCache replace internal cache', async () => {
@@ -95,10 +99,11 @@ describe('useRequest cache advanced', () => {
 
   it('mutate writes through to cache', async () => {
     const { service } = makeService()
-    const [r] = renderHook(() => useRequest(service, { cacheKey: 'adv-6' }))
+    const [r, app] = renderHook(() => useRequest(service, { cacheKey: 'adv-6' }))
     await sleep(60)
     r.mutate('mutated')
     expect(getRawCache('adv-6')?.data).toBe('mutated')
+    app.unmount()
   })
 
   it('failed request clears shared cachePromise (rejection path)', async () => {
@@ -107,21 +112,23 @@ describe('useRequest cache advanced', () => {
       calls++
       return Promise.reject(new Error('cache-fail'))
     }
-    // cachePromise.ts re-throws inside its internal .catch chain; that secondary rejection is
-    // never awaited by Fetch.ts, so it surfaces as an unhandled rejection at the Node level.
-    // Swallow it here so vitest doesn't treat it as a test failure.
-    const onUnhandled = (reason: Error) => {
-      if (reason?.message === 'cache-fail') return true
-    }
-    process.on('unhandledRejection', onUnhandled)
+    // cachePromise.ts discards its .then().catch() chain return value; when the promise
+    // rejects, the re-throw in .catch() produces an unhandled rejection. Vitest 4 skips
+    // its own unhandledRejection reporter when processListeners('unhandledRejection').length > 1
+    // (see vitest/dist/chunks/init — "if there is another listener, assume handled by user code").
+    // A no-op listener here raises the count past 1, suppressing the error report.
+    const suppressUnhandled = (): void => {}
+    process.on('unhandledRejection', suppressUnhandled)
+    // Fetch.ts calls console.error when no onError is provided; suppress that output.
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-    const [r] = renderHook(() => useRequest(failing as any, { cacheKey: 'adv-7' }))
+    const [r, app] = renderHook(() => useRequest(failing as any, { cacheKey: 'adv-7' }))
     await sleep(30)
     expect(r.error.value).toBeInstanceOf(Error)
     r.refresh() // cachePromise already cleared → new request
     await sleep(30)
     expect(calls).toBe(2)
     consoleSpy.mockRestore()
-    process.off('unhandledRejection', onUnhandled)
+    process.off('unhandledRejection', suppressUnhandled)
+    app.unmount()
   })
 })
