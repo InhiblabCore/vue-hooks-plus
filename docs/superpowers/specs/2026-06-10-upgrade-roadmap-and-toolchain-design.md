@@ -76,7 +76,7 @@
 
 | 步骤 | 内容 | 验证 |
 |------|------|------|
-| 1 | 清死配置（simple-git-hooks 块）与死依赖（@typescript-eslint@5、@types/react-dom） | `pnpm install` + 63 spec 全绿 + pre-commit 钩子（lint-staged）可用 |
+| 1 | 清死配置（simple-git-hooks 块）与死依赖（@typescript-eslint@5、@types/react-dom） | `pnpm install` + 63 spec 全绿 + `pnpm lint`（lint-staged 路径）可用 |
 | 2 | 升测试栈：vitest 3 / vite 7 / plugin-vue / happy-dom / coverage-v8 | `pnpm vitest run` 63 spec 全绿 |
 | 3 | 升构建栈：vue-tsc / typescript 声明 | `pnpm build` 成功 |
 | 4 | prettier 3 + 适配 `scripts/bootstrap.ts`；husky 9 | `pnpm bootstrap` 后 `meta-data.json` diff 为空；pre-commit / commit-msg 钩子可用 |
