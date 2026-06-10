@@ -45,8 +45,8 @@
       onBroadcastChannel: (message: any) => {
         other.value.push(message.data)
       },
-    },
-    [useBroadcastChannelPlugin],
+    } as any,
+    [useBroadcastChannelPlugin] as any[],
   )
 
   const submit = () => {

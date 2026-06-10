@@ -42,12 +42,12 @@
       refreshDeps: true,
       pluginOptions: {
         broadcastChannel: 'nice-broadcastChannel',
-        onBroadcastChannel: (message: any, channel: any) => {
+        onBroadcastChannel: (message: any) => {
           other.value.push(message.data)
         },
       },
     },
-    [useBroadcastChannelPlugin],
+    [useBroadcastChannelPlugin] as any[],
   )
 </script>
 

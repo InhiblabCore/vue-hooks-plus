@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { useUrlState } from 'vue-hooks-plus'
+  import useUrlState from '@vue-hooks-plus/use-url-state'
 
   const defaultState = { count: 0, page: 1 }
   const state = useUrlState(defaultState, {
