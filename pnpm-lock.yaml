@@ -271,8 +271,8 @@ importers:
         version: 2.3.1(typescript@5.9.3)(vue@3.5.34(typescript@5.9.3))
     devDependencies:
       '@vue-hooks-plus/use-request':
-        specifier: '*'
-        version: 2.2.2
+        specifier: workspace:*
+        version: link:../use-request
 
   packages/use-url-state:
     dependencies:
@@ -2287,9 +2287,6 @@ packages:
 
   '@vue-hooks-plus/md-demo-plugins@1.1.0':
     resolution: {integrity: sha512-61S5aFlrOm1c5+V+pX6g9dY5DGQVi6rQJrJ+Bu/wuLiIKzftlDXblLL1EeYaviAo8hGNBcgHRT7C7zRGb//vJw==}
-
-  '@vue-hooks-plus/use-request@2.2.2':
-    resolution: {integrity: sha512-1WgSj2/JTuGRdGxlNLMBe+U10pjm6eB4nYFk5xAcYV2SdEXWMawSfoRjfOodqWDiJjqtihwJf99TgBMAEOuK1g==}
 
   '@vue-hooks-plus/vite-plugin-gen-temp@2.6.6':
     resolution: {integrity: sha512-3fvLDq4TDMmHj6ZzeAie8Gw75U2KSE2V/lVy3aAeuxRtAqCQfigXNTIz6sPSfrJZrOARe4sxVok3qbWjP3m9vw==}
@@ -8237,11 +8234,6 @@ snapshots:
       - search-insights
       - stylus
       - typescript
-
-  '@vue-hooks-plus/use-request@2.2.2':
-    dependencies:
-      '@vue/devtools-api': 6.6.4
-      lodash: 4.18.1
 
   '@vue-hooks-plus/vite-plugin-gen-temp@2.6.6(@algolia/client-search@5.52.1)(@types/node@22.19.20)(@types/react@18.3.29)(less@4.6.4)(search-insights@2.17.3)(terser@5.48.0)(typescript@5.9.3)':
     dependencies:

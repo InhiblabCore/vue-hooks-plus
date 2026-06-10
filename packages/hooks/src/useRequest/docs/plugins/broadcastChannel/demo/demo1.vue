@@ -46,7 +46,7 @@
         other.value.push(message.data)
       },
     } as any,
-    [useBroadcastChannelPlugin] as any[],
+    [useBroadcastChannelPlugin],
   )
 
   const submit = () => {

@@ -34,7 +34,7 @@
         },
       },
     },
-    [useFetchingPlugin] as any[],
+    [useFetchingPlugin],
   )
 </script>
 

@@ -47,7 +47,7 @@
         },
       },
     },
-    [useBroadcastChannelPlugin] as any[],
+    [useBroadcastChannelPlugin],
   )
 </script>
 

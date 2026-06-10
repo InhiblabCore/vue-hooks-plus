@@ -35,7 +35,7 @@
             },
           },
         },
-        [useFetchingPlugin] as any[],
+        [useFetchingPlugin],
       )
       return () => {
         return h('div', {}, [
@@ -69,7 +69,7 @@
             },
           },
         },
-        [useFetchingPlugin] as any[],
+        [useFetchingPlugin],
       )
 
       // run()
