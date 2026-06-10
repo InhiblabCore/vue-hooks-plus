@@ -2,6 +2,13 @@ import renderHook from 'test-utils/renderHook'
 import useScroll from '..'
 
 describe('useScroll', () => {
+  afterEach(() => {
+    if (document.scrollingElement) {
+      delete (document.scrollingElement as any).scrollLeft
+      delete (document.scrollingElement as any).scrollTop
+    }
+  })
+
   it('should update scroll position when target scrolls', () => {
     const target = document.createElement('div')
     Object.defineProperty(target, 'scrollLeft', { value: 12, writable: true })

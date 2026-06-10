@@ -2,6 +2,10 @@ import renderHook from 'test-utils/renderHook'
 import useNetwork from '../index'
 
 describe('useNetwork', () => {
+  afterEach(() => {
+    delete (navigator as any).connection
+  })
+
   it('toggle network state', () => {
     const [hook] = renderHook(() => useNetwork())
     expect(hook.value.online).toBeTruthy()
@@ -38,6 +42,5 @@ describe('useNetwork', () => {
     expect(state.value.effectiveType).toBe('4g')
     listeners['change']?.()
     expect(state.value.downlink).toBe(10)
-    delete (navigator as any).connection
   })
 })
