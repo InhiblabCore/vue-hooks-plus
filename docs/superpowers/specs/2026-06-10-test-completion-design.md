@@ -53,10 +53,10 @@ coverage: {
 | 包 | 测试内容 | mock 策略 |
 |---|---|---|
 | use-immer | draft 更新、非函数值直接替换、结果冻结、原对象不被改动 | 无 |
-| use-url-state | URL query 解析初始值、默认值兜底、setState 后 location.search 同步、置 undefined 移除参数 | happy-dom 自带 location/history，每用例前重置 URL |
+| use-url-state | 从 `location.hash`（`#path?params` 形式）解析初始值、默认值兜底、状态变更后同步回 hash（或自定义 routerPush）、localStorageKey 持久化、detectNumber 数字解析 | happy-dom 自带 location/localStorage，每用例前重置 hash 与 localStorage |
 | use-worker | lib 纯函数直测（remoteDepsParser、createWorkerBlobUrl、jobRunner）；hook 层 run→SUCCESS、kill→KILLED、timeout→TIMEOUT_EXPIRED | mock 全局 Worker（echo 实现）+ stub URL.createObjectURL/revokeObjectURL |
 | use-request-plugins | useFetchingPlugin 全局请求态变化；useBroadcastChannelPlugin 跨实例同步钩子 | broadcast-channel 优先 `simulate` method；不稳则 vi.mock 模块只验证插件挂钩 |
-| resolvers | VueHooksPlusResolver 对库内 hook 名返回 `{ name, from: 'vue-hooks-plus' }`、prefix 选项生效、非库名返回 undefined；4 个子 resolver（useImmer/useUrlState/useWorker/useRequest）各自映射到 `@vue-hooks-plus/*` | 主 resolver 经 local-pkg 读 meta-data.json，workspace 内可解析；若解析不稳则 vi.mock local-pkg |
+| resolvers | VueHooksPlusResolver 对库内 hook 名返回 `{ name, from: 'vue-hooks-plus' }`、prefix 选项生效、非库名返回 undefined；3 个已导出子 resolver（useImmer/useUrlState/useWorker）各自映射到 `@vue-hooks-plus/*`（注：useRequestResolver.ts 存在但未从包导出，记录为发现） | vi.mock local-pkg 与 node:fs，注入假 meta-data.json，避免依赖构建产物解析 |
 
 ### B. 加深浅测试（重点项）
 
