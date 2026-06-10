@@ -34,8 +34,6 @@
     "@types/node": "^17.0.21",
     "@types/prettier": "^2.6.3",
     "@types/qs": "^6.9.7",
-    "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@vite-pwa/vitepress": "^1.0.0",
     "@vitejs/plugin-vue": "^2.3.1",
     "@vitest/ui": "^0.25.3",
@@ -89,9 +87,6 @@
     "vue-hooks-plus": "workspace:*",
     "vue-tsc": "1.0.9",
     "vue-typical": "^2.1.0"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue,md,json}": [
