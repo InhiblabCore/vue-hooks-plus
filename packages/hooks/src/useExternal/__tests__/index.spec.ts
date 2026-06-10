@@ -1,25 +1,63 @@
-import { mount } from '@vue/test-utils'
+// @vitest-environment-options {"settings":{"disableCSSFileLoading":true}}
+import { nextTick } from 'vue'
 import useExternal from '..'
-import Demo from './Test.vue'
+import renderHook from 'test-utils/renderHook'
+
+const fire = (selector: string, type: 'load' | 'error') => {
+  document.querySelector(selector)?.dispatchEvent(new Event(type))
+}
 
 describe('useExternal', () => {
-  const wrapper = mount(Demo)
-
-  it('should load axios js and fetch API', async () => {
-    const demoText = wrapper.find('.status')
-    expect(demoText.text()).toBe('Status: loading')
-
-    const status = useExternal('https://cdn.bootcdn.net/ajax/libs/axios/0.26.1/axios.js', {
-      js: {
-        async: true,
-      },
-    })
-    // await sleep(2000)
-    expect(status.value).toBeTruthy()
+  it('loads js: loading -> ready on load event', () => {
+    const [status] = renderHook(() => useExternal('/mock-a.js'))
+    expect(status.value).toBe('loading')
+    const script = document.querySelector('script[src="/mock-a.js"]')!
+    expect(script).toBeTruthy()
+    expect(script.getAttribute('data-status')).toBe('loading')
+    fire('script[src="/mock-a.js"]', 'load')
+    expect(status.value).toBe('ready')
+    expect(script.getAttribute('data-status')).toBe('ready')
   })
 
-  it('should load css', () => {
-    const status = useExternal('https://ahooks.js.org/useExternal/bootstrap-badge.css')
-    expect(status.value).toBeTruthy()
+  it('sets error status on error event', () => {
+    const [status] = renderHook(() => useExternal('/mock-err.js'))
+    fire('script[src="/mock-err.js"]', 'error')
+    expect(status.value).toBe('error')
+  })
+
+  it('loads css link and becomes ready', () => {
+    const [status] = renderHook(() => useExternal('/mock.css'))
+    expect(document.querySelector('link[href="/mock.css"]')).toBeTruthy()
+    fire('link[href="/mock.css"]', 'load')
+    expect(status.value).toBe('ready')
+  })
+
+  it('is unset without path', () => {
+    const [status] = renderHook(() => useExternal())
+    expect(status.value).toBe('unset')
+  })
+
+  it('warns when type cannot be inferred', () => {
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    renderHook(() => useExternal('/no-extension'))
+    expect(errSpy).toHaveBeenCalled()
+    errSpy.mockRestore()
+  })
+
+  it('supports explicit type option', () => {
+    renderHook(() => useExternal('/styles-noext', { type: 'css' }))
+    expect(document.querySelector('link[href="/styles-noext"]')).toBeTruthy()
+  })
+
+  it('reuses element for same path and removes it after last unmount', async () => {
+    const [, app1] = renderHook(() => useExternal('/mock-shared.js'))
+    const [, app2] = renderHook(() => useExternal('/mock-shared.js'))
+    expect(document.querySelectorAll('script[src="/mock-shared.js"]').length).toBe(1)
+    app1.unmount()
+    await nextTick()
+    expect(document.querySelector('script[src="/mock-shared.js"]')).toBeTruthy()
+    app2.unmount()
+    await nextTick()
+    expect(document.querySelector('script[src="/mock-shared.js"]')).toBeNull()
   })
 })
