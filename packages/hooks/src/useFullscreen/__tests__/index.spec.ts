@@ -30,15 +30,13 @@ import useFullscreen from '..'
 import { sleep } from 'test-utils/sleep'
 
 describe('useFullscreen', () => {
-  beforeEach(async () => {
-    // Drain any pending timers from previous tests before resetting state.
-    await sleep(10)
+  beforeEach(() => {
     mockScreenfull.element = undefined
     fsListeners.length = 0
     vi.clearAllMocks()
   })
 
-  it('should request fullscreen, exit and remove listener on unmount', () => {
+  it('should request fullscreen, exit and remove listener on unmount', async () => {
     const target = document.createElement('div')
     const [hook, app] = renderHook(() => useFullscreen(target))
     const [, actions] = hook
@@ -52,6 +50,10 @@ describe('useFullscreen', () => {
 
     app.unmount()
     expect(mockScreenfull.off).toHaveBeenCalledWith('change', expect.any(Function))
+
+    // Drain the two pending setTimeout(0) dispatches from enterFullscreen/exitFullscreen
+    // so they don't bleed into the next test and trigger stale callbacks.
+    await sleep(10)
   })
 
   it('enter/exit/toggle with callbacks and state', async () => {
@@ -72,10 +74,13 @@ describe('useFullscreen', () => {
     await sleep(10)
     expect(state.value).toBe(false)
     expect(onExit).toHaveBeenCalledTimes(1)
+    // After exit the hook should have deregistered its screenfull listener (self-deregistration path)
+    expect(mockScreenfull.off).toHaveBeenCalled()
 
     actions.toggleFullscreen()
     await sleep(10)
     expect(state.value).toBe(true)
+    expect(onEnter).toHaveBeenCalledTimes(2)
     expect(actions.isEnabled).toBe(true)
   })
 })

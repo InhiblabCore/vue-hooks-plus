@@ -57,10 +57,15 @@ describe('useMouse', () => {
     document.body.appendChild(target)
     const [state, app] = renderHook(() => useMouse(target))
     document.dispatchEvent(new MouseEvent('mousemove', { clientX: 15, clientY: 25 }))
-    // happy-dom getBoundingClientRect returns all zeros, so elementX = pageX - 0 = 15
-    expect(Number.isFinite(state.value.elementX)).toBe(true)
-    expect(Number.isFinite(state.value.elementY)).toBe(true)
-    expect(Number.isFinite(state.value.elementW)).toBe(true)
+    // happy-dom getBoundingClientRect returns all-zero rect (left=0, top=0, width=0, height=0).
+    // pageX = event.pageX(0, falsy) || clientX(15) + pageXOffset(0) = 15
+    // pageY = event.pageY(0, falsy) || clientY(25) + pageYOffset(0) = 25
+    // elementPosX = left(0) + pageXOffset(0) = 0  →  elementX = pageX(15) - 0 = 15
+    // elementPosY = top(0)  + pageYOffset(0) = 0  →  elementY = pageY(25) - 0 = 25
+    // elementW = width(0)
+    expect(state.value.elementX).toBe(15)
+    expect(state.value.elementY).toBe(25)
+    expect(state.value.elementW).toBe(0)
     app.unmount()
   })
 })

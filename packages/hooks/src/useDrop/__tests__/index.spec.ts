@@ -1,5 +1,6 @@
 import renderHook from 'test-utils/renderHook'
 import useDrop from '..'
+import type { App } from 'vue'
 
 function createTransfer(data: Record<string, string>) {
   return {
@@ -19,6 +20,13 @@ const makeDropEvent = (data: Record<string, string>, files: File[] = []) => {
   return event
 }
 
+const apps: App[] = []
+
+afterEach(() => {
+  apps.forEach(app => app.unmount())
+  apps.length = 0
+})
+
 describe('useDrop', () => {
   it('should handle dropped uri and cleanup listeners', () => {
     const target = document.createElement('div')
@@ -26,6 +34,7 @@ describe('useDrop', () => {
     const onDrop = vi.fn()
 
     const [, app] = renderHook(() => useDrop(target, { onUri, onDrop }))
+    apps.push(app)
     const event = new Event('drop') as DragEvent
     Object.defineProperty(event, 'dataTransfer', {
       value: createTransfer({ 'text/uri-list': 'https://example.com' }),
@@ -45,7 +54,8 @@ describe('useDrop', () => {
     const target = document.createElement('div')
     const onDom = vi.fn()
 
-    renderHook(() => useDrop(target, { onDom }))
+    const [, app] = renderHook(() => useDrop(target, { onDom }))
+    apps.push(app)
     const event = new Event('drop') as DragEvent
     Object.defineProperty(event, 'dataTransfer', {
       value: createTransfer({ custom: JSON.stringify({ id: 1 }) }),
@@ -59,7 +69,8 @@ describe('useDrop', () => {
     const target = document.createElement('div')
     document.body.appendChild(target)
     const onFiles = vi.fn()
-    renderHook(() => useDrop(target, { onFiles }))
+    const [, app] = renderHook(() => useDrop(target, { onFiles }))
+    apps.push(app)
     const file = new File(['a'], 'a.txt')
     target.dispatchEvent(makeDropEvent({}, [file]))
     expect(onFiles).toHaveBeenCalled()
@@ -70,7 +81,8 @@ describe('useDrop', () => {
     const target = document.createElement('div')
     document.body.appendChild(target)
     const onText = vi.fn()
-    renderHook(() => useDrop(target, { onText }))
+    const [, app] = renderHook(() => useDrop(target, { onText }))
+    apps.push(app)
     const event = new Event('paste', { bubbles: true }) as any
     event.clipboardData = {
       getData: () => '',
@@ -88,7 +100,8 @@ describe('useDrop', () => {
     const onDragOver = vi.fn()
     const onDragLeave = vi.fn()
     const onDrop = vi.fn()
-    renderHook(() => useDrop(target, { onDragEnter, onDragOver, onDragLeave, onDrop }))
+    const [, app] = renderHook(() => useDrop(target, { onDragEnter, onDragOver, onDragLeave, onDrop }))
+    apps.push(app)
 
     const enterEvent = new Event('dragenter', { bubbles: true, cancelable: true }) as any
     // dragenter handler sets dragEnterTarget = event.target; in happy-dom event.target
