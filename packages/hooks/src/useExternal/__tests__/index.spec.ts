@@ -1,10 +1,13 @@
-// @vitest-environment-options {"settings":{"disableCSSFileLoading":true}}
+// @vitest-environment-options {"settings":{"disableCSSFileLoading":true,"disableJavaScriptFileLoading":true}}
+// ^ prevents happy-dom from attempting real HTTP fetches for created <script>/<link> elements
 import { nextTick } from 'vue'
 import useExternal from '..'
 import renderHook from 'test-utils/renderHook'
 
 const fire = (selector: string, type: 'load' | 'error') => {
-  document.querySelector(selector)?.dispatchEvent(new Event(type))
+  const el = document.querySelector(selector)
+  if (!el) throw new Error(`fire(): no element matches "${selector}"`)
+  el.dispatchEvent(new Event(type))
 }
 
 describe('useExternal', () => {
@@ -40,7 +43,7 @@ describe('useExternal', () => {
   it('warns when type cannot be inferred', () => {
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
     renderHook(() => useExternal('/no-extension'))
-    expect(errSpy).toHaveBeenCalled()
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('Cannot infer'))
     errSpy.mockRestore()
   })
 
