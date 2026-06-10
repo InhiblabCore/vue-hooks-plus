@@ -29,6 +29,7 @@ export default defineConfig({
         '**/docs/**',
         '**/__tests__/**',
         '**/*.d.ts',
+        '**/*.md',
         'packages/hooks/src/useRequest/devtools/**',
         'packages/hooks/src/useRequest/plugins/useDevtoolsPlugin.ts',
       ],
