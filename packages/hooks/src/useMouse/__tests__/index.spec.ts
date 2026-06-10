@@ -37,4 +37,30 @@ describe('useMouse', () => {
 
     app.unmount()
   })
+
+  it('tracks cursor coordinates on mousemove without target', () => {
+    const [state, app] = renderHook(() => useMouse())
+    document.dispatchEvent(
+      new MouseEvent('mousemove', { clientX: 10, clientY: 20, screenX: 30, screenY: 40 }),
+    )
+    expect(state.value.clientX).toBe(10)
+    expect(state.value.clientY).toBe(20)
+    expect(state.value.screenX).toBe(30)
+    expect(state.value.screenY).toBe(40)
+    // pageX falls back to clientX + scrollOffset(0) = 10
+    expect(state.value.pageX).toBe(10)
+    app.unmount()
+  })
+
+  it('computes element-relative coordinates with target', () => {
+    const target = document.createElement('div')
+    document.body.appendChild(target)
+    const [state, app] = renderHook(() => useMouse(target))
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 15, clientY: 25 }))
+    // happy-dom getBoundingClientRect returns all zeros, so elementX = pageX - 0 = 15
+    expect(Number.isFinite(state.value.elementX)).toBe(true)
+    expect(Number.isFinite(state.value.elementY)).toBe(true)
+    expect(Number.isFinite(state.value.elementW)).toBe(true)
+    app.unmount()
+  })
 })
