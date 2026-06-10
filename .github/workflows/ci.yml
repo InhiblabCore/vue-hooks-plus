@@ -37,6 +37,8 @@ jobs:
       - name: Pnpm install
         if: steps.pnpm-cache.outputs.cache-hit != 'true'
         run: pnpm install
+      - name: Audit production dependencies
+        run: pnpm audit --prod --audit-level=high
       - name: Unit Test
         run: |
           pnpm run test
