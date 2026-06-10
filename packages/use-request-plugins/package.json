@@ -24,10 +24,10 @@
   "author": "NelsonYong",
   "license": "MIT",
   "devDependencies": {
-    "@vue-hooks-plus/use-request":"*"
+    "@vue-hooks-plus/use-request": "workspace:*"
   },
   "dependencies": {
-    "broadcast-channel": "^5.1.0"
+    "broadcast-channel": "^7.3.0"
   },
   "peerDependencies": {
 		"pinia": "^2.0.30"

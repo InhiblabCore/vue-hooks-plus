@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 5
+    ignore:
+      # vitepress is intentionally pinned to 1.6.3; vite ranges are
+      # constrained via pnpm.overrides in package.json
+      - dependency-name: 'vitepress'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    open-pull-requests-limit: 5

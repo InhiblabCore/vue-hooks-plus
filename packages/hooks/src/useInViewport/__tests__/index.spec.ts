@@ -11,7 +11,7 @@ describe('useInViewport', () => {
     disconnect.mockClear()
     vi.stubGlobal(
       'IntersectionObserver',
-      vi.fn((cb: IntersectionObserverCallback) => {
+      vi.fn(function (cb: IntersectionObserverCallback) {
         callback = cb
         return { observe, disconnect }
       }),

@@ -40,7 +40,7 @@
       return () => {
         return h('div', {}, [
           h('h3', 'demo1'),
-          h('div', null, loading.value ? 'loading' : data.value),
+          h('div', undefined, loading.value ? 'loading' : data.value),
         ])
       }
     },
@@ -76,7 +76,7 @@
       return () => {
         return h('div', {}, [
           h('h3', 'demo2'),
-          h('div', null, loading.value ? 'loading' : data.value),
+          h('div', undefined, loading.value ? 'loading' : data.value),
         ])
       }
     },

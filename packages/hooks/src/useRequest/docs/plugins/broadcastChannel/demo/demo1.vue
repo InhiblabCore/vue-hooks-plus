@@ -45,7 +45,7 @@
       onBroadcastChannel: (message: any) => {
         other.value.push(message.data)
       },
-    },
+    } as any,
     [useBroadcastChannelPlugin],
   )
 

@@ -13,6 +13,10 @@
       "ignoreMissing": [
         "vue"
       ]
+    },
+    "overrides": {
+      "vite": ">=5.4.9 <6 || >=8.0.0",
+      "vitepress>vite": ">=5.4.9 <6"
     }
   },
   "scripts": {
@@ -22,7 +26,7 @@
     "docs:preview": "vitepress preview docs --base /vue-hooks-plus/",
     "build": "pnpm bootstrap && pnpm recursive exec pnpm run build",
     "test": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
@@ -31,14 +35,13 @@
     "@types/jest": "^29.0.0",
     "@types/marked": "^4.0.3",
     "@types/md5": "^2.3.2",
-    "@types/node": "^17.0.21",
+    "@types/node": "^22.19.20",
     "@types/prettier": "^2.6.3",
     "@types/qs": "^6.9.7",
-    "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@vite-pwa/vitepress": "^1.0.0",
-    "@vitejs/plugin-vue": "^2.3.1",
-    "@vitest/ui": "^0.25.3",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/ui": "^4.1.8",
     "@vue-hooks-plus/md-demo-plugins": "^1.0.0",
     "@vue-hooks-plus/use-immer": "workspace:*",
     "@vue-hooks-plus/use-request": "workspace:*",
@@ -52,7 +55,7 @@
     "@vue/eslint-config-typescript": "^14.5.0",
     "@vue/test-utils": "^2.1.0",
     "axios": "^1.4.0",
-    "broadcast-channel": "^5.1.0",
+    "broadcast-channel": "^7.3.0",
     "cross-env": "^7.0.3",
     "es-toolkit": "^1.46.1",
     "eslint": "^9.24.0",
@@ -60,16 +63,16 @@
     "execa": "^6.1.0",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.3.0",
-    "gh-pages": "^4.0.0",
+    "gh-pages": "^6.0.0",
     "gray-matter": "^4.0.3",
-    "happy-dom": "15.10.2",
-    "husky": "^8.0.1",
+    "happy-dom": "^20.10.2",
+    "husky": "^9.1.7",
     "kolorist": "^1.6.0",
     "less": "^4.1.3",
     "lint-staged": "^13.0.3",
     "markdown-it-mathjax3": "^4.3.2",
     "pinia": "^2.0.34",
-    "prettier": "^1.19.1",
+    "prettier": "^3.8.4",
     "rimraf": "^3.0.2",
     "three": "0.147.0",
     "ts-morph": "^13.0.2",
@@ -77,21 +80,18 @@
     "tsdown": "0.22.0",
     "tsx": "4.x",
     "typeit": "^8.7.0",
-    "typescript": "^5.0.4",
+    "typescript": "^5.9.3",
     "unrun": "^0.3.0",
-    "vite": "3.0.2",
+    "vite": "^8.0.16",
     "vite-plugin-dts": "^2.1.0",
     "vitepress": "1.6.3",
     "vitepress-plugin-group-icons": "^1.3.8",
-    "vitest": "2.x",
+    "vitest": "^4.1.8",
     "vue": "^3.2.25",
     "vue-demi": "^0.13.11",
     "vue-hooks-plus": "workspace:*",
-    "vue-tsc": "1.0.9",
+    "vue-tsc": "^3.3.4",
     "vue-typical": "^2.1.0"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue,md,json}": [
