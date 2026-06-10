@@ -7,8 +7,21 @@ import { sleep } from 'test-utils/sleep'
 
 const okService = (v: string) => new Promise<string>(res => setTimeout(() => res(v), 20))
 
+// All BroadcastChannel instances created in tests; closed unconditionally in afterEach.
+const _channels: BroadcastChannel[] = []
+function makeChannel(name: string, opts?: object): BroadcastChannel {
+  const ch = new BroadcastChannel(name, opts)
+  _channels.push(ch)
+  return ch
+}
+
 beforeEach(() => {
   setActivePinia(createPinia())
+})
+
+afterEach(async () => {
+  await Promise.all(_channels.map(ch => ch.close()))
+  _channels.length = 0
 })
 
 describe('useFetchingPlugin', () => {
@@ -27,10 +40,13 @@ describe('useFetchingPlugin', () => {
     const current = onFetching.mock.calls[0][0]
     expect(current.status).toBe('success')
     expect(current.data).toBe('a')
+    // Per the store's isFetchingAll implementation, `true` means "all registered keys
+    // completed successfully" (not in-flight); this is a source-semantics quirk.
     expect(isFetching).toHaveBeenLastCalledWith(true)
   })
 
   it('marks error status on failure', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
     const onFetching = vi.fn()
     renderHook(() =>
       useRequest(
@@ -40,6 +56,7 @@ describe('useFetchingPlugin', () => {
       ),
     )
     await sleep(30)
+    consoleSpy.mockRestore()
     const current = onFetching.mock.calls.at(-1)?.[0]
     expect(current.status).toBe('error')
     expect(current.data).toBeNull()
@@ -49,7 +66,7 @@ describe('useFetchingPlugin', () => {
 describe('useBroadcastChannelPlugin', () => {
   it('broadcasts success result to sibling channels', async () => {
     const received: any[] = []
-    const listener = new BroadcastChannel('bc-test-1', { type: 'simulate', webWorkerSupport: false })
+    const listener = makeChannel('bc-test-1', { type: 'simulate', webWorkerSupport: false })
     listener.onmessage = msg => received.push(msg)
     renderHook(() =>
       useRequest(
@@ -68,11 +85,10 @@ describe('useBroadcastChannelPlugin', () => {
     expect(received.length).toBeGreaterThan(0)
     expect(received[0].data).toBe('payload')
     expect(received[0].broadcastChannelKey).toBe('k')
-    await listener.close()
   })
 
   it('invokes onBroadcastChannel when a message arrives', async () => {
-    const sender = new BroadcastChannel('bc-test-2', { type: 'simulate', webWorkerSupport: false })
+    const sender = makeChannel('bc-test-2', { type: 'simulate', webWorkerSupport: false })
     const onBroadcastChannel = vi.fn()
     renderHook(() =>
       useRequest(
@@ -91,10 +107,11 @@ describe('useBroadcastChannelPlugin', () => {
     await sender.postMessage({ type: 'sync', data: 'remote' })
     await sleep(50)
     expect(onBroadcastChannel).toHaveBeenCalled()
-    // Find the call triggered by sender (last call, or first call after initial request)
+    // In simulate mode the plugin's own channel receives its own onSuccess broadcast
+    // (self-broadcast), so onBroadcastChannel is called with the internal result first.
+    // We search for the call carrying the externally-sent data to isolate the receive path.
     const remoteCall = onBroadcastChannel.mock.calls.find(c => c[0]?.data === 'remote')
     expect(remoteCall).toBeDefined()
     expect(remoteCall![0].data).toBe('remote')
-    await sender.close()
   })
 })
