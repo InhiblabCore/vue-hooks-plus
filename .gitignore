@@ -37,3 +37,6 @@ pnpm-debug.log*
 *.sw?
 
 sponsor.iife.js
+
+# git worktrees
+.worktrees
