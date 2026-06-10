@@ -82,12 +82,13 @@ describe('refreshDepsAction', () => {
     const refreshDepsAction = vi.fn()
     let calls = 0
     const service = () => Promise.resolve(++calls)
-    renderHook(() => useRequest(service, { refreshDeps: [dep], refreshDepsAction }))
+    const [, app] = renderHook(() => useRequest(service, { refreshDeps: [dep], refreshDepsAction }))
     await sleep(20)
     expect(calls).toBe(1)
     dep.value++
     await sleep(20)
     expect(refreshDepsAction).toHaveBeenCalledTimes(1)
     expect(calls).toBe(1) // 没有触发默认 refresh
+    app.unmount()
   })
 })

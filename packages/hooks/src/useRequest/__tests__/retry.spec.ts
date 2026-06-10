@@ -41,10 +41,11 @@ describe('retry extra branches', () => {
       calls++
       return Promise.reject(new Error('always'))
     }
-    renderHook(() => useRequest(service, { retryCount: 2, retryInterval: 10 }))
+    const [, app] = renderHook(() => useRequest(service, { retryCount: 2, retryInterval: 10 }))
     await sleep(150)
     expect(calls).toBe(3) // 1 + 2 retries
     consoleError.mockRestore()
+    app.unmount()
   })
 
   it('cancel() clears a pending retry timer', async () => {
@@ -54,11 +55,12 @@ describe('retry extra branches', () => {
       calls++
       return Promise.reject(new Error('always'))
     }
-    const [r] = renderHook(() => useRequest(service, { retryCount: 3, retryInterval: 30 }))
+    const [r, app] = renderHook(() => useRequest(service, { retryCount: 3, retryInterval: 30 }))
     await sleep(10)
     r.cancel()
     await sleep(120)
     expect(calls).toBe(1)
     consoleError.mockRestore()
+    app.unmount()
   })
 })

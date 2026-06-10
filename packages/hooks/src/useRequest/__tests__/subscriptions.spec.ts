@@ -67,17 +67,28 @@ describe('subscribeReVisible', () => {
     expect(l).toHaveBeenCalledTimes(1)
     un()
   })
+
+  it('stops notifying after unsubscribe', () => {
+    const l = vi.fn()
+    const un = subscribeReVisible(l)
+    window.dispatchEvent(new Event('visibilitychange'))
+    expect(l).toHaveBeenCalledTimes(1)
+    un()
+    window.dispatchEvent(new Event('visibilitychange'))
+    expect(l).toHaveBeenCalledTimes(1)
+  })
 })
 
 describe('refreshOnWindowFocus option', () => {
   it('refreshes the request when window regains focus', async () => {
     let count = 0
     const service = () => new Promise<number>(res => setTimeout(() => res(++count), 10))
-    renderHook(() => useRequest(service, { refreshOnWindowFocus: true, focusTimespan: 1 }))
+    const [, app] = renderHook(() => useRequest(service, { refreshOnWindowFocus: true, focusTimespan: 1 }))
     await sleep(40)
     expect(count).toBe(1)
     window.dispatchEvent(new Event('focus'))
     await sleep(40)
     expect(count).toBe(2)
+    app.unmount()
   })
 })
