@@ -51,7 +51,7 @@
     "@vue-hooks-plus/vite-plugin-gen-temp": "^2.6.6",
     "@vue-hooks-plus/vitepress": "^1.2.4",
     "@vue-hooks-plus/vitepress-demo-block": "workspace:*",
-    "@vue/compiler-core": "^3.2.37",
+    "@vue/compiler-core": "^3.5.35",
     "@vue/eslint-config-typescript": "^14.5.0",
     "@vue/test-utils": "^2.1.0",
     "axios": "^1.4.0",
