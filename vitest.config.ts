@@ -33,6 +33,7 @@ export default defineConfig({
         'packages/hooks/src/useRequest/plugins/useDevtoolsPlugin.ts',
       ],
       reporter: ['text', 'json-summary'],
+      thresholds: { lines: 80 },
     },
   },
   ssr: {
