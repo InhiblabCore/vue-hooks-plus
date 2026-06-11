@@ -26,6 +26,7 @@
     "docs:preview": "vitepress preview docs --base /vue-hooks-plus/",
     "build": "pnpm bootstrap && pnpm recursive exec pnpm run build",
     "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "prepare": "husky"
   },
   "devDependencies": {
