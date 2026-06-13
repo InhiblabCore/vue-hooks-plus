@@ -31,7 +31,7 @@
 		"@vue/devtools-api": "7.7.2",
 		"es-toolkit": "^1.46.1",
 		"js-cookie": "^3.0.1",
-		"marked": "^18.0.4",
+		"marked": "^18.0.5",
 		"screenfull": "^5.0.0"
 	},
 	"peerDependencies": {
