@@ -190,8 +190,8 @@ importers:
         specifier: ^3.5.42
         version: 3.5.46(typescript@5.9.3)
       vue-demi:
-        specifier: ^0.13.11
-        version: 0.13.11(vue@3.5.46(typescript@5.9.3))
+        specifier: ^0.14.10
+        version: 0.14.10(vue@3.5.46(typescript@5.9.3))
       vue-hooks-plus:
         specifier: workspace:*
         version: link:packages/hooks
