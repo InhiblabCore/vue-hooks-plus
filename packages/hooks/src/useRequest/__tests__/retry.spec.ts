@@ -32,3 +32,35 @@ describe('useRequest/Retry', () => {
     expect(count.value).toBe(2)
   })
 })
+
+describe('retry extra branches', () => {
+  it('honors custom retryInterval and stops after retryCount', async () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+    let calls = 0
+    const service = () => {
+      calls++
+      return Promise.reject(new Error('always'))
+    }
+    const [, app] = renderHook(() => useRequest(service, { retryCount: 2, retryInterval: 10 }))
+    await sleep(150)
+    expect(calls).toBe(3) // 1 + 2 retries
+    consoleError.mockRestore()
+    app.unmount()
+  })
+
+  it('cancel() clears a pending retry timer', async () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+    let calls = 0
+    const service = () => {
+      calls++
+      return Promise.reject(new Error('always'))
+    }
+    const [r, app] = renderHook(() => useRequest(service, { retryCount: 3, retryInterval: 30 }))
+    await sleep(10)
+    r.cancel()
+    await sleep(120)
+    expect(calls).toBe(1)
+    consoleError.mockRestore()
+    app.unmount()
+  })
+})
