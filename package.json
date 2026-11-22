@@ -26,6 +26,7 @@
     "docs:preview": "vitepress preview docs --base /vue-hooks-plus/",
     "build": "pnpm bootstrap && pnpm recursive exec pnpm run build",
     "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "prepare": "husky"
   },
   "devDependencies": {
@@ -51,7 +52,7 @@
     "@vue-hooks-plus/vite-plugin-gen-temp": "^2.6.6",
     "@vue-hooks-plus/vitepress": "^1.2.4",
     "@vue-hooks-plus/vitepress-demo-block": "workspace:*",
-    "@vue/compiler-core": "^3.2.37",
+    "@vue/compiler-core": "^3.5.46",
     "@vue/eslint-config-typescript": "^14.5.0",
     "@vue/test-utils": "^2.1.0",
     "axios": "^1.4.0",
@@ -87,7 +88,7 @@
     "vitepress": "1.6.3",
     "vitepress-plugin-group-icons": "^1.3.8",
     "vitest": "^4.1.8",
-    "vue": "^3.2.25",
+    "vue": "^3.5.42",
     "vue-demi": "^0.14.10",
     "vue-hooks-plus": "workspace:*",
     "vue-tsc": "^3.3.4",
