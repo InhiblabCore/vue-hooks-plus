@@ -79,8 +79,8 @@ importers:
         specifier: workspace:*
         version: link:packages/vitepress/vitepress-demo-block
       '@vue/compiler-core':
-        specifier: ^3.2.37
-        version: 3.5.34
+        specifier: ^3.5.46
+        version: 3.5.46
       '@vue/eslint-config-typescript':
         specifier: ^14.5.0
         version: 14.7.0(eslint-plugin-vue@9.33.0(eslint@9.39.4(jiti@2.7.0)))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3)
@@ -2299,9 +2299,6 @@ packages:
     resolution: {integrity: sha512-mP6goD88OLY981sVEbbqGXgApx+KXS9TciA22mXSV9fgdKeYhTb6CIjDCueR029O44kaEyJNG/TBcWvk3Qj7Cw==}
     engines: {node: '>=14.6.0'}
     hasBin: true
-
-  '@vue/compiler-core@3.5.34':
-    resolution: {integrity: sha512-s9cLyK5mLcvZ4Agva5QgRsQyLKvts9WbU9DB6NqiZkkGEdwmcEiylj5Jbwkp680drF/NNCV8OlAJSe+yMLxaJw==}
 
   '@vue/compiler-core@3.5.46':
     resolution: {integrity: sha512-yb+N8/mgBcoeqCJPVyJI/D3OphLrSMXnB3ZQUNmRLU/1fsMW4bFfdJWNi9oIj7+EA3ULKKkP7b/VCpcYQYeiuQ==}
@@ -5964,7 +5961,7 @@ snapshots:
 
   '@babel/code-frame@7.29.0':
     dependencies:
-      '@babel/helper-validator-identifier': 7.28.5
+      '@babel/helper-validator-identifier': 7.29.7
       js-tokens: 4.0.0
       picocolors: 1.1.1
 
@@ -7429,7 +7426,7 @@ snapshots:
 
   '@ruabick/utils@0.3.3(@algolia/client-search@5.52.1)(@types/node@22.19.20)(@types/react@18.3.29)(less@4.6.4)(lightningcss@1.32.0)(search-insights@2.17.3)(terser@5.48.0)(typescript@5.9.3)':
     dependencies:
-      '@vue/compiler-core': 3.5.34
+      '@vue/compiler-core': 3.5.46
       vitepress: 1.0.0-alpha.29(@algolia/client-search@5.52.1)(@types/node@22.19.20)(@types/react@18.3.29)(less@4.6.4)(lightningcss@1.32.0)(search-insights@2.17.3)(terser@5.48.0)(typescript@5.9.3)
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -7908,7 +7905,7 @@ snapshots:
 
   '@vue-hooks-plus/md-demo-plugins@1.1.0(@algolia/client-search@5.52.1)(@types/node@22.19.20)(@types/react@18.3.29)(less@4.6.4)(lightningcss@1.32.0)(search-insights@2.17.3)(terser@5.48.0)(typescript@5.9.3)':
     dependencies:
-      '@vue/compiler-core': 3.5.34
+      '@vue/compiler-core': 3.5.46
       fs-extra: 10.1.0
       gray-matter: 4.0.3
       markdown-it: 13.0.2
@@ -7989,14 +7986,6 @@ snapshots:
       - tsx
       - typescript
       - yaml
-
-  '@vue/compiler-core@3.5.34':
-    dependencies:
-      '@babel/parser': 7.29.3
-      '@vue/shared': 3.5.34
-      entities: 7.0.1
-      estree-walker: 2.0.2
-      source-map-js: 1.2.4
 
   '@vue/compiler-core@3.5.46':
     dependencies:
@@ -9979,7 +9968,7 @@ snapshots:
 
   magicast@0.5.3:
     dependencies:
-      '@babel/parser': 7.29.3
+      '@babel/parser': 7.29.15
       '@babel/types': 7.29.0
       source-map-js: 1.2.4
 
