@@ -3,22 +3,22 @@ import useDrag from '..'
 
 const events: Record<string, (event: any) => void> = {}
 const mockTarget = {
-  addEventListener: vitest.fn((event, callback) => {
+  addEventListener: vi.fn((event, callback) => {
     events[event] = callback
   }),
-  removeEventListener: vitest.fn(event => {
+  removeEventListener: vi.fn(event => {
     Reflect.deleteProperty(events, event)
   }),
-  setAttribute: vitest.fn(),
+  setAttribute: vi.fn(),
 }
 
 describe('useDrag', () => {
   it('should triggle drag callback', () => {
-    const onDragStart = vitest.fn()
-    const onDragEnd = vitest.fn()
+    const onDragStart = vi.fn()
+    const onDragEnd = vi.fn()
     const mockEvent = {
       dataTransfer: {
-        setData: vitest.fn(),
+        setData: vi.fn(),
       },
     }
 
@@ -33,5 +33,31 @@ describe('useDrag', () => {
     expect(mockEvent.dataTransfer.setData).toBeCalledWith('custom', '1')
     events.dragend(mockEvent)
     expect(onDragEnd).toBeCalled()
+  })
+
+  it('sets draggable attribute and writes data on dragstart with real DOM', () => {
+    const target = document.createElement('div')
+    document.body.appendChild(target)
+    const onDragStart = vi.fn()
+    const onDragEnd = vi.fn()
+    renderHook(() => useDrag({ id: 7 }, target, { onDragStart, onDragEnd }))
+    expect(target.getAttribute('draggable')).toBe('true')
+
+    const setData = vi.fn()
+    const start = new Event('dragstart', { bubbles: true }) as any
+    start.dataTransfer = { setData }
+    target.dispatchEvent(start)
+    expect(onDragStart).toHaveBeenCalled()
+    expect(setData).toHaveBeenCalledWith('custom', JSON.stringify({ id: 7 }))
+
+    target.dispatchEvent(new Event('dragend', { bubbles: true }))
+    expect(onDragEnd).toHaveBeenCalled()
+  })
+
+  it('respects draggable: false option', () => {
+    const target = document.createElement('div')
+    document.body.appendChild(target)
+    renderHook(() => useDrag('d', target, { draggable: false }))
+    expect(target.getAttribute('draggable')).toBe('false')
   })
 })
