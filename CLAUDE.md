@@ -11,7 +11,8 @@ VueHooks Plus — a Vue 3 hooks library. pnpm workspace monorepo (requires Node 
 ```bash
 pnpm install              # install (must use pnpm)
 pnpm test                 # vitest in watch mode, from repo root
-pnpm vitest run           # single test run (what CI does)
+pnpm vitest run           # single test run (no coverage)
+pnpm test:coverage        # single run with coverage; what CI runs — enforces >=80% lines on packages/hooks
 pnpm vitest run packages/hooks/src/useBoolean   # run one hook's tests
 pnpm build                # bootstrap (regenerate meta-data.json) + build all packages
 pnpm docs:dev             # vitepress docs dev server

@@ -43,4 +43,18 @@ describe('useTimeout', () => {
     expect(callback).toHaveBeenCalledTimes(1)
     expect(clearTimeout).toHaveBeenCalledTimes(0)
   })
+
+  it('calls fn immediately when immediate option is true', () => {
+    const callback = vitest.fn()
+    renderHook(() => useTimeout(callback, 100, { immediate: true }))
+    expect(callback).toHaveBeenCalledTimes(1)
+  })
+
+  it('clears timer when component unmounts before firing', () => {
+    const callback = vitest.fn()
+    const [, app] = renderHook(() => useTimeout(callback, 500))
+    app.unmount()
+    vitest.advanceTimersByTime(600)
+    expect(callback).not.toHaveBeenCalled()
+  })
 })
