@@ -12,7 +12,7 @@ jobs:
         node-version: [22.18.0, 24.x]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
