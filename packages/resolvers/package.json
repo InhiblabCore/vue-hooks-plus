@@ -33,7 +33,7 @@
     "kolorist": "^1.6.0"
   },
   "dependencies": {
-    "local-pkg": "^0.4.2"
+    "local-pkg": "^2.0.0"
   },
   "peerDependencies": {
     "vue-hooks-plus": ">=1.5.2"
