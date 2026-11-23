@@ -33,7 +33,7 @@
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@types/fs-extra": "^9.0.13",
-    "@types/jest": "^29.0.0",
+    "@types/jest": "^30.0.0",
     "@types/marked": "^4.0.3",
     "@types/md5": "^2.3.2",
     "@types/node": "^22.19.20",
